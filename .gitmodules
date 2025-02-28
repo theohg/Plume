@@ -1,0 +1,6 @@
+[submodule "Code/DRV8214_DEV/lib/drv8214_multiplatform"]
+	path = Code/DRV8214_DEV/lib/drv8214_multiplatform
+	url = git@github.com:PatateMagique/drv8214_multiplatform.git
+[submodule "Code/DRV8214_DEV/lib/TCA9545A"]
+	path = Code/DRV8214_DEV/lib/TCA9545A
+	url = git@github.com:RobTillaart/TCA9548.git
