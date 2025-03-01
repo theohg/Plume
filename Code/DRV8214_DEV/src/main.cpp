@@ -3,8 +3,10 @@
 
 #define NUM_DRIVERS 1 // Number of DRV8214 drivers in the system
 #define IPROPI_RESISTOR 680 // Value in Ohms of the resistor connected to IPROPI pin
-#define NUM_RIPPLES 156 // Number of current ripples per output shaft revolution (= nb of ripples per motor revolution x reduction ratio)
+#define NUM_RIPPLES 6 // Number of current ripples per output shaft revolution (= nb of ripples per motor revolution x reduction ratio)
 #define MOTOR_INTERNAL_RESISTANCE 20 // Internal resistance of the motor in Ohms
+#define MOTOR_REDUCTION_RATIO 26 // Reduction ratio of the motor
+#define MAX_MOTOR_RPM 1154 // Maximum speed of the motor in RPM
 
 #define SDA_PIN 8
 #define SCL_PIN 9
@@ -21,7 +23,7 @@ bool fault_cleared = false;
 
 // Create an array of DRV8214 objects
 DRV8214 drivers[NUM_DRIVERS] = {
-    DRV8214(DRV8214_I2C_ADDR_ZZ, 0, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE)
+    DRV8214(DRV8214_I2C_ADDR_ZZ, 0, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM)
 };
 
 // Create an array of configuration structs
@@ -39,7 +41,7 @@ void setup() {
     pinMode(BUTTON_PIN, INPUT_PULLUP);
     pinMode(FAULT_PIN, INPUT_PULLUP);
 
-    Serial.println("Initializing DRV8214 drivers...");
+    Serial.println("\nInitializing DRV8214 drivers...\n");
 
     for (int i = 0; i < NUM_DRIVERS; i++) {  // Initialize each driver
         driver_configs[i] = DRV8214_Config();
@@ -47,7 +49,7 @@ void setup() {
         drivers[i].init(driver_configs[i]);
         drivers[i].resetFaultFlags();
     }
-    Serial.println("DRV8214 drivers initialized successfully!");
+    Serial.println("\nDRV8214 drivers initialized successfully!\n");
     delay(500);
 }
 
@@ -56,25 +58,26 @@ void loop() {
     // Check if the button is pressed
     if (digitalRead(BUTTON_PIN) == LOW) {
         if (!direction_changed) {
-            drivers[0].turnForward(100, 3.3, 0.2);
+            drivers[0].turnForward(800, 2, 0.2);
             direction_changed = true;
         }
         printRegisters(0);
         
     } else {
         if (direction_changed) {
-            drivers[0].turnReverse(100, 3.3, 0.2);
+            drivers[0].turnReverse(800, 2, 0.2);
             direction_changed = false;
         }
         printRegisters(0);
     }
-    if (digitalRead(FAULT_PIN) == LOW) {
-        if (!fault_cleared) {
-            drivers[0].resetFaultFlags();
-            fault_cleared = true;
-        }
-    } else {
-        fault_cleared = false;
+    if (digitalRead(CLEAR_FAULT_PIN) == LOW) {
+        Serial.println("FAULT pin is LOW");
+        drivers[0].disableHbridge();
+        // delay(200);
+        drivers[0].resetRippleCounter();
+        drivers[0].resetFaultFlags();
+        // delay(200);
+        drivers[0].enableHbridge();
     }
     delay(500);
 }
@@ -83,8 +86,8 @@ void loop() {
 void printByteAsBinary(uint8_t value) {
     for (int i = 7; i >= 0; i--) {
         Serial.print((value >> i) & 1);
-    }
-    Serial.println(); // Move to next line
+    }   
+    Serial.println();
 }
 
 // Helperfunction to print 2 bytes as binary
@@ -92,28 +95,43 @@ void print2BytesAsBinary(uint16_t value) {
     for (int i = 15; i >= 0; i--) {
         Serial.print((value >> i) & 1);
     }
-    Serial.println(); // Move to next line
+    Serial.println();
 }
 
 void printRegisters(uint8_t driver_id) {
 
-    Serial.print("Speed: ");
+    Serial.print("Speed of motor: ");
     Serial.print(drivers[driver_id].getMotorSpeedRPM(), DEC);
     Serial.print(" RPM or ");
     Serial.print(drivers[driver_id].getMotorSpeedRAD(), DEC);
     Serial.print(" rad/s | ");
     Serial.print("Voltage: ");
-    Serial.print(drivers[driver_id].getMotorVoltage(), DEC);
+    Serial.print(drivers[driver_id].getMotorVoltage(), 4);
     Serial.print(" V | ");
     Serial.print("Current: ");
-    Serial.print(drivers[driver_id].getMotorCurrent(), DEC);
-    Serial.print(" A | ");
+    Serial.print(drivers[driver_id].getMotorCurrent(), 4);
+    Serial.println(" A");
+    Serial.print("Speed of shaft: ");
+    Serial.print(drivers[driver_id].getMotorSpeedShaftRPM(), DEC);
+    Serial.print(" RPM or ");
+    Serial.print(drivers[driver_id].getMotorSpeedShaftRAD(), DEC);
+    Serial.print(" rad/s | ");
     Serial.print("Duty Cycle: ");
     Serial.print(drivers[driver_id].getDutyCycle(), DEC);
     Serial.print("% | ");
     Serial.print("Tinrush: ");
     Serial.print(drivers[driver_id].getInrushDuration());
     Serial.println(" ms");
+    Serial.print("RC_STATUS1 (SPEED): 0b");
+    printByteAsBinary(drivers[driver_id].getMotorSpeedRegister());
+    Serial.print("Ripple counter:");
+    Serial.println(drivers[driver_id].getRippleCount(), DEC);
+    Serial.print("0b");
+    print2BytesAsBinary(drivers[driver_id].getRippleCount());
+    Serial.print("REG_STATUS1 (VOLTAGE): 0b");
+    printByteAsBinary(drivers[driver_id].getMotorVoltageRegister());
+    Serial.print("REG_STATUS2 (CURRENT): 0b");
+    printByteAsBinary(drivers[driver_id].getMotorCurrentRegister());
     drivers[driver_id].printFaultStatus();
     Serial.print("CONFIG0: 0b");
     printByteAsBinary(drivers[driver_id].getCONFIG0());
@@ -123,8 +141,21 @@ void printRegisters(uint8_t driver_id) {
     printByteAsBinary(drivers[driver_id].getCONFIG4());
     Serial.print("REG_CTRL0: 0b");
     printByteAsBinary(drivers[driver_id].getREG_CTRL0());
-    Serial.print("REG_CTRL1: 0b");
+    Serial.print("REG_CTRL1 (TARGET SPEED): 0b");
     printByteAsBinary(drivers[driver_id].getREG_CTRL1());
-    Serial.print("REG_CTRL2: 0b");
+    Serial.print("REG_CTRL2 (DUTY): 0b");
     printByteAsBinary(drivers[driver_id].getREG_CTRL2());
+    Serial.print("RC_CTRL0: 0b");
+    printByteAsBinary(drivers[driver_id].getRC_CTRL0());
+    Serial.print("Ripples Threshold: ");
+    Serial.print(drivers[driver_id].getRippleThreshold(), DEC);
+    Serial.print(" | KMC: ");
+    Serial.println(drivers[driver_id].getKMC());
+    Serial.print("RC_CTRL6: 0b");
+    printByteAsBinary(drivers[driver_id].getRC_CTRL6());
+    Serial.print("RC_CTRL7: 0b");
+    printByteAsBinary(drivers[driver_id].getRC_CTRL7());
+    Serial.print("RC_CTRL8: 0b");
+    printByteAsBinary(drivers[driver_id].getRC_CTRL8());
+    Serial.println();
 }
