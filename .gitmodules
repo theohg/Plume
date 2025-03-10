@@ -4,3 +4,6 @@
 [submodule "Code/DRV8214_DEV/lib/TCA9545A"]
 	path = Code/DRV8214_DEV/lib/TCA9545A
 	url = git@github.com:RobTillaart/TCA9548.git
+[submodule "Code/DRV8214_DEV/lib/mcp23017"]
+	path = Code/DRV8214_DEV/lib/mcp23017
+	url = git@github.com:blemasle/arduino-mcp23017.git
