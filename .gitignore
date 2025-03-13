@@ -6,3 +6,5 @@
 *.bak
 *.kicad_sch-bak
 fp-info-cache
+
+*.DS_Store
