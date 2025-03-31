@@ -12,7 +12,7 @@
 	)
 	(lib_symbols)
 	(rectangle
-		(start 331.47 237.49)
+		(start 330.2 237.49)
 		(end 402.59 238.252)
 		(stroke
 			(width 0)
@@ -26,8 +26,8 @@
 		(uuid 8956a1c0-282a-4b1e-927b-8bc74278d14f)
 	)
 	(rectangle
-		(start 331.47 204.47)
-		(end 402.59 205.232)
+		(start 330.835 187.96)
+		(end 403.225 188.722)
 		(stroke
 			(width 0)
 			(type default)
@@ -39,14 +39,14 @@
 		)
 		(uuid d631d51a-2515-45dc-a2c0-e57c4fee46cd)
 	)
-	(text_box "Spec 3"
+	(text_box "Max load current:"
 		(exclude_from_sim no)
-		(at 332.74 220.98 0)
+		(at 330.2 212.725 0)
 		(size 41.91 7.62)
 		(margins 2.2859 2.2859 2.2859 2.2859)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -63,14 +63,14 @@
 		)
 		(uuid "094af17b-7d27-428a-ac7d-32c4461d72c7")
 	)
-	(text_box "Spec 2"
+	(text_box "Nb of controlled motors:"
 		(exclude_from_sim no)
-		(at 332.74 213.36 0)
-		(size 43.18 7.62)
+		(at 330.2 205.105 0)
+		(size 50.165 7.62)
 		(margins 2.2859 2.2859 2.2859 2.2859)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -112,14 +112,14 @@
 		)
 		(uuid "26ce56e5-38e4-4655-be64-6e6e9a23e8c5")
 	)
-	(text_box "Input voltage:"
+	(text_box "Battery Input voltage:"
 		(exclude_from_sim no)
-		(at 332.74 205.74 0)
-		(size 41.91 7.62)
+		(at 330.2 189.865 0)
+		(size 47.625 7.62)
 		(margins 2.2859 2.2859 2.2859 2.2859)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -136,14 +136,14 @@
 		)
 		(uuid "347e7e61-7c93-449c-8c65-b1d74937394e")
 	)
-	(text_box "??"
+	(text_box "50 mA"
 		(exclude_from_sim no)
-		(at 378.46 228.6 0)
+		(at 378.46 220.345 0)
 		(size 24.13 7.62)
 		(margins 2.2859 2.2859 2.2859 2.2859)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -158,14 +158,14 @@
 		)
 		(uuid "37354c60-dbdb-4aa1-a2b0-e6db1fd7a12e")
 	)
-	(text_box "??"
+	(text_box "18"
 		(exclude_from_sim no)
-		(at 378.46 213.36 0)
+		(at 378.46 205.105 0)
 		(size 24.13 7.62)
 		(margins 2.2859 2.2859 2.2859 2.2859)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -203,9 +203,33 @@
 		)
 		(uuid "73b2b29c-2473-4e80-be0b-4f57c6856c3e")
 	)
+	(text_box "Max charge current:"
+		(exclude_from_sim no)
+		(at 330.2 197.485 0)
+		(size 47.625 7.62)
+		(margins 2.2859 2.2859 2.2859 2.2859)
+		(stroke
+			(width -0.0001)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(face "Times New Roman")
+				(size 3.048 3.048)
+				(thickness 0.4572)
+				(bold yes)
+				(color 0 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "7940b872-13b1-4a11-8b03-a30e8abe7fc5")
+	)
 	(text_box "Target specifications:"
 		(exclude_from_sim no)
-		(at 328.93 196.85 0)
+		(at 330.2 180.34 0)
 		(size 73.66 7.62)
 		(margins 2.2859 2.2859 2.2859 2.2859)
 		(stroke
@@ -227,14 +251,14 @@
 		)
 		(uuid "874bfc99-fafe-40d4-b7af-9ddb98b61eea")
 	)
-	(text_box "??"
+	(text_box "3A"
 		(exclude_from_sim no)
-		(at 378.46 220.98 0)
+		(at 378.46 212.725 0)
 		(size 24.13 7.62)
 		(margins 2.2859 2.2859 2.2859 2.2859)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -249,14 +273,14 @@
 		)
 		(uuid "8d13c5b4-c5e0-49ad-8e30-5a14333c15f4")
 	)
-	(text_box "?? - ?? V"
+	(text_box "3.08 - 4.25 V"
 		(exclude_from_sim no)
-		(at 378.46 205.74 0)
-		(size 24.13 7.62)
+		(at 378.46 189.865 0)
+		(size 32.385 7.62)
 		(margins 2.2859 2.2859 2.2859 2.2859)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -271,14 +295,82 @@
 		)
 		(uuid "aa388299-5267-444a-a70f-fbbbf3a9efdc")
 	)
-	(text_box "Spec 4"
+	(text_box "15 uA"
 		(exclude_from_sim no)
-		(at 332.74 228.6 0)
-		(size 44.45 7.62)
+		(at 378.46 227.965 0)
+		(size 24.13 7.62)
 		(margins 2.2859 2.2859 2.2859 2.2859)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(face "Times New Roman")
+				(size 3.048 3.048)
+				(color 0 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "ae866d11-9469-4025-b58e-59c8bd9bc2c8")
+	)
+	(text_box "200 mA"
+		(exclude_from_sim no)
+		(at 378.46 197.485 0)
+		(size 32.385 7.62)
+		(margins 2.2859 2.2859 2.2859 2.2859)
+		(stroke
+			(width -0.0001)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(face "Times New Roman")
+				(size 3.048 3.048)
+				(color 0 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "d9bca1c2-d594-4196-9c8f-1ef431dfc4d2")
+	)
+	(text_box "Sleep Current:"
+		(exclude_from_sim no)
+		(at 330.2 227.965 0)
+		(size 52.705 7.62)
+		(margins 2.2859 2.2859 2.2859 2.2859)
+		(stroke
+			(width -0.0001)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(face "Times New Roman")
+				(size 3.048 3.048)
+				(thickness 0.4572)
+				(bold yes)
+				(color 0 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "ef5b3e2d-f730-488c-b80f-2656f27e365c")
+	)
+	(text_box "Standby Current:"
+		(exclude_from_sim no)
+		(at 330.2 220.345 0)
+		(size 52.705 7.62)
+		(margins 2.2859 2.2859 2.2859 2.2859)
+		(stroke
+			(width -0.0001)
+			(type solid)
 		)
 		(fill
 			(type none)

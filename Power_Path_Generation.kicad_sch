@@ -183,6 +183,113 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:C_Small"
 			(pin_numbers
 				(hide yes)
@@ -1204,6 +1311,19 @@
 		(uuid 68af85c4-895b-47fc-996f-d764731176fd)
 	)
 	(rectangle
+		(start 24.765 151.765)
+		(end 71.755 192.405)
+		(stroke
+			(width 1)
+			(type default)
+			(color 200 200 200 1)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 7b0fb571-339b-427b-8887-82220228f281)
+	)
+	(rectangle
 		(start 210.82 55.88)
 		(end 217.17 58.42)
 		(stroke
@@ -1252,6 +1372,30 @@
 			(justify bottom)
 		)
 		(uuid "182e709c-c8bf-41e5-8907-26b57837c2bc")
+	)
+	(text_box "Test Points"
+		(exclude_from_sim no)
+		(at 24.765 183.515 0)
+		(size 47.625 9.525)
+		(margins 1.9049 1.9049 1.9049 1.9049)
+		(stroke
+			(width -0.0001)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(face "Times New Roman")
+				(size 2.54 2.54)
+				(thickness 0.508)
+				(bold yes)
+				(color 162 22 34 1)
+			)
+			(justify bottom)
+		)
+		(uuid "29619f3b-e791-463a-8092-a5faba08649a")
 	)
 	(text_box "Active-low reset output. ~{RESET} has a push-pull output drive and is capable of directly driving input pins. ~{RESET} is low as long as VDD remains below the factory threshold voltage of 3.08V, and until the delay time (td = 200ms) elapses after VDD rises above the threshold voltage."
 		(exclude_from_sim no)
@@ -1579,6 +1723,16 @@
 		)
 		(uuid "4127103f-1f07-4e0c-95bf-ac0d0fe06607")
 	)
+	(wire
+		(pts
+			(xy 31.75 173.99) (xy 46.99 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "448d1cb4-5a2c-4974-9766-f690164b9ed4")
+	)
 	(polyline
 		(pts
 			(xy 131.445 99.695) (xy 121.285 67.945)
@@ -1599,6 +1753,16 @@
 			(type default)
 		)
 		(uuid "59e5d7a5-3fb5-4ff1-8275-2fa8dd575500")
+	)
+	(wire
+		(pts
+			(xy 31.75 158.75) (xy 46.99 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a920261-32cd-4380-97aa-47ac3363e832")
 	)
 	(wire
 		(pts
@@ -1682,6 +1846,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 163.83) (xy 46.99 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8044e3ef-dfe5-43c7-88b3-3c8724abb5a3")
+	)
+	(wire
+		(pts
 			(xy 116.84 97.79) (xy 124.46 97.79)
 		)
 		(stroke
@@ -1730,6 +1904,16 @@
 			(type default)
 		)
 		(uuid "969afca5-307a-48ae-af31-f986efed401f")
+	)
+	(wire
+		(pts
+			(xy 31.75 168.91) (xy 46.99 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6c64444-035e-4d7c-b17b-e144209d4703")
 	)
 	(wire
 		(pts
@@ -3593,7 +3777,25 @@
 			"eDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeIuLi4uLi4uLi4uL"
 			"i4uLi4uLi4uLi4uLi4uLi4uLi217hDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeDRdeG17hIuL"
 			"i4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uL"
-			"i4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4s="
+			"i4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4sAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
 		)
 	)
 	(image
@@ -4251,7 +4453,25 @@
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-			"AAAAAAAAAAAA"
+			"AAAAAAAAAAAAiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILogu"
+			"iC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6I"
+			"LoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILogu"
+			"iC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6I"
+			"LoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILogu"
+			"iC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6I"
+			"LoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILogu"
+			"iC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6I"
+			"LoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILogu"
+			"iC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6I"
+			"LoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILogu"
+			"iC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6I"
+			"LoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILogu"
+			"iC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6I"
+			"LoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILogu"
+			"iC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6I"
+			"LoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILogu"
+			"iC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6ILoguiC6I"
+			"LoguiC6ILg=="
 		)
 	)
 	(label "+VDD"
@@ -4275,6 +4495,50 @@
 			(justify left bottom)
 		)
 		(uuid "36d78d6b-90df-40cd-a16b-499eb18e3929")
+	)
+	(label "DOUT"
+		(at 31.75 163.83 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 132 0 0 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "b9f88e0d-d1a1-447d-b57e-f5ba2d391b2e")
+	)
+	(label "COUT"
+		(at 31.75 158.75 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 132 0 0 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "d024cde9-1c2a-4464-85ad-e680ee09f63a")
+	)
+	(label "-VBAT"
+		(at 31.75 168.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 132 0 0 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "dfb84b1f-2bd6-4d07-bb2e-baf27dfd9ba3")
+	)
+	(label "+VBAT"
+		(at 31.75 173.99 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 132 0 0 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "e4b4c907-5038-4727-a829-6613ba32a4f6")
 	)
 	(label "3V3_EN"
 		(at 179.07 102.87 0)
@@ -4333,7 +4597,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0e99bb10-57a7-47a9-b634-f25cb9d13c0d")
-		(property "Reference" "Q602"
+		(property "Reference" "Q701"
 			(at 116.84 113.03 90)
 			(effects
 				(font
@@ -4424,7 +4688,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "Q602")
+					(reference "Q701")
 					(unit 1)
 				)
 			)
@@ -4440,7 +4704,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1282dec3-2fe1-40c9-8d1b-fa64cd815dca")
-		(property "Reference" "#PWR0611"
+		(property "Reference" "#PWR0701"
 			(at 162.56 109.22 0)
 			(effects
 				(font
@@ -4491,7 +4755,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "#PWR0611")
+					(reference "#PWR0701")
 					(unit 1)
 				)
 			)
@@ -4506,7 +4770,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2dab786c-b343-469e-b317-2aef6459db4c")
-		(property "Reference" "R607"
+		(property "Reference" "R701"
 			(at 103.378 100.838 0)
 			(effects
 				(font
@@ -4596,7 +4860,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "R607")
+					(reference "R701")
 					(unit 1)
 				)
 			)
@@ -4612,7 +4876,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4411dad7-ab4c-44ed-9d91-0aae8e39f92f")
-		(property "Reference" "C616"
+		(property "Reference" "C701"
 			(at 157.48 93.98 0)
 			(effects
 				(font
@@ -4702,7 +4966,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "C616")
+					(reference "C701")
 					(unit 1)
 				)
 			)
@@ -4718,7 +4982,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "546b239d-f3e9-4253-b234-21f4291eeb2b")
-		(property "Reference" "C615"
+		(property "Reference" "C703"
 			(at 195.326 113.03 0)
 			(effects
 				(font
@@ -4808,7 +5072,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "C615")
+					(reference "C703")
 					(unit 1)
 				)
 			)
@@ -4823,7 +5087,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6078c6b5-364b-442d-85e2-fc52e44a5620")
-		(property "Reference" "U701"
+		(property "Reference" "U702"
 			(at 188.468 102.616 0)
 			(effects
 				(font
@@ -4920,7 +5184,7 @@
 		(instances
 			(project ""
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "U701")
+					(reference "U702")
 					(unit 1)
 				)
 			)
@@ -4935,7 +5199,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7843cd0c-db31-4217-b5cb-d5f89db02907")
-		(property "Reference" "C614"
+		(property "Reference" "C702"
 			(at 160.274 113.03 0)
 			(effects
 				(font
@@ -5025,7 +5289,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "C614")
+					(reference "C702")
 					(unit 1)
 				)
 			)
@@ -5041,7 +5305,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7fed57f2-5e2b-497b-86d5-81bf72881999")
-		(property "Reference" "#PWR0610"
+		(property "Reference" "#PWR0703"
 			(at 180.34 127 0)
 			(effects
 				(font
@@ -5092,7 +5356,289 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "#PWR0610")
+					(reference "#PWR0703")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 46.99 168.91 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "86a878ed-790e-47e2-8ccc-04fcf1c9bf42")
+		(property "Reference" "TP703"
+			(at 52.07 168.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "-VBAT"
+			(at 59.436 168.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Zenith:TestPoint_Pad_D0.5mm_Front"
+			(at 46.99 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 46.99 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 46.99 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 46.99 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 46.99 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "~"
+			(at 46.99 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8bd09622-64e6-4af2-adaa-9a4583b1272b")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
+					(reference "TP703")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 46.99 173.99 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "879f52d8-2df3-4a99-a31e-67938b645141")
+		(property "Reference" "TP704"
+			(at 52.07 173.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "VBAT"
+			(at 59.436 173.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Zenith:TestPoint_Pad_D0.5mm_Front"
+			(at 46.99 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 46.99 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 46.99 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 46.99 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 46.99 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "~"
+			(at 46.99 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3c111eae-7f13-4659-a3b3-27452c43c359")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
+					(reference "TP704")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 46.99 163.83 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "96ad80db-bf20-4bca-a8c7-421b4c220fbb")
+		(property "Reference" "TP702"
+			(at 52.07 163.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "DOUT"
+			(at 59.436 163.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Zenith:TestPoint_Pad_D0.5mm_Front"
+			(at 46.99 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 46.99 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 46.99 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 46.99 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 46.99 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "~"
+			(at 46.99 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d74445be-d13b-4354-9f0e-7a33d1541abc")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
+					(reference "TP702")
 					(unit 1)
 				)
 			)
@@ -5108,7 +5654,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b3a0a522-1e27-4917-ab22-470d9f1121de")
-		(property "Reference" "#PWR0608"
+		(property "Reference" "#PWR0702"
 			(at 105.41 111.76 0)
 			(effects
 				(font
@@ -5159,7 +5705,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "#PWR0608")
+					(reference "#PWR0702")
 					(unit 1)
 				)
 			)
@@ -5174,7 +5720,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b86ad2a6-f077-42dc-abe2-a43c08d9ae7b")
-		(property "Reference" "U702"
+		(property "Reference" "U701"
 			(at 171.704 86.36 0)
 			(effects
 				(font
@@ -5273,7 +5819,7 @@
 		(instances
 			(project ""
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "U702")
+					(reference "U701")
 					(unit 1)
 				)
 			)
@@ -5289,7 +5835,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c8cb453f-974c-47de-a58e-45a91197a44f")
-		(property "Reference" "D602"
+		(property "Reference" "D701"
 			(at 127 101.9175 90)
 			(effects
 				(font
@@ -5379,7 +5925,101 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
-					(reference "D602")
+					(reference "D701")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 46.99 158.75 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "db0976bb-d462-4e6b-a04d-8cc71edc4b71")
+		(property "Reference" "TP701"
+			(at 52.07 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "COUT"
+			(at 59.436 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Zenith:TestPoint_Pad_D0.5mm_Front"
+			(at 46.99 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 46.99 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 46.99 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 46.99 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 46.99 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "~"
+			(at 46.99 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6200a8c6-8bee-4d1b-84fd-9dc058bf5ac1")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d8841d3-b2be-4035-b859-53b06135dc6a"
+					(reference "TP701")
 					(unit 1)
 				)
 			)

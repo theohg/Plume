@@ -1,0 +1,206 @@
+(footprint "CSD85302L"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "CSD85302L-5")
+	(tags "MOSFET (N-Channel)")
+	(property "Reference" "Q**"
+		(at 0.1 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "530271bc-883b-49ae-8aee-bcc1b2ee0e55")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Value" "CSD85302L"
+		(at 0.1 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "4d6184d6-2e97-4f2b-85a1-6069180e96e8")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f66ff72d-f500-40d7-a875-b93cb147e1dd")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ebf8045a-30b0-40ca-b617-a156a39da6b2")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_poly
+		(pts
+			(xy -0.9 -0.55) (xy -0.9 -0.35) (xy -0.75 -0.45)
+		)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "eb07612e-e635-4ae5-965f-4f18959b3d31")
+	)
+	(fp_line
+		(start -1.155 -1.155)
+		(end 1.155 -1.155)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "5f0ef0d6-7d20-4ee2-b687-893a8010f267")
+	)
+	(fp_line
+		(start -1.155 1.155)
+		(end -1.155 -1.155)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "4d3375ad-457c-46ca-a4c6-d77fdc3b0112")
+	)
+	(fp_line
+		(start 1.155 -1.155)
+		(end 1.155 1.155)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "253aa08f-93ab-44f4-b6ef-450cb37c28bf")
+	)
+	(fp_line
+		(start 1.155 1.155)
+		(end -1.155 1.155)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "409b4f08-6260-40fd-86de-38d6398c1ada")
+	)
+	(fp_line
+		(start -0.655 -0.655)
+		(end 0.655 -0.655)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "bd1b0fb8-5d80-457c-ad9a-50aadf618a3e")
+	)
+	(fp_line
+		(start -0.655 0.655)
+		(end -0.655 -0.655)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "f339957f-8e40-48e8-bb82-cb9da045e072")
+	)
+	(fp_line
+		(start 0.655 -0.655)
+		(end 0.655 0.655)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "2bebddef-67e4-4859-837b-2ded7066eec5")
+	)
+	(fp_line
+		(start 0.655 0.655)
+		(end -0.655 0.655)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "93e8571a-1262-407b-8537-dea7e9a3a977")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "2b482166-e643-467c-93fe-f8e85bd34f49")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(pad "G1" smd roundrect
+		(at -0.41 -0.41 90)
+		(size 0.35 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(solder_mask_margin -0.05)
+		(uuid "7d5aa2c3-7557-4f10-bdeb-a81e64062d74")
+	)
+	(pad "G2" smd roundrect
+		(at 0.41 0.41 90)
+		(size 0.35 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(solder_mask_margin -0.05)
+		(uuid "31c33926-1b7c-416c-abbe-bd118902b06f")
+	)
+	(pad "S1" smd roundrect
+		(at 0.25 -0.33 90)
+		(size 0.51 0.67)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(solder_mask_margin -0.05)
+		(solder_paste_margin -0.07)
+		(uuid "77e1d18e-ecab-410c-8ae2-8edb54d90347")
+	)
+	(pad "S2" smd roundrect
+		(at -0.25 0.33 90)
+		(size 0.51 0.67)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(solder_mask_margin -0.05)
+		(solder_paste_margin -0.07)
+		(uuid "47102e62-2e7d-4301-93bb-4f056890742b")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/lib/3d_models/CSD85302L.stp"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

@@ -39,7 +39,7 @@
 		)
 		(uuid "041ff709-0f5e-466e-adab-d03afffd90b7")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 13"
 		(exclude_from_sim no)
 		(at 243.84 99.06 0)
 		(effects
@@ -138,7 +138,7 @@
 		)
 		(uuid "2d20025d-61e4-451d-b51e-153fedc44d68")
 	)
-	(text "Power - Sequencing"
+	(text "Motor Control - Driver 0"
 		(exclude_from_sim no)
 		(at 45.72 152.4 0)
 		(effects
@@ -180,7 +180,7 @@
 		)
 		(uuid "339f13bd-0896-43a1-925e-733e36e395bd")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 6"
 		(exclude_from_sim no)
 		(at 144.78 121.92 0)
 		(effects
@@ -221,7 +221,7 @@
 		)
 		(uuid "3e121d9b-11e9-4895-9779-ade93d5b2a88")
 	)
-	(text "..........................................."
+	(text "Revision History"
 		(exclude_from_sim no)
 		(at 243.84 152.4 0)
 		(effects
@@ -249,7 +249,7 @@
 		)
 		(uuid "44841f0e-187c-41b9-a570-9f74973319c9")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 3"
 		(exclude_from_sim no)
 		(at 144.78 99.06 0)
 		(effects
@@ -391,7 +391,7 @@
 		)
 		(uuid "547bb3ec-bec4-4b68-a38e-2ac56be29bd3")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 17"
 		(exclude_from_sim no)
 		(at 243.84 129.54 0)
 		(effects
@@ -701,7 +701,7 @@
 		)
 		(uuid "9008c96f-82fa-4b3f-88a3-9ae35f59090b")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 14"
 		(exclude_from_sim no)
 		(at 243.84 106.68 0)
 		(effects
@@ -729,7 +729,7 @@
 		)
 		(uuid "9310b062-10e2-49af-a22c-1c9854a7f3f0")
 	)
-	(text "..........................................."
+	(text "Power - Sequencing"
 		(exclude_from_sim no)
 		(at 243.84 144.78 0)
 		(effects
@@ -743,7 +743,7 @@
 		)
 		(uuid "93713c73-3aba-4b0b-9f3c-b37ab3721f94")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 12"
 		(exclude_from_sim no)
 		(at 243.84 91.44 0)
 		(effects
@@ -799,7 +799,7 @@
 		)
 		(uuid "959ea2a5-595d-4c64-a44e-f0c1c6497852")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 9"
 		(exclude_from_sim no)
 		(at 144.78 144.78 0)
 		(effects
@@ -813,7 +813,7 @@
 		)
 		(uuid "9d747571-2a3a-41dd-b7ab-0c07afaa5df1")
 	)
-	(text "Revion History"
+	(text "Motor Control - Driver 1"
 		(exclude_from_sim no)
 		(at 144.78 83.82 0)
 		(effects
@@ -827,7 +827,7 @@
 		)
 		(uuid "9e3e9ac8-468f-4f09-9650-682992859fd0")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 7"
 		(exclude_from_sim no)
 		(at 144.78 129.54 0)
 		(effects
@@ -869,7 +869,7 @@
 		)
 		(uuid "a95a57c3-0ec4-4b96-8edf-d46ee18a4a8e")
 	)
-	(text "..........................................."
+	(text "Misc - Mounting Holes & Fiducials"
 		(exclude_from_sim no)
 		(at 243.84 137.16 0)
 		(effects
@@ -897,7 +897,7 @@
 		)
 		(uuid "ada746a9-1ac8-4ba5-b1f0-e040d6c0fa14")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 5"
 		(exclude_from_sim no)
 		(at 144.78 114.3 0)
 		(effects
@@ -939,7 +939,7 @@
 		)
 		(uuid "b3f10ccd-dd30-4e1a-9a39-191e590211cc")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 16"
 		(exclude_from_sim no)
 		(at 243.84 121.92 0)
 		(effects
@@ -1010,7 +1010,7 @@
 		)
 		(uuid "c1828499-d221-4dc2-9c7b-c9d850654d5e")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 4"
 		(exclude_from_sim no)
 		(at 144.78 106.68 0)
 		(effects
@@ -1136,7 +1136,7 @@
 		)
 		(uuid "cf9779c0-4a62-4a6f-9127-07f6919e9e8d")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 15"
 		(exclude_from_sim no)
 		(at 243.84 114.3 0)
 		(effects
@@ -1219,7 +1219,7 @@
 		)
 		(uuid "e216870b-45fe-49b3-8e55-d9668eb9df44")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 8"
 		(exclude_from_sim no)
 		(at 144.78 137.16 0)
 		(effects
@@ -1247,7 +1247,7 @@
 		)
 		(uuid "e5564811-ffd2-4bd9-9644-ff1dc80ebf87")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 10"
 		(exclude_from_sim no)
 		(at 144.78 152.4 0)
 		(effects
@@ -1317,7 +1317,7 @@
 		)
 		(uuid "ecd14d51-7267-460d-9460-6bae137b0c37")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 2"
 		(exclude_from_sim no)
 		(at 144.78 91.44 0)
 		(effects
@@ -1360,7 +1360,7 @@
 		)
 		(uuid "ee4bfbd2-ceac-40c9-847b-b15b18b07c08")
 	)
-	(text "..........................................."
+	(text "Motor Control - Driver 11"
 		(exclude_from_sim no)
 		(at 243.84 83.82 0)
 		(effects
@@ -4287,6 +4287,24 @@
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
 		)
 	)
@@ -4330,7 +4348,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c"
-					(page "40")
+					(page "29")
 				)
 			)
 		)
@@ -4420,7 +4438,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c"
-					(page "41")
+					(page "30")
 				)
 			)
 		)
