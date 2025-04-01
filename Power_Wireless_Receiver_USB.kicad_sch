@@ -2082,8 +2082,8 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "D501"
-				(at 0 -6.35 0)
+			(property "Reference" "D"
+				(at 0 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2091,7 +2091,7 @@
 				)
 			)
 			(property "Value" "D_Zener"
-				(at 0 -3.81 0)
+				(at 0 -2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2146,19 +2146,7 @@
 			(symbol "D_Zener_0_1"
 				(polyline
 					(pts
-						(xy -1.27 1.27) (xy -1.27 -1.27) (xy -1.905 -1.905)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -1.27) (xy -1.27 1.27) (xy -0.635 1.905)
+						(xy -1.27 -1.27) (xy -1.27 1.27) (xy -0.762 1.27)
 					)
 					(stroke
 						(width 0.254)
@@ -2841,7 +2829,7 @@
 		(uuid d171cdea-1d5e-42c5-8bf8-9792bde4068c)
 	)
 	(rectangle
-		(start 32.385 132.715)
+		(start 31.75 132.715)
 		(end 83.185 173.355)
 		(stroke
 			(width 1)
@@ -9805,7 +9793,25 @@
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-			"AAAAAAAAAA=="
+			"AAAAAAAAAGFlQXdPTnZuanZ4Q0V5MDREaHBGb2FqSjQzR2o0NHZyYVI1d0FqOVE3N2UrZ2N1OGY1"
+			"Ymc3ZUFxTGJRMlRZd1FIbGh2NkdPRkhVcDhZM2NablpnQXhJenpVRzVhYURTV1RpeUFrdUFPOUFM"
+			"N1NSakhPL1RvbkJxdzdoUVVZYjc3NW5FTUl4SiszTFRZeGp2MlI0NlV3a1hJMlhESEFYTzNHQW5l"
+			"T1V3RHpPZ0hBd0Z4d1pST0o1MDdoemtDRGVPQmZBcVdGNW9RR0lZMlRCQjVqVXVPV29VZWcrUzlZ"
+			"UkhTMGFuREhVaHpFZHB3WmxPaDBSR3M4SEI0ZWd3NEZJT2M0di9HbGt6emU3MG8vVEJmclRJUlE2"
+			"R0pNcEkya2pkd3g4akZqM2RmUGFwWHR6UUpsQ1ZFWjRNcGplMlhqVE1GWnhHcnVUbHZYZDVYNDZ4"
+			"SmgxaEV3dUo1dHZxRlcwQnJXbDZkRkJBYy9KYmNjRitKUy9qc2dPQmpKRENkcUc4QUtNK1J2VzBF"
+			"WHJzZm1zRTNOZm12QnJmYkVTRVBLMkhHOW52a3FaOHFrT2tDenBHdjNCNzNPRlRLOVpEaU50OTU2"
+			"alVtUVcxWFFrS3A4enRhU1JOZ0FhbHBueGNXS0tFYlIxOUZoVHBGRjY0VjRaaHU3VWd6TnZScGJJ"
+			"TDE1RjlyRGNQYTZ2bWIzQU0rdytoSmFsN1k4eXh4SEtBRkxhY1pRZ2g0TWJHZkM4ZEc3aGVGWWVj"
+			"Y21PZkVwSHZ2eXRVcVdMTFBBalI4S3FMODlUUHRnbTNXVXVaT0hHdk5KV0x1K3RyNjJ6TG8ybFBv"
+			"dmZkb0xud2hsOUR0UTZDQ0orMEhkbTFzeG5PYVF1UXplREttQ2NwYVdzWFk3RWdEa004Nk9jcER0"
+			"NDVlc3JrVitkSjU4OG1TNi84cTlNeEhYQVpaa01CeUtPcTduYzJjR1dqamlEL0RoekxvTlY5Y2k5"
+			"ZFVnSG1RNXpCOWk3T3NPNDl0N1pZQTdnck8veVkva1lsMld4dEd2aXlhQVRuV1RBRHF6NnltdzJy"
+			"cFZibmh3d0txQjZWamJMSVI5blFSRDFiRERmMVBWOHVXR0dscjl0aUtYUjU5R2w0K0sxanBsSE9N"
+			"L2k4cGlPdHVDRXQ0QklnNy9aUjlUNUtqcytUL0YwQlgrNkJtRHRJMnczREtHaExJSU5mb010aUsy"
+			"WFNFUmFCdWVScy93a000eEtnLy93a1h6ZzhybTB6b1RId2IrNFJXa3dEMUJlNVY0RXJWdnFRR2Uv"
+			"K05CTExxd1RaQnkwbG5sc0p3WkM2ZG12cGM4SklGQ2t4MEZVQ2tSWXA5WFNJRHR4VGg0Q0oxK1dx"
+			"M3oxS0o3Sg=="
 		)
 	)
 	(image
@@ -10522,7 +10528,25 @@
 			"aXJlIChwdHMgKHh5IDIxOC40NCAxNzcuOCkgKHh5IDIzMi40MSAxNzcuOCkpKHN0cm9rZSAod2lk"
 			"dGggMCkgKHR5cGUgZGVmYXVsdCkpKHV1aWQgImMxMjJmNzVkLTU4MzQtNGRlMC04ZTRmLTk0ZWI4"
 			"NWZiMGFiZSIpKSh3aXJlIChwdHMgKHh5IDE3NS4yNiAxNzcuOCkgKHh5IDE3NS4yNiAxOTkuMzkp"
-			"KShzdHJva2UgKHc="
+			"KShzdHJva2UgKHdCdDgzMlJWVFdFcGd2dzJsQVRyYXIxRE1lQ2N3cjhDcEx0dFZDakpiZlc3YlpW"
+			"ZWp3dXdraytsaCtZSnlpRHhWTGFnMFJyN0xKTFZkY3hoejlPQVh3RGJuTm5hMjNpUFRGUFRXc3lV"
+			"REYzS2xWdEpnWklDLzVnQ2x5K2YydjNXSC96eExnckxDSXJrY1JTRkVheE4ydE5jeXd5alpvZ1Nv"
+			"OEtSZGhWdGxXb21JZVl0WjNtVk13UHF1am1IdWFsd3VIdFArcDdjbEdKZTgyYnZqRExUUFZreDg3"
+			"elh1Nm1BcDNva3BTY1VVeFF3RmI5ZXJGYTRJdVpObGZNRnJFMW1BVFJVeUF5eTY2N3lKQUNoNG11"
+			"WkFqWWVqeTFWSWVaakZYc1ZlT09WR0ZoVlVKMUhjMyt5N3BGL1VSR1pIcmZXVUZnN3lFSzRuM2d6"
+			"eEJvelJiTFdNeWlRcnQ2ci9NNU1UeGZUS1BMcmdENTdnUGMrVXlYZjlvYnJCc3E0QkRUcmpLdjRn"
+			"aktEWkhneWtLeHQwUzFtYm5hdWVFQXNGT3RrNnlXcm4vSldhYUtWZ0oveWg2d0FhM1ZodWZJVXo2"
+			"azQyZ3FQOFlOajBhZzRGOGM5eCs0L04rL2hUK044Y2lPTGNyamZ1cnZsL3ZWM1hOKzRUMURCT3VW"
+			"clBKZnZqWU04d3o2d3ZtNXBUS1RmdWIvek02eUR6M0czYmdHU1FkKzhHR1IxdzlyVTY0SnZTcE5r"
+			"b1dGYWFVR0czLzNTNzRaaWY0OVlQL2Z1VGdEQXJlQnl2TTdZNlNnR3dsS3BGM3JpWGhSZzNtYlFV"
+			"RG9tbVFPQWdPc0VCZmFQN2lkV3pSUmd6QXd1VGljanRvdnhYWHB3SmJvOWZoZmdiUmRBcmFONDhz"
+			"a25paWVmZUFJd1lEbXlWUGFSeG4ySlRGSXEvRkxPckZKYWhuenU2V2ZDRFdrSklGRUxFOGVHTW9G"
+			"dWNpNVlHYXpXOFcyL2hBc09iWlF1dW5ObjJray9hUk1XWG42bkhXWmtDa3N2eG9CZ2gyUFZkMG9M"
+			"R3ExMHVBSGpZTVlBeDVSRGZJWmxLRWNKQ05wWEFhZ2ltd2cybVNYSlFOMkNKOGJRMmRwSm1acTBD"
+			"SkxtdnZPT1ZkM0ZvcCtvbzhkOHB1Q0xZMEg2UlQycG40dHR6aEdPVGR1VFFCY0JrZTBvd3pGZ2ZC"
+			"anZ0MXgvKzkxNitkdnYxc2MrOHB6eWxmT1FsalNPYzJNMUNhNUpJM2Z2MDYvZCtra1BnVm93MTdq"
+			"ZjkyNWpjOTFYSXJKQ01ZcDRUN2VJQzJVY3hMZUtpeGN1QmpDemhSd1hWdHVhVjNOeHZNY1d5M01G"
+			"emxMTW1aZ2RPSg=="
 		)
 	)
 	(image
@@ -11082,7 +11106,25 @@
 			"093/3tPd/97T3f/e093/3tPd9dXL1EtBPkEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-			"AAAAAAAAAP/e093/3tPd/97T3f/e090="
+			"AAAAAAAAAP/e093/3tPd/97T3f/e090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
 		)
 	)
 	(table
@@ -11712,7 +11754,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 245.11 120.65 0)
 			(effects
 				(font
@@ -11754,7 +11796,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0c5b9222-7a7b-4f71-82ef-cf0016242809")
-		(property "Reference" "C605"
+		(property "Reference" "C606"
 			(at 166.37 100.3363 0)
 			(effects
 				(font
@@ -11781,7 +11823,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM188R71E474KA64D?qs=aEuGZpxfbxVE%252B0sib7R1rQ%3D%3D"
+		(property "Datasheet" "~"
 			(at 168.91 101.6 0)
 			(effects
 				(font
@@ -11844,7 +11886,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C605")
+					(reference "C606")
 					(unit 1)
 				)
 			)
@@ -11886,7 +11928,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM155R71E223KA55D?qs=QDXoN8f0aYJ3xbAG%252B51q9g%3D%3D"
+		(property "Datasheet" "~"
 			(at 182.88 111.76 0)
 			(effects
 				(font
@@ -11965,7 +12007,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "262a5b93-8525-44d5-8f5a-d1a9f44fce34")
-		(property "Reference" "TP507"
+		(property "Reference" "TP603"
 			(at 59.69 149.86 90)
 			(effects
 				(font
@@ -11983,7 +12025,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Zenith:TestPoint_Pad_D0.5mm_Front"
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
 			(at 54.61 144.78 0)
 			(effects
 				(font
@@ -12028,22 +12070,13 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "~"
-			(at 54.61 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "6a8849ec-ce42-4e39-b959-11f0fca1f32a")
 		)
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "TP507")
+					(reference "TP603")
 					(unit 1)
 				)
 			)
@@ -12084,7 +12117,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP5101F?qs=sGAEpiMZZMvdGkrng054t0lTWN1FpAznQODrak89Tnc%3D"
+		(property "Datasheet" "~"
 			(at 69.85 106.68 0)
 			(effects
 				(font
@@ -12259,7 +12292,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3300F?qs=sGAEpiMZZMvdGkrng054t9Iv6bg7ShOE%2F7%2FwuqSauWs%3D"
+		(property "Datasheet" "~"
 			(at 266.7 93.98 0)
 			(effects
 				(font
@@ -12337,7 +12370,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2f434447-d79f-4bcd-bc24-0e60cca3eb54")
-		(property "Reference" "C606"
+		(property "Reference" "C611"
 			(at 166.37 110.4963 0)
 			(effects
 				(font
@@ -12364,7 +12397,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM188R71E474KA64D?qs=aEuGZpxfbxVE%252B0sib7R1rQ%3D%3D"
+		(property "Datasheet" "~"
 			(at 168.91 111.76 0)
 			(effects
 				(font
@@ -12427,7 +12460,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C606")
+					(reference "C611")
 					(unit 1)
 				)
 			)
@@ -12468,7 +12501,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/bq51013c-q1.pdf?ts=1743433396911"
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/bq51051b.pdf"
 			(at 241.046 127.508 0)
 			(effects
 				(font
@@ -12477,7 +12510,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Wireless Charging ICs Automotive WPC 2.0 c ompatible fully inte"
+		(property "Description" "Qi v1.2, Wireless Power Receiver and Battery Charger, Vout 4.35V, VQFN-20"
 			(at 251.968 125.222 0)
 			(effects
 				(font
@@ -12610,7 +12643,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4754999e-1955-4c4f-b393-3155bb43c8c8")
-		(property "Reference" "TP508"
+		(property "Reference" "TP604"
 			(at 59.69 154.94 90)
 			(effects
 				(font
@@ -12628,7 +12661,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Zenith:TestPoint_Pad_D0.5mm_Front"
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
 			(at 54.61 149.86 0)
 			(effects
 				(font
@@ -12673,22 +12706,13 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "~"
-			(at 54.61 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "fcccacab-d16c-47d5-a7b9-65ad9fc50729")
 		)
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "TP508")
+					(reference "TP604")
 					(unit 1)
 				)
 			)
@@ -12770,7 +12794,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4fd07949-3339-4de2-8034-4d651acee72f")
-		(property "Reference" "C616"
+		(property "Reference" "C608"
 			(at 194.818 100.33 0)
 			(effects
 				(font
@@ -12797,7 +12821,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM1555C1E103JE01J?qs=d0WKAl%252BL4Kaf0f%252BHGWOwHQ%3D%3D"
+		(property "Datasheet" "~"
 			(at 196.85 101.6 0)
 			(effects
 				(font
@@ -12860,7 +12884,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C616")
+					(reference "C608")
 					(unit 1)
 				)
 			)
@@ -12901,7 +12925,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/datasheet/2/837/GCT_USB4125_Product_Drawing-3538561.pdf"
+		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
 			(at 48.26 99.06 0)
 			(effects
 				(font
@@ -12995,7 +13019,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "575fd107-f2e9-441e-ab0e-4fb9f281b1f2")
-		(property "Reference" "#PWR0606"
+		(property "Reference" "#PWR0605"
 			(at 44.45 124.46 0)
 			(effects
 				(font
@@ -13046,7 +13070,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "#PWR0606")
+					(reference "#PWR0605")
 					(unit 1)
 				)
 			)
@@ -13061,7 +13085,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5b77eed2-bf31-46c9-8ac8-c8781b6c3d15")
-		(property "Reference" "C615"
+		(property "Reference" "C613"
 			(at 194.818 110.49 0)
 			(effects
 				(font
@@ -13088,7 +13112,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM1555C1E103JE01J?qs=d0WKAl%252BL4Kaf0f%252BHGWOwHQ%3D%3D"
+		(property "Datasheet" "~"
 			(at 196.85 111.76 0)
 			(effects
 				(font
@@ -13151,7 +13175,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C615")
+					(reference "C613")
 					(unit 1)
 				)
 			)
@@ -13167,7 +13191,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "614f92a3-9d7d-4b21-8e30-6ebf762d82cd")
-		(property "Reference" "C604"
+		(property "Reference" "C605"
 			(at 109.22 93.98 0)
 			(effects
 				(font
@@ -13194,7 +13218,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D&srsltid=AfmBOopjHQwv3QSXf_w3_Ogf1nZFnivKZ-jQ4-9snVp7pU9kKH2s_vpO"
+		(property "Datasheet" "~"
 			(at 111.76 95.25 0)
 			(effects
 				(font
@@ -13257,7 +13281,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C604")
+					(reference "C605")
 					(unit 1)
 				)
 			)
@@ -13374,7 +13398,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Solder Pad"
+		(property "Description" "test point"
 			(at 140.97 109.22 0)
 			(effects
 				(font
@@ -13405,7 +13429,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "71b7613f-7d56-4aeb-ba1d-e8c0eb7d4363")
-		(property "Reference" "C1004"
+		(property "Reference" "C602"
 			(at 252.476 86.36 0)
 			(effects
 				(font
@@ -13432,7 +13456,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM188R61C106MAALD?qs=hNud%2FORuBR3LEOKZ4RJp9w%3D%3D"
+		(property "Datasheet" "~"
 			(at 250.19 87.63 0)
 			(effects
 				(font
@@ -13495,7 +13519,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C1004")
+					(reference "C602")
 					(unit 1)
 				)
 			)
@@ -13577,7 +13601,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "99b4cbff-2396-4395-bd6d-f23137d04f61")
-		(property "Reference" "C704"
+		(property "Reference" "C603"
 			(at 156.464 88.9 0)
 			(effects
 				(font
@@ -13604,7 +13628,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/TDK/CGA3E1X7R1C105K080AC?qs=XHchNesRtUbBVNsGg9%252BP9g%3D%3D"
+		(property "Datasheet" "~"
 			(at 158.75 90.17 0)
 			(effects
 				(font
@@ -13667,7 +13691,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C704")
+					(reference "C603")
 					(unit 1)
 				)
 			)
@@ -13707,7 +13731,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP5101F?qs=sGAEpiMZZMvdGkrng054t0lTWN1FpAznQODrak89Tnc%3D"
+		(property "Datasheet" "~"
 			(at 69.85 104.14 0)
 			(effects
 				(font
@@ -13786,7 +13810,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9de47a2c-ffd0-40f7-8f90-7c9cb58e2046")
-		(property "Reference" "#PWR0607"
+		(property "Reference" "#PWR0606"
 			(at 220.98 133.35 0)
 			(effects
 				(font
@@ -13837,7 +13861,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "#PWR0607")
+					(reference "#PWR0606")
 					(unit 1)
 				)
 			)
@@ -13852,7 +13876,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9ebae766-5780-411d-a154-a020078ba088")
-		(property "Reference" "C608"
+		(property "Reference" "C609"
 			(at 149.098 100.838 90)
 			(effects
 				(font
@@ -13879,7 +13903,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM188R71E474KA64D?qs=aEuGZpxfbxVE%252B0sib7R1rQ%3D%3D"
+		(property "Datasheet" "~"
 			(at 153.67 104.14 0)
 			(effects
 				(font
@@ -13942,7 +13966,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C608")
+					(reference "C609")
 					(unit 1)
 				)
 			)
@@ -13958,7 +13982,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a194ae05-055f-4416-9a4f-d162da0dbc6b")
-		(property "Reference" "#PWR0605"
+		(property "Reference" "#PWR0604"
 			(at 78.74 114.3 0)
 			(effects
 				(font
@@ -14009,7 +14033,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "#PWR0605")
+					(reference "#PWR0604")
 					(unit 1)
 				)
 			)
@@ -14133,7 +14157,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b200b434-d102-4187-bd6e-4297739dab51")
-		(property "Reference" "C607"
+		(property "Reference" "C610"
 			(at 160.02 105.4163 0)
 			(effects
 				(font
@@ -14160,7 +14184,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM188R71E474KA64D?qs=aEuGZpxfbxVE%252B0sib7R1rQ%3D%3D"
+		(property "Datasheet" "~"
 			(at 162.56 106.68 0)
 			(effects
 				(font
@@ -14223,7 +14247,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C607")
+					(reference "C610")
 					(unit 1)
 				)
 			)
@@ -14239,7 +14263,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b5dcac35-b48e-4403-bdd7-67ff70798df3")
-		(property "Reference" "C603"
+		(property "Reference" "C604"
 			(at 92.71 93.98 0)
 			(effects
 				(font
@@ -14266,7 +14290,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D&srsltid=AfmBOopjHQwv3QSXf_w3_Ogf1nZFnivKZ-jQ4-9snVp7pU9kKH2s_vpO"
+		(property "Datasheet" "~"
 			(at 95.25 95.25 0)
 			(effects
 				(font
@@ -14329,7 +14353,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C603")
+					(reference "C604")
 					(unit 1)
 				)
 			)
@@ -14379,7 +14403,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Solder Pad"
+		(property "Description" "test point"
 			(at 140.97 104.14 0)
 			(effects
 				(font
@@ -14410,7 +14434,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b86c93b3-53e7-461a-aa7c-b4b54b3043c2")
-		(property "Reference" "TP509"
+		(property "Reference" "TP602"
 			(at 59.69 144.78 90)
 			(effects
 				(font
@@ -14428,7 +14452,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Zenith:TestPoint_Pad_D0.5mm_Front"
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
 			(at 54.61 139.7 0)
 			(effects
 				(font
@@ -14473,22 +14497,13 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "~"
-			(at 54.61 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "47f77fa3-2140-418e-94b9-5567ec4dbcd2")
 		)
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "TP509")
+					(reference "TP602")
 					(unit 1)
 				)
 			)
@@ -14530,7 +14545,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D&srsltid=AfmBOopjHQwv3QSXf_w3_Ogf1nZFnivKZ-jQ4-9snVp7pU9kKH2s_vpO"
+		(property "Datasheet" "~"
 			(at 234.95 87.63 0)
 			(effects
 				(font
@@ -14608,7 +14623,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c28f9b32-15de-4f31-bfae-d4c1c7011a6a")
-		(property "Reference" "C613"
+		(property "Reference" "C607"
 			(at 180.848 100.33 0)
 			(effects
 				(font
@@ -14635,7 +14650,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM155R71E223KA55D?qs=QDXoN8f0aYJ3xbAG%252B51q9g%3D%3D"
+		(property "Datasheet" "~"
 			(at 182.88 101.6 0)
 			(effects
 				(font
@@ -14698,7 +14713,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "C613")
+					(reference "C607")
 					(unit 1)
 				)
 			)
@@ -14740,7 +14755,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.littelfuse.com/assetdocs/tvs-diodes-smf-datasheet?assetguid=7EB8A5B6-BDD0-4561-8F19-0C3CC6F9B2AF"
+		(property "Datasheet" "~"
 			(at 80.01 95.25 0)
 			(effects
 				(font
@@ -14749,7 +14764,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "ESD Protection Diodes / TVS Diodes 200W 5V 5% Uni-directional"
+		(property "Description" "Zener diode"
 			(at 80.01 95.25 0)
 			(effects
 				(font
@@ -14819,7 +14834,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "dfc4e8d4-1fe8-45df-a975-4faa0e820ee8")
-		(property "Reference" "TP506"
+		(property "Reference" "TP601"
 			(at 59.69 139.7 90)
 			(effects
 				(font
@@ -14837,7 +14852,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Zenith:TestPoint_Pad_D0.5mm_Front"
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
 			(at 54.61 134.62 0)
 			(effects
 				(font
@@ -14882,22 +14897,13 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "~"
-			(at 54.61 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "c4f78905-4661-437a-b3c0-48021fbf6fa6")
 		)
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/fcd12144-d001-4707-be62-f0855297bda3"
-					(reference "TP506")
+					(reference "TP601")
 					(unit 1)
 				)
 			)

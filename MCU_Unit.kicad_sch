@@ -2039,7 +2039,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector:Conn_ARM_SWD_TagConnect_TC2030"
+		(symbol "Connector:Conn_ARM_SWD_TagConnect_TC2030-NL"
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
@@ -2051,15 +2051,15 @@
 					)
 				)
 			)
-			(property "Value" "Conn_ARM_SWD_TagConnect_TC2030"
-				(at 5.08 8.89 0)
+			(property "Value" "Conn_ARM_SWD_TagConnect_TC2030-NL"
+				(at 2.54 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-FP_2x03_P1.27mm_Vertical"
+			(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical"
 				(at 0 -17.78 0)
 				(effects
 					(font
@@ -2077,7 +2077,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Tag-Connect ARM Cortex SWD JTAG connector, 6 pin"
+			(property "Description" "Tag-Connect ARM Cortex SWD JTAG connector, 6 pin, no legs"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2104,7 +2104,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "Conn_ARM_SWD_TagConnect_TC2030_0_0"
+			(symbol "Conn_ARM_SWD_TagConnect_TC2030-NL_0_0"
 				(pin power_in line
 					(at -2.54 10.16 270)
 					(length 2.54)
@@ -2217,7 +2217,7 @@
 					(alternate "TDO" input line)
 				)
 			)
-			(symbol "Conn_ARM_SWD_TagConnect_TC2030_0_1"
+			(symbol "Conn_ARM_SWD_TagConnect_TC2030-NL_0_1"
 				(rectangle
 					(start -5.08 7.62)
 					(end 5.08 -7.62)
@@ -3843,6 +3843,24 @@
 				(pin passive line
 					(at 12.7 -48.26 180)
 					(length 2.54)
+					(name "ANT_NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "85"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 12.7 -50.8 180)
+					(length 2.54)
 					(name "ANT_IN"
 						(effects
 							(font
@@ -3859,7 +3877,7 @@
 					)
 				)
 				(pin passive line
-					(at 12.7 -50.8 180)
+					(at 12.7 -53.34 180)
 					(length 2.54)
 					(name "RF_OUT"
 						(effects
@@ -4468,6 +4486,30 @@
 		)
 		(uuid "115b8987-0d0c-44ec-a408-05d87a4a3ea8")
 	)
+	(text_box "MCU - Status LED"
+		(exclude_from_sim no)
+		(at 26.035 202.565 0)
+		(size 133.35 9.525)
+		(margins 1.9049 1.9049 1.9049 1.9049)
+		(stroke
+			(width -0.0001)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(face "Times New Roman")
+				(size 2.54 2.54)
+				(thickness 0.508)
+				(bold yes)
+				(color 162 22 34 1)
+			)
+			(justify bottom)
+		)
+		(uuid "4be1f29b-54cc-4cc7-b357-b7cdff44c25d")
+	)
 	(text_box "DESIGN NOTE:\n\nPB0 and PB1 are only available for revision X parts."
 		(exclude_from_sim no)
 		(at 166.37 183.515 0)
@@ -4768,6 +4810,10 @@
 	(no_connect
 		(at 252.73 162.56)
 		(uuid "00d8da67-f9a7-4c15-8a06-94d353a67bdd")
+	)
+	(no_connect
+		(at 154.94 172.72)
+		(uuid "06eae051-8928-47c4-bd1b-9c65920c4b97")
 	)
 	(wire
 		(pts
@@ -20855,7 +20901,25 @@
 			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
 			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
 			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
-			"R3BMAA=="
+			"R3BMAFUAAAAzAAAANwAAAFIAAABXAAAAdgAAADIAAABUAAAAVQAAAGMAAABMAAAATgAAAG8AAAAz"
+			"AAAATwAAAEMAAABiAAAAdQAAADMAAABMAAAAYwAAAEoAAAA3AAAAUAAAAGkAAAA2AAAAcgAAAEgA"
+			"AABJAAAAQwAAAGgAAABrAAAANAAAAHIAAABjAAAAawAAADQAAABIAAAAZAAAADMAAAB2AAAAWAAA"
+			"AGUAAABiAAAAawAAAEYAAABZAAAAMgAAADQAAAA0AAAAZgAAAGIAAABZAAAARQAAAGQAAABEAAAA"
+			"NAAAAEsAAABlAAAAVQAAAHgAAABLAAAAZAAAAE4AAAA3AAAAOAAAAGcAAABGAAAAWQAAAEoAAAB4"
+			"AAAAVgAAADMAAAB3AAAAdAAAAEgAAABLAAAAZAAAADAAAABHAAAASgAAAE8AAAB5AAAAUgAAAFkA"
+			"AABSAAAAZwAAACsAAABJAAAASwAAAHgAAABJAAAANAAAAEcAAABjAAAAYQAAAFUAAAAyAAAAbAAA"
+			"AG4AAABMAAAAawAAAG0AAABDAAAAUgAAAE4AAABmAAAARAAAAGcAAAA0AAAANgAAAHUAAAB3AAAA"
+			"VwAAADkAAABnAAAAKwAAAHkAAAAvAAAAcgAAAFEAAABIAAAAVAAAACsAAABRAAAAWQAAAHgAAABn"
+			"AAAAMwAAADIAAAB4AAAASQAAAHYAAAB2AAAAUwAAAG8AAABxAAAAVAAAAEEAAABvAAAAaAAAAHQA"
+			"AABKAAAAcAAAAFIAAABDAAAALwAAAGEAAAB6AAAAYwAAAHcAAABRAAAAWAAAAGUAAABRAAAATQAA"
+			"AEYAAAB5AAAAZwAAAC8AAABaAAAAZAAAAFMAAABwAAAASAAAAFIAAABKAAAAQQAAAFIAAAB4AAAA"
+			"KwAAACsAAABVAAAAdQAAAGgAAABVAAAAegAAAG0AAABHAAAAbgAAACsAAABnAAAAYwAAAEkAAABU"
+			"AAAASAAAAEQAAAA0AAAAYwAAAEUAAABkAAAAWgAAAFYAAABrAAAAWQAAAGcAAABUAAAAZAAAAHoA"
+			"AABNAAAANgAAAEsAAABqAAAAVQAAAGcAAABJAAAATwAAAFQAAABiAAAAcQAAAE0AAAAwAAAAOAAA"
+			"AEwAAABwAAAAUQAAADkAAAA2AAAAUgAAAFAAAABpAAAAawAAAHoAAABTAAAARAAAAGgAAAA3AAAA"
+			"TwAAADYAAAA0AAAAQQAAAHUAAABhAAAATwAAAGwAAAB1AAAAcQAAAHIAAABoAAAAQQAAAHcAAABn"
+			"AAAAYQAAAGQAAAB3AAAASgAAAEoAAABMAAAARwAAAHMAAAA1AAAAeAAAAG0AAABqAAAATAAAAEMA"
+			"AABBAA=="
 		)
 	)
 	(image
@@ -21860,7 +21924,25 @@
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsXez97aXuCe6V7wnvce/V7/3wSfCp8P3xL"
+			"fHB8gnyjfK180XzqfP19HX05fVd9c32AfZt9xn3mfiF+On5Nflt+h36yfut/DH82f1N/c3+Qf7F/"
+			"vH/hgA6AN4CLgKOAv4DLgOWA/YESgSWBOYFRgWiBg4GlgcmB04H4gkmCVYJsgpyCtILXgumDDIMh"
+			"g2GDdIOrg76D3YP4hBKEKoRKhGaEeISdhLqE3IUChSqFTIVlhYeFn4XYhfiGEoY1hk2Ga4aOhqqG"
+			"/IcUhz6HWodoh4GHmYekh+iH8ogXiCOIRYhpiIiIo4jYiPOJCYkxiUmJi4nIifOKDIogijWKYYqP"
+			"ismK6osai1qLdot+i6CL1IvijEiMdYyMjJ+Mw4zsjTeNeo2hjeGOFo4vjjiOXo58jpyOvI7Xju6P"
+			"GI85j0uPVI9gj3aPkY+sj8eP8JAJkCqQXZCEkKGQw5D3kQ6RJ5E7kWeRhJGzkd+SCZIikkOSUpJ2"
+			"krSSzJLfkv+TFZMgkzuTVpNzk42TtpPLk+OT9ZQalDaUU5RilIeUmpS/lOSVBJUmlTCVQpVXlW6V"
+			"jpWdlcCV65YFliCWPJZelqaWzJb3l0iXZZeEl6aXy5gFmBmYOJhRmGqYj5iqmMaY35j+mR+ZMplK"
+			"mWOZjJm3md2Z9pofmkyaYpqSmqeawZrjmw2bUJtfm4CbnJvAm9Kb9ZwenDycXpyhnMac3Zz5nS+d"
+			"R51VnW2dkZ2unced6535nhSeTJ5snomelp6lnt+fGp8yn1Gfa593n5OfuJ/XoBqgMqBkoJ+gxKDk"
+			"oQChFKFPoYihp6HUoe6iBKIPoiKiTKJkopGiwKLaouijFKMpo0Ojb6ODo5ajsKPJo+GkEKQmpEqk"
+			"b6SEpLyk2aTspUilX6WBpbel4KX3pgWmJaZBpmOmjKazptem9acZp1mnbaeSp6qnw6fWqBOoNahX"
+			"qGWogKiYqNuo76kaqT+pX6mIqaqpwqnhqgWqKapbqm2qgKqZqrSq5qrxqw2rOatZq2ert6vLq+es"
+			"Iqw5rFOsXKx2rJSsyazgrQWtNq1UrXmtmq26rdCuA64trlGuc66Krp+utq7KruqvD68jr1iva6+b"
+			"r7iv26/zsBewOrBesIWwpbC7sMSw8LEHsSyxWLF6saWxyLHisfmyA7IXsjWyTbKosr+y07Ltsv+z"
+			"LrNLs2izhbPDs+Oz97QStCm0RbRhtHi0prS8tNy077UPtTW1V7VwtZq1xLXxthO2IrZStmu2frab"
+			"tqe3Arcot0+3ebeit6+3w7fbt/C4C7gvuES4WLhvuJi41LjxuRy5PblVuWu5k7nKue+6A7oeuli6"
+			"j7qzuse65rr9uzm7Vrtgu3i7lbu2u968CbwtvES8XA=="
 		)
 	)
 	(image
@@ -22847,6 +22929,24 @@
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
 		)
 	)
@@ -22861,6 +22961,88 @@
 			(justify right)
 		)
 		(uuid "f8afd161-5a4f-4f45-a671-4fad16ab17ac")
+	)
+	(symbol
+		(lib_id "Connector:Conn_ARM_SWD_TagConnect_TC2030-NL")
+		(at 207.01 151.13 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1aee1634-0100-4edf-aec6-055ea9d617e1")
+		(property "Reference" "J401"
+			(at 200.66 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Conn_ARM_SWD_TagConnect_TC2030-NL"
+			(at 200.66 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical"
+			(at 207.01 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.tag-connect.com/wp-content/uploads/bsk-pdf-manager/TC2030-CTX_1.pdf"
+			(at 207.01 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Tag-Connect ARM Cortex SWD JTAG connector, 6 pin, no legs"
+			(at 207.01 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "1df60b74-ba0a-43da-84b8-2f3c4936e212")
+		)
+		(pin "5"
+			(uuid "66c06f80-1c7f-462b-b126-17fa282e0774")
+		)
+		(pin "2"
+			(uuid "0299f342-bcc7-4ef3-af81-7d9bc3ff0ca7")
+		)
+		(pin "3"
+			(uuid "8351c9a0-2da1-4c3e-a80a-5dc2cf1fe65a")
+		)
+		(pin "6"
+			(uuid "d21b1ed2-cc40-4165-afbd-30ac7c1de62a")
+		)
+		(pin "1"
+			(uuid "5577245f-52e9-427f-9fa4-4052ba88fa3a")
+		)
+		(instances
+			(project ""
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/7d5a1283-086b-46b0-8df7-a9850521fb5e"
+					(reference "J401")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_name "B3U-1100P_1")
@@ -22890,7 +23072,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Charge_Manager_FP:B3U1100PB"
+		(property "Footprint" "0_Plume:B3U1100PB"
 			(at 109.22 145.72 0)
 			(effects
 				(font
@@ -22974,88 +23156,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_ARM_SWD_TagConnect_TC2030")
-		(at 193.04 134.62 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "25341df2-ff78-418f-b4c8-a9df4ac3dbaa")
-		(property "Reference" "J401"
-			(at 186.69 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Conn_ARM_SWD_TagConnect_TC2030"
-			(at 186.69 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-FP_2x03_P1.27mm_Vertical"
-			(at 193.04 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.tag-connect.com/wp-content/uploads/bsk-pdf-manager/TC2030-CTX_1.pdf"
-			(at 193.04 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Tag-Connect ARM Cortex SWD JTAG connector, 6 pin"
-			(at 193.04 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "7144d064-8749-4214-aaf2-1dac24acdbc4")
-		)
-		(pin "5"
-			(uuid "1567dfd5-5112-4723-b3c5-12a3218df074")
-		)
-		(pin "4"
-			(uuid "aba9e740-95c8-4833-bf38-35d51203c8a0")
-		)
-		(pin "1"
-			(uuid "8e891d64-6e45-4ec8-b011-d78b774df103")
-		)
-		(pin "2"
-			(uuid "0a354ff0-252f-4308-a62b-8115f52d0b67")
-		)
-		(pin "6"
-			(uuid "9f60cbfb-33b5-4784-aa1c-5031a48448d7")
-		)
-		(instances
-			(project ""
-				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/7d5a1283-086b-46b0-8df7-a9850521fb5e"
-					(reference "J401")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
 		(at 106.68 72.39 0)
 		(mirror y)
@@ -23092,7 +23192,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3300F?qs=sGAEpiMZZMvdGkrng054t9Iv6bg7ShOE%2F7%2FwuqSauWs%3D"
+		(property "Datasheet" "~"
 			(at 106.68 72.39 0)
 			(effects
 				(font
@@ -23198,7 +23298,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D&srsltid=AfmBOopjHQwv3QSXf_w3_Ogf1nZFnivKZ-jQ4-9snVp7pU9kKH2s_vpO"
+		(property "Datasheet" "~"
 			(at 220.98 111.76 0)
 			(effects
 				(font
@@ -23303,7 +23403,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D&srsltid=AfmBOopjHQwv3QSXf_w3_Ogf1nZFnivKZ-jQ4-9snVp7pU9kKH2s_vpO"
+		(property "Datasheet" "~"
 			(at 90.17 78.74 0)
 			(effects
 				(font
@@ -23476,7 +23576,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM188Z71C475KE21D?qs=d0WKAl%252BL4KajNOvalhHKtQ%3D%3D"
+		(property "Datasheet" "~"
 			(at 55.88 99.06 0)
 			(effects
 				(font
@@ -23613,7 +23713,6 @@
 		)
 	)
 	(symbol
-		(lib_name "STM32WB5MMG_1")
 		(lib_id "0_Plume:STM32WB5MMG")
 		(at 73.66 116.84 0)
 		(unit 2)
@@ -23940,6 +24039,9 @@
 		(pin "86"
 			(uuid "31d67b6a-5e77-4172-bac7-b3ba4a481cf8")
 		)
+		(pin "85"
+			(uuid "b4a0d1e5-a3e3-4497-b435-7cb9c161ea15")
+		)
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/7d5a1283-086b-46b0-8df7-a9850521fb5e"
@@ -23985,7 +24087,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D&srsltid=AfmBOopjHQwv3QSXf_w3_Ogf1nZFnivKZ-jQ4-9snVp7pU9kKH2s_vpO"
+		(property "Datasheet" "~"
 			(at 87.63 91.44 0)
 			(effects
 				(font
@@ -24216,7 +24318,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Charge_Manager_FP:B3U1100PB"
+		(property "Footprint" "0_Plume:B3U1100PB"
 			(at 109.22 172.39 0)
 			(effects
 				(font
@@ -24336,7 +24438,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP5101F?qs=sGAEpiMZZMvdGkrng054t0lTWN1FpAznQODrak89Tnc%3D"
+		(property "Datasheet" "~"
 			(at 105.41 80.01 0)
 			(effects
 				(font
@@ -24406,6 +24508,7 @@
 		)
 	)
 	(symbol
+		(lib_name "STM32WB5MMG_1")
 		(lib_id "0_Plume:STM32WB5MMG")
 		(at 238.76 114.3 0)
 		(unit 1)
@@ -24571,43 +24674,43 @@
 			(uuid "85024f34-cf42-4556-a6de-302483743db6")
 		)
 		(pin "4"
-			(uuid "c2c6c95b-04e8-4e98-9173-dc1c94de3a51")
+			(uuid "c2c6c95b-04e8-4e98-9173-dc1c94de3a52")
 		)
 		(pin "6"
-			(uuid "8f07bc2b-dce3-4e38-843e-c76445e6eee8")
+			(uuid "8f07bc2b-dce3-4e38-843e-c76445e6eee9")
 		)
 		(pin "15"
-			(uuid "450827fb-d8ae-423a-b8e5-8aab2f35ee3f")
+			(uuid "450827fb-d8ae-423a-b8e5-8aab2f35ee40")
 		)
 		(pin "31"
-			(uuid "b8794980-2f4a-4855-8e8c-281d6542a5a9")
+			(uuid "b8794980-2f4a-4855-8e8c-281d6542a5aa")
 		)
 		(pin "5"
-			(uuid "bac8af2a-a19d-4a38-974f-99c469809440")
+			(uuid "bac8af2a-a19d-4a38-974f-99c469809441")
 		)
 		(pin "57"
-			(uuid "c5b9b659-868d-4114-a2fd-ee2931def945")
+			(uuid "c5b9b659-868d-4114-a2fd-ee2931def946")
 		)
 		(pin "60"
-			(uuid "d8c442f3-dd86-45ab-a4dd-214dd634682b")
+			(uuid "d8c442f3-dd86-45ab-a4dd-214dd634682c")
 		)
 		(pin "84"
-			(uuid "81726bf5-5f95-4353-bcaf-de6e25c338d6")
+			(uuid "81726bf5-5f95-4353-bcaf-de6e25c338d7")
 		)
 		(pin "86"
-			(uuid "f942f650-c442-4422-b628-574ef7f62036")
+			(uuid "f942f650-c442-4422-b628-574ef7f62037")
 		)
 		(pin "17"
-			(uuid "7b86bcee-e29d-4933-865c-14d391d021ee")
+			(uuid "7b86bcee-e29d-4933-865c-14d391d021ef")
 		)
 		(pin "16"
-			(uuid "7a667ecd-9fd7-4c75-9005-b30807619e0d")
+			(uuid "7a667ecd-9fd7-4c75-9005-b30807619e0e")
 		)
 		(pin "32"
-			(uuid "52365762-812a-4511-9251-ffd60d7d31e9")
+			(uuid "52365762-812a-4511-9251-ffd60d7d31ea")
 		)
 		(pin "85"
-			(uuid "5223ca56-0e48-4a90-8f53-30e9fbd0a7a5")
+			(uuid "5223ca56-0e48-4a90-8f53-30e9fbd0a7a6")
 		)
 		(pin "3"
 			(uuid "24ae252b-ad15-4ef9-97b2-a6c23d4b3aeb")
@@ -24712,10 +24815,10 @@
 			(uuid "78e483fd-83da-4834-9ed9-39d1f47ce554")
 		)
 		(pin "10"
-			(uuid "45fedaf8-5931-4db8-81f2-c36e399b9986")
+			(uuid "45fedaf8-5931-4db8-81f2-c36e399b9987")
 		)
 		(pin "13"
-			(uuid "550fb6f9-b597-4747-946f-5eab5394637b")
+			(uuid "550fb6f9-b597-4747-946f-5eab5394637c")
 		)
 		(pin "31"
 			(uuid "e7227f12-8d20-4dc6-bc78-03742350336c")

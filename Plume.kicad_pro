@@ -524,11 +524,20 @@
         "microvia_drill": 0.1,
         "name": "+3V3",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgb(255, 153, 0)",
         "track_width": 0.2,
         "via_diameter": 0.55,
         "via_drill": 0.25,
+        "wire_width": 24
+      },
+      {
+        "bus_width": 12,
+        "line_style": 0,
+        "name": "+5V",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgb(194, 0, 0)",
         "wire_width": 24
       },
       {
@@ -541,7 +550,7 @@
         "microvia_drill": 0.1,
         "name": "+VBAT",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgb(255, 0, 255)",
         "track_width": 0.2,
         "via_diameter": 0.55,
@@ -558,7 +567,7 @@
         "microvia_drill": 0.1,
         "name": "+VBUS",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgb(255, 0, 0)",
         "track_width": 0.2,
         "via_diameter": 0.55,
@@ -570,7 +579,7 @@
         "line_style": 0,
         "name": "+VCHARGE",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgb(0, 255, 255)",
         "wire_width": 24
       },
@@ -579,7 +588,7 @@
         "line_style": 0,
         "name": "+VDD",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgb(0, 132, 0)",
         "wire_width": 24
       },
@@ -593,7 +602,7 @@
         "microvia_drill": 0.1,
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 5,
+        "priority": 6,
         "schematic_color": "rgb(0, 0, 0)",
         "track_width": 0.2,
         "via_diameter": 0.55,
@@ -682,6 +691,18 @@
       {
         "netclass": "+VBUS",
         "pattern": "+VBUS"
+      },
+      {
+        "netclass": "+5V",
+        "pattern": "/Project Architecture/MCU - Unit/+5V"
+      },
+      {
+        "netclass": "+3V3",
+        "pattern": "/Project Architecture/User - RGB LED Indicator/+3V3"
+      },
+      {
+        "netclass": "+5V",
+        "pattern": "/Project Architecture/User - RGB LED Indicator/+5V"
       }
     ]
   },
@@ -787,12 +808,6 @@
           "label": "Description",
           "name": "Description",
           "show": true
-        },
-        {
-          "group_by": false,
-          "label": "LCSC Part #",
-          "name": "LCSC Part #",
-          "show": false
         }
       ],
       "filter_string": "",
@@ -884,72 +899,76 @@
       "Motor Control - Driver 0"
     ],
     [
-      "e3116a76-133c-4576-a382-40dcd33c9b78",
+      "c9b90bbc-3ec9-4913-a4ec-a713532185bf",
       "Motor Control - Driver 1"
     ],
     [
-      "562a2c21-f1c1-4ac3-9af5-e507d40456b6",
+      "d5a23c28-2f7c-4976-b184-4f929bd0c020",
       "Motor Control - Driver 2"
     ],
     [
-      "cefe6783-5165-4a1b-b916-45b92bde9b1a",
+      "9021c4e7-168b-4ed8-a662-90a3e275396b",
       "Motor Control - Driver 3"
     ],
     [
-      "9ba22fda-44ed-4a78-88c6-6f1f5118f8ac",
+      "a4d9228c-8c90-40c0-9c9a-e7808c5633cb",
       "Motor Control - Driver 4"
     ],
     [
-      "44ca66a3-5617-4603-9eaa-9c0aa28ac206",
+      "5e300cbf-c3fa-4976-80ec-7b5fadd48d63",
       "Motor Control - Driver 5"
     ],
     [
-      "c0c4cf00-173c-4361-a560-4bdef3997f15",
+      "897e3a01-4b3f-47b5-94f3-49cb5f0c5930",
       "Motor Control - Driver 6"
     ],
     [
-      "55be744b-2a18-4ca6-a0e9-e31642d69656",
+      "c75ad973-12d7-494f-8091-680d3a317661",
       "Motor Control - Driver 7"
     ],
     [
-      "a6800a79-2ecf-46a9-b4ee-14267374841f",
+      "ffdb2cb4-0c4b-48b6-b3b2-1378e74f5a9f",
       "Motor Control - Driver 8"
     ],
     [
-      "02b026a5-0f4c-4926-8f36-aa217106acde",
+      "57caf331-c89d-4dae-b3a6-8e91a5930c2a",
       "Motor Control - Driver 9"
     ],
     [
-      "1a951eca-5629-44c4-a1d0-6beff66065b7",
+      "48af7f6b-9573-4b59-b702-3b4915b6dd35",
       "Motor Control - Driver 10"
     ],
     [
-      "27a0e806-140c-4020-91ff-6de24406393d",
+      "0784827e-ed98-40fc-820f-0249ca1a8dcd",
       "Motor Control - Driver 11"
     ],
     [
-      "7b1ae3fe-ccba-431f-ae82-7a1b9037a54e",
+      "c31b75ba-88ad-416e-b12b-9d5680974ea4",
       "Motor Control - Driver 12"
     ],
     [
-      "80055fdd-6478-4b30-a87c-df54dd685b26",
+      "2b692490-65ba-4e5c-ad74-3b4b37aac810",
       "Motor Control - Driver 13"
     ],
     [
-      "493dd341-9215-4dfb-b55c-e2f8c047a8bc",
+      "a6aba639-bbcc-44a8-b4b5-1ef68dae6acd",
       "Motor Control - Driver 14"
     ],
     [
-      "b6b5a1c6-d736-477a-889b-c396ef0ac451",
+      "e020fe98-ad4b-4353-b8a0-6ebe5b41bac4",
       "Motor Control - Driver 15"
     ],
     [
-      "7cc39261-42ce-4542-b781-263c0292ab42",
+      "ae77c557-88e3-4128-9a06-816f4d332f51",
       "Motor Control - Driver 16"
     ],
     [
-      "e63d8154-380b-4c6c-a96b-41e0b9aa91ec",
+      "f6975532-86bb-4635-8207-5b2911eb83a2",
       "Motor Control - Driver 17"
+    ],
+    [
+      "3722fec3-31cc-40ad-ba07-486a47003771",
+      "User - RGB LED Indicator"
     ],
     [
       "93c115ca-2823-4ddf-b830-32015e2ac9e9",
