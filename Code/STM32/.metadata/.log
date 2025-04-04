@@ -1,0 +1,19 @@
+!SESSION 2025-04-04 10:58:40.354 -----------------------------------------------
+eclipse.buildId=Version 1.18.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=fr_CH
+Framework arguments:  -keyring /Users/theoh/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/theoh/.eclipse_keyring -data /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-04 10:58:50.172
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-04 10:58:50.174
+!MESSAGE Log4j2 initialized with config file /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-04 10:58:54.351
+!MESSAGE Started RMI Server, listening on port 41338
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-04-04 11:02:18.635
+!MESSAGE Indexed 'PlumeSTM' (20 sources, 88 headers) in 5.34 sec: 6,799 declarations; 31,068 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0053%)

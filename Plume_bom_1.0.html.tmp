@@ -1,0 +1,761 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+<h2>KiBoM PCB Bill of Materials</h2>
+<table border="1">
+<tr><td>Source File</td><td>Plume.kicad_sch</td></tr>
+<tr><td>BoM Date</td><td>2025-04-04T14:04:46+0200</td></tr>
+<tr><td>Schematic Version</td><td>1.0</td></tr>
+<tr><td>Schematic Date</td><td>2025-02-16</td></tr>
+<tr><td>PCB Variant</td><td>default</td></tr>
+<tr><td>KiCad Version</td><td>Eeschema 9.0.0</td></tr>
+<tr><td>Component Groups</td><td>50</td></tr>
+<tr><td>Component Count (per PCB)</td><td>245</td></tr>
+<tr><td>Fitted Components (per PCB)</td><td>239</td></tr>
+<tr><td>Number of PCBs</td><td>1</td></tr>
+<tr><td>Total Component Count<br>(for 1 PCBs)</td><td>239</td></tr>
+</table>
+<br>
+<h2>Component Groups</h2>
+<p style="background-color: #FFE6B3">KiCad Fields (default)</p>
+<p style="background-color: #E6FFEE">Generated Fields</p>
+<p style="background-color: #E6F9FF">User Fields</p>
+<p style="background-color: #FF8080">Empty Fields</p>
+<table border="1">
+<tr>
+	<th></th>
+	<th align="center" bgcolor="#FFE6B3">Description</th>
+	<th align="center" bgcolor="#FFE6B3">Part</th>
+	<th align="center" bgcolor="#FFE6B3">References</th>
+	<th align="center" bgcolor="#FFE6B3">Value</th>
+	<th align="center" bgcolor="#FFE6B3">Footprint</th>
+	<th align="center" bgcolor="#E6FFEE">Quantity Per PCB</th>
+	<th align="center" bgcolor="#FFE6B3">Datasheet</th>
+	<th align="center" bgcolor="#E6F9FF">Manufacturer Part Number</th>
+	<th align="center" bgcolor="#E6F9FF">Supplier</th>
+	<th align="center" bgcolor="#E6F9FF">Manufacturer</th>
+	<th align="center" bgcolor="#E6F9FF">Supplier Part Number</th>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C401 C402 C502 C503 C601 C604 C605 C616 C701 C802 C1002 C1003 C1102 C1103 C1202 C1203 C1302 C1303 C1402 C1403 C1502 C1503 C1602 C1603 C1702 C1703 C1802 C1803 C1902 C1903 C2002 C2003 C2102 C2103 C2202 C2203 C2302 C2303 C2402 C2403 C2502 C2503 C2602 C2603 C2702 C2703 C2803</td>
+	<td align="center" bgcolor=#FFE6B3>100n X7R 16V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>47</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D">https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>CL05B104KO5VPNC</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Samsung Electro-Mechanics</td>
+	<td align="center" bgcolor=#E6F9FF>187-CL05B104KO5VPNC</td>
+</tr>
+<tr>
+	<td align="center">2</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C606 C609 C615</td>
+	<td align="center" bgcolor=#FFE6B3>10n C0G 25V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>3</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM1555C1E103JE01J?qs=d0WKAl%252BL4Kaf0f%252BHGWOwHQ%3D%3D">https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM1555C1E103JE01J?qs=d0WKAl%252BL4Kaf0f%252BHGWOwHQ%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>GRM1555C1E103JE01J</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Murata Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>81-GRM1555C1E103JE1J</td>
+</tr>
+<tr>
+	<td align="center">3</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C602 C703 C1001 C1101 C1201 C1301 C1401 C1501 C1601 C1701 C1801 C1901 C2001 C2101 C2201 C2301 C2401 C2501 C2601 C2701</td>
+	<td align="center" bgcolor=#FFE6B3>10u X5R 16V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>20</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM188R61C106MAALD?qs=hNud%2FORuBR3LEOKZ4RJp9w%3D%3D">https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM188R61C106MAALD?qs=hNud%2FORuBR3LEOKZ4RJp9w%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>GRM188R61C106MAALD</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Murata Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>81-GRM188R61C106MALD</td>
+</tr>
+<tr>
+	<td align="center">4</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C610</td>
+	<td align="center" bgcolor=#FFE6B3>150n X7R 25V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/TDK/CGA2B3X7R1E154K050BB?qs=xLDY6iXSiQa5a3ygyaobCg%3D%3D">https://www.mouser.ch/ProductDetail/TDK/CGA2B3X7R1E154K050BB?qs=xLDY6iXSiQa5a3ygyaobCg%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>CGA2B3X7R1E154K050BB</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>TDK</td>
+	<td align="center" bgcolor=#E6F9FF>810-CGA2B3X7R1E154KB</td>
+</tr>
+<tr>
+	<td align="center">5</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C2901</td>
+	<td align="center" bgcolor=#FFE6B3>1n X7R 1kV</td>
+	<td align="center" bgcolor=#FFE6B3>C_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/KEMET/C0603C102KDRACTU?qs=B0TNOcbsrWfl%252B1TgqaaQlQ%3D%3D">https://www.mouser.ch/ProductDetail/KEMET/C0603C102KDRACTU?qs=B0TNOcbsrWfl%252B1TgqaaQlQ%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>C0603C102KDRACTU</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>KEMET</td>
+	<td align="center" bgcolor=#E6F9FF>80-C0603C102KDRACTU</td>
+</tr>
+<tr>
+	<td align="center">6</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C603 C702 C801</td>
+	<td align="center" bgcolor=#FFE6B3>1u X7R 16V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>3</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/TDK/CGA3E1X7R1C105K080AC?qs=XHchNesRtUbBVNsGg9%252BP9g%3D%3D">https://www.mouser.ch/ProductDetail/TDK/CGA3E1X7R1C105K080AC?qs=XHchNesRtUbBVNsGg9%252BP9g%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>CGA3E1X7R1C105K080AC</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>TDK</td>
+	<td align="center" bgcolor=#E6F9FF>810-CGA3E1X7R1C105AC</td>
+</tr>
+<tr>
+	<td align="center">7</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C2801</td>
+	<td align="center" bgcolor=#FFE6B3>220n X7R 16V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM155R71C224KE02D?qs=hNud%2FORuBR2TiFN82N6AXQ%3D%3D">https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM155R71C224KE02D?qs=hNud%2FORuBR2TiFN82N6AXQ%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>GCM155R71C224KE02D</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Murata Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>81-GCM155R71C224KE2D</td>
+</tr>
+<tr>
+	<td align="center">8</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C608 C614</td>
+	<td align="center" bgcolor=#FFE6B3>22n X7R 25V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>2</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM155R71E223KA55D?qs=QDXoN8f0aYJ3xbAG%252B51q9g%3D%3D">https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM155R71E223KA55D?qs=QDXoN8f0aYJ3xbAG%252B51q9g%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>GCM155R71E223KA55D</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Murata Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>81-GCM155R71E223KA5D</td>
+</tr>
+<tr>
+	<td align="center">9</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C611</td>
+	<td align="center" bgcolor=#FFE6B3>2n2 X7R 25V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/TAIYO-YUDEN/TMF105B7222KVHF?qs=%252B6g0mu59x7L2OaVQBnCjqw%3D%3D">https://www.mouser.ch/ProductDetail/TAIYO-YUDEN/TMF105B7222KVHF?qs=%252B6g0mu59x7L2OaVQBnCjqw%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>TMF105B7222KVHF</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>TAIYO YUDEN</td>
+	<td align="center" bgcolor=#E6F9FF>963-TMF105B7222KVHF</td>
+</tr>
+<tr>
+	<td align="center">10</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C2802 C2804</td>
+	<td align="center" bgcolor=#FFE6B3>2u2 X7R 16V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>2</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM188Z71C225KE43D?qs=Ey7%2FXF42M3cR7ECLHyzpoA%3D%3D">https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM188Z71C225KE43D?qs=Ey7%2FXF42M3cR7ECLHyzpoA%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>GRM188Z71C225KE43D</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Murata Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>81-GRM188Z71C225KE3D</td>
+</tr>
+<tr>
+	<td align="center">11</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C612</td>
+	<td align="center" bgcolor=#FFE6B3>390pF X7R 25V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Vishay-Vitramon/VJ0402Y391JXXCW1BC?qs=f5fGhOx873TBeKjaAqsdYg%3D%3D">https://www.mouser.ch/ProductDetail/Vishay-Vitramon/VJ0402Y391JXXCW1BC?qs=f5fGhOx873TBeKjaAqsdYg%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>VJ0402Y391JXXCW1BC</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Vishay / Vitramon</td>
+	<td align="center" bgcolor=#E6F9FF>77-VJ0402Y391JXXCBC</td>
+</tr>
+<tr>
+	<td align="center">12</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C607 C613</td>
+	<td align="center" bgcolor=#FFE6B3>470n X7R 25V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>2</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM188R71E474KA64D?qs=aEuGZpxfbxVE%252B0sib7R1rQ%3D%3D">https://www.mouser.ch/ProductDetail/Murata-Electronics/GCM188R71E474KA64D?qs=aEuGZpxfbxVE%252B0sib7R1rQ%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>GCM188R71E474KA64D</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Murata Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>81-GCM188R71E474KA4D</td>
+</tr>
+<tr>
+	<td align="center">13</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C403 C501 C504</td>
+	<td align="center" bgcolor=#FFE6B3>4u7 X7R 16V</td>
+	<td align="center" bgcolor=#FFE6B3>C_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>3</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM188Z71C475KE21D?qs=d0WKAl%252BL4KajNOvalhHKtQ%3D%3D">https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM188Z71C475KE21D?qs=d0WKAl%252BL4KajNOvalhHKtQ%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>GRM188Z71C475KE21D</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Murata Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>81-GRM188Z71C475KE1D</td>
+</tr>
+<tr>
+	<td align="center">14</td>
+	<td align="center" bgcolor=#FFE6B3>ESD Protection Diodes / TVS Diodes Quad 4.5-pF 3.6-V +/-30-kV ESD protect</td>
+	<td align="center" bgcolor=#FFE6B3>ESDS314</td>
+	<td align="center" bgcolor=#FFE6B3>D401</td>
+	<td align="center" bgcolor=#FFE6B3>ESDS314</td>
+	<td align="center" bgcolor=#FFE6B3>SOT-23-5</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.ti.com/lit/ds/symlink/esds314.pdf?ts=1743702062530&ref_url=https%253A%252F%252Fwww.mouser.ch%252F">https://www.ti.com/lit/ds/symlink/esds314.pdf?ts=1743702062530&ref_url=https%253A%252F%252Fwww.mouser.ch%252F</a></td>
+	<td align="center" bgcolor=#E6F9FF>ESDS314DBVR</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-ESDS314DBVR</td>
+</tr>
+<tr>
+	<td align="center">15</td>
+	<td align="center" bgcolor=#FFE6B3>RGB LED with integrated controller</td>
+	<td align="center" bgcolor=#FFE6B3>WS2812B</td>
+	<td align="center" bgcolor=#FFE6B3>D2801</td>
+	<td align="center" bgcolor=#FFE6B3>IN-PI22TAT5R5G5B</td>
+	<td align="center" bgcolor=#FFE6B3>INPI22TAT5R5G5B</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.inolux-corp.com/datasheet/SMDLED/Addressable%20LED/IN-PI22TAT5R5G5B_v1.2.pdf">https://www.inolux-corp.com/datasheet/SMDLED/Addressable%20LED/IN-PI22TAT5R5G5B_v1.2.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>IN-PI22TAT5R5G5B</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Inolux</td>
+	<td align="center" bgcolor=#E6F9FF>743-IN-PI22TAT5R5G5B</td>
+</tr>
+<tr>
+	<td align="center">16</td>
+	<td align="center" bgcolor=#FFE6B3>Schottky diode</td>
+	<td align="center" bgcolor=#FFE6B3>D_Schottky</td>
+	<td align="center" bgcolor=#FFE6B3>D701</td>
+	<td align="center" bgcolor=#FFE6B3>Schottky 1N5819W</td>
+	<td align="center" bgcolor=#FFE6B3>Nexperia_CFP3_SOD-123W</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://assets.nexperia.com/documents/data-sheet/PMEG60T20ELR.pdf">https://assets.nexperia.com/documents/data-sheet/PMEG60T20ELR.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>PMEG60T20ELRX</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Nexperia</td>
+	<td align="center" bgcolor=#E6F9FF>771-PMEG60T20ELRX</td>
+</tr>
+<tr>
+	<td align="center">17</td>
+	<td align="center" bgcolor=#FFE6B3>Zener diode</td>
+	<td align="center" bgcolor=#FFE6B3>D_Zener</td>
+	<td align="center" bgcolor=#FFE6B3>D601</td>
+	<td align="center" bgcolor=#FFE6B3>TVS SMF5.0A</td>
+	<td align="center" bgcolor=#FFE6B3>D_SOD-123FL</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.littelfuse.com/assetdocs/tvs-diodes-smf-datasheet?assetguid=7EB8A5B6-BDD0-4561-8F19-0C3CC6F9B2AF">https://www.littelfuse.com/assetdocs/tvs-diodes-smf-datasheet?assetguid=7EB8A5B6-BDD0-4561-8F19-0C3CC6F9B2AF</a></td>
+	<td align="center" bgcolor=#E6F9FF>SMF5.0A</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Littelfuse</td>
+	<td align="center" bgcolor=#E6F9FF>576-SMF5.0A</td>
+</tr>
+<tr>
+	<td align="center">18</td>
+	<td align="center" bgcolor=#FFE6B3>2-A Brushed DC Motor Driver with Ripple Counting, Stall Detection, and Speed Regulation</td>
+	<td align="center" bgcolor=#FFE6B3>DRV8214RTER</td>
+	<td align="center" bgcolor=#FFE6B3>IC1001 IC1101 IC1201 IC1301 IC1401 IC1501 IC1601 IC1701 IC1801 IC1901 IC2001 IC2101 IC2201 IC2301 IC2401 IC2501 IC2601 IC2701</td>
+	<td align="center" bgcolor=#FFE6B3>DRV8214RTER</td>
+	<td align="center" bgcolor=#FFE6B3>WQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm_ThermalVias</td>
+	<td align="center" bgcolor=#E6FFEE>18</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.ti.com/lit/ds/symlink/drv8214.pdf?ts=1743082368801">https://www.ti.com/lit/ds/symlink/drv8214.pdf?ts=1743082368801</a></td>
+	<td align="center" bgcolor=#E6F9FF>DRV8214RTER</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-DRV8214RTER</td>
+</tr>
+<tr>
+	<td align="center">19</td>
+	<td align="center" bgcolor=#FFE6B3>60-mA, 5.0-V, Buck/Boost Charge Pump in ThinSOT-23</td>
+	<td align="center" bgcolor=#FFE6B3>REG71050DRVT</td>
+	<td align="center" bgcolor=#FFE6B3>IC2802</td>
+	<td align="center" bgcolor=#FFE6B3>REG71050DRVT</td>
+	<td align="center" bgcolor=#FFE6B3>WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.ti.com/lit/ds/symlink/reg71050.pdf?ts=1743455923124">https://www.ti.com/lit/ds/symlink/reg71050.pdf?ts=1743455923124</a></td>
+	<td align="center" bgcolor=#E6F9FF>REG71050DRVR</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-REG71050DRVR</td>
+</tr>
+<tr>
+	<td align="center">20</td>
+	<td align="center" bgcolor=#FFE6B3>Single Bus Buffer Gate With 3-State Output</td>
+	<td align="center" bgcolor=#FFE6B3>SN74AHCT1G125DRLR</td>
+	<td align="center" bgcolor=#FFE6B3>IC2801</td>
+	<td align="center" bgcolor=#FFE6B3>SN74AHCT1G125DRLR</td>
+	<td align="center" bgcolor=#FFE6B3>SOT-553</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.ti.com/lit/ds/symlink/sn74ahct1g125.pdf?ts=1743406415648&ref_url=https%253A%252F%252Fwww.mouser.it%252F">https://www.ti.com/lit/ds/symlink/sn74ahct1g125.pdf?ts=1743406415648&ref_url=https%253A%252F%252Fwww.mouser.it%252F</a></td>
+	<td align="center" bgcolor=#E6F9FF>SN74AHCT1G125DRLR</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-SN74AHCT1G125DRL</td>
+</tr>
+<tr>
+	<td align="center">21</td>
+	<td align="center" bgcolor=#FFE6B3>USB Power-Only 6P Type-C Receptacle connector</td>
+	<td align="center" bgcolor=#FFE6B3>USB_C_Receptacle_PowerOnly_6P</td>
+	<td align="center" bgcolor=#FFE6B3>J601</td>
+	<td align="center" bgcolor=#FFE6B3>USB_C_Receptacle_PowerOnly_6P</td>
+	<td align="center" bgcolor=#FFE6B3>USB4125-GF-A</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.usb.org/sites/default/files/documents/usb_type-c.zip">https://www.usb.org/sites/default/files/documents/usb_type-c.zip</a></td>
+	<td align="center" bgcolor=#E6F9FF>USB4125-GF-A</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>GCT</td>
+	<td align="center" bgcolor=#E6F9FF>640-USB4125-GF-A</td>
+</tr>
+<tr>
+	<td align="center">22</td>
+	<td align="center" bgcolor=#FFE6B3>Single Colour LEDs 0603 Dome Lens LED Blue- 465nm</td>
+	<td align="center" bgcolor=#FFE6B3>SM1206SRC</td>
+	<td align="center" bgcolor=#FFE6B3>LED1001 LED1101 LED1201 LED1301 LED1401 LED1501 LED1601 LED1701 LED1801 LED1901 LED2001 LED2101 LED2201 LED2301 LED2401 LED2501 LED2601 LED2701</td>
+	<td align="center" bgcolor=#FFE6B3>BLUE</td>
+	<td align="center" bgcolor=#FFE6B3>KingBright_LED_0603</td>
+	<td align="center" bgcolor=#E6FFEE>18</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/datasheet/2/216/APTD1608LQBC_D-1102154.pdf">https://www.mouser.ch/datasheet/2/216/APTD1608LQBC_D-1102154.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>APTD1608LQBC/D</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Kingbright</td>
+	<td align="center" bgcolor=#E6F9FF>604-APTD1608LQBCD</td>
+</tr>
+<tr>
+	<td align="center">23</td>
+	<td align="center" bgcolor=#FFE6B3>DEL monochromes Green Water Clear 570nm 120deg</td>
+	<td align="center" bgcolor=#FFE6B3>SM1206SRC</td>
+	<td align="center" bgcolor=#FFE6B3>LED501</td>
+	<td align="center" bgcolor=#FFE6B3>GREEN</td>
+	<td align="center" bgcolor=#FFE6B3>KingBright_LED_0603</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/datasheet/2/216/APT1608CGCK-24002.pdf">https://www.mouser.ch/datasheet/2/216/APT1608CGCK-24002.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>APT1608CGCK</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Kingbright</td>
+	<td align="center" bgcolor=#E6F9FF>604-APT1608CGCK</td>
+</tr>
+<tr>
+	<td align="center">24</td>
+	<td align="center" bgcolor=#FFE6B3>DEL monochromes Super Red 660nm Water Clear</td>
+	<td align="center" bgcolor=#FFE6B3>SM1206SRC</td>
+	<td align="center" bgcolor=#FFE6B3>LED601</td>
+	<td align="center" bgcolor=#FFE6B3>RED</td>
+	<td align="center" bgcolor=#FFE6B3>Bivar_LED_0603</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/datasheet/2/50/SM0603SRC-3001759.pdf">https://www.mouser.ch/datasheet/2/50/SM0603SRC-3001759.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>SM0603SRC</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Bivar</td>
+	<td align="center" bgcolor=#E6F9FF>749-SM0603SRC</td>
+</tr>
+<tr>
+	<td align="center">25</td>
+	<td align="center" bgcolor=#FFE6B3>MOSFET Dual P-CH NexFET Pwr MOSFET</td>
+	<td align="center" bgcolor=#FFE6B3>CSD75207W15</td>
+	<td align="center" bgcolor=#FFE6B3>Q601</td>
+	<td align="center" bgcolor=#FFE6B3>CSD75207W15</td>
+	<td align="center" bgcolor=#FFE6B3>Texas_DSBGA-9_1.62x1.58mm_Layout3x3_P0.5mm</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.ti.com/lit/ds/symlink/csd75207w15.pdf?ts=1743083254353&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FCSD75207W15">https://www.ti.com/lit/ds/symlink/csd75207w15.pdf?ts=1743083254353&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FCSD75207W15</a></td>
+	<td align="center" bgcolor=#E6F9FF>CSD75207W15</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-CSD75207W15</td>
+</tr>
+<tr>
+	<td align="center">26</td>
+	<td align="center" bgcolor=#FFE6B3>20V, N ch NexFET MOSFET, dual common drain LGA 1.35x1.35, 24mOhm</td>
+	<td align="center" bgcolor=#FFE6B3>CSD85302L</td>
+	<td align="center" bgcolor=#FFE6B3>Q502</td>
+	<td align="center" bgcolor=#FFE6B3>CSD85302L</td>
+	<td align="center" bgcolor=#FFE6B3>CSD85302L</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="http://www.ti.com/lit/ds/symlink/csd85302l.pdf">http://www.ti.com/lit/ds/symlink/csd85302l.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>CSD85302L</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-CSD85302L</td>
+</tr>
+<tr>
+	<td align="center">27</td>
+	<td align="center" bgcolor=#FFE6B3>MOSFETs MOSFT 5.0A 29mOhm 30V 2.5V drv capable</td>
+	<td align="center" bgcolor=#FFE6B3>Q_NMOS_Depletion_GSD</td>
+	<td align="center" bgcolor=#FFE6B3>Q501</td>
+	<td align="center" bgcolor=#FFE6B3>NMOS IRLML6344TRPBF SOT-23</td>
+	<td align="center" bgcolor=#FFE6B3>SOT-23</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/datasheet/2/196/Infineon_IRLML6344_DataSheet_v01_01_EN-3363406.pdf">https://www.mouser.ch/datasheet/2/196/Infineon_IRLML6344_DataSheet_v01_01_EN-3363406.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>IRLML6344TRPBF</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Infineon Technologies</td>
+	<td align="center" bgcolor=#E6F9FF>942-IRLML6344TRPBF</td>
+</tr>
+<tr>
+	<td align="center">28</td>
+	<td align="center" bgcolor=#FFE6B3>P-MOSFET transistor, gate/source/drain</td>
+	<td align="center" bgcolor=#FFE6B3>Q_PMOS_GSD</td>
+	<td align="center" bgcolor=#FFE6B3>Q701</td>
+	<td align="center" bgcolor=#FFE6B3>PMOS SI2365EDS-T1-GE3</td>
+	<td align="center" bgcolor=#FFE6B3>SOT-23-3</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.vishay.com/docs/63199/si2365eds.pdf">https://www.vishay.com/docs/63199/si2365eds.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>SI2365EDS-T1-GE3</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Vishay Semiconductors</td>
+	<td align="center" bgcolor=#E6F9FF>78-SI2365EDS-T1-GE3</td>
+</tr>
+<tr>
+	<td align="center">29</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R</td>
+	<td align="center" bgcolor=#FFE6B3>R2901</td>
+	<td align="center" bgcolor=#FFE6B3>0R 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/YAGEO/RC0603FR-100RL?qs=gY0y7AQI9SNjcfwXbqIKbg%3D%3D">https://www.mouser.ch/ProductDetail/YAGEO/RC0603FR-100RL?qs=gY0y7AQI9SNjcfwXbqIKbg%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>RC0603FR-100RL</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>YAGEO</td>
+	<td align="center" bgcolor=#E6F9FF>603-RC0603FR-100RL</td>
+</tr>
+<tr>
+	<td align="center">30</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R509 R701 R801 R1003 R1103 R1203 R1303 R1403 R1503 R1603 R1703 R1803 R1903 R2003 R2103 R2203 R2303 R2403 R2503 R2603 R2703 R2801</td>
+	<td align="center" bgcolor=#FFE6B3>100k 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>22</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Panasonic/ERJ-2RKF1003X?qs=H7k1u0Mp9JQnXoBKdf15Qg%3D%3D&srsltid=AfmBOoqeXQAkmmFNUQ00LBqf1Lst2nRPq23Re-qHGOP3a-hhvFcsdLLw&_gl=1*hxzi37*_ga*MjY0ODgyOTc1LjE3NDM2NjQzNDc.*_ga_15W4STQT4T*MTc0MzY4Mzk2Ny42LjEuMTc0MzY4NDYzMy41Mi4wLjA.">https://www.mouser.ch/ProductDetail/Panasonic/ERJ-2RKF1003X?qs=H7k1u0Mp9JQnXoBKdf15Qg%3D%3D&srsltid=AfmBOoqeXQAkmmFNUQ00LBqf1Lst2nRPq23Re-qHGOP3a-hhvFcsdLLw&_gl=1*hxzi37*_ga*MjY0ODgyOTc1LjE3NDM2NjQzNDc.*_ga_15W4STQT4T*MTc0MzY4Mzk2Ny42LjEuMTc0MzY4NDYzMy41Mi4wLjA.</a></td>
+	<td align="center" bgcolor=#E6F9FF>ERJ-2RKF1003X</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Panasonic</td>
+	<td align="center" bgcolor=#E6F9FF>667-ERJ-2RKF1003X</td>
+</tr>
+<tr>
+	<td align="center">31</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R503 R605 R606 R608</td>
+	<td align="center" bgcolor=#FFE6B3>10k 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>4</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTPB1002F?qs=sGAEpiMZZMvdGkrng054t65cMycmke1dK22GtXiM9hM%3D">https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTPB1002F?qs=sGAEpiMZZMvdGkrng054t65cMycmke1dK22GtXiM9hM%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>RK73H1ETTPB1002F</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>KOA Speer</td>
+	<td align="center" bgcolor=#E6F9FF>660-RK73H1ETTPB1002F</td>
+</tr>
+<tr>
+	<td align="center">32</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R604 R607</td>
+	<td align="center" bgcolor=#FFE6B3>196R 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>2</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/Vishay-Dale/CRCW0402196RFKED?qs=9Aka%2FNDvCXC%2FtFusjSrxBQ%3D%3D">https://www.mouser.ch/ProductDetail/Vishay-Dale/CRCW0402196RFKED?qs=9Aka%2FNDvCXC%2FtFusjSrxBQ%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>CRCW0402196RFKED</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Vishay / Dale</td>
+	<td align="center" bgcolor=#E6F9FF>71-CRCW0402196RFKED</td>
+</tr>
+<tr>
+	<td align="center">33</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R403 R404</td>
+	<td align="center" bgcolor=#FFE6B3>22R 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>2</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP22R0F?qs=sGAEpiMZZMvdGkrng054t3pr%252BPE%2FADjsS0BXRqkxQW4%3D">https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP22R0F?qs=sGAEpiMZZMvdGkrng054t3pr%252BPE%2FADjsS0BXRqkxQW4%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>RK73H1ETTP22R0F</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>KOA Speer</td>
+	<td align="center" bgcolor=#E6F9FF>660-RK73H1ETTP22R0F</td>
+</tr>
+<tr>
+	<td align="center">34</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R504</td>
+	<td align="center" bgcolor=#FFE6B3>2k2 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP2201F?qs=oI046glRuruobG9rEu19Sw%3D%3D">https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP2201F?qs=oI046glRuruobG9rEu19Sw%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>RK73H1ETTP2201F</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>KOA Speer</td>
+	<td align="center" bgcolor=#E6F9FF>660-RK73H1ETTP2201F</td>
+</tr>
+<tr>
+	<td align="center">35</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R401 R501 R505 R1002 R1102 R1202 R1302 R1402 R1502 R1602 R1702 R1802 R1902 R2002 R2102 R2202 R2302 R2402 R2502 R2602 R2702</td>
+	<td align="center" bgcolor=#FFE6B3>330R 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>21</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3300F?qs=4CJzfoelV6C3hCuuGB%2F5LQ%3D%3D&srsltid=AfmBOorFAV_r3n_ZHqFVSt1AMVARFA_bDei9_5k8eMPO8TmLocPZiwb0">https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3300F?qs=4CJzfoelV6C3hCuuGB%2F5LQ%3D%3D&srsltid=AfmBOorFAV_r3n_ZHqFVSt1AMVARFA_bDei9_5k8eMPO8TmLocPZiwb0</a></td>
+	<td align="center" bgcolor=#E6F9FF>RK73H1ETTP3300F</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>KOA Speer</td>
+	<td align="center" bgcolor=#E6F9FF>660-RK73H1ETTP3300F</td>
+</tr>
+<tr>
+	<td align="center">36</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R502 R802 R803 R804 R805 R806 R807 R808 R809 R810 R811</td>
+	<td align="center" bgcolor=#FFE6B3>3k 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>11</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D">https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>RK73H1ETTP3001F</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>KOA Speer</td>
+	<td align="center" bgcolor=#E6F9FF>660-RK73H1ETTP3001F</td>
+</tr>
+<tr>
+	<td align="center">37</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R506 R507</td>
+	<td align="center" bgcolor=#FFE6B3>4M99 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>2</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP4994F?qs=v3ImdA%2FOTSQZBfUeBz4Q8A%3D%3D">https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP4994F?qs=v3ImdA%2FOTSQZBfUeBz4Q8A%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>RK73H1ETTP4994F</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>KOA Speer</td>
+	<td align="center" bgcolor=#E6F9FF>660-RK73H1ETTP4994F</td>
+</tr>
+<tr>
+	<td align="center">38</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R402 R508 R602 R603</td>
+	<td align="center" bgcolor=#FFE6B3>5k1 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>4</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP5101F?qs=0Mn4dg0AsPAhhJD1ZsgV0Q%3D%3D&srsltid=AfmBOoqlgsDPuKTchPRH-fZtMSDZqsrmJOVdtl0pU-Ms62Fblyc-kJP3">https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP5101F?qs=0Mn4dg0AsPAhhJD1ZsgV0Q%3D%3D&srsltid=AfmBOoqlgsDPuKTchPRH-fZtMSDZqsrmJOVdtl0pU-Ms62Fblyc-kJP3</a></td>
+	<td align="center" bgcolor=#E6F9FF>RK73H1ETTP5101F</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>KOA Speer</td>
+	<td align="center" bgcolor=#E6F9FF>660-RK73H1ETTP5101F</td>
+</tr>
+<tr>
+	<td align="center">39</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R_Small</td>
+	<td align="center" bgcolor=#FFE6B3>R601 R1001 R1101 R1201 R1301 R1401 R1501 R1601 R1701 R1801 R1901 R2001 R2101 R2201 R2301 R2401 R2501 R2601 R2701</td>
+	<td align="center" bgcolor=#FFE6B3>680R 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0402_1005Metric</td>
+	<td align="center" bgcolor=#E6FFEE>19</td>
+	<td align="center" bgcolor=#FF8080>~</td>
+	<td align="center" bgcolor=#FF8080></td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#FF8080></td>
+	<td align="center" bgcolor=#FF8080></td>
+</tr>
+<tr>
+	<td align="center">40</td>
+	<td align="center" bgcolor=#FFE6B3>Slide Switches Dual SPDT, ON-ON, slide, J-hook SMD terminals, 100mA @ 6V DC, T&R packaging, non-washable without seal tape</td>
+	<td align="center" bgcolor=#FFE6B3>CAS-D20A1</td>
+	<td align="center" bgcolor=#FFE6B3>SW403</td>
+	<td align="center" bgcolor=#FFE6B3>CAS-D20A1</td>
+	<td align="center" bgcolor=#FFE6B3>CAS-D2xx</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/datasheet/2/972/cas-1628136.pdf">https://www.mouser.ch/datasheet/2/972/cas-1628136.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>CAS-D20TA1</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Nidec Components</td>
+	<td align="center" bgcolor=#E6F9FF>229-CAS-D20TA1</td>
+</tr>
+<tr>
+	<td align="center">41</td>
+	<td align="center" bgcolor=#FFE6B3>Tactile Switches SMT Micro Miniature Tactile Switch with 1.9 mm Height Actuator</td>
+	<td align="center" bgcolor=#FFE6B3>KMR2_series</td>
+	<td align="center" bgcolor=#FFE6B3>SW401 SW402 SW404 SW405 SW406 SW407</td>
+	<td align="center" bgcolor=#FFE6B3>KMR232NG ULC</td>
+	<td align="center" bgcolor=#FFE6B3>KMR232NGULCLFS</td>
+	<td align="center" bgcolor=#E6FFEE>6</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.ckswitches.com/media/1479/kmr2.pdf">https://www.ckswitches.com/media/1479/kmr2.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>KMR232NG ULC LFS</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>C&K</td>
+	<td align="center" bgcolor=#E6F9FF>611-KMR232NGULCLFS</td>
+</tr>
+<tr>
+	<td align="center">42</td>
+	<td align="center" bgcolor=#FFE6B3>Voltage and Current Protection for Single-Cell Li-Ion and Li-Polymer Batteries</td>
+	<td align="center" bgcolor=#FFE6B3>BQ297xy</td>
+	<td align="center" bgcolor=#FFE6B3>U501</td>
+	<td align="center" bgcolor=#FFE6B3>BQ29737DSER</td>
+	<td align="center" bgcolor=#FFE6B3>WSON-6_1.5x1.5mm_P0.5mm</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="http://www.ti.com/lit/ds/symlink/bq2970.pdf">http://www.ti.com/lit/ds/symlink/bq2970.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>BQ29737DSER</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-BQ29737DSER</td>
+</tr>
+<tr>
+	<td align="center">43</td>
+	<td align="center" bgcolor=#FFE6B3>Automotive Highly Integrated Wireless Receiver Qi (WPC v2.0) Compliant Power Supply</td>
+	<td align="center" bgcolor=#FFE6B3>BQ51013CQWRHLRQ1</td>
+	<td align="center" bgcolor=#FFE6B3>U601</td>
+	<td align="center" bgcolor=#FFE6B3>BQ51013CQWRHLRQ1</td>
+	<td align="center" bgcolor=#FFE6B3>BQ51013CQWRHLRQ1</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.ti.com/lit/ds/symlink/bq51013c-q1.pdf?ts=1743674074917&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FBQ51013C-Q1">https://www.ti.com/lit/ds/symlink/bq51013c-q1.pdf?ts=1743674074917&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FBQ51013C-Q1</a></td>
+	<td align="center" bgcolor=#E6F9FF>BQ51013CQWRHLRQ1</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-BQ51013CQWRHLRQ1</td>
+</tr>
+<tr>
+	<td align="center">44</td>
+	<td align="center" bgcolor=#FFE6B3>Miniature Single-Cell, Fully Integrated Li-Ion, Li-Polymer Charge Management Controllers</td>
+	<td align="center" bgcolor=#FFE6B3>MCP73831T-2ACI/MC</td>
+	<td align="center" bgcolor=#FFE6B3>U502</td>
+	<td align="center" bgcolor=#FFE6B3>MCP73831T-2ACI/MC</td>
+	<td align="center" bgcolor=#FFE6B3>DFN_2x3mm</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/datasheet/2/268/MCP73831_Family_Data_Sheet_DS20001984H-3441711.pdf">https://www.mouser.ch/datasheet/2/268/MCP73831_Family_Data_Sheet_DS20001984H-3441711.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>MCP73831T-2ACI/MC</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Microchip Technology</td>
+	<td align="center" bgcolor=#E6F9FF>579-MCP73831T-2ACIMC</td>
+</tr>
+<tr>
+	<td align="center">45</td>
+	<td align="center" bgcolor=#FFE6B3>CI commutateur - Divers 4-Channel I2C and SM Bus</td>
+	<td align="center" bgcolor=#FFE6B3>TCA9546APWR</td>
+	<td align="center" bgcolor=#FFE6B3>U801</td>
+	<td align="center" bgcolor=#FFE6B3>PCA9546ARGVR</td>
+	<td align="center" bgcolor=#FFE6B3>Texas_RSA_VQFN-16-1EP_4x4mm_P0.65mm_EP2.16x2.16mm</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.ti.com/lit/ds/symlink/tca9546a.pdf?ts=1743075200620&ref_url=https%253A%252F%252Fwww.google.com%252F">https://www.ti.com/lit/ds/symlink/tca9546a.pdf?ts=1743075200620&ref_url=https%253A%252F%252Fwww.google.com%252F</a></td>
+	<td align="center" bgcolor=#E6F9FF>PCA9546ARGVR</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-PCA9546ARGVR</td>
+</tr>
+<tr>
+	<td align="center">46</td>
+	<td align="center" bgcolor=#FFE6B3>ST Microelectronics STM32WB55VG ARM Cortex Bluetooth Low Energy 5.0, Zigbee and 802.15.4 module, 1 MB Flash, 256kb RAM, Fully integrated BOM</td>
+	<td align="center" bgcolor=#FFE6B3>STM32WB5MMG</td>
+	<td align="center" bgcolor=#FFE6B3>U401</td>
+	<td align="center" bgcolor=#FFE6B3>STM32WB5MMGH6TR</td>
+	<td align="center" bgcolor=#FFE6B3>ST-SiP-LGA-86-11x7.3mm</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.st.com/resource/en/datasheet/stm32wb5mmg.pdf">https://www.st.com/resource/en/datasheet/stm32wb5mmg.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>STM32WB5MMGH6TR</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>STMicroelectronics</td>
+	<td align="center" bgcolor=#E6F9FF>511-STM32WB5MMGH6TR</td>
+</tr>
+<tr>
+	<td align="center">47</td>
+	<td align="center" bgcolor=#FFE6B3>150-nA, Ultralow Power, Supply Voltage Monitor, X2SON-4</td>
+	<td align="center" bgcolor=#FFE6B3>TPS3839DQN</td>
+	<td align="center" bgcolor=#FFE6B3>U701</td>
+	<td align="center" bgcolor=#FFE6B3>TPS3839G33DQNR</td>
+	<td align="center" bgcolor=#FFE6B3>Texas_X2SON-4_1x1mm_P0.65mm</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="http://www.ti.com/lit/ds/sbvs193d/sbvs193d.pdf">http://www.ti.com/lit/ds/sbvs193d/sbvs193d.pdf</a></td>
+	<td align="center" bgcolor=#E6F9FF>TPS3839G33DQNR</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-TPS3839G33DQNR</td>
+</tr>
+<tr>
+	<td align="center">48</td>
+	<td align="center" bgcolor=#FFE6B3>LDO Voltage Regulators 200mA nanopower-IQ (25 nA) low-dropout</td>
+	<td align="center" bgcolor=#FFE6B3>TPS7A20xxxDQN</td>
+	<td align="center" bgcolor=#FFE6B3>U702</td>
+	<td align="center" bgcolor=#FFE6B3>TPS7A0233DQNR</td>
+	<td align="center" bgcolor=#FFE6B3>Texas_X2SON-4_1x1mm_P0.65mm</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.ti.com/lit/ds/symlink/tps7a02.pdf?ts=1743627981847&ref_url=https%253A%252F%252Fcz.mouser.com%252F">https://www.ti.com/lit/ds/symlink/tps7a02.pdf?ts=1743627981847&ref_url=https%253A%252F%252Fcz.mouser.com%252F</a></td>
+	<td align="center" bgcolor=#E6F9FF>TPS7A0233DQNR</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>Texas Instruments</td>
+	<td align="center" bgcolor=#E6F9FF>595-TPS7A0233DQNR</td>
+</tr>
+</table>
+<br><br>
+<h2>Optional components (DNF=Do Not Fit)</h2>
+<table border="1">
+<tr>
+	<th></th>
+	<th align="center" bgcolor="#FFE6B3">Description</th>
+	<th align="center" bgcolor="#FFE6B3">Part</th>
+	<th align="center" bgcolor="#FFE6B3">References</th>
+	<th align="center" bgcolor="#FFE6B3">Value</th>
+	<th align="center" bgcolor="#FFE6B3">Footprint</th>
+	<th align="center" bgcolor="#E6FFEE">Quantity Per PCB</th>
+	<th align="center" bgcolor="#FFE6B3">Datasheet</th>
+	<th align="center" bgcolor="#E6F9FF">Manufacturer Part Number</th>
+	<th align="center" bgcolor="#E6F9FF">Supplier</th>
+	<th align="center" bgcolor="#E6F9FF">Manufacturer</th>
+	<th align="center" bgcolor="#E6F9FF">Supplier Part Number</th>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center" bgcolor=#FFE6B3>Unpolarized capacitor</td>
+	<td align="center" bgcolor=#FFE6B3>C_Small</td>
+	<td align="center" bgcolor=#FFE6B3>C2902 C2903 C2904</td>
+	<td align="center" bgcolor=#FFE6B3>1n X7R 1kV</td>
+	<td align="center" bgcolor=#FFE6B3>C_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>3 (DNF)</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/KEMET/C0603C102KDRACTU?qs=B0TNOcbsrWfl%252B1TgqaaQlQ%3D%3D">https://www.mouser.ch/ProductDetail/KEMET/C0603C102KDRACTU?qs=B0TNOcbsrWfl%252B1TgqaaQlQ%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>C0603C102KDRACTU</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>KEMET</td>
+	<td align="center" bgcolor=#E6F9FF>80-C0603C102KDRACTU</td>
+</tr>
+<tr>
+	<td align="center">2</td>
+	<td align="center" bgcolor=#FFE6B3>Resistor</td>
+	<td align="center" bgcolor=#FFE6B3>R</td>
+	<td align="center" bgcolor=#FFE6B3>R2902 R2903 R2904</td>
+	<td align="center" bgcolor=#FFE6B3>0R 1%</td>
+	<td align="center" bgcolor=#FFE6B3>R_0603_1608Metric</td>
+	<td align="center" bgcolor=#E6FFEE>3 (DNF)</td>
+	<td align="center" bgcolor=#FFE6B3><a href="https://www.mouser.ch/ProductDetail/YAGEO/RC0603FR-100RL?qs=gY0y7AQI9SNjcfwXbqIKbg%3D%3D">https://www.mouser.ch/ProductDetail/YAGEO/RC0603FR-100RL?qs=gY0y7AQI9SNjcfwXbqIKbg%3D%3D</a></td>
+	<td align="center" bgcolor=#E6F9FF>RC0603FR-100RL</td>
+	<td align="center" bgcolor=#E6F9FF>Mouser Electronics</td>
+	<td align="center" bgcolor=#E6F9FF>YAGEO</td>
+	<td align="center" bgcolor=#E6F9FF>603-RC0603FR-100RL</td>
+</tr>
+</table>
+<br><br>
+</body></html>

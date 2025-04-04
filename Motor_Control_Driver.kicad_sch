@@ -1438,6 +1438,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 173.99) (xy 46.99 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48cd8ed7-43ed-477d-977b-8f3ac8be56c7")
+	)
+	(wire
+		(pts
 			(xy 189.23 105.41) (xy 189.23 107.95)
 		)
 		(stroke
@@ -1596,6 +1606,16 @@
 			(type default)
 		)
 		(uuid "790b6363-8294-45b8-b905-b5a44d160a00")
+	)
+	(wire
+		(pts
+			(xy 31.75 179.07) (xy 46.99 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "806d33b2-056a-4f9d-b041-1fe2f41a70bf")
 	)
 	(wire
 		(pts
@@ -18691,7 +18711,97 @@
 			"OWFTdURTd1VNcDFlTnlsTy9CWjdhRHBReFR4N1VRa25nSkNmVVdaUHZsRHVYeWJGWWJKNkJ6Y1My"
 			"NWN2WWpISEZRbFAzVUFuSTFVWkdGMlBCSkJFZU96eSt5OU5pVWxtTXNvRFdQR01RajNTOGM5cDdF"
 			"MWVEcFkwRkMxY28zNWpEQnpxYytnU091d2NNblF5czhxb1BIdUdpNmdwdTN2UDBLbXBWdHZkR0ZE"
-			"Z2l6Zk8xWkhMcEh1Mg=="
+			"Z2l6Zk8xWkhMcEh1MgBzAAAAUAAAADAAAABKAAAARAAAAEEAAAA5AAAAdgAAAE0AAAB5AAAAbgAA"
+			"AEMAAABBAAAASgAAAFEAAABDAAAAcgAAAGsAAAA1AAAARQAAADYAAABBAAAAbgAAAFoAAAAxAAAA"
+			"ZQAAAFcAAABzAAAARwAAAGYAAABjAAAANAAAAFMAAABKAAAAUAAAAEIAAAB4AAAASwAAAEQAAABn"
+			"AAAAYgAAADgAAAB4AAAAZgAAADgAAABxAAAAWAAAAHMAAABoAAAAZAAAAGUAAAB2AAAAcwAAAEIA"
+			"AABCAAAAWgAAAG4AAAA3AAAAZAAAADYAAAA5AAAAbwAAAFkAAAA5AAAARAAAAHoAAAA3AAAAbAAA"
+			"AFEAAAB6AAAANwAAAGUAAABBAAAAUwAAAFUAAABLAAAAcgAAAEEAAABlAAAAVgAAAHkAAABCAAAA"
+			"ZwAAAEkAAABmAAAATAAAAFEAAAA1AAAAdwAAAGwAAAB5AAAATQAAAFUAAAAxAAAASwAAAFcAAABu"
+			"AAAAUwAAADcAAAB3AAAAdwAAAEMAAABHAAAAYwAAAHUAAABMAAAAawAAAGQAAABNAAAAZQAAAFkA"
+			"AABIAAAATgAAAEUAAAA1AAAAbgAAAGUAAABmAAAAegAAAEgAAABmAAAAeQAAAGoAAABVAAAAZwAA"
+			"AGQAAABpAAAAUAAAAGwAAABsAAAAWgAAAE0AAABBAAAAUAAAAE0AAAA3AAAANQAAAE8AAABQAAAA"
+			"RQAAAFQAAABRAAAAQwAAAFQAAABtAAAATAAAADYAAAB3AAAAVAAAAFEAAABVAAAARQAAAGMAAABX"
+			"AAAAOAAAAGQAAABKAAAAQQAAAGoAAABYAAAAMAAAAGMAAABXAAAANgAAAFMAAABzAAAAZwAAAGwA"
+			"AAB2AAAAbgAAAFAAAABVAAAARQAAAHQAAABwAAAAawAAAHAAAAA5AAAAZgAAAHoAAAB6AAAAegAA"
+			"ADIAAABlAAAAcAAAADMAAABpAAAAKwAAAHkAAABDAAAAZgAAAGoAAABsAAAAMwAAAGQAAABPAAAA"
+			"WgAAAFgAAABYAAAAYgAAAGoAAABtAAAANgAAADgAAABiAAAAUwAAAEQAAAB5AAAAWgAAAFEAAABP"
+			"AAAASwAAADEAAAAxAAAAegAAAEsAAABiAAAANwAAAGUAAABXAAAAWAAAAGsAAAA3AAAAQgAAADcA"
+			"AABzAAAAZgAAAHMAAABGAAAAMgAAAFYAAABlAAAATAAAAHUAAABzAAAAQgAAAGEAAABTAAAAYQAA"
+			"ADgAAABnAAAAeQAAAFYAAAAvAAAAbwAAAGkAAABVAAAAdwAAAEYAAAB6AAAAdwAAAGUAAABSAAAA"
+			"eQAAAFkAAABVAAAARXBMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAA=="
 		)
 	)
 	(label "PH{slash}EN2"
@@ -18806,6 +18916,17 @@
 		)
 		(uuid "82dc4502-cbee-4c40-994d-71d66366b7c5")
 	)
+	(label "A1"
+		(at 31.75 179.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 132 0 0 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "9fdfea02-84bc-44c4-b440-bdcd2c02a0df")
+	)
 	(label "RC_OUT"
 		(at 31.75 158.75 0)
 		(effects
@@ -18837,6 +18958,17 @@
 			(justify left bottom)
 		)
 		(uuid "c31675eb-b3bc-4ea7-a4b9-b62254a8bd74")
+	)
+	(label "A0"
+		(at 31.75 173.99 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 132 0 0 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "d2fc7434-79b3-44be-9504-a43ed0f0185e")
 	)
 	(label "OUT2"
 		(at 200.66 120.65 0)
@@ -19014,7 +19146,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Murata-Electronics/GRM188R61C106MAALD?qs=hNud%2FORuBR3LEOKZ4RJp9w%3D%3D"
 			(at 166.37 120.65 0)
 			(effects
 				(font
@@ -19711,7 +19843,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Panasonic/ERJ-2RKF1003X?qs=H7k1u0Mp9JQnXoBKdf15Qg%3D%3D&srsltid=AfmBOoqeXQAkmmFNUQ00LBqf1Lst2nRPq23Re-qHGOP3a-hhvFcsdLLw&_gl=1*hxzi37*_ga*MjY0ODgyOTc1LjE3NDM2NjQzNDc.*_ga_15W4STQT4T*MTc0MzY4Mzk2Ny42LjEuMTc0MzY4NDYzMy41Mi4wLjA."
 			(at 139.7 106.68 0)
 			(effects
 				(font
@@ -19911,7 +20043,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" ""
 			(at 114.3 90.17 0)
 			(effects
 				(font
@@ -19920,7 +20052,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "ERJ-2RKF1003X"
+		(property "Manufacturer Part Number" ""
 			(at 114.3 90.17 0)
 			(effects
 				(font
@@ -19929,7 +20061,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Part Number" "667-ERJ-2RKF1003X"
+		(property "Supplier Part Number" ""
 			(at 114.3 90.17 0)
 			(effects
 				(font
@@ -20175,6 +20307,159 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 46.99 173.99 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "a173d02e-6fbf-4cf3-8ae5-df3d07404d11")
+		(property "Reference" "TP1005"
+			(at 52.07 173.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "A0"
+			(at 59.436 173.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
+			(at 46.99 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 46.99 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 46.99 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 46.99 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 46.99 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ad13a896-3253-4c20-bde7-d1c48e050a0f")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/0784827e-ed98-40fc-820f-0249ca1a8dcd"
+					(reference "TP2105")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/2b692490-65ba-4e5c-ad74-3b4b37aac810"
+					(reference "TP2305")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/48af7f6b-9573-4b59-b702-3b4915b6dd35"
+					(reference "TP2005")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/4b6057ab-9569-4a50-b2ec-0116f8746044"
+					(reference "TP1005")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/57caf331-c89d-4dae-b3a6-8e91a5930c2a"
+					(reference "TP1905")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/5e300cbf-c3fa-4976-80ec-7b5fadd48d63"
+					(reference "TP1505")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/897e3a01-4b3f-47b5-94f3-49cb5f0c5930"
+					(reference "TP1605")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/9021c4e7-168b-4ed8-a662-90a3e275396b"
+					(reference "TP1305")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/a4d9228c-8c90-40c0-9c9a-e7808c5633cb"
+					(reference "TP1405")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/a6aba639-bbcc-44a8-b4b5-1ef68dae6acd"
+					(reference "TP2405")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/ae77c557-88e3-4128-9a06-816f4d332f51"
+					(reference "TP2605")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/c31b75ba-88ad-416e-b12b-9d5680974ea4"
+					(reference "TP2205")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/c75ad973-12d7-494f-8091-680d3a317661"
+					(reference "TP1705")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/c9b90bbc-3ec9-4913-a4ec-a713532185bf"
+					(reference "TP1105")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/d5a23c28-2f7c-4976-b184-4f929bd0c020"
+					(reference "TP1205")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/e020fe98-ad4b-4353-b8a0-6ebe5b41bac4"
+					(reference "TP2505")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/f6975532-86bb-4635-8207-5b2911eb83a2"
+					(reference "TP2705")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/ffdb2cb4-0c4b-48b6-b3b2-1378e74f5a9f"
+					(reference "TP1805")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 182.88 120.65 0)
 		(mirror y)
@@ -20211,7 +20496,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D"
 			(at 182.88 120.65 0)
 			(effects
 				(font
@@ -20672,7 +20957,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3300F?qs=4CJzfoelV6C3hCuuGB%2F5LQ%3D%3D&srsltid=AfmBOorFAV_r3n_ZHqFVSt1AMVARFA_bDei9_5k8eMPO8TmLocPZiwb0"
 			(at 160.02 101.6 0)
 			(effects
 				(font
@@ -20846,7 +21131,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D"
 			(at 119.38 121.92 0)
 			(effects
 				(font
@@ -20978,6 +21263,159 @@
 				)
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/ffdb2cb4-0c4b-48b6-b3b2-1378e74f5a9f"
 					(reference "C1803")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 46.99 179.07 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "c335a380-e82f-4e89-8bd3-3e871844ad13")
+		(property "Reference" "TP1006"
+			(at 52.07 179.07 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "A1"
+			(at 59.436 179.07 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
+			(at 46.99 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 46.99 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 46.99 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 46.99 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 46.99 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "580be357-2375-4bf1-88a2-29de78efd233")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/0784827e-ed98-40fc-820f-0249ca1a8dcd"
+					(reference "TP2106")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/2b692490-65ba-4e5c-ad74-3b4b37aac810"
+					(reference "TP2306")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/48af7f6b-9573-4b59-b702-3b4915b6dd35"
+					(reference "TP2006")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/4b6057ab-9569-4a50-b2ec-0116f8746044"
+					(reference "TP1006")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/57caf331-c89d-4dae-b3a6-8e91a5930c2a"
+					(reference "TP1906")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/5e300cbf-c3fa-4976-80ec-7b5fadd48d63"
+					(reference "TP1506")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/897e3a01-4b3f-47b5-94f3-49cb5f0c5930"
+					(reference "TP1606")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/9021c4e7-168b-4ed8-a662-90a3e275396b"
+					(reference "TP1306")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/a4d9228c-8c90-40c0-9c9a-e7808c5633cb"
+					(reference "TP1406")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/a6aba639-bbcc-44a8-b4b5-1ef68dae6acd"
+					(reference "TP2406")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/ae77c557-88e3-4128-9a06-816f4d332f51"
+					(reference "TP2606")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/c31b75ba-88ad-416e-b12b-9d5680974ea4"
+					(reference "TP2206")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/c75ad973-12d7-494f-8091-680d3a317661"
+					(reference "TP1706")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/c9b90bbc-3ec9-4913-a4ec-a713532185bf"
+					(reference "TP1106")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/d5a23c28-2f7c-4976-b184-4f929bd0c020"
+					(reference "TP1206")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/e020fe98-ad4b-4353-b8a0-6ebe5b41bac4"
+					(reference "TP2506")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/f6975532-86bb-4635-8207-5b2911eb83a2"
+					(reference "TP2706")
+					(unit 1)
+				)
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6/ffdb2cb4-0c4b-48b6-b3b2-1378e74f5a9f"
+					(reference "TP1806")
 					(unit 1)
 				)
 			)

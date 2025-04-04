@@ -8,7 +8,7 @@
 	(property "Reference" "REF**"
 		(at 0 -2.83 0)
 		(layer "F.SilkS")
-		(uuid "ea14268d-f972-4d4e-98d7-0ab40fbf8a8d")
+		(uuid "1c4cd032-6528-40df-8aad-f41876c7aa13")
 		(effects
 			(font
 				(size 1 1)
@@ -19,7 +19,7 @@
 	(property "Value" "WQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm_ThermalVias"
 		(at 0 2.83 0)
 		(layer "F.Fab")
-		(uuid "03bf4c52-bb25-4254-ae2b-957379f1c6ca")
+		(uuid "35d63878-4e07-430f-b950-de3d80416b79")
 		(effects
 			(font
 				(size 1 1)
@@ -31,7 +31,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "e03f7ad5-0a93-4ca8-9b5d-534e6abc4abc")
+		(uuid "553222dd-a93f-4c5c-ba18-4068ff99e949")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "abb96802-b710-419b-bb34-9b8e9027300c")
+		(uuid "054d3633-2652-4319-9875-bda1aa57a041")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -385,24 +385,6 @@
 		(roundrect_rratio 0.25)
 		(uuid "ced32f6f-8f62-4112-a994-c468fe007cf6")
 	)
-	(pad "17" thru_hole circle
-		(at -0.59 -0.59)
-		(size 0.5 0.5)
-		(drill 0.2)
-		(property pad_prop_heatsink)
-		(layers "*.Cu")
-		(remove_unused_layers no)
-		(uuid "eca60fee-1f0e-4db3-9688-108d9b909543")
-	)
-	(pad "17" thru_hole circle
-		(at -0.59 0.59)
-		(size 0.5 0.5)
-		(drill 0.2)
-		(property pad_prop_heatsink)
-		(layers "*.Cu")
-		(remove_unused_layers no)
-		(uuid "79b59462-3af8-4851-8e3e-8e7feb5caa26")
-	)
 	(pad "17" smd rect
 		(at 0 0)
 		(size 1.68 1.68)
@@ -410,32 +392,6 @@
 		(layers "F.Cu" "F.Mask")
 		(zone_connect 2)
 		(uuid "834ca98d-b926-4108-a8e4-60d6a7c5459d")
-	)
-	(pad "17" smd rect
-		(at 0 0)
-		(size 1.68 1.68)
-		(property pad_prop_heatsink)
-		(layers "B.Cu")
-		(zone_connect 2)
-		(uuid "15f5f756-ab73-44dc-88f4-5a095b99ffc1")
-	)
-	(pad "17" thru_hole circle
-		(at 0.59 -0.59)
-		(size 0.5 0.5)
-		(drill 0.2)
-		(property pad_prop_heatsink)
-		(layers "*.Cu")
-		(remove_unused_layers no)
-		(uuid "e74f600d-cfe0-4dda-bbe1-6f160620ef34")
-	)
-	(pad "17" thru_hole circle
-		(at 0.59 0.59)
-		(size 0.5 0.5)
-		(drill 0.2)
-		(property pad_prop_heatsink)
-		(layers "*.Cu")
-		(remove_unused_layers no)
-		(uuid "d1665ddd-a481-4f72-9016-db967dd60a89")
 	)
 	(embedded_fonts no)
 	(model "${KIPRJMOD}/lib/3d_models/QFN-16 (3x3).stp"

@@ -5,7 +5,7 @@
 	(uuid "d7883a52-e5d1-4003-bedb-85599a5a310b")
 	(paper "A4")
 	(title_block
-		(title "Misc - Mounting Holes & Fiducials")
+		(title "Misc - Mounting Holes")
 		(date "2025-02-16")
 		(rev "${REVISION}")
 	)
@@ -150,34 +150,37 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R"
+		(symbol "Device:R_Small"
 			(pin_numbers
 				(hide yes)
 			)
 			(pin_names
-				(offset 0)
+				(offset 0.254)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "R"
-				(at 2.032 0 90)
+				(at 0.762 0.508 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "R"
-				(at 0 0 90)
+			(property "Value" "R_Small"
+				(at 0.762 -1.016 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Footprint" ""
-				(at -1.778 0 90)
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -194,7 +197,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Resistor"
+			(property "Description" "Resistor, small symbol"
 				(at 0 0 0)
 				(effects
 					(font
@@ -203,7 +206,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "R res resistor"
+			(property "ki_keywords" "R resistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -221,12 +224,12 @@
 					(hide yes)
 				)
 			)
-			(symbol "R_0_1"
+			(symbol "R_Small_0_1"
 				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
+					(start -0.762 1.778)
+					(end 0.762 -1.778)
 					(stroke
-						(width 0.254)
+						(width 0.2032)
 						(type default)
 					)
 					(fill
@@ -234,10 +237,10 @@
 					)
 				)
 			)
-			(symbol "R_1_1"
+			(symbol "R_Small_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
+					(at 0 2.54 270)
+					(length 0.762)
 					(name "~"
 						(effects
 							(font
@@ -254,8 +257,8 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
+					(at 0 -2.54 90)
+					(length 0.762)
 					(name "~"
 						(effects
 							(font
@@ -269,86 +272,6 @@
 								(size 1.27 1.27)
 							)
 						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Mechanical:Fiducial"
-			(exclude_from_sim yes)
-			(in_bom no)
-			(on_board yes)
-			(property "Reference" "FID"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Fiducial"
-				(at 0 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Fiducial Marker"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "fiducial marker"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Fiducial*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Fiducial_0_1"
-				(circle
-					(center 0 0)
-					(radius 1.27)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type background)
 					)
 				)
 			)
@@ -564,21 +487,8 @@
 		)
 	)
 	(rectangle
-		(start 208.915 61.595)
-		(end 240.03 123.825)
-		(stroke
-			(width 1)
-			(type default)
-			(color 200 200 200 1)
-		)
-		(fill
-			(type none)
-		)
-		(uuid d0a4eaab-7954-49a5-9f99-152d8a87998e)
-	)
-	(rectangle
-		(start 58.42 61.595)
-		(end 204.47 123.825)
+		(start 76.2 64.135)
+		(end 222.25 126.365)
 		(stroke
 			(width 1)
 			(type default)
@@ -633,7 +543,7 @@
 	)
 	(text_box "Mechanical Mounting holes"
 		(exclude_from_sim no)
-		(at 57.785 115.57 0)
+		(at 75.565 118.11 0)
 		(size 147.32 7.62)
 		(margins 1.9049 1.9049 1.9049 1.9049)
 		(stroke
@@ -655,10 +565,33 @@
 		)
 		(uuid "00eae80e-62ab-4d1f-b33b-5b8e37cb2a10")
 	)
+	(text_box "DESIGN NOTE:\n\nFiducials are ommited due to space constraints and are in any case unecessary in the forseable future because manual assembly is required since the DRV8214 ICs, among others, are unavailable on JLCPCB parts store. "
+		(exclude_from_sim no)
+		(at 26.035 89.535 0)
+		(size 47.625 36.83)
+		(margins 2 2 2 2)
+		(stroke
+			(width 1)
+			(type solid)
+			(color 250 236 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(face "Arial")
+				(size 2 2)
+				(color 0 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "36bf632b-e628-4f97-b3db-c93b5fde78a4")
+	)
 	(text_box "DESIGN NOTE:\n\nIn general, do not ground mounting holes that are connected to chassis if there is a risk that the chassis sends current into the PCB and dammages it or if the PCB works with high voltage and there is a risk for the user which is in contact with the chassis.\n\nFor a PCB in a metallic enclosure, the enclosure can act like a big antenna. The cavities (space between the ground plane on the pcb and the bottom metallic plane of the enclosure) cause capacitive coupling. This is because we have two metallic planes separated by a dielectric, at a separated potential, causing common mode noise. and result in the noise being amplified by the metal enclosure.  \nIdeally, in this case, the case should be grounded. But the grounding will cause multiple return paths if multiples mounting holes are connected to GND. In that case, some current will flow in the enclosure and can give a little choc when the user touch it. This can be fine for small battery operated devices.\n\nThe best option is therefore to ground only one mounting hole. "
 		(exclude_from_sim no)
-		(at 58.42 127 0)
-		(size 60.96 45.085)
+		(at 224.79 64.135 0)
+		(size 49.53 62.23)
 		(margins 1.4525 1.4525 1.4525 1.4525)
 		(stroke
 			(width 1)
@@ -677,54 +610,6 @@
 			(justify left top)
 		)
 		(uuid "6f8c6afa-07dd-48e6-a435-a0330a34e790")
-	)
-	(text_box "Front"
-		(exclude_from_sim no)
-		(at 208.915 66.675 0)
-		(size 31.115 9.525)
-		(margins 1.9049 1.9049 1.9049 1.9049)
-		(stroke
-			(width -0.0001)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(face "Times New Roman")
-				(size 2.54 2.54)
-				(thickness 0.508)
-				(bold yes)
-				(color 0 0 0 1)
-			)
-			(justify bottom)
-		)
-		(uuid "7dd6d2c3-0f2b-4aac-8743-56b60b3f2b03")
-	)
-	(text_box "Fiducial Markers"
-		(exclude_from_sim no)
-		(at 208.28 114.3 0)
-		(size 32.385 8.89)
-		(margins 1.9049 1.9049 1.9049 1.9049)
-		(stroke
-			(width -0.0001)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(face "Times New Roman")
-				(size 2.54 2.54)
-				(thickness 0.508)
-				(bold yes)
-				(color 162 22 34 1)
-			)
-			(justify bottom)
-		)
-		(uuid "87127c87-c71f-4ec9-bfc1-f89f61289a82")
 	)
 	(text_box "[${#}] ${TITLE}"
 		(exclude_from_sim no)
@@ -751,8 +636,8 @@
 	)
 	(text_box "DEBUG NOTE:\n\nHOLE 1 is connected to GND and can be very useful if used as a GND reference for multimeter debug."
 		(exclude_from_sim no)
-		(at 25.4 61.595 0)
-		(size 30.48 26.035)
+		(at 26.035 64.135 0)
+		(size 47.625 22.225)
 		(margins 2 2 2 2)
 		(stroke
 			(width 1)
@@ -773,56 +658,56 @@
 		(uuid "f1785284-194e-4ba6-bbc2-7b45aa1d5815")
 	)
 	(junction
-		(at 115.57 99.06)
+		(at 133.35 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4c03520b-8a09-4f01-a685-86797a3b0af1")
 	)
 	(junction
-		(at 86.36 99.06)
+		(at 104.14 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "74090784-cd5f-4d58-bb2a-c3e7c2e08282")
 	)
 	(junction
-		(at 172.72 88.9)
+		(at 190.5 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "74e8cbdd-3b0d-440d-bc01-95b673c04dad")
 	)
 	(junction
-		(at 144.78 88.9)
+		(at 162.56 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "873fa86f-b33f-47f7-901e-100608cd8eea")
 	)
 	(junction
-		(at 144.78 99.06)
+		(at 162.56 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9a7a5102-f4c9-4743-9b3c-6f17b6558d3e")
 	)
 	(junction
-		(at 172.72 99.06)
+		(at 190.5 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c40f5ee3-ac75-457d-9d3c-08839c003aff")
 	)
 	(junction
-		(at 86.36 88.9)
+		(at 104.14 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ccbd363b-4f0a-4bf6-a95d-b17010a32ff2")
 	)
 	(junction
-		(at 115.57 88.9)
+		(at 133.35 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e63dca6b-d44d-4874-a683-ca701eb49295")
 	)
 	(wire
 		(pts
-			(xy 138.43 99.06) (xy 144.78 99.06)
+			(xy 156.21 101.6) (xy 162.56 101.6)
 		)
 		(stroke
 			(width 0)
@@ -832,7 +717,7 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 88.9) (xy 86.36 88.9)
+			(xy 97.79 91.44) (xy 104.14 91.44)
 		)
 		(stroke
 			(width 0)
@@ -842,27 +727,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 88.9) (xy 121.92 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "06cd8400-4564-4ee5-8321-dfcbd250a1e4")
-	)
-	(wire
-		(pts
-			(xy 121.92 97.79) (xy 121.92 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "071d20ae-1547-4f07-b7e2-bd5ab7e93d55")
-	)
-	(wire
-		(pts
-			(xy 109.22 88.9) (xy 109.22 91.44)
+			(xy 127 91.44) (xy 127 93.98)
 		)
 		(stroke
 			(width 0)
@@ -872,7 +737,7 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 96.52) (xy 80.01 99.06)
+			(xy 97.79 99.06) (xy 97.79 101.6)
 		)
 		(stroke
 			(width 0)
@@ -882,7 +747,7 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 88.9) (xy 179.07 90.17)
+			(xy 196.85 91.44) (xy 196.85 93.98)
 		)
 		(stroke
 			(width 0)
@@ -892,7 +757,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 99.06) (xy 92.71 99.06)
+			(xy 104.14 101.6) (xy 110.49 101.6)
 		)
 		(stroke
 			(width 0)
@@ -902,7 +767,7 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 99.06) (xy 86.36 99.06)
+			(xy 97.79 101.6) (xy 104.14 101.6)
 		)
 		(stroke
 			(width 0)
@@ -912,17 +777,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 88.9) (xy 92.71 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "407de1ee-5e59-4498-a060-fdd091a9fdc3")
-	)
-	(wire
-		(pts
-			(xy 138.43 88.9) (xy 144.78 88.9)
+			(xy 156.21 91.44) (xy 162.56 91.44)
 		)
 		(stroke
 			(width 0)
@@ -932,7 +787,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 88.9) (xy 92.71 88.9)
+			(xy 104.14 91.44) (xy 110.49 91.44)
 		)
 		(stroke
 			(width 0)
@@ -942,7 +797,17 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 88.9) (xy 115.57 88.9)
+			(xy 168.91 99.06) (xy 168.91 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "479e07cc-e6ae-42ae-933e-b17ce5fb6175")
+	)
+	(wire
+		(pts
+			(xy 127 91.44) (xy 133.35 91.44)
 		)
 		(stroke
 			(width 0)
@@ -952,7 +817,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 99.06) (xy 86.36 101.6)
+			(xy 104.14 101.6) (xy 104.14 104.14)
 		)
 		(stroke
 			(width 0)
@@ -962,7 +827,7 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 99.06) (xy 172.72 101.6)
+			(xy 190.5 101.6) (xy 190.5 104.14)
 		)
 		(stroke
 			(width 0)
@@ -972,7 +837,7 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 99.06) (xy 179.07 99.06)
+			(xy 190.5 101.6) (xy 196.85 101.6)
 		)
 		(stroke
 			(width 0)
@@ -982,7 +847,7 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 88.9) (xy 80.01 91.44)
+			(xy 97.79 91.44) (xy 97.79 93.98)
 		)
 		(stroke
 			(width 0)
@@ -992,17 +857,27 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 97.79) (xy 179.07 99.06)
+			(xy 139.7 91.44) (xy 139.7 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6dd56e0a-9de9-491d-a345-440d5f10a8b9")
+		(uuid "5d7273c1-21e7-4fba-a516-bcf7b8ed176b")
 	)
 	(wire
 		(pts
-			(xy 109.22 99.06) (xy 115.57 99.06)
+			(xy 168.91 91.44) (xy 168.91 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d79191e-b214-4b9e-84c5-890475368977")
+	)
+	(wire
+		(pts
+			(xy 127 101.6) (xy 133.35 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1012,7 +887,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 96.52) (xy 166.37 99.06)
+			(xy 184.15 99.06) (xy 184.15 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1022,27 +897,37 @@
 	)
 	(wire
 		(pts
-			(xy 151.13 97.79) (xy 151.13 99.06)
+			(xy 110.49 91.44) (xy 110.49 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7d25c5c6-e998-45e7-bff3-292228ad36f7")
+		(uuid "7ad5761e-dfad-4af8-8eda-a380fca6a06a")
 	)
 	(wire
 		(pts
-			(xy 92.71 97.79) (xy 92.71 99.06)
+			(xy 196.85 99.06) (xy 196.85 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9778e0d5-971c-4503-9bea-f3543e50baa1")
+		(uuid "80ec889e-4f09-4277-9aab-ba3e40c42795")
 	)
 	(wire
 		(pts
-			(xy 166.37 88.9) (xy 166.37 91.44)
+			(xy 110.49 99.06) (xy 110.49 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84df030f-9e2f-441a-a844-f55deba3c1cb")
+	)
+	(wire
+		(pts
+			(xy 184.15 91.44) (xy 184.15 93.98)
 		)
 		(stroke
 			(width 0)
@@ -1052,7 +937,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 86.36) (xy 115.57 88.9)
+			(xy 133.35 88.9) (xy 133.35 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1062,7 +947,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 88.9) (xy 172.72 88.9)
+			(xy 184.15 91.44) (xy 190.5 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1072,7 +957,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 99.06) (xy 172.72 99.06)
+			(xy 184.15 101.6) (xy 190.5 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1082,7 +967,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 96.52) (xy 109.22 99.06)
+			(xy 127 99.06) (xy 127 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1092,7 +977,7 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 86.36) (xy 172.72 88.9)
+			(xy 190.5 88.9) (xy 190.5 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1102,7 +987,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 99.06) (xy 151.13 99.06)
+			(xy 162.56 101.6) (xy 168.91 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1112,17 +997,7 @@
 	)
 	(wire
 		(pts
-			(xy 151.13 88.9) (xy 151.13 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b9ecc80c-4f9b-44c7-98ef-ca59e16018a7")
-	)
-	(wire
-		(pts
-			(xy 138.43 88.9) (xy 138.43 91.44)
+			(xy 156.21 91.44) (xy 156.21 93.98)
 		)
 		(stroke
 			(width 0)
@@ -1132,7 +1007,7 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 88.9) (xy 179.07 88.9)
+			(xy 190.5 91.44) (xy 196.85 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1142,7 +1017,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 99.06) (xy 115.57 101.6)
+			(xy 133.35 101.6) (xy 133.35 104.14)
 		)
 		(stroke
 			(width 0)
@@ -1152,7 +1027,17 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 86.36) (xy 86.36 88.9)
+			(xy 139.7 99.06) (xy 139.7 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfdf3205-3ab1-4c81-a43a-0a94ee6af30e")
+	)
+	(wire
+		(pts
+			(xy 104.14 88.9) (xy 104.14 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1162,7 +1047,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 99.06) (xy 121.92 99.06)
+			(xy 133.35 101.6) (xy 139.7 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1172,7 +1057,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 96.52) (xy 138.43 99.06)
+			(xy 156.21 99.06) (xy 156.21 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1182,7 +1067,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 88.9) (xy 151.13 88.9)
+			(xy 162.56 91.44) (xy 168.91 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1192,7 +1077,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 88.9) (xy 121.92 88.9)
+			(xy 133.35 91.44) (xy 139.7 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1202,7 +1087,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 86.36) (xy 144.78 88.9)
+			(xy 162.56 88.9) (xy 162.56 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1212,7 +1097,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 99.06) (xy 144.78 101.6)
+			(xy 162.56 101.6) (xy 162.56 104.14)
 		)
 		(stroke
 			(width 0)
@@ -1221,7 +1106,7 @@
 		(uuid "fa1c1256-cce8-4dde-8ccd-c4a3c001bf23")
 	)
 	(label "HOLE3"
-		(at 115.57 88.9 0)
+		(at 133.35 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1231,7 +1116,7 @@
 		(uuid "70cc3b6e-0de3-4b50-a521-290cdc3a34a6")
 	)
 	(label "HOLE1"
-		(at 86.36 88.9 0)
+		(at 104.14 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1241,7 +1126,7 @@
 		(uuid "7a6509d2-7a43-42d8-9013-9656e99ab600")
 	)
 	(label "HOLE2"
-		(at 115.57 88.9 0)
+		(at 133.35 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1252,7 +1137,7 @@
 		(uuid "8abbc9ff-7f1e-44ab-b183-0303507b150c")
 	)
 	(label "HOLE4"
-		(at 172.72 88.9 0)
+		(at 190.5 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1262,7 +1147,7 @@
 		(uuid "c5448425-e105-438d-b543-8012f311175c")
 	)
 	(label "HOLE3"
-		(at 144.78 88.9 0)
+		(at 162.56 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1272,43 +1157,32 @@
 		(uuid "c71ef019-89f1-4ac5-85e2-4bb6dbb4494c")
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 80.01 93.98 0)
+		(lib_id "Device:R_Small")
+		(at 168.91 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
-		(uuid "2884d995-72ec-42dd-a596-0d2255c60794")
-		(property "Reference" "C2901"
-			(at 82.55 93.98 0)
+		(dnp yes)
+		(uuid "220ab9b4-4385-4699-aaf8-a60d6ee79620")
+		(property "Reference" "R2903"
+			(at 173.482 95.504 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "1n X7R 1kV"
-			(at 81.915 95.885 0)
+		(property "Value" "0R 1%"
+			(at 173.482 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 80.01 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 80.01 93.98 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 168.91 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1316,8 +1190,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 80.01 93.98 0)
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/YAGEO/RC0603FR-100RL?qs=gY0y7AQI9SNjcfwXbqIKbg%3D%3D"
+			(at 168.91 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1325,8 +1199,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "KEMET"
-			(at 80.01 93.98 0)
+		(property "Description" "Resistor, small symbol"
+			(at 168.91 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1334,8 +1208,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "C0603C102MDRAC7081"
-			(at 80.01 93.98 0)
+		(property "Manufacturer Part Number" "RC0603FR-100RL"
+			(at 168.91 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1344,7 +1218,7 @@
 			)
 		)
 		(property "Supplier" "Mouser Electronics"
-			(at 80.01 93.98 0)
+			(at 168.91 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1352,8 +1226,122 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Part Number" "80-C0603C102MDRAC"
-			(at 80.01 93.98 0)
+		(property "Manufacturer" "YAGEO"
+			(at 168.91 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Part Number" "603-RC0603FR-100RL"
+			(at 168.91 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "d46792b1-7e5f-4705-ae14-1575a7d4728d")
+		)
+		(pin "1"
+			(uuid "a54851f9-f9f9-46a9-a619-d2ceb8059974")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/93c115ca-2823-4ddf-b830-32015e2ac9e9"
+					(reference "R2903")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 97.79 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2884d995-72ec-42dd-a596-0d2255c60794")
+		(property "Reference" "C2901"
+			(at 100.33 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1n X7R 1kV"
+			(at 99.695 98.425 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 97.79 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KEMET/C0603C102KDRACTU?qs=B0TNOcbsrWfl%252B1TgqaaQlQ%3D%3D"
+			(at 97.79 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 97.79 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 97.79 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "C0603C102KDRACTU"
+			(at 97.79 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Mouser Electronics"
+			(at 97.79 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Part Number" "80-C0603C102KDRACTU"
+			(at 97.79 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1377,182 +1365,16 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:Fiducial")
-		(at 224.79 85.725 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(uuid "32599959-25f4-462f-a61a-a1aeeb34257e")
-		(property "Reference" "FM2902"
-			(at 224.79 81.915 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Fiducial"
-			(at 227.33 86.995 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Charge_Manager_FP:Fiducial_1mm_Mask2mm"
-			(at 224.79 85.725 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 224.79 85.725 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Fiducial Marker"
-			(at 224.79 85.725 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "Plume"
-				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/93c115ca-2823-4ddf-b830-32015e2ac9e9"
-					(reference "FM2902")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 151.13 93.98 0)
+		(lib_id "Device:R_Small")
+		(at 139.7 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp yes)
-		(uuid "3d788c63-22bf-43af-a2d7-c6163baa2bdc")
-		(property "Reference" "R2903"
-			(at 155.702 92.964 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R 1%"
-			(at 155.702 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 149.352 93.98 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 151.13 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 151.13 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Part Number" "RC0603FR-100RL"
-			(at 151.13 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier" "Mouser Electronics"
-			(at 151.13 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 151.13 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier Part Number" "603-RC0603FR-100RL"
-			(at 151.13 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "b0ff186d-873f-4923-9e0d-26f5e67de67d")
-		)
-		(pin "1"
-			(uuid "315b2b71-0640-4fec-9a1d-4c5c6d11cb56")
-		)
-		(instances
-			(project "Plume"
-				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/93c115ca-2823-4ddf-b830-32015e2ac9e9"
-					(reference "R2903")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 121.92 93.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp yes)
-		(uuid "6340475b-b1e0-4542-98b1-622904921c63")
+		(uuid "5e5e6749-b260-4b7d-9ad0-31fd677f6740")
 		(property "Reference" "R2902"
-			(at 126.492 92.964 0)
+			(at 144.272 95.504 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1560,7 +1382,7 @@
 			)
 		)
 		(property "Value" "0R 1%"
-			(at 126.492 95.25 0)
+			(at 144.272 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1568,7 +1390,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 120.142 93.98 90)
+			(at 139.7 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1576,8 +1398,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 121.92 93.98 0)
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/YAGEO/RC0603FR-100RL?qs=gY0y7AQI9SNjcfwXbqIKbg%3D%3D"
+			(at 139.7 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1585,8 +1407,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 121.92 93.98 0)
+		(property "Description" "Resistor, small symbol"
+			(at 139.7 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1595,7 +1417,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" "RC0603FR-100RL"
-			(at 121.92 93.98 0)
+			(at 139.7 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1604,7 +1426,7 @@
 			)
 		)
 		(property "Supplier" "Mouser Electronics"
-			(at 121.92 93.98 0)
+			(at 139.7 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1613,7 +1435,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 121.92 93.98 0)
+			(at 139.7 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1622,7 +1444,7 @@
 			)
 		)
 		(property "Supplier Part Number" "603-RC0603FR-100RL"
-			(at 121.92 93.98 0)
+			(at 139.7 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1631,10 +1453,10 @@
 			)
 		)
 		(pin "2"
-			(uuid "40a5d505-63d0-444f-bda5-b817a2bc04bc")
+			(uuid "5b9f5c18-b8de-4b35-9069-98f2e897e2cb")
 		)
 		(pin "1"
-			(uuid "bbea12e7-0ae8-4cab-8901-5e81bcbb112b")
+			(uuid "7a247a6b-e995-4e8d-8851-3553f554e737")
 		)
 		(instances
 			(project "Plume"
@@ -1647,7 +1469,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 86.36 83.82 0)
+		(at 104.14 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -1656,7 +1478,7 @@
 		(fields_autoplaced yes)
 		(uuid "6a6c40b4-aea0-4341-8bf7-40c693de3106")
 		(property "Reference" "H2901"
-			(at 88.9 81.28 0)
+			(at 106.68 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1665,7 +1487,7 @@
 			)
 		)
 		(property "Value" "M2.5 (2.7mm)"
-			(at 88.9 83.82 0)
+			(at 106.68 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1674,7 +1496,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.5mm_Pad_Via"
-			(at 86.36 83.82 0)
+			(at 104.14 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1683,7 +1505,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 86.36 83.82 0)
+			(at 104.14 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1692,7 +1514,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 86.36 83.82 0)
+			(at 104.14 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1714,7 +1536,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 115.57 83.82 0)
+		(at 133.35 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -1723,7 +1545,7 @@
 		(fields_autoplaced yes)
 		(uuid "76ba2d03-6f56-4b04-b721-43dc1bd0db35")
 		(property "Reference" "H2902"
-			(at 118.11 81.28 0)
+			(at 135.89 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1732,7 +1554,7 @@
 			)
 		)
 		(property "Value" "M2.5 (2.7mm)"
-			(at 118.11 83.82 0)
+			(at 135.89 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1741,7 +1563,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.5mm_Pad_Via"
-			(at 115.57 83.82 0)
+			(at 133.35 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1750,7 +1572,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 115.57 83.82 0)
+			(at 133.35 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1759,7 +1581,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 115.57 83.82 0)
+			(at 133.35 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1781,7 +1603,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 166.37 93.98 0)
+		(at 184.15 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1789,7 +1611,7 @@
 		(dnp yes)
 		(uuid "78af3273-400c-4249-a938-83e9ff55900e")
 		(property "Reference" "C2904"
-			(at 168.91 93.98 0)
+			(at 186.69 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1798,7 +1620,7 @@
 			)
 		)
 		(property "Value" "1n X7R 1kV"
-			(at 168.275 95.885 0)
+			(at 186.055 98.425 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1807,7 +1629,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 166.37 93.98 0)
+			(at 184.15 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1815,8 +1637,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 166.37 93.98 0)
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KEMET/C0603C102KDRACTU?qs=B0TNOcbsrWfl%252B1TgqaaQlQ%3D%3D"
+			(at 184.15 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1825,7 +1647,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 166.37 93.98 0)
+			(at 184.15 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1834,7 +1656,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 166.37 93.98 0)
+			(at 184.15 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1842,8 +1664,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "C0603C102MDRAC7081"
-			(at 166.37 93.98 0)
+		(property "Manufacturer Part Number" "C0603C102KDRACTU"
+			(at 184.15 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1852,7 +1674,7 @@
 			)
 		)
 		(property "Supplier" "Mouser Electronics"
-			(at 166.37 93.98 0)
+			(at 184.15 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1860,8 +1682,8 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Part Number" "80-C0603C102MDRAC"
-			(at 166.37 93.98 0)
+		(property "Supplier Part Number" "80-C0603C102KDRACTU"
+			(at 184.15 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1886,7 +1708,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 144.78 83.82 0)
+		(at 162.56 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -1895,7 +1717,7 @@
 		(fields_autoplaced yes)
 		(uuid "7b42fbe8-443e-485d-b51c-6751fc8c665f")
 		(property "Reference" "H2903"
-			(at 147.32 81.28 0)
+			(at 165.1 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1904,7 +1726,7 @@
 			)
 		)
 		(property "Value" "M2.5 (2.7mm)"
-			(at 147.32 83.82 0)
+			(at 165.1 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1913,7 +1735,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.5mm_Pad_Via"
-			(at 144.78 83.82 0)
+			(at 162.56 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1922,7 +1744,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 144.78 83.82 0)
+			(at 162.56 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1931,7 +1753,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 144.78 83.82 0)
+			(at 162.56 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1953,7 +1775,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 144.78 101.6 0)
+		(at 162.56 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1962,7 +1784,7 @@
 		(fields_autoplaced yes)
 		(uuid "8be8b4fb-87f3-411e-9ee8-8176f111d461")
 		(property "Reference" "#PWR02903"
-			(at 144.78 107.95 0)
+			(at 162.56 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1971,7 +1793,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 144.78 106.045 0)
+			(at 162.56 108.585 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1980,7 +1802,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 144.78 101.6 0)
+			(at 162.56 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1989,7 +1811,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 144.78 101.6 0)
+			(at 162.56 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1998,7 +1820,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 144.78 101.6 0)
+			(at 162.56 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2019,111 +1841,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 179.07 93.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp yes)
-		(uuid "8c855958-6344-4cdf-88a4-214229cccac4")
-		(property "Reference" "R2904"
-			(at 183.642 92.964 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R 1%"
-			(at 183.642 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 177.292 93.98 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 179.07 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 179.07 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Part Number" "RC0603FR-100RL"
-			(at 179.07 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier" "Mouser Electronics"
-			(at 179.07 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 179.07 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier Part Number" "603-RC0603FR-100RL"
-			(at 179.07 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2b955dd3-d358-480b-a535-e6df88634013")
-		)
-		(pin "1"
-			(uuid "ffcb9fc1-654f-4bc5-8818-d64352abacb7")
-		)
-		(instances
-			(project "Plume"
-				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/93c115ca-2823-4ddf-b830-32015e2ac9e9"
-					(reference "R2904")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 172.72 83.82 0)
+		(at 190.5 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -2132,7 +1851,7 @@
 		(fields_autoplaced yes)
 		(uuid "92971689-cc1f-4f22-be29-e445839126c8")
 		(property "Reference" "H2904"
-			(at 175.26 81.28 0)
+			(at 193.04 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2141,7 +1860,7 @@
 			)
 		)
 		(property "Value" "M2.5 (2.7mm)"
-			(at 175.26 83.82 0)
+			(at 193.04 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2150,7 +1869,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.5mm_Pad_Via"
-			(at 172.72 83.82 0)
+			(at 190.5 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2159,7 +1878,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 172.72 83.82 0)
+			(at 190.5 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2168,7 +1887,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 172.72 83.82 0)
+			(at 190.5 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2189,79 +1908,16 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:Fiducial")
-		(at 215.265 85.725 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(uuid "99d30bb6-50c0-4ff6-8e59-cc0853d70d8a")
-		(property "Reference" "FM2901"
-			(at 215.265 81.915 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Fiducial"
-			(at 217.805 86.995 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Charge_Manager_FP:Fiducial_1mm_Mask2mm"
-			(at 215.265 85.725 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 215.265 85.725 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Fiducial Marker"
-			(at 215.265 85.725 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "Plume"
-				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/93c115ca-2823-4ddf-b830-32015e2ac9e9"
-					(reference "FM2901")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 92.71 93.98 0)
+		(lib_id "Device:R_Small")
+		(at 196.85 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
-		(uuid "a399cbc2-13a0-4457-ad95-b26dbc013c64")
-		(property "Reference" "R2901"
-			(at 97.282 92.964 0)
+		(dnp yes)
+		(uuid "92e19309-1574-4abc-8894-465f73f99cb7")
+		(property "Reference" "R2904"
+			(at 201.422 95.504 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2269,7 +1925,7 @@
 			)
 		)
 		(property "Value" "0R 1%"
-			(at 97.282 95.25 0)
+			(at 201.422 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2277,7 +1933,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 90.932 93.98 90)
+			(at 196.85 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2285,8 +1941,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 92.71 93.98 0)
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/YAGEO/RC0603FR-100RL?qs=gY0y7AQI9SNjcfwXbqIKbg%3D%3D"
+			(at 196.85 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2294,8 +1950,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 92.71 93.98 0)
+		(property "Description" "Resistor, small symbol"
+			(at 196.85 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2304,7 +1960,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" "RC0603FR-100RL"
-			(at 92.71 93.98 0)
+			(at 196.85 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2313,7 +1969,7 @@
 			)
 		)
 		(property "Supplier" "Mouser Electronics"
-			(at 92.71 93.98 0)
+			(at 196.85 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2322,7 +1978,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 92.71 93.98 0)
+			(at 196.85 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2331,7 +1987,110 @@
 			)
 		)
 		(property "Supplier Part Number" "603-RC0603FR-100RL"
-			(at 92.71 93.98 0)
+			(at 196.85 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "fffc0039-e4d5-40a5-a9cd-9a150e401ee2")
+		)
+		(pin "1"
+			(uuid "e3379510-8bd4-4c1b-9fcb-8950277498a9")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/93c115ca-2823-4ddf-b830-32015e2ac9e9"
+					(reference "R2904")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 110.49 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a399cbc2-13a0-4457-ad95-b26dbc013c64")
+		(property "Reference" "R2901"
+			(at 115.062 95.504 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0R 1%"
+			(at 115.062 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 110.49 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/YAGEO/RC0603FR-100RL?qs=gY0y7AQI9SNjcfwXbqIKbg%3D%3D"
+			(at 110.49 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 110.49 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "RC0603FR-100RL"
+			(at 110.49 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Mouser Electronics"
+			(at 110.49 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 110.49 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier Part Number" "603-RC0603FR-100RL"
+			(at 110.49 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2356,7 +2115,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 86.36 101.6 0)
+		(at 104.14 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2365,7 +2124,7 @@
 		(fields_autoplaced yes)
 		(uuid "ac12b213-bacf-4c3e-9b32-03656e9c5a65")
 		(property "Reference" "#PWR02901"
-			(at 86.36 107.95 0)
+			(at 104.14 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2374,7 +2133,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 86.36 106.045 0)
+			(at 104.14 108.585 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2383,7 +2142,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 86.36 101.6 0)
+			(at 104.14 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2392,7 +2151,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 86.36 101.6 0)
+			(at 104.14 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2401,7 +2160,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 86.36 101.6 0)
+			(at 104.14 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2423,7 +2182,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 172.72 101.6 0)
+		(at 190.5 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2432,7 +2191,7 @@
 		(fields_autoplaced yes)
 		(uuid "ac93f4ed-8108-4e46-89f6-a6a5f2121176")
 		(property "Reference" "#PWR02904"
-			(at 172.72 107.95 0)
+			(at 190.5 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2441,7 +2200,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 172.72 106.045 0)
+			(at 190.5 108.585 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2450,7 +2209,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 172.72 101.6 0)
+			(at 190.5 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2459,7 +2218,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 172.72 101.6 0)
+			(at 190.5 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2468,7 +2227,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 172.72 101.6 0)
+			(at 190.5 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2490,7 +2249,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 138.43 93.98 0)
+		(at 156.21 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2498,7 +2257,7 @@
 		(dnp yes)
 		(uuid "aeb4ce24-513d-4062-bca5-975621bba9d4")
 		(property "Reference" "C2903"
-			(at 140.97 93.98 0)
+			(at 158.75 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2507,7 +2266,7 @@
 			)
 		)
 		(property "Value" "1n X7R 1kV"
-			(at 140.335 95.885 0)
+			(at 158.115 98.425 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2516,7 +2275,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 138.43 93.98 0)
+			(at 156.21 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2524,8 +2283,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 138.43 93.98 0)
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KEMET/C0603C102KDRACTU?qs=B0TNOcbsrWfl%252B1TgqaaQlQ%3D%3D"
+			(at 156.21 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2534,7 +2293,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 138.43 93.98 0)
+			(at 156.21 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2543,7 +2302,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 138.43 93.98 0)
+			(at 156.21 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2551,8 +2310,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "C0603C102MDRAC7081"
-			(at 138.43 93.98 0)
+		(property "Manufacturer Part Number" "C0603C102KDRACTU"
+			(at 156.21 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2561,7 +2320,7 @@
 			)
 		)
 		(property "Supplier" "Mouser Electronics"
-			(at 138.43 93.98 0)
+			(at 156.21 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2569,8 +2328,8 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Part Number" "80-C0603C102MDRAC"
-			(at 138.43 93.98 0)
+		(property "Supplier Part Number" "80-C0603C102KDRACTU"
+			(at 156.21 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2595,7 +2354,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 109.22 93.98 0)
+		(at 127 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2603,7 +2362,7 @@
 		(dnp yes)
 		(uuid "b906ca12-01fb-40cb-95c8-e978c5682ece")
 		(property "Reference" "C2902"
-			(at 111.76 93.98 0)
+			(at 129.54 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2612,7 +2371,7 @@
 			)
 		)
 		(property "Value" "1n X7R 1kV"
-			(at 111.125 95.885 0)
+			(at 128.905 98.425 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2621,7 +2380,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 109.22 93.98 0)
+			(at 127 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2629,8 +2388,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 109.22 93.98 0)
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KEMET/C0603C102KDRACTU?qs=B0TNOcbsrWfl%252B1TgqaaQlQ%3D%3D"
+			(at 127 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2639,7 +2398,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 109.22 93.98 0)
+			(at 127 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2648,7 +2407,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 109.22 93.98 0)
+			(at 127 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2656,8 +2415,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "C0603C102MDRAC7081"
-			(at 109.22 93.98 0)
+		(property "Manufacturer Part Number" "C0603C102KDRACTU"
+			(at 127 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2666,7 +2425,7 @@
 			)
 		)
 		(property "Supplier" "Mouser Electronics"
-			(at 109.22 93.98 0)
+			(at 127 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2674,8 +2433,8 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Part Number" "80-C0603C102MDRAC"
-			(at 109.22 93.98 0)
+		(property "Supplier Part Number" "80-C0603C102KDRACTU"
+			(at 127 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2699,71 +2458,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:Fiducial")
-		(at 234.315 85.725 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(uuid "eda2a8fe-e4e9-4a72-8f27-a0a8805040a6")
-		(property "Reference" "FM2903"
-			(at 234.315 81.915 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Fiducial"
-			(at 236.855 86.995 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Charge_Manager_FP:Fiducial_1mm_Mask2mm"
-			(at 234.315 85.725 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 234.315 85.725 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Fiducial Marker"
-			(at 234.315 85.725 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "Plume"
-				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/93c115ca-2823-4ddf-b830-32015e2ac9e9"
-					(reference "FM2903")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 115.57 101.6 0)
+		(at 133.35 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2772,7 +2468,7 @@
 		(fields_autoplaced yes)
 		(uuid "ef6cc439-64cb-4ead-afb3-2552d2f43d48")
 		(property "Reference" "#PWR02902"
-			(at 115.57 107.95 0)
+			(at 133.35 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2781,7 +2477,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 115.57 106.045 0)
+			(at 133.35 108.585 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2790,7 +2486,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 115.57 101.6 0)
+			(at 133.35 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2799,7 +2495,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 115.57 101.6 0)
+			(at 133.35 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2808,7 +2504,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 115.57 101.6 0)
+			(at 133.35 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)

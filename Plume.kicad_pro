@@ -613,7 +613,13 @@
     "meta": {
       "version": 4
     },
-    "net_colors": null,
+    "net_colors": {
+      "+3V3": "rgb(255, 153, 0)",
+      "+VBUS": "rgb(255, 0, 0)",
+      "/Project Architecture/Power - Battery Management/+VBAT": "rgb(255, 0, 255)",
+      "/Project Architecture/Power - Wireless Receiver & USB/+VCHARGE": "rgb(0, 255, 255)",
+      "GND": "rgb(64, 64, 64)"
+    },
     "netclass_assignments": null,
     "netclass_patterns": [
       {

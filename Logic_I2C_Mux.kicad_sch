@@ -61,7 +61,7 @@
 			(symbol "TCA9546APWR_1_1"
 				(rectangle
 					(start -8.89 6.35)
-					(end 8.89 -14.605)
+					(end 8.89 -13.97)
 					(stroke
 						(width 0)
 						(type solid)
@@ -207,6 +207,24 @@
 						)
 					)
 					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -16.51 90)
+					(length 2.54)
+					(name "TP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "17"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1027,12 +1045,6 @@
 		(uuid "09b016a1-a975-4c02-aef4-413b2f45c30c")
 	)
 	(junction
-		(at 149.86 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0b880263-1a5b-4151-8534-0d5bcaf3aa44")
-	)
-	(junction
 		(at 224.79 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1141,10 +1153,28 @@
 		(uuid "e4e2d6b6-3d30-4951-93bb-125f19e8da51")
 	)
 	(junction
+		(at 157.48 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e5f1a002-a9a1-457c-a8d4-04578879262b")
+	)
+	(junction
 		(at 193.04 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ecc97fb5-f3ed-4a84-b87a-84c6b317365c")
+	)
+	(junction
+		(at 167.64 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "eed25e57-d1d2-48a8-85d9-1994cd4a68f1")
+	)
+	(junction
+		(at 157.48 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f1194d74-d60f-49e7-a506-766df01752b2")
 	)
 	(junction
 		(at 210.82 60.96)
@@ -1300,23 +1330,13 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 83.82) (xy 193.04 83.82)
+			(xy 157.48 76.2) (xy 170.18 76.2)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "04e14317-c687-43bb-b229-fb40e32fb919")
-	)
-	(wire
-		(pts
-			(xy 149.86 76.2) (xy 170.18 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0a41f6dc-e0db-44c6-ab2b-31829394e494")
+		(uuid "0843306c-51a7-4a50-b768-1c6fc91a2cc2")
 	)
 	(wire
 		(pts
@@ -1460,16 +1480,6 @@
 	)
 	(wire
 		(pts
-			(xy 204.47 81.28) (xy 193.04 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "31f3cd94-ad40-47bb-8cdc-1501dbbc0eb8")
-	)
-	(wire
-		(pts
 			(xy 153.67 90.17) (xy 140.97 90.17)
 		)
 		(stroke
@@ -1510,7 +1520,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 60.96) (xy 149.86 60.96)
+			(xy 143.51 60.96) (xy 157.48 60.96)
 		)
 		(stroke
 			(width 0)
@@ -1580,7 +1590,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 88.9) (xy 170.18 93.98)
+			(xy 167.64 88.9) (xy 167.64 92.71)
 		)
 		(stroke
 			(width 0)
@@ -1770,13 +1780,13 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 76.2) (xy 193.04 76.2)
+			(xy 193.04 86.36) (xy 201.93 86.36)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "707f4d7b-9465-420b-b6dc-c2ae1352daff")
+		(uuid "71d995b7-41b1-4c3a-96c8-fcc65fafa36f")
 	)
 	(bus
 		(pts
@@ -1797,6 +1807,16 @@
 			(type default)
 		)
 		(uuid "72a6e617-0655-4388-8ba3-f29ce20a4c2d")
+	)
+	(wire
+		(pts
+			(xy 157.48 60.96) (xy 193.04 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "748f2507-43a3-4968-8d5d-3577cd8dd674")
 	)
 	(wire
 		(pts
@@ -1890,6 +1910,16 @@
 	)
 	(wire
 		(pts
+			(xy 167.64 92.71) (xy 181.61 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88dc0886-0b9f-4e2b-9832-6b60027610a7")
+	)
+	(wire
+		(pts
 			(xy 193.04 77.47) (xy 201.93 77.47)
 		)
 		(stroke
@@ -1907,6 +1937,16 @@
 			(type default)
 		)
 		(uuid "8b6968a6-167e-43aa-a76a-a6b76d5c529e")
+	)
+	(wire
+		(pts
+			(xy 157.48 76.2) (xy 157.48 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c0a08e6-de21-4a9c-bfd9-cac9de7c6fbc")
 	)
 	(wire
 		(pts
@@ -1930,6 +1970,16 @@
 	)
 	(wire
 		(pts
+			(xy 156.21 76.2) (xy 157.48 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8db5c615-f1b9-4908-bacc-fe847814913d")
+	)
+	(wire
+		(pts
 			(xy 207.01 78.74) (xy 207.01 73.66)
 		)
 		(stroke
@@ -1940,23 +1990,13 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 60.96) (xy 193.04 60.96)
+			(xy 167.64 92.71) (xy 167.64 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "976e5874-deb5-497a-aef2-b3ff110563aa")
-	)
-	(wire
-		(pts
-			(xy 207.01 73.66) (xy 193.04 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "99965340-9444-49ce-9732-2b433d271577")
+		(uuid "91753fbf-0bdd-4176-ac0d-21498bd21efb")
 	)
 	(wire
 		(pts
@@ -1987,6 +2027,16 @@
 			(type default)
 		)
 		(uuid "9c921b0d-2746-4da9-b1b6-03c30406dd42")
+	)
+	(wire
+		(pts
+			(xy 193.04 73.66) (xy 207.01 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1852415-0153-4954-8c10-484acda22aaa")
 	)
 	(bus
 		(pts
@@ -2100,6 +2150,16 @@
 	)
 	(wire
 		(pts
+			(xy 193.04 83.82) (xy 203.2 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b4e5ac52-cd75-4db2-8312-9a1216779589")
+	)
+	(wire
+		(pts
 			(xy 224.79 60.96) (xy 224.79 71.12)
 		)
 		(stroke
@@ -2107,16 +2167,6 @@
 			(type default)
 		)
 		(uuid "b6d0b01d-2104-418d-b06f-3955f950dea3")
-	)
-	(wire
-		(pts
-			(xy 149.86 71.12) (xy 149.86 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b7ad53df-612f-4c52-970d-cffd20466870")
 	)
 	(wire
 		(pts
@@ -2130,7 +2180,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 60.96) (xy 149.86 66.04)
+			(xy 157.48 60.96) (xy 157.48 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2210,13 +2260,13 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 86.36) (xy 193.04 86.36)
+			(xy 193.04 76.2) (xy 205.74 76.2)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d090ca6e-fd2a-42f5-878a-19712bb6c353")
+		(uuid "c916a96a-a15d-4c17-9271-28355823b9f4")
 	)
 	(wire
 		(pts
@@ -2290,6 +2340,16 @@
 	)
 	(wire
 		(pts
+			(xy 167.64 88.9) (xy 170.18 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e23af6ea-be8d-40d7-a1b3-e693756bfaa5")
+	)
+	(wire
+		(pts
 			(xy 212.09 95.25) (xy 214.63 95.25)
 		)
 		(stroke
@@ -2327,6 +2387,16 @@
 			(type default)
 		)
 		(uuid "e7124677-3da6-47bc-892c-7ebcb14b1286")
+	)
+	(wire
+		(pts
+			(xy 193.04 81.28) (xy 204.47 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7364e57-6f9f-4f24-9c7f-587eb43e7c81")
 	)
 	(wire
 		(pts
@@ -3142,7 +3212,97 @@
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO9AK+BSIDCP"
+			"hjcGzE0MhiTiVPWZGVBVV3EQMckfmbIM5G4jnPvUhaI/ZzxMIPE26sjEmA9BxacWRWifivpMT7lh"
+			"OYUKn0yvclm6AoS07TC3MSlhRSjPLm62nPHcA8O6rgw+h5G8IWDLmw9gANgZc+C1xMR4lES37A1+"
+			"tOEsZ1w2OoCfQHKCYDMgrLKUk25mYCpim5T38J4ogPJP00cU3CIvS/d7n9Drl87IAI6z8otrxGQH"
+			"h+60SqWkP45KxwxMSclZmz0qasktbzSzv3H2gS9fkq9R827OUzPYjxaFtHrNUEQbOt79C0Ixnc7i"
+			"4H8SdJvqOEx5wSgfeMwOnLPeCYD0J7gOBWb/+ZPR2ivrFekcil07a7IVE1ERwM/j2N+1zDZtzz9v"
+			"VBJv9kyBFIfztTXlI7CK+ibuCcNph6Np6xb6EIomDlFZhzlTozxtDC3GN8AcKxoYY+6gtX7UERXB"
+			"hFKue8HxAk+ee8Hm3XzWv9t23m9tKe7K4WpRjE4+jffmo4srhdCpZnl1bVt5G9KrRKvRIBUB2YVP"
+			"VFk86EQUBHIG9f52Xmge+huoARVZaLUFxEUlgye256Ekx4QcqxbBCIH6eEnsxhIPzCscAzIjVbht"
+			"LxvS9iknBNkorFKCwU21J4eot6pMe6qN9y4vTigoCIWWo2Te/MTwM2HV8LzHH4Rh9TncteikFUay"
+			"kqCAjkxVixqGcb+CfLLhQVUO00LwbnM7uQijFew/veEd+/1TEzvM0z6O7RLkQkkk+LIqgchQYWkM"
+			"L0IMd+gACv/82zAcNTH94op9vlxtj6nzJLC4wcM83fLLFBLWRkF1pSCxsmbsq7JaePjN52UJXfmd"
+			"x0BmdV7ULiCsQpeh52WRDm7ZzQyLSDkqDD30Rw02v6mGoQHUpXEuZXGcBnNpt3luBS1+9eUyYodB"
+			"pXrMxkqQw7GgDwObsNRqdmRZALGWTGLSE4pHbm9/i1/UmM9chJqZUOewAANeFUdFbkEBboOyZkU3"
+			"Q436XpiyOa4dPI0YNSRImbFusLbC7BMno3Gueu+Ddh0U7oDutenqOWKN5rkMxza/OhjZmJtzwBcl"
+			"bNcNykAXE5SDTE1Vww6JUHVqi0Ny8IuxUuYL41n2mu8ZsOMQ13stOiPeixtefqT23gTf5ax7mCvf"
+			"t/f+Z/2edX/aFWmeRUxgRFJeu8j6ZRnFOE/LJ1dB8aOqxa6wyyxGz5E3JJ2+N+wN89t0M8ZRNWmi"
+			"Zzq288L078YrYlOb1tZQ4TviCVFAJ5aHP8L76zO85XwUi9f6zcK+D9aDulWs412OzGFtks1TrXpC"
+			"/aNbNz0mNL7KYm3RjJ17cKvtEQW4+Rr/n48A06moiQ3i19dRkht6x6GDIUjLSSbPc3dnMVFsUzM1"
+			"TDJPUEZLeFZSMVN5TVJWbEFDVlJsNU9GeElZTDJYUnlkWFFnV3dudUZNQzNRS0djaTNIMkN6RDJh"
+			"bmV0K3R5TTlvWW9GWm5SSllyUmhlcjZ0UzJYQStiT2hIVzRXUm12UXo2UEJydVRsWGw3YVBSYXFZ"
+			"REozUjBhZURMNUpmaXFMZVAwTnJjdnIyMThXdjlkVEFkL04zNUdMamhKd2RXUC9xamovVWNWdkg3"
+			"RFNmcjMyTHV5OWF3dldiUWRUUGhZc1RLYWlOSHErWGxaTmVYaVhpdFpwQWlTNU53M3l5UFRXMldG"
+			"TDhrd25rOE8xU2xRM1NoM1d1UmJPTmtkWEthaENFNXpmMG5JNTNHcGlDTjg5NVBWN21oM1pSOTdv"
+			"ZFJoaC9HbVd1TjlnNW0zTkhtRndHNW5Pdm5MbytKS1QrY2R1Y0lxZ2V5UU5ScE55WVZSOWRuYndr"
+			"Q1JmTkxxTmIzQkNpU0M2dmh4SWVtV0cxUjdiaUZiTTJ1MXVSN3ZUNmIxTGdObm9LWVh1OURhbzZ1"
+			"VHFQczI1MDJnb3VRY2VZdUV6bFVkbU9NUGticGFlN3AxakpaT09oa2ZGT0Y0eUhUajAydzQrSlMv"
+			"SDhkaUJLbmpRUFZkM1JKb213K01BLytkMFVjcGxoZXlTeGFQb001NVB0eXFYZVVJNHZrdFpmMFNZ"
+			"ajErYzdla1VaRzNIVDQwWmhaOEh6Tk9PV2lSanJSV3ZmM0xiOStjZiszMzVuUUk0YUtEdzZPYXZH"
+			"ZmcvU3VxaTJuc0xFTnZZYTdXR1lUQ0QxL2pmRWQ0WnA4TFZvMjQrczV3MFBJNmNxKzVVc0Y0bW9j"
+			"UGFnd0E4ejV1Q1BOTXRZaG1XSFZoYisvSmVua1BFTjFpMGV4ZTZlMWFLSDF5UWtyR2Racjd5Z0lq"
+			"cjlxOTc4S2diTkxPZk5nUXJMZHM0Vm1BeUorajNLWUIvZEFRL2FlbFBrcnE3KzFvZUo5K3pWMGEv"
+			"NllmaGtTN1pKWklvOC80L1FmTEllM2pvTnN1a0VCa3J1OWl5WUFHcWpIVUYwSU5ndlJqa0RBUEcy"
+			"REI0c1VsTFd1ME5zMU40alN1Y0U3RDB0aGRqeUtBZmhZT041elJDOTR3UGlTQ1dHOG53ZDRYUnBE"
+			"YTV0K1RyV1cvcTJQNU9kT1VEbHBsaFl3WFRZOEt5NnR5d0RReXF5cUQxNWtaT3Z0eGFqV3J2ZEhU"
+			"MGFoa2hyYXlDKytuMEdnYXJEL3pFTFlSbWwrTHorcE9hOThkdThCOHBCRjhmQlRBdU9pZzgwbW0v"
+			"aEREL01kZmUybnNEcnprZlNIdHZNSUxUaUJra21hOEVCSU5BYjhKbXJyVmg2cmJWUnIzeTNCUUxN"
+			"Z3EyTW1Pckg2U21OamRIMWhFRGlHUDgvdTNsNzVlM2w1M0kvUTc0cFMyd3Bwb1dXcUNiQUlGeGtC"
+			"MEgySFNOQ1hHd05xbEQ3NHEyVEpyNlJsWjNpcGhFUWJqa0cwREJXc0sxYkpUVEl5OTYxWnlzcEpB"
+			"cWthTVc4RFMrdmJ3czVmY1NDdkFUYkpqN2N3Rk1tbmV5STdSQWRlUFR6bG5rb0VDQmhqNU12czdI"
+			"QlM4M09kSU9ZUU5UMCttWnV4OEgvSW5XbWFPcUNMTmV6Rm5MYjR4c01JYVh4Y3U3Ym40THRiZThX"
+			"VHZnWHU1RHlGZnY0NVE0S1h0R1V4bmEwZ1lkVFNlbFJickVNM0RKbzVsRXJ3MFZwZFZsa0JaY0t5"
+			"YklIbDZOSytyZjBLZTNPbVE1OFlXMDZPdWI1ZHEzVnQvZnVRVGpFWHd2d0s5RlluS1FlckhzNVJL"
+			"cmFMUEhVS1Y4NVN2QVRDalNISWxoemkwdXBGSDI2b2FJS2FTbVhZQlEwaFh4Rjg3TUloUThpZWN5"
+			"OEdod3pwbDI2OEdiZTEvdWdMdWJyRG51enpWSVROTUMxUkxPS1hhZ0E5TVlTSFYxeUcxaHRaZHdB"
+			"Z0szTkZXb2FsTFdTTE84OTArUUt6UW1QTE1keTdtMHdoVnVXUTdlMlBhZ0EvN1QzclhveG0zRVFL"
+			"UkJpbUlwUVhjNDZXUWoydi8velo1TzJoVm5TTm5uK0JrZmliWjJFc2NCMmlsM09UdWN1ZDRCSmIx"
+			"S2poVjF3eGxjZDVQYWhtM3p5YTlTM1F4N1BYT01ZOGxHUVAyb0dQWkZoSGF4MFdTTmxhaUFVVEFF"
+			"VEhqa3dsMHZnY01hNUpqeS93WHpoeTRYM0ZFSHpEa2ZiODZLaS9yRGFyUmxkR3VrK1dDWHNBWEhy"
+			"YnRMeS9uYlN5SnNnTjlpSWpNS2NhM2Z6YmFZMktza0Nmdk1NVSt2dlNCdUVXRnpTQ2tITHdCUTNR"
+			"RnpIazdwbFhLc3FCdklhTnhRTHpZZFBSeStkaUl1RzNRd1BrakNHMVlpNW8rR0VlS1pXUU9vSDlY"
+			"QURsVjcxd3JIMFVBaWw4SGRSa0gzYlY3UnQ5Y0JEMjB2d1FPK094bTlPUktvM0lhNm5hbDBxWDE5"
+			"NWwyaHVLeThZdUtHV1BhUGpmRjBVcmtaTVpUUmtINE5NVnVOaHIwUjQ1REFkMUFkeWJDUWZVUDlo"
+			"KzJBcDNIejJBb0FmZ1FUcytMdnNDaWpDeFhUZDZNVkozVDh3Q3RpOU1rSmlEZDBJYVV2RmhoVThi"
+			"UVZ1OGlkZU5BVy9nWHdJY0p2Y2JWYlBwV0p0eFowd010ZkRSai9CZ0EvZ29uQjlLNwBjAAAAcgAA"
+			"AG8AAAB3AAAAYQAAAHYAAABlAAAAVAAAAG8AAABvAAAAbAAAAC4AAABjAAAAcgAAAGUAAABhAAAA"
+			"dAAAAGUAAABTAAAAdAAAAHUAAABiAAAAQQAAAHIAAABjAAAACQAAAAkAAAAKAAAAcAAAAGMAAABi"
+			"AAAAbgAAAGUAAAB3AAAALgAAAE0AAABvAAAAZAAAAHUAAABsAAAAZQAAAEUAAABkAAAAaQAAAHQA"
+			"AABvAAAAcgAAAC4AAABjAAAAaAAAAGUAAABjAAAAawAAAEYAAABvAAAAbwAAAHQAAABwAAAAcgAA"
+			"AGkAAABuAAAAdAAAAAkAAAAJAAAACgAAAHAAAABjAAAAYgAAAG4AAABlAAAAdwAAAC4AAABNAAAA"
+			"bwAAAGQAAAB1AAAAbAAAAGUAAABFAAAAZAAAAGkAAAB0AAAAbwAAAHIAAAAuAAAAYwAAAG8AAABw"
+			"AAAAeQAAAEYAAABvAAAAbwAAAHQAAABwAAAAcgAAAGkAAABuAAAAdAAAAAkAAAAJAAAACgAAAHAA"
+			"AABjAAAAYgAAAG4AAABlAAAAdwAAAC4AAABNAAAAbwAAAGQAAAB1AAAAbAAAAGUAAABFAAAAZAAA"
+			"AGkAAAB0AAAAbwAAAHIAAAAuAAAAYwAAAHIAAABlAAAAYQAAAHQAAABlAAAARgAAAG8AAABvAAAA"
+			"dAAAAHAAAAByAAAAaQAAAG4AAAB0AAAACQAAAAkAAAAKAAAAcAAAAGMAAABiAAAAbgAAAGUAAAB3"
+			"AAAALgAAAE0AAABvAAAAZAAAAHUAAABsAAAAZQAAAEUAAABkAAAAaQAAAHQAAABvAAAAcgAAAC4A"
+			"AABjAAAAdQAAAHQAAABGAAAAbwAAAG8AAAB0AAAAcAAAAHIAAABpAAAAbgAAAHQAAAAJAAAACQAA"
+			"AAoAAABwAAAAYwAAAGIAAABuAAAAZQAAAHcAAAAuAAAATQAAAG8AAABkAAAAdQAAAGwAAABlAAAA"
+			"RQAAAGQAAABpAAAAdAAAAG8AAAByAAAALgAAAGQAAABlAAAAbAAAAGUAAAB0AAAAZQAAAEYAAABv"
+			"AAAAbwAAAHQAAABwAAAAcgAAAGkAAABuAAAAdAAAAAkAAAAJAAAACgAAAHAAAABjAAAAYgAAAG4A"
+			"AABlAAAAdwAAAC4AAABNAAAAbwAAAGQAAAB1AAAAbAAAAGUAAABFAAAAZAAAAGkAAAB0AAAAbwAA"
+			"AHIAAAAuAAAAZAAAAHUAAABwAAAAbAAAAGkAAABjAAAAYQAAAHQAAABlAAAARgAAAG8AAABvAAAA"
+			"dAAAAHAAAAByAAAAaQAAAG4AAAB0AAAACQAAAAkAAAAKAAAAcAAAAGMAAABiAAAAbgAAAFcAAABp"
+			"AAAAVAAAAHgAAABEAAAASgAAAFAAAAB6AAAAbgAAAGEAAAA1AAAAeAAAAHUAAAAvAAAAawAAAHkA"
+			"AAByAAAAVAAAAFMAAAAvAAAAcQAAAFYAAABjAAAAaQAAAGIAAABzAAAAagAAAGkAAABMAAAAZwAA"
+			"AFQAAAB6AAAAYwAAAG8AAAB3AAAAUAAAAGsAAABMAAAAMQAAAGQAAABYAAAAbAAAAG4AAAAvAAAA"
+			"TQAAADYAAAArAAAARQAAAG4AAABTAAAAMAAAAGYAAABUAAAAWAAAADMAAAA3AAAAdgAAADMAAAAv"
+			"AAAAeQAAAGIAAABlAAAANwAAADEAAABrAAAAUgAAAHUAAAB0AAAAYgAAADEAAABNAAAAQQAAAEkA"
+			"AAB4AAAATgAAACsAAABpAAAAcwAAAHMAAABlAAAAawAAAFIAAABnAAAAMgAAADgAAABhAAAAUQAA"
+			"ADEAAAA4AAAAOAAAAHMAAABrAAAAbgAAAEcAAAA1AAAAdQAAAGIAAABrAAAAMgAAAC8AAAB4AAAA"
+			"OAAAAHYAAAAwAAAAagAAAFIAAABnAAAAVAAAACsAAABSAAAAOQAAAEwAAAA3AAAAeAAAADcAAAB4"
+			"AAAAKwAAAC8AAAA1AAAAagAAADMAAAA4AAAARQAAADEAAABlAAAAdgAAAHUAAABBAAAANAAAAHQA"
+			"AABsAAAAUAAAAHgAAABUAAAAUgAAADAAAAB2AAAAYQAAADcAAAAvAAAAZAAAAHUAAABQAAAAbgAA"
+			"AHUAAAA4AAAAWAAAAEsAAABmAAAAMAAAAGoAAABiAAAAWQAAAG8AAAA3AAAAZgAAADMAAABJAAAA"
+			"NwAAADcAAAB2AAAAdgAAAHcAAABQAAAAWgAAAGwAAAA2AAAAZQAAAFQAAAAwAAAAOAAAAC8AAABY"
+			"AAAAbAAAAHIAAABaAAAALwAAADgAAABlAAAARAAAADIAAAA3AAAAYwAAADgAAABlAAAAUAAAAHYA"
+			"AAB6AAAAaQAAADYAAABiAAAAMQAAADcAAAA5AAAANAAAADcAAAA0AAAAZwAAAEUAAAB6AAAAWAAA"
+			"ADEAAAAvAAAAZQAAAFAAAABmAAAAdgAAAEMAAABEAAAASAAAACsAAAB4AAAAeQAAADIAAAA4AAAA"
+			"SQAAAGIAAAByAAAANwAAAGUAAABnAAAAZwAAAGEAAABQAAAAOQAAAHMAAAAvAAAAMgAAADEAAABy"
+			"AAAAYwAAAG0AAABEAAAAawAAADEAAABOAAAAbgAAAEsAAABDAAAAdwAAAGYAAAA4AAAASwAAAFcA"
+			"AABOAAAAUgAAAFYAAAA5AAAAKwAAAGwAAABLAAAATwAAAHgAAABaAAAASgAAAEgAAA=="
 		)
 	)
 	(image
@@ -9346,7 +9506,97 @@
 			"Wv9oaGj/Y2Nj/29vb/9oaGj/Y2Nj/15eXv94eHj/Xl5e/2hoaP9jY2P/Y2Nj/15eXv9WVlb/Xl5e"
 			"/2NjY/9oaGj/Xl5e/15eXv9aWlr/Xl5e/2hoaP9oaGj/Xl5e/2NjY/9aWlr/Y2Nj/15eXv9aWlr/"
 			"Xl5e/1FRUf9CQkL/LS0t/yMjI/8jIyP/IyMj/yMjI/8tLS3/IyMj/1lZWYlHcEwAR3BMAEdwTABH"
-			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcA=="
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAIiIiP9NTEz/Pz8//z8/P/9cXFz/XFxc/01MTP9cXFz/a2tr/1xcXP9NTEz/TUxM/01MTP9N"
+			"TEz/TUxM/z8/P/9NTEz/XFxc/01MTP9NTEz/XFxc/1xcXP8/Pz//TUxM/01MTP9cXFz/TUxM/1xc"
+			"XP8/Pz//TUxM/01MTP9cXFz/XFxc/2tra/9cXFz/XFxc/1xcXP9ra2v/a2tr/zMzM/9NTEz/TUxM"
+			"/2tra/8/Pz//a2tr/1xcXP9cXFz/a2tr/z8/P/9NTEz/XFxc/zMzM/9ra2v/a2tr/1xcXP8zMzP/"
+			"TUxM/ygoKP8/Pz//KCgo/z8/P/8oKCj/KCgo/ygoKP8aGhr/CQkJ/wkJCf8JCQn/CQkJ/wkJCf8J"
+			"CQn/CQkJ/wkJCf8JCQn/CQkJ/wkJCf8JCQn/CQkJ/wkJCf8aGhr/CQkJ/xoaGv8JCQn/Ghoa/wkJ"
+			"Cf8aGhr/Ghoa/xoaGv8JCQn/Ghoa/xoaGv8aGhr/Ghoa/wkJCf8JCQn/CQkJ/wkJCf8aGhr/Ghoa"
+			"/ygoKP8aGhr/CQkJ/xoaGv8aGhr/KCgo/xoaGv8JCQn/CQkJ/xoaGv8aGhr/Ghoa/xoaGv8oKCj/"
+			"Ghoa/xoaGv8oKCj/Ghoa/ygoKP8JCQn/CQkJ/wkJCf8oKCj/KCgo/wkJCf8JCQn/Ghoa/ygoKP8o"
+			"KCj/KCgo/xoaGv8oKCj/CQkJ/wkJCf8oKCj/MzMz/01MTP9NTEz/TUxM/1xcXP9NTEz/MzMz/ygo"
+			"KP8JCQn/CQkJ/3t7e/+Xl5b/l5eW/5eXlv+Xl5b/l5eW/4iIiP8/Pz//TUxM/1xcXP+Xl5b/a2tr"
+			"/5eXlv+Xl5b/l5eW/5eXlv9cXFz/Pz8//zMzM/8JCQn/CQkJ/1xcXP9NTEz/Ghoa/xoaGv8JCQn/"
+			"CQkJ/ygoKP8JCQn/CQkJ/z8/P/8zMzP/MzMz/xoaGv8JCQn/KCgo/zMzM/8oKCj/MzMz/zMzM/8a"
+			"Ghr/CQkJ/wkJCf8oKCj/MzMz/ygoKP8oKCj/KCgo/zMzM/8oKCj/MzMz/ygoKP8oKCj/KCgo/zMz"
+			"M/8oKCj/CQkJ/zMzM/8oKCj/KCgo/ygoKP8oKCj/KCgo/ygoKP8zMzP/KCgo/xoaGv8oKCj/KCgo"
+			"/zMzM/8oKCj/MzMz/ygoKP8oKCj/Ghoa/ygoKP8oKCj/MzMz/xoaGv8oKCj/KCgo/zMzM/8oKCj/"
+			"MzMz/wkJCf8JCQn/CQkJ/xoaGv8oKCj/KCgo/zMzM/8zMzP/KCgo/ygoKP8oKCj/MzMz/wkJCf8J"
+			"CQn/KCgo/ygoKP8zMzP/KCgo/ygoKP8oKCj/KCgo/xoaGv8JCQn/CQkJ/wkJCf8JCQn/CQkJ/wkJ"
+			"Cf8aGhr/CQkJ/wkJCf8JCQn/CQkJ/xoaGv8aGhr/KCgo/ygoKP8zMzP/KCgo/ygoKP8oKCj/KCgo"
+			"/ygoKP8oKCj/KCgo/xoaGv8JCQn/Ghoa/ygoKP8aGhr/CQkJ/xoaGv8oKCj/MzMz/ygoKP8oKCj/"
+			"MzMz/ygoKP8oKCj/MzMz/ygoKP8zMzP/MzMz/ygoKP8JCQn/Ghoa/ygoKP8oKCj/KCgo/ygoKP8o"
+			"KCj/KCgo/ygoKP8JCQn/CQkJ/wkJCf8aGhr/KCgo/ygoKP8JCQn/Ghoa/ygoKP8zMzP/KCgo/ygo"
+			"KP8zMzP/KCgo/zMzM/8oKCj/KCgo/zMzM/8oKCj/CQkJ/wkJCf8aGhr/CQkJ/wkJCf8oKCj/MzMz"
+			"/ygoKP8zMzP/KCgo/ygoKP8oKCj/KCgo/zMzM/8zMzP/KCgo/ygoKP8oKCj/KCgo/ygoKP8zMzP/"
+			"Ghoa/wkJCf8aGhr/Ghoa/wkJCf8aGhr/KCgo/ygoKP8oKCj/KCgo/ygoKP8oKCj/Ghoa/ygoKP8o"
+			"KCj/KCgo/wkJCf8zMzP/MzMz/ygoKP8aGhr/KCgo/zMzM/8oKCj/KCgo/ygoKP8zMzP/CQkJ/wkJ"
+			"Cf8JCQn/CQkJ/ygoKP8oKCj/KCgo/zMzM/8oKCj/KCgo/ygoKP8zMzP/Ghoa/wkJCf8oKCj/MzMz"
+			"/ygoKP8zMzP/CQkJ/wkJCf8JCQn/KCgo/zMzM/8oKCj/MzMz/ygoKP8oKCj/KCgo/ygoKP8aGhr/"
+			"CQkJ/wkJCf8aGhr/KCgo/ygoKP8aGhr/CQkJ/zMzM/8oKCj/KCgo/ygoKP8oKCj/KCgo/xoaGv8J"
+			"CQn/KCgo/ygoKP8aGhr/CQkJ/wkJCf8aGhr/KCgo/ygoKP8oKCj/CQkJ/wkJCf8aGgAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMKKSkpJSsrK0crKytrLCwsnCsr"
+			"K8YrKyviKioq8ioqKvosLCz/LCws/y4uLv8uLi7/LSws/yUoKf9DNjH/c1BE/610YP+wdmH/rnZg"
+			"/652YP+udmD/r3Vg/652YP+udmD/rnZg/652YP+udmD/r3Vg/7B2Yf+vdmD/rnZg/691YP+udmD/"
+			"rnZg/691YP+wdmH/sHZh/650YP+udGD/rnVg/652YP+vdWD/rnZg/652YP+vdmD/sHZh/7F3Yf+s"
+			"dF//pW9b/4ZcTf9uTkP/RTk0/zUvLv8sKyz/LC0t/y0tLf8sKyv/Kioq/ysrK/8rKyv/Kysr/yoq"
+			"Kv8uLi7/LS0t/ysrK/8rKyv/Kysr/yoqKv8rKyv/Kysr/ysrK/8rKyv/LCws/ywsLP8rKyv/Kysr"
+			"/ysrK/8rKyv/Kioq/ysrK/8tLS3/Ly8v/ysrK/8pKSn/KCgo/yoqKv8sLCz/Kysr/yoqKv8qKir/"
+			"LCws/ysrK/8rKyv/Kioq/yoqKv8qKir/Kysr/ywsLP8tLS3/LS0t/y0tLf8rKyv/Kioq/yoqKv8q"
+			"Kir/Kysr/ygoKP8kJCT/JCQk/yUlJf8lJSX/JSUl/yYmJv8oKCj/KCgo/yYmJv8mJib/Jycn/ykp"
+			"Kf8pKSn/Jycn/yYmJv8mJib/JSUl/yUlJf8mJib/JiYm/yQkJP8mJib/JiYm/ycnJ/8nJyf/JiYm"
+			"/yYmJv8mJib/JiYm/yYmJv8mJib/JiYm/yUlJf8kJCT/JCQk/yUlJf8mJib/Jycn/ycnJ/8lJSX/"
+			"JSUl/yYmJv8lJSX/JiYm/yYmJv8mJib/JiYm/yUlJf8lJSX/JSUl/yUlJf8lJSX/JSUl/yYmJv8m"
+			"Jib/JiYm/yUlJf8lJSX/JiYm/ycnJ/8nJyf/Jycn/ycnJ/8mJib/JSUl/yYmJv8mJib/Jycn/ygo"
+			"KP8pKSn/Jycn/yQkJP8jIyP/JCQk/yYmJv8nJyf/Jycn/yYmJv8mJib/Jycn/yYmJv8lJSX/JSUl"
+			"/yYmJv8mJib/JCQk/yUlJf8nJyf/Jycn/yYmJv8mJib/JiYm/ycnJ/8mJib/Jycn/3Y2akdIN3o0"
+			"RTU0RGVpR2J2aDF3L2ZCWE1rYUwySFVoczB4TEIzaUVueGNMUmtxUkVaZWtRb2ZnajB3aGdycy9j"
+			"QjVSU0gxVUtqNEw2VXFiUWtaTjlIUmtOREgrcWQrcURucGMrUXJHQlRrbzlrdW82OXlVd3IwSlVh"
+			"Y0tNZlZleFdtdzk2ZnFmcksvOUQ0aGRPU2lpL25TNTdSRDlwUTREV1hoazZxcWRzZzd6OG5XTDgw"
+			"WHMzTnlDazRmSHZYZnVYVDY5Sm1kUTUxYk55OWVuT2pUNVBQUmFLUkh5anVmM3FjR0R5VzZiREhY"
+			"VHZtVmNlZmk3cUJ6Nk54a2V1UDBZRFE4cjdaNlh5NjNucWZ2dml6RnY2NE9lbEkyMmxiL0dQYjBr"
+			"WHFaVXVsdTdKUnpNVmJsMFllalA0YXRNVGR0SFpDSWx1ZVB3QVZhNW9BSFp4cGtScjlEc25WQ253"
+			"TkNqV3NVWVBCSi9RMXQ0cHJHOHVoTFRvTjVFRzNENWU0cDYzRjN6TThQbzY2SDAzWDlrVnpualdO"
+			"N2tLL1Q1STFqclJOR2pyWWp6cjVFeXNFMGpnMWZpY3ZRSWhINmlGKytONFJ5NW9lQkxrNVBkWkN1"
+			"cjZGQmt2SngzRk0zNjdEa0xaMWN4eVdNQlAyWU12U084VlpwOGRENUU3dmlXaGRkMDhjSjNoOE0r"
+			"ci91ZFFkdnpCYlRYeTMySnUvY0hnNGZpN0ZqeFJhYnpKZk9BaHRIL0V2WDVILzhDci85OXR0YnVy"
+			"RDZyQjcyZWFHcjIvWTA0UEptM3NGNHJGM2c0cUF4TUdkZ3FhdkpJUElNMDRhV1JBemVKZjJBSTA4"
+			"WWpzM2UrV1dzZ25CNmM5WXgybktCbEhpNXdHSzJpZDFIRnZSeHlGbkFZWWlkY08xMmE5ZDd3b3ZZ"
+			"OUdiMHBTT09BNjRYbWVUdUlkYklJOFFwYVpzZ21JbVRINXlOdVNZMEprYmJOS2hFaEQ2ZWhCMURT"
+			"M0NaWTArc1dYcndyL0ZZS0RnQXk3cWpVbXJwMkRqdGN1QkxmWXV1eHIxVGJQazFUbDBINEczWk5T"
+			"NXA2OUpPazkvUGYvOENKL3NBTnlvVHRKaU12cXhkMG1pSDVJOE0ycDlnbnJYTm9oeEh2ZFM5MXNu"
+			"Nk80Wkh1M3pkRG43ZzhWT0MrNEdJVitTMFpWby93eUdQM1krb1lOWlNBSUI1bUw4RVJCK25uaGds"
+			"NkhKaFJsMGxWVGFxNERxNXZjQXNMSlo2a1RjKytrRE5mM2FuNUZIYndQU20wNG1WenJOUTJZUmQ4"
+			"S1owQmVpVER1N0JNdUJabG54SnAyeWR1eUdYZGhFOUw1R011dkhjdUdDVXFZMUo0WgAAQQAAAE8A"
+			"AABBAAAAUgAAAEsAAABiAAAAawAAAEEAAABBAAAASgAAAGsAAABBAAAAQQAAAEoAAABrAAAASQAA"
+			"AEMAAABOAAAAQQAAAEwAAAA2AAAAZgAAAHcAAABBAAAAWgAAAEgAAAB0AAAANAAAAHcAAABDAAAA"
+			"dAAAAGwAAAB0AAAAawAAADIAAABXAAAAKwAAAHEAAABFAAAASwAAAEMAAABBAAAANwAAAGMAAAA1"
+			"AAAASwAAADQAAAAzAAAAcwAAAG8AAABPAAAARgAAAEQAAABvAAAAZAAAAEkAAAA4AAAAWQAAAEIA"
+			"AABkAAAAOQAAAGQAAABsAAAAUwAAAGwAAABUAAAASgAAAHEAAAB3AAAAQgAAADQAAABhAAAAUQAA"
+			"ADAAAABZAAAATQAAAEEAAABBAAAANAAAADUAAAA0AAAAbgAAAG4AAAAzAAAAeAAAAFMAAABlAAAA"
+			"VwAAAFEAAABiAAAARgAAAFQAAAB5AAAASgAAAG0AAABBAAAAQQAAAGMAAAB1AAAAbgAAAFMAAAAw"
+			"AAAAVgAAAEgAAABTAAAAQwAAADcAAAArAAAAcwAAAFEAAABtAAAAaAAAADEAAABIAAAAVwAAAHUA"
+			"AABvAAAAUwAAAG8AAABJAAAAQwAAAGQAAAB1AAAAbQAAAHYAAABQAAAASgAAAC8AAABjAAAAUQAA"
+			"AGcAAABWAAAAZwAAAEwAAAAyAAAAUAAAAGEAAABRAAAAMgAAAGsAAABDAAAAeAAAAGEAAAA5AAAA"
+			"YwAAAHUAAAB2AAAANQAAADYAAAAzAAAAcwAAAFUAAABEAAAAbAAAAGEAAAA2AAAAZQAAAGEAAABY"
+			"AAAAVAAAAGkAAABNAAAAWgAAAGgAAAA3AAAASQAAAEoAAABRAAAAegAAAFAAAABPAAAATAAAAHMA"
+			"AABoAAAAWgAAAFAAAABXAAAAMAAAAGEAAABkAAAAUAAAAHMAAAAxAAAAUQAAAEgAAABMAAAAZwAA"
+			"AFUAAABTAAAAbAAAAGcAAABRAAAATQAAAEgAAAB5AAAAdgAAAFAAAABQAAAAUAAAADIAAAAvAAAA"
+			"YwAAADMAAAA2AAAAWgAAAE4AAABHAAAANQAAAGsAAAAwAAAAYQAAAFoAAABKAAAAUgAAAEQAAAB2"
+			"AAAAVgAAAGsAAAAzAAAAYgAAAHAAAAAxAAAAYQAAAGMAAABUAAAAUAAAAGIAAABkAAAAdQAAADIA"
+			"AABoAAAAUgAAAHoAAABpAAAAQwAAADYAAABJAAAAdwAAAHYAAABFAAAAVgAAADkAAABtAAAAVAAA"
+			"AG4AAABmAAAASwAAAEEAAABTAAAAUgAAAGsAAABpAAAAVgAAAEwAAAB5AAAAawAAAA=="
 		)
 	)
 	(image
@@ -10675,21 +10925,111 @@
 			"AEcAAABEAAAAQgAAAGcAAAB3AAAASQAAAEEAAABCAAAAQQAAAHcAAABZAAAATQAAAEcAAABEAAAA"
 			"QgAAAGcAAAB3AAAASQAAAEEAAABCAAAAQQAAAHcAAABZAAAATQAAAEcAAABEAAAAQgAAAGcAAAB3"
 			"AAAASQAAAEEAAABCAAAAQQAAAHcAAABZAAAATQAAAEcAAABEAAAAQgAAAGcAAAB3AAAASQAAAEEA"
-			"AABCAAAAQQ=="
+			"AABCAAAAQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAABaAAAAdAAAAFYAAABBAAAAWgAAACsAAABnAAAAbwAAAFoAAAB2AAAAZwAAAEEAAABn"
+			"AAAAKwAAADgAAABhAAAAUAAAAEQAAABrAAAAOQAAAGIAAABYAAAAUgAAAHQAAABRAAAAcwAAAHUA"
+			"AAAwAAAAcAAAADgAAABlAAAATgAAAGIAAABxAAAAZwAAAFIAAABOAAAAMgAAAE4AAABjAAAAbwAA"
+			"ADkAAABZAAAAUwAAAHQAAABUAAAAYwAAAFMAAABaAAAARAAAAHYAAAB6AAAAKwAAAGMAAAA4AAAA"
+			"ZwAAADQAAABlAAAASgAAAFAAAABiAAAAMgAAAEwAAABSAAAANAAAAEIAAAB1AAAAdgAAAGEAAABh"
+			"AAAAdgAAAEIAAABXAAAANwAAADMAAAAzAAAAdgAAAHYAAAB4AAAAQwAAAEwAAABvAAAARgAAAGcA"
+			"AAAwAAAANgAAAGEAAAB6AAAAYQAAAFMAAABaAAAAOQAAAHgAAABzAAAANQAAAHIAAABUAAAATAAA"
+			"AFgAAABBAAAARwAAADIAAABlAAAARwAAAEQAAAB2AAAAcAAAAFAAAABBAAAAVgAAAGQAAABUAAAA"
+			"cAAAAEIAAABOAAAARwAAACsAAABhAAAANgAAADgAAABmAAAAOAAAADgAAABWAAAAVwAAAFoAAABk"
+			"AAAANwAAAFEAAABHAAAAbgAAAHcAAABKAAAAegAAADAAAAArAAAAcwAAAEYAAABvAAAAQwAAAHkA"
+			"AABDAAAAdAAAADMAAAA2AAAAYwAAAGoAAABPAAAAZgAAAGIAAABCAAAAawAAAFMAAABCAAAANwAA"
+			"ADYAAABxAAAAawAAAG4AAABqAAAALwAAAGUAAABYAAAALwAAAGYAAABqAAAASAAAAHoAAAA0AAAA"
+			"egAAADYAAAA3AAAAUwAAAE4AAABaAAAANAAAAHgAAABGAAAATQAAAGkAAABiAAAARgAAADMAAAAz"
+			"AAAAcgAAAGsAAAA2AAAAQQAAAHMAAAArAAAAWgAAADQAAABMAAAASQAAADMAAABqAAAATgAAACsA"
+			"AAA2AAAAbQAAADUAAABuAAAAMQAAAE4AAAB3AAAAZQAAAEoAAABqAAAAcwAAAHMAAABBAAAAdgAA"
+			"ADcAAAAxAAAAbgAAAHoAAAA2AAAAeAAAAEIAAAByAAAAdgAAAGEAAAA2AAAAdgAAADkAAABJAAAA"
+			"RAAAAFYAAAA4AAAAbQAAAHYAAABlAAAATgAAAHUAAABEAAAAeAAAAGcAAABoAAAAUAAAAE4AAAB6"
+			"AAAAbQAAAGcAAABWAAAAdQAAAEEAAABBAAAAVwAAADEAAABjAAAANwAAADYAAABXAAAAeAAAADgA"
+			"AAA4AAAAdQAAAGkAAAAxAAAAMQAAAEQAAABKAAAAMQAAAFoAAABOAAAAOAAAAHMAAABEAAAANQAA"
+			"AFoAAABsAAAAQwAAAHoAAAAyAAAAQQAAAEQAAABYAAAAWgAAADUAAABXAAAAbQAAAG4AAABOAAAA"
+			"bgAAAGQAAABpAAAAeQAAAEMAAABWAAAAQgAAAFMAAAAvAAAALwAAAEkAAAB5AAAAZwAAAEsAAABp"
+			"AAAAVQAAAFMAAAB4AAAANQAAAFUAAABiAAAASgAAADQAAABmAAAAQQAAAGwAAABxAAAAcAAAAEcA"
+			"AAA1AAAAdgAAAFkAAAB0AAAAYwAAAG0AAABlAAAAVgAAAEoAAABZAAAAcgAAAHEAAABtAAAAYwAA"
+			"AHAAAAA3AAAANgAAAFEAAABsAAAAZgAAAHoAAAAwAAAARgAAAHMAAAAvAAAAYQAAAFIAAABDAAAA"
+			"dAAAAGcAAABJAAAAZAAAADYAAABrAAAAOQAAADMAAAAwAAAAcgAAAEgAAAB6AAAARAAAAHYAAAA2"
+			"AAAAcwAAAFYAAABzAAAAYgAAAGcAAABDAAAAUgAAAC8AAAA4AAAAcAAAAGoAAABOAAAAZwAAAGkA"
+			"AAA3AAAAbQAAAFYAAABsAAAAaAAAAE0AAABqAAAAdAAAAGIAAABPAAAALwAAAG0AAAAvAAAAbQAA"
+			"AG0AAABiAAAAbgAAAHIAAABtAAAAdgAAADcAAABwAAAANQAAAHoAAABQAAAATgAAADMAAABRAAAA"
+			"LwAAAG0AAABrAAAAVQAAAHcAAAB1AAAAUwAAAG0AAABnAAAAWAAAAFgAAABMAAAARwAAAE0AAABG"
+			"AAAAeQAAAFEAAABEAAAAVQAAADIAAABoAAAASgAAAEgAAAAvAAAAMgAAAHkAAAB0AAAAVwAAAGQA"
+			"AABuAAAAMQAAAEEAAABOAAAAOQAAADgAAAByAAAAZQAAAGMAAABwAAAAYwAAADMAAAA4AAAASwAA"
+			"AFEAAABOAAAAUQAAAGEAAABaAAAATwAAAFcAAABkAAAAZQAAADkAAABGAAAARAAAAHkAAABDAAAA"
+			"bQAAADkAAABzAAAAZQAAAEwAAAB2AAAAZgAAAHAAAABhAAAAWgAAAFMAAAB3AAAAdgAAADUAAABs"
+			"AAAAbQAAAEcAAABtAAAAcAAAAFYAAAA5AAAANQAAAG0AAAB6AAAAVgAAAGkAAAB4AAAAOAAAAGcA"
+			"AABHAAAAVQAAAEQAAABvAAAAbQAAAEwAAABLAAAAegAAAEMAAABoAAAANgAAAG0AAAB6AAAANAAA"
+			"AGEAAAAxAAAAcgAAAGcAAABCAAAATgAAAFAAAABSAAAAZAAAADgAAABNAAAALwAAAFkAAABUAAAA"
+			"OQAAAEQAAPPz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/NhptMagcQagcQagcQagcQa"
+			"gcQagcQagcQagcQagcQagcQagcQagcQagcQagcQagcQagcQagcQagcQagcQagcRhptPz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/PS0tJVVVVUVFRUVFRUVFRUVFRUVFRU"
+			"VFRUVFRUVFRUVFRZWVnR0dHz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz"
+			"8/Pz8/Pz82plZWpCVDJ0Nko3bmZ4bkYvSEgyOGY2YXVnTGNNR1B5Y1Q4RU1UU3pRL3ovVGhoV0s3"
+			"VjNlUm5NdUpTY3hyT05Kb3B3MHVYTHBhKy92cXIwcGRmZmxuNjdydnZTaytlUEJGai9kZ3JyNVJl"
+			"UHZweXFZRXZxWEt2ZDdYS2wrSWxyRHpnVERnL08xWXBOVUNuRFdPOTNXcUp3VjREVFRZYTRmakpN"
+			"cndWS1hVSFhSanJsZExTb1lWU3E3V0FjQlB0TmtRNTY3RFFSOWNPSDFvNDNXelZQNnZWS3FkYWpl"
+			"YlpuLys3ZTlmSzVVOG1MNUh6S3h2RFVRSlJBbEVDVVFMN1JnSjdkbW42TEFtZU9IRmk4OXUxdGR2"
+			"MWF2dk81dWFkNjQzUmFIbFFHVjNCSjlCZXc5di9OeXZsMGZzWUdOL0c4YVJIc2ZmcnBkSnc4QW9P"
+			"U2trNDhJN3dhUkF6YmxuTzVJRmNCODladkl6bnExSlNSTnN2aTJGVEVLZ3NoY29SRlFmT1hHUzhL"
+			"aitteVBqbCtuVDk5QmgrTmhLd2R2T3BXeHNVdFEvaExOOXdRcmd3MytCeVB2dU1vNlg0YW9EYVNl"
+			"cGlSRlBqZ3pQNjlDMHNHVjRlNGVWemVTQWpkQjJBbElJRXc2TmZWR2VqUjJ6MjAxbk82RmxkemJm"
+			"MHFmamswVjRXQUZDTWNxMHFZMU5SWTJhVXdINldnTjVidkNINWozdU5oalg4SVdlOU1hczc2TVBI"
+			"Mk1aeFJDNmtqWERKZEt1aThZWkpSV0QzSFJQbXV2Y2NwandEZ251TmFVcVBQTTEyZnRtRUxpcmZZ"
+			"RExhVzZQcjA2UThHQ2N0Vzc3UE9NZFdqcm1jM2FZaFR2SDBjR0w1dzRjUE1RTitTdzVuNDlMME8z"
+			"ZHdSaXpjMHRKU3FkbG9saFlYWURqRHVKWm5KTkpWNWpUMFlXaURIazlGcDZIT3E0b3krR0RzNFNB"
+			"MlRnRGdSRm0wM2FDMDJkM0VNbmlleko2QUo3WUx2aUUrSEhYeHJmQkwrQmpNVjNncDhLdEd2ZjVa"
+			"djFUN2NxMTI3RzY1L0IraUVjNUdpQzVLSUVvZ1N1Q0FTV0RmR3VJWVNEa3cyUjd5emVVelp6YlhG"
+			"cXNQTVN0d3ZaWlVydUZUWm5meGlaQmJHQjI1Znh6ZklpKzlqVzkwNHBUMVVvdkx4cWpBK0lPOERm"
+			"emF2bFFvT0RpYXI2bGIvVFdhOUUwUk1CcGF0dHUvanJLNG5JMXA5RmsyNGRVd040ek1CNWc0bzUv"
+			"bFdFajVkbUNTU0tyUjdhd0VyRjEzbHVyODFQTHRUMlVZdHdTMVFUZFZ4ejVFUjkrLy9CSUVBaDFG"
+			"K2hSOUpBaA=="
 		)
 	)
 	(label "SD2"
-		(at 199.39 86.36 180)
+		(at 195.58 86.36 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "4c42eb8d-fc41-4c20-a358-dffe3d1dc9c1")
 	)
 	(label "SC1"
-		(at 167.64 86.36 180)
+		(at 168.91 86.36 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10699,7 +11039,7 @@
 		(uuid "50a6c3f5-facb-4e39-b621-18ea47f0c951")
 	)
 	(label "SC0"
-		(at 167.64 81.28 180)
+		(at 168.91 81.28 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10708,18 +11048,18 @@
 		)
 		(uuid "61478386-e74c-49bf-aea8-b2fbc7ec49ea")
 	)
-	(label "SDA"
-		(at 199.39 73.66 180)
+	(label "I2C1_SDA"
+		(at 195.58 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "6d089734-2d69-4bf4-a4f0-409a6461301b")
 	)
 	(label "SD0"
-		(at 167.64 78.74 180)
+		(at 168.91 78.74 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10729,27 +11069,27 @@
 		(uuid "91cd9328-b0f1-407a-86b5-dc94ac729fb9")
 	)
 	(label "SD3"
-		(at 199.39 81.28 180)
+		(at 195.58 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "9d4fb901-884d-43d0-ab1c-9fffb532c19e")
 	)
 	(label "SC2"
-		(at 199.39 88.9 180)
+		(at 195.58 88.9 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "a4aa8be6-627e-46ae-8f39-67dc9e42cb9d")
 	)
 	(label "MUX_RESET"
-		(at 167.64 76.2 180)
+		(at 168.91 76.2 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10781,7 +11121,7 @@
 		(uuid "ed086a92-1ce3-48e9-b871-1fa42948302b")
 	)
 	(label "SD1"
-		(at 167.64 83.82 180)
+		(at 168.91 83.82 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10790,23 +11130,23 @@
 		)
 		(uuid "edbbcec5-3e5b-4b46-a446-97e13a5a48f8")
 	)
-	(label "SCL"
-		(at 199.39 76.2 180)
+	(label "I2C1_SCL"
+		(at 195.58 76.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "ee12b1c6-4b29-4873-a823-8cd8483e0024")
 	)
 	(label "SC3"
-		(at 199.39 83.82 180)
+		(at 195.58 83.82 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "fe780e71-2592-4ce2-8266-b624a9f044aa")
 	)
@@ -10821,6 +11161,20 @@
 			(justify left)
 		)
 		(uuid "485e44e6-d4e5-455a-a74f-6d83a7a48e94")
+	)
+	(hierarchical_label "MUX_RESET"
+		(shape output)
+		(at 156.21 76.2 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+				(color 0 0 0 1)
+			)
+			(justify right)
+		)
+		(uuid "54ada6eb-eac9-4007-ba39-10df965fba1c")
 	)
 	(hierarchical_label "I2C3"
 		(shape bidirectional)
@@ -10884,8 +11238,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 149.86 68.58 0)
-		(mirror y)
+		(at 157.48 68.58 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10893,7 +11246,7 @@
 		(dnp no)
 		(uuid "06cbae3e-4491-4594-871b-128bfc070aec")
 		(property "Reference" "R801"
-			(at 151.892 67.818 0)
+			(at 155.448 67.818 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10902,7 +11255,7 @@
 			)
 		)
 		(property "Value" "100k 1%"
-			(at 151.892 70.231 0)
+			(at 155.448 70.231 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10911,7 +11264,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 149.86 68.58 0)
+			(at 157.48 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10919,8 +11272,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 149.86 68.58 0)
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Panasonic/ERJ-2RKF1003X?qs=H7k1u0Mp9JQnXoBKdf15Qg%3D%3D&srsltid=AfmBOoqeXQAkmmFNUQ00LBqf1Lst2nRPq23Re-qHGOP3a-hhvFcsdLLw&_gl=1*hxzi37*_ga*MjY0ODgyOTc1LjE3NDM2NjQzNDc.*_ga_15W4STQT4T*MTc0MzY4Mzk2Ny42LjEuMTc0MzY4NDYzMy41Mi4wLjA."
+			(at 157.48 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10929,7 +11282,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 149.86 68.58 0)
+			(at 157.48 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10938,7 +11291,7 @@
 			)
 		)
 		(property "Supplier" "Mouser Electronics"
-			(at 149.86 68.58 0)
+			(at 157.48 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10947,7 +11300,7 @@
 			)
 		)
 		(property "Manufacturer" "Panasonic"
-			(at 149.86 68.58 0)
+			(at 157.48 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10956,7 +11309,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" "ERJ-2RKF1003X"
-			(at 149.86 68.58 0)
+			(at 157.48 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10965,7 +11318,7 @@
 			)
 		)
 		(property "Supplier Part Number" "667-ERJ-2RKF1003X"
-			(at 149.86 68.58 0)
+			(at 157.48 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11025,7 +11378,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 214.63 99.06 0)
 			(effects
 				(font
@@ -11131,7 +11484,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 214.63 86.36 0)
 			(effects
 				(font
@@ -11304,7 +11657,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 224.79 86.36 0)
 			(effects
 				(font
@@ -11495,7 +11848,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/TDK/CGA3E1X7R1C105K080AC?qs=XHchNesRtUbBVNsGg9%252BP9g%3D%3D"
 			(at 196.85 63.5 0)
 			(effects
 				(font
@@ -11601,7 +11954,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 224.79 99.06 0)
 			(effects
 				(font
@@ -11672,7 +12025,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 170.18 93.98 0)
+		(at 167.64 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11681,7 +12034,7 @@
 		(fields_autoplaced yes)
 		(uuid "725ad5ba-78d2-4151-a014-11f09adc75a9")
 		(property "Reference" "#PWR0804"
-			(at 170.18 100.33 0)
+			(at 167.64 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11690,7 +12043,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 170.18 99.06 0)
+			(at 167.64 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11699,7 +12052,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 170.18 93.98 0)
+			(at 167.64 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11708,7 +12061,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 170.18 93.98 0)
+			(at 167.64 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11717,7 +12070,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 170.18 93.98 0)
+			(at 167.64 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11774,7 +12127,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 214.63 74.93 0)
 			(effects
 				(font
@@ -11879,7 +12232,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 143.51 86.36 0)
 			(effects
 				(font
@@ -11984,7 +12337,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 153.67 100.33 0)
 			(effects
 				(font
@@ -12154,7 +12507,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/pca9546a.pdf?ts=1743407687072&ref_url=https%253A%252F%252Fwww.mouser.co.uk%252F"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tca9546a.pdf?ts=1743075200620&ref_url=https%253A%252F%252Fwww.google.com%252F"
 			(at 181.61 64.008 0)
 			(effects
 				(font
@@ -12256,8 +12609,15 @@
 		(pin "9"
 			(uuid "d859f48e-7853-4b60-9aea-804a5d13a8ba")
 		)
+		(pin "17"
+			(uuid "8562a6bf-3b87-4058-b35f-1cbf1236d234")
+		)
 		(instances
 			(project ""
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/7d5a1283-086b-46b0-8df7-a9850521fb5e"
+					(reference "U?")
+					(unit 1)
+				)
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/92d2c497-b664-4d29-9742-e826f97f08c5"
 					(reference "U801")
 					(unit 1)
@@ -12368,7 +12728,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D"
 			(at 210.82 63.5 0)
 			(effects
 				(font
@@ -12473,7 +12833,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 143.51 100.33 0)
 			(effects
 				(font
@@ -12579,7 +12939,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 224.79 74.93 0)
 			(effects
 				(font
@@ -12684,7 +13044,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.ch/ProductDetail/KOA-Speer/RK73H1ETTP3001F?qs=pim%252BJ6MgNfS80Tm8%2FkBkXQ%3D%3D"
 			(at 153.67 86.36 0)
 			(effects
 				(font
