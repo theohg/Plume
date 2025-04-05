@@ -22,7 +22,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:Texas_VQFN-RHL-20"
+		(property "Footprint" "0_Plume:Texas_VQFN-RHL-20"
 			(at 20.32 -21.59 0)
 			(effects
 				(font

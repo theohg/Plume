@@ -991,11 +991,9 @@
     "DESIGNER": "Théo Heng",
     "DOC_TYPE": "Fabrication",
     "PROJECT_NAME": "Smart Footwear for Diabetic Foot Care",
-    "RELEASE_DATE": "Release Date",
-    "REVIEWER": "Reviewer Name",
-    "REVIEWER1": "Maël Dagon",
-    "REVIEWER2": "Paolo Germano",
+    "RELEASE_DATE": "- XX/XX/2025",
+    "REVIEWER": "Maël Dagon, Paolo Germano",
     "REVISION": "1.0",
-    "VARIANT": "Draft"
+    "VARIANT": "Preliminary"
   }
 }

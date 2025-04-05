@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "Power - Sequencing")
-		(date "2025-02-16")
+		(date "2025-04-05")
 		(rev "${REVISION}")
 		(company "${COMPANY}")
 	)
@@ -321,6 +321,19 @@
 			(justify left bottom)
 		)
 		(uuid "4eba8f2a-f80f-4e4f-9868-b3b682ed40ff")
+	)
+	(text "TO BE TESTED"
+		(exclude_from_sim no)
+		(at 72.136 145.542 0)
+		(effects
+			(font
+				(size 7.62 7.62)
+				(thickness 0.762)
+				(bold yes)
+				(color 255 0 0 1)
+			)
+		)
+		(uuid "b1d7248b-f52d-4599-9cbc-66162b3b86b4")
 	)
 	(text_box "LEVEL"
 		(exclude_from_sim no)
@@ -918,29 +931,6 @@
 			)
 		)
 		(uuid "f44a25dd-4d06-4743-b63e-2b77b9291c46")
-	)
-	(text_box "Tip: you can set NetClass Colors for different voltage rails in File → Schematic Setup → Project → Net Classes"
-		(exclude_from_sim no)
-		(at 11.43 212.09 0)
-		(size 173.99 6.35)
-		(margins 1.9049 1.9049 1.9049 1.9049)
-		(stroke
-			(width -0.0001)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 2.54 2.54)
-				(thickness 0.381)
-				(bold yes)
-				(color 0 0 0 1)
-			)
-			(justify right top)
-		)
-		(uuid "f9272ea8-e49b-4c44-9339-e900b43cc231")
 	)
 	(polyline
 		(pts
