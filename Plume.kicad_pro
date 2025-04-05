@@ -123,22 +123,22 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.2,
+        "min_clearance": 0.15,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.25,
         "min_groove_width": 0.0,
-        "min_hole_clearance": 0.254,
-        "min_hole_to_hole": 0.254,
+        "min_hole_clearance": 0.25,
+        "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.2,
         "min_microvia_drill": 0.1,
         "min_resolved_spokes": 1,
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
         "min_text_thickness": 0.15,
-        "min_through_hole_diameter": 0.25,
-        "min_track_width": 0.2,
+        "min_through_hole_diameter": 0.3,
+        "min_track_width": 0.15,
         "min_via_annular_width": 0.2,
-        "min_via_diameter": 0.55,
+        "min_via_diameter": 0.6,
         "solder_mask_clearance": 0.0,
         "solder_mask_min_width": 0.0,
         "solder_mask_to_copper_clearance": 0.0,
@@ -230,10 +230,6 @@
         {
           "diameter": 0.0,
           "drill": 0.0
-        },
-        {
-          "diameter": 0.55,
-          "drill": 0.25
         },
         {
           "diameter": 0.6,
@@ -510,8 +506,8 @@
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
-        "via_diameter": 0.55,
-        "via_drill": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
         "wire_width": 6
       },
       {
@@ -527,8 +523,8 @@
         "priority": 3,
         "schematic_color": "rgb(255, 153, 0)",
         "track_width": 0.2,
-        "via_diameter": 0.55,
-        "via_drill": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
         "wire_width": 24
       },
       {
@@ -553,8 +549,8 @@
         "priority": 4,
         "schematic_color": "rgb(255, 0, 255)",
         "track_width": 0.2,
-        "via_diameter": 0.55,
-        "via_drill": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
         "wire_width": 24
       },
       {
@@ -570,8 +566,8 @@
         "priority": 5,
         "schematic_color": "rgb(255, 0, 0)",
         "track_width": 0.2,
-        "via_diameter": 0.55,
-        "via_drill": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
         "wire_width": 24
       },
       {
@@ -605,8 +601,8 @@
         "priority": 6,
         "schematic_color": "rgb(0, 0, 0)",
         "track_width": 0.2,
-        "via_diameter": 0.55,
-        "via_drill": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
         "wire_width": 24
       }
     ],
@@ -905,71 +901,71 @@
       "Motor Control - Driver 0"
     ],
     [
-      "c9b90bbc-3ec9-4913-a4ec-a713532185bf",
+      "f9d6be9e-1658-4990-b3db-7b3ff351ff5f",
       "Motor Control - Driver 1"
     ],
     [
-      "d5a23c28-2f7c-4976-b184-4f929bd0c020",
+      "618a934c-f37a-4b6b-a940-4c63d3ecf5b8",
       "Motor Control - Driver 2"
     ],
     [
-      "9021c4e7-168b-4ed8-a662-90a3e275396b",
+      "e999b2a7-69dc-47d5-a1b1-2b1f8537e21f",
       "Motor Control - Driver 3"
     ],
     [
-      "a4d9228c-8c90-40c0-9c9a-e7808c5633cb",
+      "77903578-77ce-4db2-abc4-7e1e598c1c81",
       "Motor Control - Driver 4"
     ],
     [
-      "5e300cbf-c3fa-4976-80ec-7b5fadd48d63",
+      "837d1b79-0cf8-47d2-94c8-ae5e6673543f",
       "Motor Control - Driver 5"
     ],
     [
-      "897e3a01-4b3f-47b5-94f3-49cb5f0c5930",
+      "dc610de4-0abe-436a-8570-cee68e79b8b4",
       "Motor Control - Driver 6"
     ],
     [
-      "c75ad973-12d7-494f-8091-680d3a317661",
+      "7c61966c-565f-49d7-b6ca-f610dc5c20c4",
       "Motor Control - Driver 7"
     ],
     [
-      "ffdb2cb4-0c4b-48b6-b3b2-1378e74f5a9f",
+      "a59cea44-0368-4827-8b20-bd6f6290079f",
       "Motor Control - Driver 8"
     ],
     [
-      "57caf331-c89d-4dae-b3a6-8e91a5930c2a",
+      "b2f0397c-abd1-4c1a-916c-d70b6c0cff56",
       "Motor Control - Driver 9"
     ],
     [
-      "48af7f6b-9573-4b59-b702-3b4915b6dd35",
+      "6fd40467-a198-41ea-a4d9-2f02150cb069",
       "Motor Control - Driver 10"
     ],
     [
-      "0784827e-ed98-40fc-820f-0249ca1a8dcd",
+      "b8854900-2c64-495d-9ce8-dbffd3c5e680",
       "Motor Control - Driver 11"
     ],
     [
-      "c31b75ba-88ad-416e-b12b-9d5680974ea4",
+      "1e0adc35-acd6-45f6-ade3-19c3ded56ec5",
       "Motor Control - Driver 12"
     ],
     [
-      "2b692490-65ba-4e5c-ad74-3b4b37aac810",
+      "b00e0a5c-3b4e-4893-8d8f-45d2476d3944",
       "Motor Control - Driver 13"
     ],
     [
-      "a6aba639-bbcc-44a8-b4b5-1ef68dae6acd",
+      "1bef5081-0788-4eb3-836e-648a382f2b6c",
       "Motor Control - Driver 14"
     ],
     [
-      "e020fe98-ad4b-4353-b8a0-6ebe5b41bac4",
+      "81e8f56c-af65-4f8a-ac2a-2a96e060003e",
       "Motor Control - Driver 15"
     ],
     [
-      "ae77c557-88e3-4128-9a06-816f4d332f51",
+      "2c88a68a-6853-461c-81b1-6f7689a27c20",
       "Motor Control - Driver 16"
     ],
     [
-      "f6975532-86bb-4635-8207-5b2911eb83a2",
+      "565b7884-038c-44a1-b912-b549fc8fe526",
       "Motor Control - Driver 17"
     ],
     [

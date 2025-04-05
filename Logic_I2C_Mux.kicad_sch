@@ -11,7 +11,7 @@
 		(company "${COMPANY}")
 	)
 	(lib_symbols
-		(symbol "0_Plume:TCA9546APWR"
+		(symbol "0_Plume:PCA9546ARGVR"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -23,7 +23,7 @@
 					)
 				)
 			)
-			(property "Value" "TCA9546APWR"
+			(property "Value" "PCA9546ARGVR"
 				(at 2.032 7.366 0)
 				(effects
 					(font
@@ -31,7 +31,7 @@
 					)
 				)
 			)
-			(property "Footprint" "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
+			(property "Footprint" "0_Plume:Texas_RSA_VQFN-16-1EP_4x4mm_P0.65mm_EP2.16x2.16mm"
 				(at 0 12.192 0)
 				(effects
 					(font
@@ -40,7 +40,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tca9546a.pdf?ts=1743075200620&ref_url=https%253A%252F%252Fwww.google.com%252F"
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/pca9546a.pdf?ts=1743761042172&ref_url=https%253A%252F%252Fwww.mouser.fr%252F"
 				(at 0 12.192 0)
 				(effects
 					(font
@@ -49,7 +49,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "CI commutateur - Divers 4-Channel I2C and SM Bus"
+			(property "Description" "Low Voltage 4-Channel I2C and SMBus Switch with Reset Function"
 				(at 0 12.192 0)
 				(effects
 					(font
@@ -58,7 +58,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "TCA9546APWR_1_1"
+			(symbol "PCA9546ARGVR_1_1"
 				(rectangle
 					(start -8.89 6.35)
 					(end 8.89 -13.97)
@@ -80,7 +80,7 @@
 							)
 						)
 					)
-					(number "1"
+					(number "15"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -98,7 +98,7 @@
 							)
 						)
 					)
-					(number "2"
+					(number "16"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -116,7 +116,7 @@
 							)
 						)
 					)
-					(number "3"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -134,7 +134,7 @@
 							)
 						)
 					)
-					(number "4"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -152,7 +152,7 @@
 							)
 						)
 					)
-					(number "5"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -163,14 +163,14 @@
 				(pin passive line
 					(at -11.43 -7.62 0)
 					(length 2.54)
-					(name "SC1"
+					(name "SD1"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "6"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -188,7 +188,7 @@
 							)
 						)
 					)
-					(number "7"
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -206,7 +206,7 @@
 							)
 						)
 					)
-					(number "8"
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -242,7 +242,7 @@
 							)
 						)
 					)
-					(number "16"
+					(number "14"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -260,7 +260,7 @@
 							)
 						)
 					)
-					(number "15"
+					(number "13"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -278,7 +278,7 @@
 							)
 						)
 					)
-					(number "14"
+					(number "12"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -296,7 +296,7 @@
 							)
 						)
 					)
-					(number "13"
+					(number "11"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -314,7 +314,7 @@
 							)
 						)
 					)
-					(number "12"
+					(number "10"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -332,7 +332,7 @@
 							)
 						)
 					)
-					(number "11"
+					(number "9"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -350,7 +350,7 @@
 							)
 						)
 					)
-					(number "10"
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -368,7 +368,7 @@
 							)
 						)
 					)
-					(number "9"
+					(number "7"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -855,6 +855,12 @@
 			(embedded_fonts no)
 		)
 	)
+	(bus_alias "I2C2"
+		(members "SD2" "SC2")
+	)
+	(bus_alias "I2C3"
+		(members "SD3" "SC3")
+	)
 	(rectangle
 		(start 16.51 46.355)
 		(end 279.4 142.24)
@@ -869,7 +875,7 @@
 		(uuid da76c489-9c45-45e1-8fd9-f9b45b73a6e8)
 	)
 	(rectangle
-		(start 16.51 147.32)
+		(start 16.51 170.18)
 		(end 71.755 194.31)
 		(stroke
 			(width 1)
@@ -1025,6 +1031,29 @@
 			(justify bottom)
 		)
 		(uuid "892d7682-0347-40d5-9695-ba5c641d768b")
+	)
+	(text_box "Current analysis:"
+		(exclude_from_sim no)
+		(at 16.51 147.32 0)
+		(size 55.245 18.415)
+		(margins 2 2 2 2)
+		(stroke
+			(width 0.762)
+			(type solid)
+			(color 255 165 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(face "Arial")
+				(size 1.524 1.524)
+				(color 0 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "cb779084-c6dd-472a-b526-b7239e3aa525")
 	)
 	(junction
 		(at 143.51 82.55)
@@ -1740,7 +1769,7 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 158.75) (xy 44.45 158.75)
+			(xy 29.21 176.53) (xy 44.45 176.53)
 		)
 		(stroke
 			(width 0)
@@ -2100,7 +2129,7 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 163.83) (xy 44.45 163.83)
+			(xy 29.21 181.61) (xy 44.45 181.61)
 		)
 		(stroke
 			(width 0)
@@ -3302,7 +3331,25 @@
 			"ADEAAAAvAAAAZQAAAFAAAABmAAAAdgAAAEMAAABEAAAASAAAACsAAAB4AAAAeQAAADIAAAA4AAAA"
 			"SQAAAGIAAAByAAAANwAAAGUAAABnAAAAZwAAAGEAAABQAAAAOQAAAHMAAAAvAAAAMgAAADEAAABy"
 			"AAAAYwAAAG0AAABEAAAAawAAADEAAABOAAAAbgAAAEsAAABDAAAAdwAAAGYAAAA4AAAASwAAAFcA"
-			"AABOAAAAUgAAAFYAAAA5AAAAKwAAAGwAAABLAAAATwAAAHgAAABaAAAASgAAAEgAAA=="
+			"AABOAAAAUgAAAFYAAAA5AAAAKwAAAGwAAABLAAAATwAAAHgAAABaAAAASgAAAEgAAG9BVmMxUUpE"
+			"QzdzY3pubS9FYzM0SVV1aHZZeENrMEUxb1FjQlVnQ0NGcVNEOUVVQWdrZ0xaREZJb3NLbyt2U0dz"
+			"UVFwMVhvODk5cGlyRjZDOHdJbm5DeHptblhtbkJxZ0JtMnFnYmR1MmliVnIxNnFIcjFCZUNGSndm"
+			"N0xwL3NSWXFFZHFJSncxRU9jZ3hZOS8vR05ldS9JSGRHcUFHbkJkQXdRcHd2azR4L09UYU04YlFR"
+			"cjlyUXlDRkxvSkxRaVlDaENrTUJXa1B3SUlSRklnMjBFSzlaK3ZKU1VsbGI1Z0MzT1FRbzI5Ullz"
+			"V2xaNFhMMTZpL2VLRitXVitxUUZxSUN3MVVMOSsvY1JUVHoyVk9IMzZkS2lmd3hDazRENFhsdnNj"
+			"NDZSV3FRRjdheUN1UVlxSkV5ZnltcFUvb0ZNRDFFQkdOVUNRd3Q3SE1wNW54SGR1Q0ZMb2Iya1Fw"
+			"TkJOYUVIQVZJQWdoYWtnL1JGQUlKSUMyUTVTS0xRNWMrWlUrcUl0ekVFS2RWNXIxcXhKRkJRVVZI"
+			"cHV2TGlKNzRzYjVwNjVwd2FvZ2FCcm9LaW9LUEh3d3c4bkRodzRvQjZ1UW44aFNNRjlLdWo3Rk1l"
+			"bkJxbUI4TmRBSElNVXp6MzNISzlWK1FNNk5VQU5aRndEQkNuQy81akg4NWJvelNGQkN2MXREWUlV"
+			"dWdrdENKZ0tFS1F3RmFRL0FnaEVVbURVcUZFcEw2cWVmZlpaN1R4bnpacVZzczJVS1ZPMGJhcHI2"
+			"Tm16WjhvK0Nnc0xFeWRQbnF5dW0vWHJKMDJhbEhKZXZGaUozb3NWNXBRNXBRYW9nYkRVUUsxYXRS"
+			"TDMzWGRmWXMrZVBkWS9mbVl5UUlJVTNBZkRjaDlrbk5RcU5XQnZEY1F0U0RGMzd0eEVqUm8xZUsz"
+			"S0g5R3BBV29nNHhvZ1NHSHZZeG5QTStJN053UXA5SGNRQ0ZMb0pyUWdZQ3FRcDNadzdzR0dDd0lJ"
+			"SUlBQUFyNEpxSWVXMjI2N1RlYlBuKy9iUHRrUkFnZ2dnQUFDbVFnMGFOQkFmdkNESDhpNWNLUTBh"
+			"OVlzazY2aDJQYlZWMStWUG4zNmhHS3NEQklCQkJCQXdFNkJjMEVLZWVDQkIrd2NuTStqK3V0Zi95"
+			"cDkrL2FWVTZkTytieG5kb2NBQW5FUU9CZWtrS1pObTBidVZIbE5FYmtwamRVSm5RdFN5TmUrOWpY"
+			"Znpubmh3b1hTdjMvL0MvdmJ2WHQzNk41TFVNOTN6djNqNW9WenFHNUJQUTlVendmZFh1NisrMjZa"
+			"TVdOR3Bacy84Y1FUTW03Y3VFclgwWWhBbUFVSVVvUjU5aGc3QWdnZ1lMSEF1VS9Xaw=="
 		)
 	)
 	(image
@@ -9596,7 +9643,25 @@
 			"YwAAADMAAAA2AAAAWgAAAE4AAABHAAAANQAAAGsAAAAwAAAAYQAAAFoAAABKAAAAUgAAAEQAAAB2"
 			"AAAAVgAAAGsAAAAzAAAAYgAAAHAAAAAxAAAAYQAAAGMAAABUAAAAUAAAAGIAAABkAAAAdQAAADIA"
 			"AABoAAAAUgAAAHoAAABpAAAAQwAAADYAAABJAAAAdwAAAHYAAABFAAAAVgAAADkAAABtAAAAVAAA"
-			"AG4AAABmAAAASwAAAEEAAABTAAAAUgAAAGsAAABpAAAAVgAAAEwAAAB5AAAAawAAAA=="
+			"AG4AAABmAAAASwAAAEEAAABTAAAAUgAAAGsAAABpAAAAVgAAAEwAAAB5AAAAawAAACkpKWMrKyuI"
+			"KysrrCwsLMstLS3hLS0t8C4uLvwuLi7/LCws/ysrK/8sLCz/LCws/y0tLf8sLCz/Kioq/yoqKv8t"
+			"LS3/LS0t/ywsLP8qKir/Kysr/y0tLf8uLi7/Ly8v/ysrK/8qKir/LCws/y0tLf8sLCz/Kysr/ysr"
+			"K/8sLCz/LS0t/ywsLP8sLCz/Kyws/ykrK/83MjD/d1RG/6ZuXP+vdWD/rnZg/652YP+vdWH/sXVg"
+			"/7B0X/+eaFT/h1xM/1ZBOv9BNTH/Jykp/yUoKf8qKyv/LCws/ywsLP8sLCz/Kysr/yoqKv8rKyv/"
+			"LS0t/ywsLP8sLCz/LCws/y0tLf8rKyv/LCws/ywsLP8sLCz/LCws/y0tLf8uLi7/LS0t/yoqKv8p"
+			"KSn/KSkp/ysrK/8sLCz/LCws/ysrK/8rKyv/Kysr/ysrK/8sLCz/LS0t/ysrK/8sLCz/LCws/yws"
+			"LP8qKir/LS0t/y4uLv8rKyv/KCgo/ykpKf8rKyv/Kysr/ysrK/8rKyv/Kysr/ywsLP8sLCz/LCws"
+			"/ywsLP8qKir/LCws/y0tLf8sLCz/LS0t/ywsLP8qKir/KSkp/yoqKv8rKyv/LCws/y0tLf8sLCz/"
+			"Kysr/ysrK/8rKyv/Kioq/yoqKv8qKir/Kysr/ysrK/8sLCz/LCws/ywsLP8sLCz/LCws/ywsLP8r"
+			"Kyv/Kioq/yoqKv8qKir/Kysr/ysrK/8sLCz/LCws/ywsLP8sLCz/Kysr/yoqKv8qKir/Kysr/yws"
+			"LP8tLS3/Kysr/yoqKv8sLCz/LCws/ywsLP8qKir/Kioq/yoqKv8sLCz/LCws/ysrK/8rKyv/Kysr"
+			"/ykpKf8qKir/Kysr/ywsLP8rKyv/Kysr/ysrK/8sLCz/LCws/yoqKv8qKir/Kioq/yoqKv8pKSn/"
+			"KSkp/ysrK/8sLCz/LS0t/yoqKv8qKir/Kysr/y8vL/8sLCz/KCgo/ykpKf8rKyv/LCws/yoqKv8p"
+			"KSn/KSkp/ykpKf8qKir/Kysr/ywsLP8sLCz/LS0t/ywsLP8qKir/KSkp/yoqKv8rKyv/LCws/ysr"
+			"K/8qKir/Kioq/yoqKv8qKir/Kysr/ywsLP8pKSn/KSkp/ysrK/8rKyv/Kioq/ykpKf8qKir/Kysr"
+			"/yoqKv8qKir/Kysr/ywsLP8sLCz/Kysr/ykpKf8rKyv/LCws/ysrK/8nJyf/KSkp/yoqKv8rKyv/"
+			"KSkp/ykpKf8rKyv/LCws/ysrK/8pKSn/KSkp/yoqKv8qKir/Kioq/yoqKv8tLS3/MDAw/zMzM/8z"
+			"MzP/Kioq/ycnJ/8mJib/JiYm/yUlJf8kJCT/JCQk/yUlJf8mJib/JiYm/yUlJf8lJQ=="
 		)
 	)
 	(image
@@ -11015,7 +11080,25 @@
 			"cXNQTVN0d3ZaWlVydUZUWm5meGlaQmJHQjI1Znh6ZklpKzlqVzkwNHBUMVVvdkx4cWpBK0lPOERm"
 			"emF2bFFvT0RpYXI2bGIvVFdhOUUwUk1CcGF0dHUvanJLNG5JMXA5RmsyNGRVd040ek1CNWc0bzUv"
 			"bFdFajVkbUNTU0tyUjdhd0VyRjEzbHVyODFQTHRUMlVZdHdTMVFUZFZ4ejVFUjkrLy9CSUVBaDFG"
-			"K2hSOUpBaA=="
+			"K2hSOUpBaGo2VVlUSGQwNVBvNUhmTXpaZEdwRHRuYm5jTkRBNTZaOHBwMXQxaDBqMDA5K2RTa1ph"
+			"OWRQbmJqa1RRemo5SjNDcFM2eGNydCs1cXdMRERvYVl6cDZMdEQxUVNhWE1iSXVZcldsVEJzK3pP"
+			"M3c1bGcvYzlIWG5MU3JiK2Z5b1hjc1B6clhydzBkalhuYk1rYmExZWRhV3QrY2kwOWR4dGVPekxF"
+			"WWRjelZ5WlZ6Y014cFdhL1dIN3ZQZWRyUVR6VVBhK1EySnBKT0xKdThIQXpCellFUFVqMWp1bHo2"
+			"Y3FGTUF5Y21KVFo5eUFlY1dMbkJ3QWNYdmh4bW1UdDYzdldGMUVadWN1TGpPN2Jna3dPN3Vma3pn"
+			"UTRzM1R6Z0ZrY2UyUGlvSk5pNmlCMGxIOHMwZDMyWjA1bHJJei84Nkk2Ump1Rm4zRGJ3TkxHTXAz"
+			"UmlrRFpqV1IvbjJEOHRWbUxBc2hhYjhaMjNVcnM1NTNPWldQTVJuemJHK0xlK08ySFJ5NmV2ZkZO"
+			"NjE0L05HSXoxTlhkMTZ1V2NrdmdrWG93Nk9ZMnRYYWxlbVhvNHlCTnB4eTRuWS9UNk1tNTEyQkxq"
+			"SEZ6eWpJN3pCM25rVFpzNlh1TTA1OVpUckJ6T001WTJwRHo2ai9jb0plZHlYSzZmOFVOMTAvMHZI"
+			"OXczdlBqMEUrT04rQS9VNzZQVlBmWHpYLy81a1VwaWxNdllVbzZIWi9POVIxVnFidCtxaHpGbm5y"
+			"TkhjbkpOU242V2FLN0IvSjFyVTZLWHAySnMxUGg2L1I2OVVtczlVellPeGw0ci9WdlZUOVQ0M0xG"
+			"angrcUxsbnJyRmVnVjZCWG9GZWdWNkJYb0ZmamxWT0MzOG9Bc1MvdlAvODFmbi82Ly85Vi9lWDdY"
+			"eXFHVDkzYXRYTDUzLy83VnBZMkZLK3ZyOTEvY3RiRHdiRzFJRDllbDhYNDJreVZuKzhqWlhuS2tt"
+			"ZTI1YTlPNDlYZmEydnpWWmhITWZGUHFjRHhjQzkvTlBPYlgzWXYxN3JHNlA5cXdxMlJkR20rYWE1"
+			"TTRqN1YxSWNrRzAwMG1SakJzVk5IUnREbEhKNFl4alhuaW5LY1BuTGxSRmo5am1NWEpNUncyZVpC"
+			"MGVGcC9zRzZ3dlhCMmppMDVtTnQyaW9PZE9OamxjUXkvdVlDVEkzTkRUOVBIK0Y2b1lGTUhQempy"
+			"ZzE1T3BOMDgwZzRQRFoxNjhjeHQ2cGd6cG1uWDEzbldWejlzeERkSGM4YU9UUW12L0lsSlBXT2Jm"
+			"bURoeWZva2o3bXBRNW9MWXc5YnRJTnY4NUpEUFRtb1kyeSs2ckVsRnIwdC9USW1kdk9DejY2ZVBJ"
+			"MERqbzZPUQ=="
 		)
 	)
 	(label "SD2"
@@ -11099,7 +11182,7 @@
 		(uuid "b3af0352-c2ea-451a-9b4e-4c0bfd98a23f")
 	)
 	(label "MUX_RESET"
-		(at 29.21 158.75 0)
+		(at 29.21 176.53 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11110,7 +11193,7 @@
 		(uuid "d1ecbeb5-f5f0-4726-aa5d-b43ee98d0fef")
 	)
 	(label "+3V3"
-		(at 29.21 163.83 0)
+		(at 29.21 181.61 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11176,7 +11259,7 @@
 		)
 		(uuid "54ada6eb-eac9-4007-ba39-10df965fba1c")
 	)
-	(hierarchical_label "I2C3"
+	(hierarchical_label "{I2C3}"
 		(shape bidirectional)
 		(at 237.49 97.79 0)
 		(effects
@@ -11188,7 +11271,7 @@
 		)
 		(uuid "86137bf0-a9e8-4d7a-acb5-11fe19263f5f")
 	)
-	(hierarchical_label "I2C0"
+	(hierarchical_label "{I2C0}"
 		(shape bidirectional)
 		(at 133.35 97.79 180)
 		(effects
@@ -11200,7 +11283,7 @@
 		)
 		(uuid "9e85d158-580f-46c9-90b8-d95b80a862cf")
 	)
-	(hierarchical_label "I2C2"
+	(hierarchical_label "{I2C2}"
 		(shape bidirectional)
 		(at 238.76 110.49 0)
 		(effects
@@ -11212,7 +11295,7 @@
 		)
 		(uuid "c6d5903c-cf1e-4e5a-9661-dbe94be46293")
 	)
-	(hierarchical_label "I2C1"
+	(hierarchical_label "{I2C1}"
 		(shape bidirectional)
 		(at 133.35 111.76 180)
 		(effects
@@ -11224,7 +11307,7 @@
 		)
 		(uuid "da7a1b8c-eb87-485e-b496-29110c4b2dad")
 	)
-	(hierarchical_label "I2C_MASTER"
+	(hierarchical_label "{I2C_MASTER}"
 		(shape bidirectional)
 		(at 237.49 86.36 0)
 		(effects
@@ -11728,7 +11811,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 44.45 158.75 270)
+		(at 44.45 176.53 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11737,7 +11820,7 @@
 		(dnp no)
 		(uuid "46831d7c-e0cc-4e6e-821a-851f5ca11b4e")
 		(property "Reference" "TP801"
-			(at 49.53 158.75 90)
+			(at 49.53 176.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11746,7 +11829,7 @@
 			)
 		)
 		(property "Value" "MUX_RESET"
-			(at 56.896 158.75 90)
+			(at 56.896 176.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11755,7 +11838,7 @@
 			)
 		)
 		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 44.45 153.67 0)
+			(at 44.45 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11764,7 +11847,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 44.45 153.67 0)
+			(at 44.45 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11773,7 +11856,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 44.45 158.75 0)
+			(at 44.45 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11782,7 +11865,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 44.45 158.75 0)
+			(at 44.45 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11791,7 +11874,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 44.45 158.75 0)
+			(at 44.45 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12474,7 +12557,7 @@
 		)
 	)
 	(symbol
-		(lib_id "0_Plume:TCA9546APWR")
+		(lib_id "0_Plume:PCA9546ARGVR")
 		(at 181.61 76.2 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12507,7 +12590,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tca9546a.pdf?ts=1743075200620&ref_url=https%253A%252F%252Fwww.google.com%252F"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/pca9546a.pdf?ts=1743761042172&ref_url=https%253A%252F%252Fwww.mouser.fr%252F"
 			(at 181.61 64.008 0)
 			(effects
 				(font
@@ -12516,7 +12599,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CI commutateur - Divers 4-Channel I2C and SM Bus"
+		(property "Description" "Low Voltage 4-Channel I2C and SMBus Switch with Reset Function"
 			(at 181.61 64.008 0)
 			(effects
 				(font
@@ -13115,7 +13198,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 44.45 163.83 270)
+		(at 44.45 181.61 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13124,7 +13207,7 @@
 		(dnp no)
 		(uuid "dc26d1fa-228a-4ca3-b082-09396496814c")
 		(property "Reference" "TP802"
-			(at 49.53 163.83 90)
+			(at 49.53 181.61 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13133,7 +13216,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 56.896 163.83 90)
+			(at 56.896 181.61 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13142,7 +13225,7 @@
 			)
 		)
 		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 44.45 158.75 0)
+			(at 44.45 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13151,7 +13234,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 44.45 158.75 0)
+			(at 44.45 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13160,7 +13243,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 44.45 163.83 0)
+			(at 44.45 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13169,7 +13252,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 44.45 163.83 0)
+			(at 44.45 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13178,7 +13261,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 44.45 163.83 0)
+			(at 44.45 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)

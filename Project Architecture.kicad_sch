@@ -136,6 +136,107 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:PWR_FLAG"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#FLG"
+				(at 0 1.905 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "PWR_FLAG"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Special symbol for telling ERC where power comes from"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "flag power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PWR_FLAG_0_0"
+				(pin power_out line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "PWR_FLAG_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:VBUS"
 			(power)
 			(pin_numbers
@@ -261,6 +362,9 @@
 			)
 			(embedded_fonts no)
 		)
+	)
+	(bus_alias "I2C_MASTER"
+		(members "I2C1_SCL" "I2C1_SDA")
 	)
 	(arc
 		(start 40.62 74.315)
@@ -836,6 +940,12 @@
 		(uuid "918ae306-3ec8-4477-bc53-3bb75ceecf9b")
 	)
 	(junction
+		(at 48.26 87.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a0741013-a81c-4df6-a65e-218a3005e73f")
+	)
+	(junction
 		(at 138.43 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -899,6 +1009,16 @@
 		)
 		(uuid "07bb4a4b-b64b-48d9-8b6a-e5c5ca8bb932")
 	)
+	(bus
+		(pts
+			(xy 237.49 92.71) (xy 242.57 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "128a4180-2bae-4658-8671-c4bb29028cf2")
+	)
 	(wire
 		(pts
 			(xy 87.63 59.69) (xy 92.71 59.69)
@@ -921,6 +1041,16 @@
 	)
 	(wire
 		(pts
+			(xy 48.26 87.63) (xy 50.8 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2608a931-3b21-495f-ac5d-5b95ee245d5d")
+	)
+	(wire
+		(pts
 			(xy 91.44 57.15) (xy 95.25 57.15)
 		)
 		(stroke
@@ -928,6 +1058,16 @@
 			(type default)
 		)
 		(uuid "26a74f43-6881-4f3a-bbc2-96a7880174cb")
+	)
+	(bus
+		(pts
+			(xy 242.57 92.71) (xy 242.57 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "279f7c54-61ee-426c-95e7-bc402f238ad6")
 	)
 	(wire
 		(pts
@@ -938,16 +1078,6 @@
 			(type default)
 		)
 		(uuid "28554c67-52f1-4276-a277-b4be06340788")
-	)
-	(wire
-		(pts
-			(xy 237.49 95.25) (xy 241.3 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a145361-90e2-4715-82d6-c0f02ea4d1a2")
 	)
 	(wire
 		(pts
@@ -1009,6 +1139,16 @@
 		)
 		(uuid "319c9595-fdb0-4dc0-8312-c85db68a1e25")
 	)
+	(bus
+		(pts
+			(xy 237.49 130.81) (xy 242.57 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36c856fb-148f-4553-806a-948a3a9afebf")
+	)
 	(wire
 		(pts
 			(xy 182.88 80.01) (xy 200.66 80.01)
@@ -1018,16 +1158,6 @@
 			(type default)
 		)
 		(uuid "38f4227d-a2b6-4c41-bbdf-bde5abda9f87")
-	)
-	(wire
-		(pts
-			(xy 237.49 133.35) (xy 242.57 133.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a66e518-a92b-4c89-98e8-434d4b5846db")
 	)
 	(wire
 		(pts
@@ -1049,6 +1179,16 @@
 		)
 		(uuid "447a46b3-705b-4992-9f9f-1f9689a48ad6")
 	)
+	(bus
+		(pts
+			(xy 182.88 134.62) (xy 200.66 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45f24f02-60ac-416a-a279-0ed101e13d9d")
+	)
 	(wire
 		(pts
 			(xy 182.88 85.09) (xy 200.66 85.09)
@@ -1059,15 +1199,15 @@
 		)
 		(uuid "4707b908-d185-435d-86d1-27005ba32aa9")
 	)
-	(wire
+	(bus
 		(pts
-			(xy 237.49 92.71) (xy 243.84 92.71)
+			(xy 237.49 95.25) (xy 241.3 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5017a176-44e1-427f-a79c-2e3ea016da6c")
+		(uuid "54271b10-1798-49b6-8088-89c4f597dd3e")
 	)
 	(polyline
 		(pts
@@ -1141,7 +1281,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 87.63) (xy 50.8 87.63)
+			(xy 45.72 87.63) (xy 48.26 87.63)
 		)
 		(stroke
 			(width 0)
@@ -1158,16 +1298,6 @@
 			(type default)
 		)
 		(uuid "6166e9ae-4e25-4519-95f7-4d6cc73ebf13")
-	)
-	(wire
-		(pts
-			(xy 237.49 128.27) (xy 241.3 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "682f4d60-b151-4911-b178-404a027b8a2e")
 	)
 	(wire
 		(pts
@@ -1261,16 +1391,6 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 92.71) (xy 243.84 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c5a72e6-80d1-4d33-ab1d-16d770bfe30f")
-	)
-	(wire
-		(pts
 			(xy 90.17 76.2) (xy 97.79 76.2)
 		)
 		(stroke
@@ -1321,16 +1441,6 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 95.25) (xy 241.3 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d44ec97-096b-401c-afa0-6c8f9e607640")
-	)
-	(wire
-		(pts
 			(xy 88.9 133.35) (xy 146.05 133.35)
 		)
 		(stroke
@@ -1338,6 +1448,16 @@
 			(type default)
 		)
 		(uuid "8e00f5ea-1e56-4fa9-a16d-683fd57e67c2")
+	)
+	(bus
+		(pts
+			(xy 237.49 128.27) (xy 241.3 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8febe530-ec47-4bb1-8d43-bbfb783a791c")
 	)
 	(wire
 		(pts
@@ -1361,16 +1481,6 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 92.71) (xy 146.05 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9db6668b-59bf-443f-9840-104ffbd4e990")
-	)
-	(wire
-		(pts
 			(xy 182.88 110.49) (xy 200.66 110.49)
 		)
 		(stroke
@@ -1389,15 +1499,25 @@
 		)
 		(uuid "a6537880-8bf9-4e25-8db3-0be91ae3c0f2")
 	)
-	(wire
+	(bus
 		(pts
-			(xy 182.88 134.62) (xy 200.66 134.62)
+			(xy 241.3 95.25) (xy 241.3 128.27)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ab5aba26-e8e9-499f-bf38-482df4e31909")
+		(uuid "a7ad256e-e401-4019-a484-7ff4371aab72")
+	)
+	(bus
+		(pts
+			(xy 237.49 133.35) (xy 242.57 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1fa2804-fd67-47de-9332-55dcfc8a835a")
 	)
 	(wire
 		(pts
@@ -1470,7 +1590,7 @@
 		)
 		(uuid "c0c16ba8-3370-4615-a773-bff11a7646aa")
 	)
-	(wire
+	(bus
 		(pts
 			(xy 237.49 135.89) (xy 242.57 135.89)
 		)
@@ -1478,7 +1598,17 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c4c6032d-98fe-45ee-9649-f9a43cae2c7e")
+		(uuid "c22c69bb-68fa-4382-8611-0b49fc2544ec")
+	)
+	(bus
+		(pts
+			(xy 87.63 92.71) (xy 146.05 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c44ebfa5-0d52-476c-ac0c-95485545d3b5")
 	)
 	(wire
 		(pts
@@ -1510,16 +1640,6 @@
 			(color 0 0 0 1)
 		)
 		(uuid "c5f05dbe-72f8-4c8a-8ee3-c7e83f97c28b")
-	)
-	(wire
-		(pts
-			(xy 237.49 130.81) (xy 243.84 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c68d4990-13d6-4c7e-9c51-4fd8d93247ef")
 	)
 	(wire
 		(pts
@@ -1670,6 +1790,73 @@
 			(type default)
 		)
 		(uuid "fec4b485-e2fb-482c-83f0-9e4867d2968e")
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 48.26 87.63 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8c6c6d45-4989-4a06-b201-5b872976a7e5")
+		(property "Reference" "#FLG0301"
+			(at 48.26 85.725 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 48.26 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 48.26 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 48.26 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 48.26 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "868db9e4-85b1-4c14-b9f6-6ee3f4d49edc")
+		)
+		(instances
+			(project ""
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202"
+					(reference "#FLG0301")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:VBUS")
@@ -1857,26 +2044,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-		(pin "I2C0" bidirectional
-			(at 237.49 95.25 0)
-			(uuid "23225545-681f-42b7-b912-c76c9ac25d08")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "I2C1" bidirectional
-			(at 237.49 92.71 0)
-			(uuid "b07c605a-eac6-484e-8fa7-4586dc342af5")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 		(pin "nFAULT0" output
@@ -2139,6 +2306,26 @@
 				(justify left)
 			)
 		)
+		(pin "{I2C0}" bidirectional
+			(at 237.49 92.71 0)
+			(uuid "59af4ddc-0e6f-4852-aff4-93fb3cf37642")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "{I2C1}" bidirectional
+			(at 237.49 95.25 0)
+			(uuid "b10b61b3-938d-4d60-b3cd-b1938b533b49")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202"
@@ -2373,19 +2560,6 @@
 				(justify left)
 			)
 		)
-		(pin "I2C_MASTER" output
-			(at 182.88 134.62 0)
-			(uuid "bd190218-2fa8-4215-8fa6-c22bf15b05dd")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-					(color 0 0 0 1)
-				)
-				(justify right)
-			)
-		)
 		(pin "nSLEEP_FRONT" output
 			(at 182.88 107.95 0)
 			(uuid "d75b3dee-fafa-40d4-b7ca-3479b2d93107")
@@ -2410,19 +2584,6 @@
 					(color 0 0 0 1)
 				)
 				(justify right)
-			)
-		)
-		(pin "WIRELESS_CTRL" output
-			(at 146.05 92.71 180)
-			(uuid "5df32f90-0bad-411f-bdf1-538f00691e1b")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-					(color 0 0 0 1)
-				)
-				(justify left)
 			)
 		)
 		(pin "5V_ENABLE" output
@@ -2711,6 +2872,26 @@
 				(justify right)
 			)
 		)
+		(pin "{I2C_MASTER}" output
+			(at 182.88 134.62 0)
+			(uuid "49db9324-88ab-4986-8957-abea7766d432")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "{WIRELESS_CTRL}" output
+			(at 146.05 92.71 180)
+			(uuid "0c4bb2e2-14b6-4d17-a93b-33736af9de59")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202"
@@ -2765,61 +2946,9 @@
 				(justify left)
 			)
 		)
-		(pin "I2C0" bidirectional
-			(at 237.49 128.27 0)
-			(uuid "8779d9c0-8384-400e-af6f-e90032b9dedc")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-					(color 0 0 0 1)
-				)
-				(justify right)
-			)
-		)
-		(pin "I2C1" bidirectional
-			(at 237.49 130.81 0)
-			(uuid "2bd7e6a0-8694-4fee-a0f8-250cccf1ffe2")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-					(color 0 0 0 1)
-				)
-				(justify right)
-			)
-		)
-		(pin "I2C2" bidirectional
-			(at 237.49 133.35 0)
-			(uuid "b79d13c9-3290-4a23-a1bc-b437001e9efe")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-					(color 0 0 0 1)
-				)
-				(justify right)
-			)
-		)
-		(pin "I2C3" bidirectional
-			(at 237.49 135.89 0)
-			(uuid "3c459e44-6130-4430-89b3-49f7dfed68fd")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-					(color 0 0 0 1)
-				)
-				(justify right)
-			)
-		)
-		(pin "I2C_MASTER" bidirectional
-			(at 200.66 134.62 180)
-			(uuid "d2944f61-955c-4010-ac54-06e1e465daba")
+		(pin "MUX_RESET" output
+			(at 200.66 137.16 180)
+			(uuid "3c96fccb-0ec4-4810-b0c2-d77efae702f7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2830,15 +2959,52 @@
 				(justify left)
 			)
 		)
-		(pin "MUX_RESET" output
-			(at 200.66 137.16 180)
-			(uuid "3c96fccb-0ec4-4810-b0c2-d77efae702f7")
+		(pin "{I2C0}" bidirectional
+			(at 237.49 128.27 0)
+			(uuid "b5f1bc8f-6a95-4097-b6f6-1fa052c3f4f5")
 			(effects
 				(font
 					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-					(color 0 0 0 1)
+				)
+				(justify right)
+			)
+		)
+		(pin "{I2C1}" bidirectional
+			(at 237.49 130.81 0)
+			(uuid "b0cf626a-b333-4edc-bc9b-1103beac8d4d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "{I2C2}" bidirectional
+			(at 237.49 133.35 0)
+			(uuid "acc9c280-f713-4051-a207-205153e73200")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "{I2C3}" bidirectional
+			(at 237.49 135.89 0)
+			(uuid "40a1ef2e-c35b-43b6-934e-2cf9bb0ae6cf")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "{I2C_MASTER}" bidirectional
+			(at 200.66 134.62 180)
+			(uuid "eae928d3-260b-4d12-a8ec-3f569dbf06ea")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(justify left)
 			)
@@ -3054,15 +3220,12 @@
 				(justify left)
 			)
 		)
-		(pin "WIRELESS_CTRL" input
+		(pin "{WIRELESS_CTRL}" input
 			(at 87.63 92.71 0)
-			(uuid "cae1bdb0-727c-4b6e-90ba-0cb508733b77")
+			(uuid "274087c8-42b2-4d2e-a055-dbe9ce07aa2d")
 			(effects
 				(font
 					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-					(color 0 0 0 1)
 				)
 				(justify right)
 			)

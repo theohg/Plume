@@ -1105,16 +1105,6 @@
 		)
 		(uuid "fa1c1256-cce8-4dde-8ccd-c4a3c001bf23")
 	)
-	(label "HOLE3"
-		(at 133.35 91.44 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "70cc3b6e-0de3-4b50-a521-290cdc3a34a6")
-	)
 	(label "HOLE1"
 		(at 104.14 91.44 0)
 		(effects
