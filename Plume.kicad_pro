@@ -232,6 +232,10 @@
           "drill": 0.0
         },
         {
+          "diameter": 0.55,
+          "drill": 0.25
+        },
+        {
           "diameter": 0.6,
           "drill": 0.3
         },
@@ -506,8 +510,8 @@
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
-        "via_diameter": 0.6,
-        "via_drill": 0.3,
+        "via_diameter": 0.55,
+        "via_drill": 0.25,
         "wire_width": 6
       },
       {
@@ -613,6 +617,7 @@
       "+3V3": "rgb(255, 153, 0)",
       "+VBUS": "rgb(255, 0, 0)",
       "/Project Architecture/Power - Battery Management/+VBAT": "rgb(255, 0, 255)",
+      "/Project Architecture/Power - Path & Generation/+VDD": "rgb(0, 132, 0)",
       "/Project Architecture/Power - Wireless Receiver & USB/+VCHARGE": "rgb(0, 255, 255)",
       "GND": "rgb(64, 64, 64)"
     },
@@ -705,6 +710,10 @@
       {
         "netclass": "+5V",
         "pattern": "/Project Architecture/User - RGB LED Indicator/+5V"
+      },
+      {
+        "netclass": "+3V3",
+        "pattern": "/Project Architecture/Sensing - IMU/+3V3"
       }
     ]
   },
@@ -810,6 +819,12 @@
           "label": "Description",
           "name": "Description",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -983,6 +998,10 @@
     [
       "e7c91631-be85-488a-af7a-f2a810f3fbfe",
       "Revision History"
+    ],
+    [
+      "107f1a8c-fcbf-4d4a-9f6a-e2cb21670a9f",
+      "Sensing - IMU"
     ]
   ],
   "text_variables": {
