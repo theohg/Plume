@@ -8,7 +8,7 @@
 # 1oz copper
 (rule "Minimum Trace Width and Spacing (outer layer)"
 (constraint track_width (min 0.2mm))
-(constraint clearance (min 0.2mm))
+(constraint clearance (min 0.15mm))
 (layer outer)
 (condition "A.Type == 'track'"))
 
@@ -28,7 +28,7 @@
 
 (rule "Minimum Via Diameter and Hole Size"
 (constraint hole_size (min 0.25mm))
-(constraint via_diameter (min 0.55mm))
+(constraint via_diameter (min 0.50mm))
 (condition "A.Type == 'via'"))
 
 
@@ -63,7 +63,7 @@
 # ----------------------------------- Minimum clearance ------------------------------------------------
 
 (rule "hole to hole clearance (different nets)"
-(constraint hole_to_hole (min 0.5mm))
+(constraint hole_to_hole (min 0.45mm))
 (condition "A.Net != B.Net"))
 
 (rule "via to track clearance"
