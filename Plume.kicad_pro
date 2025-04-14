@@ -912,6 +912,14 @@
       "Logic - I2C Mux"
     ],
     [
+      "3722fec3-31cc-40ad-ba07-486a47003771",
+      "User - RGB LED Indicator"
+    ],
+    [
+      "107f1a8c-fcbf-4d4a-9f6a-e2cb21670a9f",
+      "Sensing - IMU"
+    ],
+    [
       "1d734d3e-47bf-494d-ad56-d8a87b193fe6",
       "Motor Control - Drivers"
     ],
@@ -988,10 +996,6 @@
       "Motor Control - Driver 17"
     ],
     [
-      "3722fec3-31cc-40ad-ba07-486a47003771",
-      "User - RGB LED Indicator"
-    ],
-    [
       "93c115ca-2823-4ddf-b830-32015e2ac9e9",
       "Misc - Mounting Holes & Fiducials"
     ],
@@ -1002,10 +1006,6 @@
     [
       "e7c91631-be85-488a-af7a-f2a810f3fbfe",
       "Revision History"
-    ],
-    [
-      "107f1a8c-fcbf-4d4a-9f6a-e2cb21670a9f",
-      "Sensing - IMU"
     ]
   ],
   "text_variables": {

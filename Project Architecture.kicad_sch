@@ -706,31 +706,31 @@
 		)
 		(uuid fe418743-3059-4edb-869a-78b8f446208a)
 	)
-	(text "Page 28"
+	(text "Page 10"
 		(exclude_from_sim no)
 		(at 87.884 156.972 0)
 		(effects
 			(font
 				(size 2.54 2.54)
 				(bold yes)
-				(color 20 60 40 1)
+				(color 0 0 0 1)
 			)
 			(justify right bottom)
-			(href "#28")
+			(href "#10")
 		)
 		(uuid "124070ed-6a87-4686-80a5-7eec01615a04")
 	)
-	(text "Page 28"
+	(text "Page 9"
 		(exclude_from_sim no)
 		(at 87.884 129.032 0)
 		(effects
 			(font
 				(size 2.54 2.54)
 				(bold yes)
-				(color 20 60 40 1)
+				(color 0 0 0 1)
 			)
 			(justify right bottom)
-			(href "#28")
+			(href "#9")
 		)
 		(uuid "7ca846ae-f796-449a-89c0-306a02036662")
 	)
@@ -790,7 +790,7 @@
 		)
 		(uuid "c54c21a6-b82f-4883-adfa-9cf31abe82f0")
 	)
-	(text "Page 9"
+	(text "Page 11"
 		(exclude_from_sim no)
 		(at 236.474 113.284 0)
 		(effects
@@ -800,7 +800,7 @@
 				(color 0 0 0 1)
 			)
 			(justify right bottom)
-			(href "#9")
+			(href "#11")
 		)
 		(uuid "dac87b41-6316-4d56-8117-303208286bc1")
 	)
@@ -818,17 +818,17 @@
 		)
 		(uuid "dcfc6e1e-46c8-42e4-a277-2bbc0b7ac79e")
 	)
-	(text "Page 29"
+	(text "Page 30"
 		(exclude_from_sim no)
 		(at 87.884 184.912 0)
 		(effects
 			(font
 				(size 2.54 2.54)
 				(bold yes)
-				(color 20 60 40 1)
+				(color 0 0 0 1)
 			)
 			(justify right bottom)
-			(href "#29")
+			(href "#30")
 		)
 		(uuid "e80d123f-80cb-41dc-9c12-69941d64c8f3")
 	)
@@ -2249,6 +2249,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(color 0 0 0 1)
 				)
 				(justify right)
 			)
@@ -2259,6 +2260,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(color 0 0 0 1)
 				)
 				(justify right)
 			)
@@ -2276,7 +2278,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202"
-					(page "32")
+					(page "10")
 				)
 			)
 		)
@@ -2620,7 +2622,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202"
-					(page "9")
+					(page "11")
 				)
 			)
 		)
@@ -2774,7 +2776,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202"
-					(page "28")
+					(page "9")
 				)
 			)
 		)
@@ -3179,6 +3181,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(color 0 0 0 1)
 				)
 				(justify left)
 			)
@@ -3189,6 +3192,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(color 0 0 0 1)
 				)
 				(justify left)
 			)
@@ -3357,7 +3361,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202"
-					(page "29")
+					(page "30")
 				)
 			)
 		)
