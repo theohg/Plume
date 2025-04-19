@@ -2160,7 +2160,7 @@
 		(uuid 1176e8d1-db1e-4466-8e08-68e53727e94d)
 	)
 	(rectangle
-		(start 178.435 126.365)
+		(start 168.91 126.365)
 		(end 220.345 137.16)
 		(stroke
 			(width 0)
@@ -2326,9 +2326,9 @@
 		)
 		(uuid ed78b7e7-9d87-4eba-bb13-ab88d26954ef)
 	)
-	(text "MCP73831T:\nI_{PREG} = 0.1xI_{REG}mA\nI_{TERM} = 0.075xI_{REG}mA"
+	(text "MCP73831T:\nI_{PREG} = 0.1xI_{REG}mA ≈ 45mA\nI_{TERM} = 0.075xI_{REG}mA ≈ 34mA"
 		(exclude_from_sim no)
-		(at 190.754 132.588 0)
+		(at 186.182 132.08 0)
 		(effects
 			(font
 				(size 1.778 1.778)
@@ -2827,12 +2827,6 @@
 		(uuid "81df210a-1d44-4466-938c-84dff69f7e1d")
 	)
 	(junction
-		(at 90.17 124.46)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8cc869dc-99f8-49e3-b09c-9528acba232a")
-	)
-	(junction
 		(at 146.05 124.46)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2873,6 +2867,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c5a3ed5b-9363-47a4-91d4-fa0d265fe40a")
+	)
+	(junction
+		(at 88.9 124.46)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ca112395-f1c7-48eb-b203-4184ebc29708")
 	)
 	(junction
 		(at 255.27 124.46)
@@ -3030,7 +3030,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 124.46) (xy 90.17 124.46)
+			(xy 88.9 124.46) (xy 95.25 124.46)
 		)
 		(stroke
 			(width 0)
@@ -3080,7 +3080,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 191.77) (xy 82.55 191.77)
+			(xy 67.31 189.23) (xy 82.55 189.23)
 		)
 		(stroke
 			(width 0)
@@ -3150,7 +3150,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 168.91) (xy 82.55 168.91)
+			(xy 67.31 166.37) (xy 82.55 166.37)
 		)
 		(stroke
 			(width 0)
@@ -3228,16 +3228,6 @@
 			(type default)
 		)
 		(uuid "57c54e41-6113-4f12-b391-8a64eb3207ba")
-	)
-	(wire
-		(pts
-			(xy 90.17 124.46) (xy 95.25 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b637d59-cada-4771-a004-5a6cb5bf1046")
 	)
 	(polyline
 		(pts
@@ -3332,7 +3322,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 187.96) (xy 82.55 187.96)
+			(xy 67.31 185.42) (xy 82.55 185.42)
 		)
 		(stroke
 			(width 0)
@@ -3373,7 +3363,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 173.99) (xy 82.55 173.99)
+			(xy 67.31 170.18) (xy 82.55 170.18)
 		)
 		(stroke
 			(width 0)
@@ -3624,7 +3614,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 181.61) (xy 82.55 181.61)
+			(xy 67.31 177.8) (xy 82.55 177.8)
 		)
 		(stroke
 			(width 0)
@@ -3775,7 +3765,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 163.83) (xy 82.55 163.83)
+			(xy 67.31 162.56) (xy 82.55 162.56)
 		)
 		(stroke
 			(width 0)
@@ -3836,7 +3826,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 184.15) (xy 82.55 184.15)
+			(xy 67.31 181.61) (xy 82.55 181.61)
 		)
 		(stroke
 			(width 0)
@@ -3988,7 +3978,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 179.07) (xy 82.55 179.07)
+			(xy 67.31 173.99) (xy 82.55 173.99)
 		)
 		(stroke
 			(width 0)
@@ -4008,7 +3998,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 124.46) (xy 90.17 134.62)
+			(xy 88.9 124.46) (xy 88.9 134.62)
 		)
 		(stroke
 			(width 0)
@@ -6247,7 +6237,43 @@
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGlMZ0JD"
+			"ekRKaDJxRkJTTnNEb3RJZmYzclgrODdoWVg0WU94ZlBqN2xDNkdkZWVhWitYN2ZSWVVmQ0FmOU1W"
+			"dDVLTHU0aCtrMTByM1ZWbHVaaDZMM20xcmNZMVI5alNhZSszZ245NVczMkhkL0xNQ0hkalBXK2Zy"
+			"b3BoOGJiN3h4L2l6MkxicnBxayttUDAyd2JWSlg2V3E3Yk9hWmN6OUdIUnoxTmFIRlBkcG00dzk4"
+			"RUNlQjdQdzc0b2dqb2pES1NsVk9QK0IvbFJGL01WL3NaZVV5Yi9oVlJ2ejU0bDZFQThQdlBwNGlD"
+			"aFp2YWZRM3ZwajRSdnpGVEpkRkFrUWNkcVliL2hmdExNRTRLK3lwRGZNSFEvQndzb3FrTTB6a0Fh"
+			"Wm1oaGFuQ1kyaWt4VzU4ckRhOEM4VVYwelpyc085OE1JTG1hd0E1bVV0RDllQlBEYmpncEdUdm5v"
+			"Uk01VWVJNmQ4Zm1BQkFkOTVUS2NKT1ZrTjJPdkhoUmRlR1BLaWR4NmpTWDExQzNGOThNRUhlOWZy"
+			"bmRDSXY3cmJ3OUFvRkZsUlYwZTFsbTFiUi93aFAwTUxDcm5LbjRqYW1RakFYbDVOMWJPeFB1SVBJ"
+			"L0ppWE1oa0JmSVcwMVdMYnBnUmYxM3JKK2cwVnhueEJ6L2EwTDc2Ump5VjZldHBKbFcyS2RyYXBr"
+			"YjhkYlVNMXpYaUx6VGJBTzBIM2xOYzd1TWYvN2kzNzRINzBjK3lPWXpnRXNIT2ViOThpTTFnQngy"
+			"bWUxelBLSDBjOW10ZGJ0Z1JmOW8vK2NnWkRGL0h3OXlPNVJGL1RUMzNRK1pLUktqVjJlYmQ0cGtB"
+			"bTRDdzBZajNXK2dnc0VIdjZ1L0VqUGlUUVR3WkZqTU5MZnFGTW9MWmZpN1hGTnNtZFpXdXRzdXVQ"
+			"RFNQYzZxdlNlT3QvV0U2b050dnY3MjNJWVpSMmVKdzhXTFFPRC9YWEhONS9mRjFxRUlyQXRxbTF4"
+			"VGpzTWNlZTNqRHJ5TDhsYkYxQ0Z0ajVnT3J1STlHTDhiaEpSTlQrb3BUWkdQdUxYTU5wZ2NVNDJq"
+			"K2xsRld3VGlFWHBndzdhQU9CenNWSVdFRmkzZjRIR3labU9rdDdzc1hVdC90SXozWGxQRDMyOS8r"
+			"MXNzSVU2cERBbXRJekpLdjVVR1dtTEpVekIvenQ2L2ppM0tpN1FENkFnckZFL1lxVWQ1alhNaGVH"
+			"RlpCdDdtbTIwTVpoZUxsakdtZGRibzJDbjlvaDdGQ3IxbmV5dTUvNGhPZjhHSnJxcDZOZGVFUFlp"
+			"MWVBRUl1Wkg0Qy90amF1V0g2WFYzckoyaDJWWVcvTnJTdlB1R3ZURjlQTTZteVRkSFdOaQAATAAA"
+			"AEcAAABhAAAAaAAAAEoAAABwAAAAWgAAAEMAAABwAAAAcgAAAFcAAABVAAAAZwAAAGsAAABKAAAA"
+			"NAAAAGoAAABpAAAASQAAAEMAAABnAAAAaQAAAHUAAABuAAAAcAAAAGEAAABTAAAAdwAAAHYAAABM"
+			"AAAAegAAAE8AAABNAAAAVwAAAEYAAAB0AAAAWAAAAGgAAAA5AAAAYQAAADIAAABWAAAAcgAAADYA"
+			"AAA1AAAAbgAAAFEAAAA1AAAATgAAAHMAAABGAAAAbQAAAHgAAABWAAAARQAAAEsAAAArAAAAVwAA"
+			"AE0AAABEAAAAeQAAAFUAAABwAAAAYQAAAC8AAABwAAAANAAAAGMAAABBAAAAWgAAAE4AAABaAAAA"
+			"KwAAADkAAABtAAAAcgAAAGEAAAA1AAAAVgAAAHAAAABaAAAAQwAAAEIAAABvAAAAbQAAADAAAABN"
+			"AAAAQQAAAHcAAABLAAAAQwAAADIAAABTAAAAYgAAAHEAAABMAAAAMwAAAFkAAABSAAAAZwAAAGEA"
+			"AAA0AAAAdgAAAEUAAABZAAAAVAAAAE4AAABOAAAAZwAAAHMAAABKAAAARAAAAEEAAABmAAAARgAA"
+			"ADEAAABWAAAARwAAAFYAAABDAAAAeQAAAGIAAABFAAAAcQAAAHAAAABGAAAATQAAAEEAAABjAAAA"
+			"UQAAAFIAAABBAAAARQAAAFkAAABsAAAAQgAAAGkAAABMAAAAVAAAADEAAABxAAAANgAAADIAAABv"
+			"AAAAeAAAAE8AAABEAAAAQwAAAEEAAABYAAAAQwAAADQAAABYAAAAbgAAAGcAAABOAAAAQgAAAFkA"
+			"AABtAAAARgAAADYAAABZAAAARwAAAGcAAABrAAAAOAAAAEoAAABNAAAAVQAAAC8AAAArAAAAZgAA"
+			"ACsAAABuAAAASQAAAEQAAAB3AAAAbQAAAEUAAABtAAAAcAAAAHIAAABqAAAATAAAAHkAAAArAAAA"
+			"WAAAAHgAAAA0AAAASAAAAGcAAABSAAAAaAAAAEMAAABIAAAAagAAAHgAAAB4AAAAeAAAADkAAABW"
+			"AAAAagAAAFgAAAA3AAAAMgAAAGYAAAAwAAAANAAAAFMAAABvAAAATwAAAGgAAABxAAAAdwAAAG0A"
+			"AABiAAAAVgAAAFQAAABPAAAARwAAAG4AAAB2AAAAYwAAAGEAAAAxAAAAZgAAAE8AAABYAAAAbgAA"
+			"AFAAAABjAAAAWgAAAG4AAABnAAAALwAAAFcAAAByAAAAUgAAADEAAAAyAAAARgAAADkAAABqAAAA"
+			"KwAAAFgAAAB5AAAAWQAAAEcAAABJAAAAdQAAAHcAAAB6AAAAVAAAAEkAAAA2AAAAbAAAAA=="
 		)
 	)
 	(image
@@ -11188,7 +11214,43 @@
 			"TlFCNEJNTDlRUkxGVVJxbFlScVZjUmJYU0p3Q1pDTzZaeUU0QVNkeERsYU1uQmZ3RUZ2bnZkck9G"
 			"UnJNbEFGK3hXRWF4V0pKRWVwNFdFNENqNnlZRjVUeFlOUDhaek55RUlROHhOVlhwOGJrU2lBY0Iz"
 			"U3FiU0xKSTNFQXBGRStpUkw1a1NzSVFZUmhKNG5zWVJZaVRXQjQ4TCtlQWRBQUZrK2NKcHNiSWpR"
-			"eUdpT0psNHJCQWNKT2lmWXIzbGRpODRGb28rZzRxUlFmVkVzWDZIZw=="
+			"eUdpT0psNHJCQWNKT2lmWXIzbGRpODRGb28rZzRxUlFmVkVzWDZIZwAAMgAAAHYAAABxAAAANwAA"
+			"AE0AAABQAAAAUAAAAEcAAABhAAAAMQAAAGcAAABhAAAAdgAAADQAAABHAAAAaAAAAEUAAAAxAAAA"
+			"OQAAAEEAAABKAAAASgAAAFAAAABBAAAANwAAAEkAAABkAAAALwAAAGkAAAArAAAAWAAAAHgAAABL"
+			"AAAAUQAAAHkAAAAvAAAALwAAAEMAAABYAAAAWQAAAEgAAABlAAAAMgAAAFkAAABPAAAAdgAAAHMA"
+			"AAAyAAAAMQAAAG0AAABmAAAAbgAAAE0AAABIAAAARAAAADAAAABlAAAAYQAAAFIAAAAzAAAANwAA"
+			"AE0AAABMAAAAcwAAAGUAAAA2AAAAKwAAAGgAAABPAAAAagAAADIAAABOAAAAeAAAAEsAAAA2AAAA"
+			"bgAAADAAAABiAAAAcAAAADkAAABEAAAAMQAAAGEAAAB1AAAAbgAAAHMAAABMAAAASwAAADYAAABD"
+			"AAAAawAAAGsAAAB0AAAAaAAAADkAAABBAAAANQAAADgAAABFAAAAagAAAFcAAABMAAAAbAAAADUA"
+			"AABHAAAAVgAAAFAAAABuAAAAMwAAADAAAABIAAAATAAAADQAAABFAAAANwAAADAAAABmAAAAZQAA"
+			"AFkAAABvAAAARgAAAHEAAAA5AAAAZgAAAHcAAABlAAAAVAAAAHAAAABrAAAAeAAAAGgAAAA0AAAA"
+			"NgAAAG0AAABtAAAAMAAAADcAAAB0AAAAbQAAAEYAAABsAAAAZQAAAHQAAABuAAAAYwAAAGYAAAB2"
+			"AAAAcwAAAEcAAABmAAAAUQAAAE8AAAB2AAAANAAAAGkAAABPAAAAUgAAADQAAAArAAAAaQAAAE0A"
+			"AABQAAAAWQAAAGgAAABaAAAAaQAAACsAAABkAAAAUQAAAGUAAAB1AAAAdQAAAEoAAAA5AAAAQwAA"
+			"AHkAAAA5AAAAdwAAAG0AAABzAAAAWAAAAHoAAAAyAAAATAAAAGUAAAArAAAAZAAAAC8AAABqAAAA"
+			"TQAAAFQAAABXAAAANwAAAGUAAABoAAAAOAAAADcAAABBAAAAVwAAAHMAAAB6AAAAOQAAAHoAAABG"
+			"AAAAegAAAEkAAABmAAAAZgAAAFEAAAA2AAAAYQAAADMAAABEAAAANwAAADMAAABIAAAAUAAAADQA"
+			"AABmAAAAaQAAAHoAAABGAAAAMwAAAE0AAAB2AAAALwAAADgAAAB1AAAAWQAAAHAAAABsAAAAVwAA"
+			"AHQAAABEAAAALwAAAC8AAABXAAAAUwAAAHkAAABPAAAAMwAAADgAAABUAAAAMAAAAHkAAABGAAAA"
+			"bQAAADAAAABkAAAAcgAAAGUAAABqAAAANQAAACsAAABsAAAAagAAAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABBQUHCSkpK/0pKSv9KSkr/SkpK/1NT"
+			"U/9KSkr/U1NT/1NTU/9cXFz/XFxc/1NTU/9cXFz/XFxc/1xcXP9cXFz/XFxc/1xcXP9cXFz/SkpK"
+			"/0FAQP9KSkr/QUBA/0FAQP9BQED/QUBA/0FAQP9BQED/QUBA/0FAQP9BQED/QUBA/0FAQP9KSkr/"
+			"QUBA/0pKSv9BQED/QUBA/0FAQP9BQED/SkpK/0FAQP9BQED/QUBA/0pKSv9BQED/SkpK/0FAQP9B"
+			"QED/QUBA/0FAQP9BQED/QUBA/0pKSv9KSkr/SkpK/0FAQP9KSkr/QUBA/0FAQP9BQED/QUBA/0pK"
+			"Sv9BQED/SkpK/0pKSv9KSkr/SkpK/0pKSv9KSkr/SkpK/0pKSv9KSkr/SkpK/0FAQP9BQED/SkpK"
+			"/0pKSv9BQED/U1NT/0FAQP9KSkr/U1NT/0FAQP9KSkr/QUBA/0FAQP8tLCz/HBwc/xwcHP8cHBz/"
+			"HBwc/xwcHP8hISH/HBwc/yEhIf8cHBz/HBwc/xwcHP8cHBz/HBwc/yEhIf8hISH/HBwc/xwcHP8c"
+			"HBz/HBwc/xwcHP8cHBz/ISEh/xwcHP8cHBz/ISEh/yEhIf8cHBz/ISEh/xwcHP8hISH/HBwc/xwc"
+			"HP8cHBz/HBwc/xwcHP8hISH/HBwc/xwcHP8hISH/HBwc/yEhIf8hIQ=="
 		)
 	)
 	(image
@@ -14365,7 +14427,43 @@
 			"/87Nu//Pzrz/0M+9/9HQvv/U0cD/1c6//9HGuP/Rw7b/z8K1/8zAs//Iv7D/xL6u/8G+rf/AwK7/"
 			"wcSv/8PIsv/Hzbb/xs62/7O7o/+xuJ//vMOp/8HIrf/Bxqv/u7+k/7e6nf+1tpn/tLOX/6+ukf+p"
 			"pon/opt+/5SKbP+MfV//kH5g/5F9YP+RfF//kHpe/5B4XP+Qd1v/j3Va/45yWP+OcFf/jW9W/4tt"
-			"VP+IaVD/hGZN/4FkS/9/ZEr/f2ZL/4BpTv+BbFH/fmtQ/3loTP9zY0f/bA=="
+			"VP+IaVD/hGZN/4FkS/9/ZEr/f2ZL/4BpTv+BbFH/fmtQ/3loTP9zY0f/bAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAANgAAAGYAAABm"
+			"AAAAUwAAADMAAAAvAAAAMQAAAEgAAABZAAAAbwAAADYAAABnAAAAWAAAAHMAAABYAAAAVgAAAFgA"
+			"AABvAAAATQAAAHYAAAB1AAAAawAAAFoAAABmAAAARAAAAFgAAAB5AAAARgAAAEUAAAAyAAAAKwAA"
+			"AFYAAAA1AAAAMwAAAEsAAAArAAAAQwAAADgAAABkAAAAUAAAAHgAAABRAAAATwAAAEEAAABTAAAA"
+			"RAAAAC8AAAB5AAAAbAAAAC8AAAA1AAAASwAAACsAAAAvAAAAOQAAAC8AAABaAAAALwAAAC8AAAB1"
+			"AAAAWAAAAC8AAAAvAAAAbwAAADIAAABlAAAAdgAAAEYAAABYAAAAcgAAADkAAAA0AAAATQAAAHgA"
+			"AAByAAAAcgAAADMAAAAzAAAAMwAAACsAAABKAAAAMQAAADMAAAAzAAAAdgAAADcAAAB4AAAARwAA"
+			"AG4AAABiAAAAbAAAAEsAAAAxAAAALwAAADUAAABrAAAAWAAAAEUAAABHAAAASwAAAEwAAABzAAAA"
+			"MQAAAEEAAAA5AAAAWQAAAE8AAABWAAAAdgAAAGYAAABYAAAAbQAAAEYAAABGAAAAQwAAAEEAAAB3"
+			"AAAAbQAAAFkAAABTAAAANAAAAC8AAABGAAAAMgAAAEIAAAB4AAAAagAAAGQAAABCAAAAcgAAAFIA"
+			"AAB5AAAAdgAAAGQAAAA3AAAASQAAACsAAABuAAAAMAAAAGQAAABTAAAAbgAAAGQAAABnAAAAMAAA"
+			"AEsAAABYAAAAOAAAAEgAAABEAAAAcwAAAC8AAABEAAAAdgAAAHQAAABlAAAAcgAAAHgAAAA2AAAA"
+			"SAAAAFAAAABQAAAAcwAAAFEAAABPAAAATgAAAEoAAABoAAAAMwAAAEMAAABWAAAAVAAAAHgAAABE"
+			"AAAAOQAAAHAAAAAxAAAARgAAAE8AAABoAAAAaAAAAEwAAAA2AAAAUwAAAGEAAABsAAAAOAAAADgA"
+			"AABqAAAAaAAAAGgAAABrAAAAUQAAAFAAAABSAAAAdgAAAGMAAABjAAAAMwAAAEcAAABOAAAAUAAA"
+			"ADQAAAB0AAAALwAAAGYAAABUAAAAYQAAADgAAABPAAAAMQAAAEYAAABaAAAAaQAAAHUAAABxAAAA"
+			"RwAAAGQAAABxAAAARQAAAHQAAABCAAAAUwAAAGYAAABJAAAAbgAAAFYAAABLAAAARQAAAHkAAABN"
+			"AAAAbwAAAFAAAAAwAAAAUAAAAE0AAABwAAAAUwAAAHEAAABJAAAAVwAAAEMAAABQAAAAVAAAAFIA"
+			"AABvAAAANgAAAEsAAABIAAAASgAAAEMAAABnAAAAWgAAAEUAAABaAAAATA=="
 		)
 	)
 	(image
@@ -19196,7 +19294,43 @@
 			"fWL/qKKS/8K7q//UzMH/08vA/8/Ju//Oxrn/0sq9/9DIu//QyLv/0si8/9bKvP/UyLj/1cq3/9vM"
 			"t//Vx63/08Ko/9TBof/Qvpr/0LyZ/9C8mf/RvZr/0b2Y/826kv/PtpD/zLON/8q0i//Json/y7OP"
 			"/863lf/KspD/z7aY/9K+pf/c0Lr/4tfE/+DZx//i2cj/5dnJ/+Tbyv/i2sb/5d7M/+XezP/l3sr/"
-			"59/L/+vgzf/p4c3/59/K/+neyv/q28T/59e9/+XWuf/j1Lf/49S1/+PStA=="
+			"59/L/+vgzf/p4c3/59/K/+neyv/q28T/59e9/+XWuf/j1Lf/49S1/+PStABxAAAATQAAAEQAAABB"
+			"AAAAZwAAAGcAAABnAAAARQAAAEYAAABNAAAAQgAAAEEAAABuAAAAbwAAAHgAAAA1AAAAVwAAAFkA"
+			"AAB3AAAAQgAAAEIAAABCAAAAQQAAAHcAAABIAAAAdQAAAEIAAABwAAAANgAAAGYAAABOAAAAawAA"
+			"AEQAAAAxAAAANwAAADkAAAAzAAAAcwAAAC8AAABFAAAAQwAAAFAAAABFAAAAVAAAAGsAAABDAAAA"
+			"OQAAADYAAAA1AAAARwAAAHYAAABkAAAAdAAAAEQAAAA3AAAAVQAAAHIAAAAwAAAAWgAAAHMAAABt"
+			"AAAAYgAAAFYAAABzAAAAaAAAAC8AAAArAAAAOAAAAGEAAAA3AAAAZQAAAHMAAABMAAAAVAAAAHgA"
+			"AABsAAAAcQAAAEQAAAArAAAAbwAAAGEAAAA4AAAALwAAAGcAAABkAAAAeQAAADIAAAAvAAAAVAAA"
+			"AFgAAABTAAAAdQAAAG0AAAAxAAAASAAAAGQAAABYAAAAbQAAAE0AAABKAAAARwAAAHMAAAArAAAA"
+			"agAAAFcAAAB5AAAAagAAAEYAAAAzAAAAUAAAAHkAAAB2AAAANAAAAEEAAABPAAAANgAAAGUAAABs"
+			"AAAATAAAAFUAAABMAAAAeQAAADcAAAA0AAAATQAAADIAAABpAAAAWAAAAGYAAABVAAAASwAAAEwA"
+			"AABMAAAANwAAAFUAAABtAAAAdwAAADcAAAAvAAAANQAAAEsAAABoAAAAUAAAAHkAAABYAAAAYgAA"
+			"AHIAAABmAAAAcQAAAGQAAAA2AAAAOAAAADcAAAB3AAAANgAAADQAAABSAAAALwAAAC8AAABuAAAA"
+			"MwAAADYAAABzAAAAbwAAAEEAAAB5AAAAQgAAADgAAAB5AAAAcQAAAGsAAABkAAAAMQAAAGIAAAA5"
+			"AAAATQAAAHUAAAArAAAAagAAADkAAAB4AAAAZgAAAEsAAABwAAAAbwAAADAAAABiAAAAcgAAAEEA"
+			"AAA3AAAAUgAAADYAAAB0AAAAQwAAAHMAAAB2AAAAcAAAAHoAAABVAAAAdAAAAFQAAABmAAAAYwAA"
+			"AEoAAABDAAAAMAAAAHUAAAB1AAAANAAAAEwAAABnAAAAYgAAAEUAAABSAAAAZAAAAE0AAAB6AAAA"
+			"UAAAAFYAAABHAAAAOQAAAGcAAABQAAAAZQAAAC8AAAA4AAAARwAAAE4AAABnAAAARwAAADkAAABD"
+			"AAAASAAAAFQAAAB1AAAAZQAAAGkAAABZAAAAUQAAAHQAAABJAAAARAAAAGUAAABqAAAAVgAAADIA"
+			"AAA3AAAAeQAAAG8AAABZAAAATgAAAEcAAAB6AAAAegAAAHoAAAA0AAAAc///////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"/////////////////////////////////////////////////////////w=="
 		)
 	)
 	(image
@@ -21993,11 +22127,47 @@
 			"UTBGTk96QVFJSUlCQUpBRUNlcEg0T0JnQkJCRFFUMkRzK0E5bHp0eUYraFZHUlFnZ1lKVUFBVDJy"
 			"MnNsaUVoSWdvSmNRTk5Ob0wwQkFUL3NXVVNBQ0NDQ0FRQXdDQlBSaVFHUUlMUVVJNkduWkZvclNY"
 			"SUNBbnVZTm9qd0VGQXQwNk5CT1J0eDVxK0paQ09ncEIyWUNCQkJBSUtJQUFiMklnQnlPQUFJSTZD"
-			"WXdmdQ=="
+			"WXdmdQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAExMTP9MTEz/TExM/0xMTP9MTEz/TExM/0xMTP9MTEz/TExM/0xMTP9MTEz/TExM/0xMTP9M"
+			"TEz/TExM/0xMTP9LS0v/SkpK/0lJSf9JSUn/S0tL/09PT/9QUFD/Tk5O/01NTf9MTEz/SkpK/0dH"
+			"R/9FRUX/Q0ND/0hISP9SUlL/U1NT/0tLTP9JSUr/TU1O/09PUP9PT1D/Tk5P/0xMTf9LS0z/S0tM"
+			"/01NTv9QUFH/UVFS/1BQUv9PT1D/TExN/0tLTP9OTk7/Tk5O/0xMTP9LS0v/TExM/01NTf9NTU3/"
+			"TExM/0tLS/9LS0v/Tk5O/09PT/9PT0//TU1N/0hJSP9HR0f/SUdJ/0tJTP9PTVD/T01Q/0tJTP9L"
+			"SUz/T05R/0dGSv80Mzf/RURJ/3p7gP+tr7T/3+Hm/+vt8v/T1dr/yczR/83S2P/S193/19zi/9fc"
+			"4v/S193/z9Ta/8zR1//JztT/xMnP/8LHzf/Eyc//yc7U/9LX3f/R1tz/xsvR/8fM0v/U2eD/19zk"
+			"/9HW3v/M0dj/yc7U/8nO1P/M0df/1Nne/9/k6f/l6u7/5erv/9LX2v+pr7H/eoCB/0VLTP8xNTf/"
+			"PkBB/0VFR/9GRkj/SkpM/1BQUv9RUVP/TkxN/01LTP9OTE3/T01O/1FOTf9TT07/VVFQ/1NOTf9M"
+			"R0b/SkdG/01MTP9PT0//UFBQ/09PT/9OTk7/TU1N/0xMTP9MTEz/Tk5O/0tLS/9CQkL/PT09/zs7"
+			"O/9DQ0P/VVRU/3x9f/+3vcP/09rj/8/W3v/Ey9P/s7rC/6uyuv+rsrr/qK+3/6WstP+jqrL/o6qy"
+			"/6WstP+psLj/rrW9/7S7w/+2vcb/s7vF/7G5xP+xucP/sLjC/6+3wP+yucH/uL7E/6Gmq/9scHT/"
+			"SExQ/zc5PP8yNDb/Oj0+/0BCQ/9EREX/RERE/z8/P/8+Pj7/Pz8//0FBQf9ERET/QkJC/zw8PP87"
+			"Ozv/Pz8//0JCQv9FRUX/QkJC/zs7O/8/Pz//TU1N/0xMTP88PDz/MjIy/y0tLf8sLCz/Ly8v/zQ0"
+			"NP87Ozv/QEBA/0NDQ/9ERET/RERE/0RERP9ERET/Q0ND/0JCQv9BQUH/QEBA/z8/P/9AQED/QEBA"
+			"/z8/P/9AQED/Q0ND/0NDQ/9CQkL/QkJC/0RERP89PT73Li8w3SkqLKo2NjhfSUlJKk1NTQoAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAA=="
 		)
 	)
 	(label "BAT_SENSE_EN"
-		(at 67.31 173.99 0)
+		(at 67.31 170.18 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22008,7 +22178,7 @@
 		(uuid "0785677c-6ae9-4597-9ebf-b851b4b85ec0")
 	)
 	(label "-VBAT"
-		(at 67.31 181.61 0)
+		(at 67.31 177.8 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22019,7 +22189,7 @@
 		(uuid "097ba4db-3548-4083-8fff-797826ccdbef")
 	)
 	(label "+VBAT"
-		(at 67.31 187.96 0)
+		(at 67.31 185.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22081,7 +22251,7 @@
 		(uuid "574ebc36-1f67-4806-8507-be4bbcf310e5")
 	)
 	(label "CHARGE_STATUS"
-		(at 67.31 168.91 0)
+		(at 67.31 166.37 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22092,7 +22262,7 @@
 		(uuid "6215e5fd-3801-4756-958a-e47fcbd7f3a8")
 	)
 	(label "BAT_SENSE"
-		(at 67.31 179.07 0)
+		(at 67.31 173.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22135,7 +22305,7 @@
 		(uuid "9c2fe591-a7c8-4b53-bd8d-79537e60e06e")
 	)
 	(label "-VBAT"
-		(at 67.31 184.15 0)
+		(at 67.31 181.61 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22146,7 +22316,7 @@
 		(uuid "a1b383f4-b270-4bf4-ba7a-f04457d3b3f3")
 	)
 	(label "DOUT"
-		(at 67.31 163.83 0)
+		(at 67.31 162.56 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22168,7 +22338,7 @@
 		(uuid "d3641a80-5ffc-4cf1-97a8-03222b494d10")
 	)
 	(label "+VBAT"
-		(at 67.31 191.77 0)
+		(at 67.31 189.23 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22734,7 +22904,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Front"
 			(at 82.55 153.67 0)
 			(effects
 				(font
@@ -22793,7 +22963,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 82.55 179.07 270)
+		(at 82.55 173.99 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -22802,7 +22972,7 @@
 		(dnp no)
 		(uuid "2fbf95fa-6bd4-4ca1-9d6b-728c73150c20")
 		(property "Reference" "TP505"
-			(at 87.63 179.07 90)
+			(at 87.63 173.99 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22811,7 +22981,7 @@
 			)
 		)
 		(property "Value" "BAT_SENSE"
-			(at 94.996 179.07 90)
+			(at 94.996 173.99 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22819,8 +22989,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 82.55 173.99 0)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Front"
+			(at 82.55 168.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22829,7 +22999,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 173.99 0)
+			(at 82.55 168.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22838,7 +23008,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 82.55 179.07 0)
+			(at 82.55 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22847,7 +23017,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 82.55 179.07 0)
+			(at 82.55 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22856,7 +23026,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 82.55 179.07 0)
+			(at 82.55 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22878,7 +23048,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 82.55 191.77 270)
+		(at 82.55 189.23 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -22887,7 +23057,7 @@
 		(dnp no)
 		(uuid "3963d644-262b-45d4-b809-ace8c131670e")
 		(property "Reference" "TP509"
-			(at 87.63 191.77 90)
+			(at 87.63 189.23 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22896,7 +23066,7 @@
 			)
 		)
 		(property "Value" "-VBAT"
-			(at 94.996 191.77 90)
+			(at 94.996 189.23 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22905,7 +23075,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm"
-			(at 82.55 186.69 0)
+			(at 82.55 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22914,7 +23084,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 186.69 0)
+			(at 82.55 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22923,7 +23093,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 82.55 191.77 0)
+			(at 82.55 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22932,7 +23102,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 82.55 191.77 0)
+			(at 82.55 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22941,7 +23111,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 82.55 191.77 0)
+			(at 82.55 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23410,7 +23580,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 82.55 187.96 270)
+		(at 82.55 185.42 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -23419,7 +23589,7 @@
 		(dnp no)
 		(uuid "5da47ce8-fde4-4cc9-80a7-8f58a0d2334a")
 		(property "Reference" "TP508"
-			(at 87.63 187.96 90)
+			(at 87.63 185.42 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23428,7 +23598,7 @@
 			)
 		)
 		(property "Value" "+VBAT"
-			(at 94.996 187.96 90)
+			(at 94.996 185.42 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23436,8 +23606,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 82.55 182.88 0)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.75mm_Front"
+			(at 82.55 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23446,7 +23616,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 182.88 0)
+			(at 82.55 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23455,7 +23625,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 82.55 187.96 0)
+			(at 82.55 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23464,7 +23634,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 82.55 187.96 0)
+			(at 82.55 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23473,7 +23643,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 82.55 187.96 0)
+			(at 82.55 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23796,7 +23966,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SON:WSON-6_1.5x1.5mm_P0.5mm"
+		(property "Footprint" "0_Plume:WSON-6_1.5x1.5mm_P0.5mm"
 			(at 123.19 91.44 0)
 			(effects
 				(font
@@ -24064,7 +24234,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x01")
-		(at 85.09 134.62 180)
+		(at 83.82 134.62 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -24072,7 +24242,7 @@
 		(dnp no)
 		(uuid "abd64ddb-c91b-4ff1-b585-4b574dd3c9cb")
 		(property "Reference" "J503"
-			(at 99.822 137.668 0)
+			(at 79.756 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24080,7 +24250,7 @@
 			)
 		)
 		(property "Value" "Solder Wire Pad 1,5x3mm"
-			(at 88.392 137.668 0)
+			(at 87.122 137.668 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24088,7 +24258,7 @@
 			)
 		)
 		(property "Footprint" "0_Plume:Connector_SolderWirePad_SMD_1,5x3mm"
-			(at 85.09 134.62 0)
+			(at 83.82 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24097,7 +24267,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 85.09 134.62 0)
+			(at 83.82 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24106,7 +24276,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 85.09 134.62 0)
+			(at 83.82 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24235,7 +24405,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 82.55 168.91 270)
+		(at 82.55 166.37 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -24244,7 +24414,7 @@
 		(dnp no)
 		(uuid "b67686c1-fb2e-413e-b287-0b086da0207d")
 		(property "Reference" "TP503"
-			(at 87.63 168.91 90)
+			(at 87.63 166.37 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24253,7 +24423,7 @@
 			)
 		)
 		(property "Value" "CHARGE_STATUS"
-			(at 94.996 168.91 90)
+			(at 94.996 166.37 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24261,8 +24431,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 82.55 163.83 0)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Front"
+			(at 82.55 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24271,7 +24441,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 163.83 0)
+			(at 82.55 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24280,7 +24450,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 82.55 168.91 0)
+			(at 82.55 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24289,7 +24459,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 82.55 168.91 0)
+			(at 82.55 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24298,7 +24468,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 82.55 168.91 0)
+			(at 82.55 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24424,7 +24594,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 82.55 173.99 270)
+		(at 82.55 170.18 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -24433,7 +24603,7 @@
 		(dnp no)
 		(uuid "c4641c15-c3d7-47bb-97b7-52363e2cedb2")
 		(property "Reference" "TP504"
-			(at 87.63 173.99 90)
+			(at 87.63 170.18 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24442,7 +24612,7 @@
 			)
 		)
 		(property "Value" "BAT_SENSE_EN"
-			(at 94.996 173.99 90)
+			(at 94.996 170.18 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24450,8 +24620,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 82.55 168.91 0)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Front"
+			(at 82.55 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24460,7 +24630,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 168.91 0)
+			(at 82.55 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24469,7 +24639,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 82.55 173.99 0)
+			(at 82.55 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24478,7 +24648,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 82.55 173.99 0)
+			(at 82.55 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24487,7 +24657,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 82.55 173.99 0)
+			(at 82.55 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24509,7 +24679,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 82.55 181.61 270)
+		(at 82.55 177.8 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -24518,7 +24688,7 @@
 		(dnp no)
 		(uuid "c4a94c14-64b5-44de-b321-81a0965b0d97")
 		(property "Reference" "TP506"
-			(at 87.63 181.61 90)
+			(at 87.63 177.8 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24527,7 +24697,7 @@
 			)
 		)
 		(property "Value" "-VBAT"
-			(at 94.996 181.61 90)
+			(at 94.996 177.8 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24535,8 +24705,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 82.55 176.53 0)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.75mm_Front"
+			(at 82.55 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24545,7 +24715,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 176.53 0)
+			(at 82.55 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24554,7 +24724,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 82.55 181.61 0)
+			(at 82.55 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24563,7 +24733,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 82.55 181.61 0)
+			(at 82.55 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24572,7 +24742,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 82.55 181.61 0)
+			(at 82.55 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24594,7 +24764,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 82.55 184.15 270)
+		(at 82.55 181.61 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -24603,7 +24773,7 @@
 		(dnp no)
 		(uuid "c5c811f2-0d41-4cb0-a806-29e123919521")
 		(property "Reference" "TP507"
-			(at 87.63 184.15 90)
+			(at 87.63 181.61 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24612,7 +24782,7 @@
 			)
 		)
 		(property "Value" "-VBAT"
-			(at 94.996 184.15 90)
+			(at 94.996 181.61 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24621,7 +24791,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm"
-			(at 82.55 179.07 0)
+			(at 82.55 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24630,7 +24800,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 179.07 0)
+			(at 82.55 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24639,7 +24809,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 82.55 184.15 0)
+			(at 82.55 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24648,7 +24818,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 82.55 184.15 0)
+			(at 82.55 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24657,7 +24827,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 82.55 184.15 0)
+			(at 82.55 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24679,7 +24849,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 82.55 163.83 270)
+		(at 82.55 162.56 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -24688,7 +24858,7 @@
 		(dnp no)
 		(uuid "dc2fbba9-8b0f-44eb-afaf-cf5acdc0cefa")
 		(property "Reference" "TP502"
-			(at 87.63 163.83 90)
+			(at 87.63 162.56 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24697,7 +24867,7 @@
 			)
 		)
 		(property "Value" "DOUT"
-			(at 94.996 163.83 90)
+			(at 94.996 162.56 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24705,8 +24875,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 82.55 158.75 0)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Front"
+			(at 82.55 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24715,7 +24885,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 158.75 0)
+			(at 82.55 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24724,7 +24894,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 82.55 163.83 0)
+			(at 82.55 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24733,7 +24903,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 82.55 163.83 0)
+			(at 82.55 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24742,7 +24912,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 82.55 163.83 0)
+			(at 82.55 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24868,7 +25038,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x01")
-		(at 88.9 73.66 90)
+		(at 83.82 78.74 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -24876,7 +25046,7 @@
 		(dnp no)
 		(uuid "e2c5ed06-8748-4b19-98a6-8ece735a6b07")
 		(property "Reference" "J501"
-			(at 93.472 72.898 90)
+			(at 84.074 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24884,7 +25054,7 @@
 			)
 		)
 		(property "Value" "Solder Wire Pad 1,5x3mm"
-			(at 101.346 70.612 90)
+			(at 91.694 73.152 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24892,7 +25062,7 @@
 			)
 		)
 		(property "Footprint" "0_Plume:Connector_SolderWirePad_SMD_1,5x3mm"
-			(at 88.9 73.66 0)
+			(at 83.82 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24901,7 +25071,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 88.9 73.66 0)
+			(at 83.82 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24910,7 +25080,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 88.9 73.66 0)
+			(at 83.82 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)

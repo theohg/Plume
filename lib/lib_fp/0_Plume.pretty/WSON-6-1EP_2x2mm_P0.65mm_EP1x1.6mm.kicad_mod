@@ -8,6 +8,7 @@
 	(property "Reference" "REF**"
 		(at 0 -1.95 0)
 		(layer "F.SilkS")
+		(hide yes)
 		(uuid "ebfc96d7-9bd7-4e51-8706-84084a1e7bca")
 		(effects
 			(font
@@ -186,15 +187,15 @@
 		)
 	)
 	(pad "" smd roundrect
-		(at 0 -0.4)
-		(size 0.81 0.64)
+		(at 0 -0.45)
+		(size 1 0.7)
 		(layers "F.Paste")
 		(roundrect_rratio 0.25)
 		(uuid "699adbdd-72d1-46e0-ac1b-6aa903db1263")
 	)
 	(pad "" smd roundrect
-		(at 0 0.4)
-		(size 0.81 0.64)
+		(at 0 0.45)
+		(size 1 0.7)
 		(layers "F.Paste")
 		(roundrect_rratio 0.25)
 		(uuid "73e4e028-02ff-45c2-846c-f00a9619e880")
@@ -204,6 +205,7 @@
 		(size 0.45 0.3)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
+		(solder_mask_margin 0.05)
 		(uuid "7883f611-0a0d-4590-968d-6e25d8449a20")
 	)
 	(pad "2" smd roundrect
@@ -211,6 +213,7 @@
 		(size 0.45 0.3)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
+		(solder_mask_margin 0.05)
 		(uuid "9cfa7b92-c655-44ac-8836-d9364f5d901f")
 	)
 	(pad "3" smd roundrect
@@ -218,6 +221,7 @@
 		(size 0.45 0.3)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
+		(solder_mask_margin 0.05)
 		(uuid "5ae01ecf-c7ce-4c4e-a7d6-dad9bb4bb829")
 	)
 	(pad "4" smd roundrect
@@ -225,6 +229,7 @@
 		(size 0.45 0.3)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
+		(solder_mask_margin 0.05)
 		(uuid "e49a6bd7-fa33-473a-a220-a16df23e0d0e")
 	)
 	(pad "5" smd roundrect
@@ -232,6 +237,7 @@
 		(size 0.45 0.3)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
+		(solder_mask_margin 0.05)
 		(uuid "d47f2347-30e5-4599-a9c5-acd3701157ae")
 	)
 	(pad "6" smd roundrect
@@ -239,6 +245,7 @@
 		(size 0.45 0.3)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
+		(solder_mask_margin 0.05)
 		(uuid "2cd34431-0c57-4ba5-851e-607cf00aa4e4")
 	)
 	(pad "7" smd roundrect
@@ -247,6 +254,7 @@
 		(property pad_prop_heatsink)
 		(layers "F.Cu" "F.Mask")
 		(roundrect_rratio 0.1)
+		(solder_mask_margin 0.05)
 		(zone_connect 2)
 		(uuid "da05ef31-8447-40b2-9271-34ab81bacb73")
 	)

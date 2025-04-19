@@ -753,6 +753,379 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Jumper:SolderJumper_3_Open"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "JP"
+				(at -2.54 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SolderJumper_3_Open"
+				(at 0 2.794 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Solder Jumper, 3-pole, open"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Solder Jumper SPDT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SolderJumper*Open*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SolderJumper_3_Open_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -2.032 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 1.016) (xy -1.016 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -1.016 -1.016)
+					(mid -2.0276 0)
+					(end -1.016 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -1.016 -1.016)
+					(mid -2.0276 0)
+					(end -1.016 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -0.508 1.016)
+					(end 0.508 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 1.016 1.016)
+					(mid 2.0276 0)
+					(end 1.016 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 1.016 1.016)
+					(mid 2.0276 0)
+					(end 1.016 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 1.016) (xy 1.016 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.032 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SolderJumper_3_Open_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+3V3"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+3V3"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3V3\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+3V3_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3V3_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers
@@ -900,6 +1273,32 @@
 		)
 		(uuid ea0fb130-fc0e-4b0d-b2f6-d5f46c47bdbc)
 	)
+	(text "if A2 to GND:"
+		(exclude_from_sim no)
+		(at 154.432 113.538 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.2794)
+				(bold yes)
+				(color 0 0 0 1)
+			)
+		)
+		(uuid "36d93d63-406c-42f0-97b2-73b31f287862")
+	)
+	(text "if A2 to 3V3:"
+		(exclude_from_sim no)
+		(at 154.432 129.54 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.2794)
+				(bold yes)
+				(color 0 0 0 1)
+			)
+		)
+		(uuid "39e19d93-d064-4d8b-bee5-5093665610b8")
+	)
 	(text "VQFN-16 4x4 mm"
 		(exclude_from_sim no)
 		(at 266.192 137.668 0)
@@ -913,9 +1312,9 @@
 		)
 		(uuid "8407d460-a0e8-4821-88d2-ec8673719f62")
 	)
-	(text "Device 7-bits Adress: 0b1110000 = 0h70\nDevice 8-bits Write Adress: 0b11100000 = 0hE0\nDevice 8-bits Read  Adress: 0b11100001 = 0hE1\n"
+	(text "Device 7-bits Adress: 0b1110000 = 0h70\nDevice 8-bits Write Adress: 0b11100000 = 0hE0\nDevice 8-bits Read  Adress: 0b11100001 = 0hE1\n\nor\n\nDevice 7-bits Adress: 0b1110100 = 0h74\nDevice 8-bits Write Adress: 0b11101000 = 0hE8\nDevice 8-bits Read  Adress: 0b11101001 = 0hE9"
 		(exclude_from_sim no)
-		(at 184.15 113.792 0)
+		(at 183.896 121.412 0)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -1111,6 +1510,12 @@
 		(uuid "6e07bbe4-97c9-4475-9185-2af2a11353d1")
 	)
 	(junction
+		(at 210.82 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6e20570b-660c-4650-933d-2f9743d565f8")
+	)
+	(junction
 		(at 214.63 78.74)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1141,16 +1546,16 @@
 		(uuid "b6c8d63f-d7ae-4d90-8708-ed5c216419ad")
 	)
 	(junction
+		(at 196.85 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cb8ca19d-78d7-49ef-bcb3-2ae6b3d89667")
+	)
+	(junction
 		(at 224.79 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ccd73565-956f-471a-b4a4-de9e28f27811")
-	)
-	(junction
-		(at 196.85 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e4e2d6b6-3d30-4951-93bb-125f19e8da51")
 	)
 	(junction
 		(at 157.48 60.96)
@@ -1175,12 +1580,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f1194d74-d60f-49e7-a506-766df01752b2")
-	)
-	(junction
-		(at 210.82 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fb656e9e-e2c1-4be4-846c-cb0828a9e651")
 	)
 	(no_connect
 		(at 193.04 81.28)
@@ -1274,16 +1673,6 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 60.96) (xy 224.79 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "026e7f14-679b-4bc1-bf1c-9da3af703948")
-	)
-	(wire
-		(pts
 			(xy 162.56 86.36) (xy 170.18 86.36)
 		)
 		(stroke
@@ -1301,6 +1690,16 @@
 			(type default)
 		)
 		(uuid "0843306c-51a7-4a50-b768-1c6fc91a2cc2")
+	)
+	(wire
+		(pts
+			(xy 201.93 78.74) (xy 201.93 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08fbbb43-9bbf-43ae-a287-577ce5631486")
 	)
 	(wire
 		(pts
@@ -1391,6 +1790,16 @@
 			(type default)
 		)
 		(uuid "2aad79ff-844a-461a-b526-23d244d52444")
+	)
+	(wire
+		(pts
+			(xy 207.01 86.36) (xy 209.55 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e8b2f4e-0216-4d34-af0b-58391659e46e")
 	)
 	(wire
 		(pts
@@ -1491,6 +1900,16 @@
 			(type default)
 		)
 		(uuid "410c5bfe-10fd-49c6-b53a-2484043abd8d")
+	)
+	(wire
+		(pts
+			(xy 196.85 86.36) (xy 196.85 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45114d3d-331d-47fb-86ba-9b76ee4ce0b0")
 	)
 	(bus
 		(pts
@@ -1611,6 +2030,16 @@
 			(type default)
 		)
 		(uuid "840f9926-6879-4757-a689-d5a9aa3dab59")
+	)
+	(wire
+		(pts
+			(xy 210.82 60.96) (xy 224.79 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85effcc5-1b4a-4103-af2d-95c2e1273e72")
 	)
 	(wire
 		(pts
@@ -1791,6 +2220,16 @@
 			(type default)
 		)
 		(uuid "ab7b474b-4ca0-4a37-9a12-9ee84b0a8cd7")
+	)
+	(wire
+		(pts
+			(xy 196.85 60.96) (xy 210.82 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "abf34cd9-4d17-4428-b63d-339e04bb954c")
 	)
 	(wire
 		(pts
@@ -2041,16 +2480,6 @@
 			(type default)
 		)
 		(uuid "fdd638b2-8afb-4602-b5d2-2f2837a2df75")
-	)
-	(wire
-		(pts
-			(xy 196.85 60.96) (xy 210.82 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fec9164e-8dc8-414a-8502-36d247de55d4")
 	)
 	(bus
 		(pts
@@ -3110,7 +3539,43 @@
 			"d2x0L1ZPZHF6K3ljb3JrY3AzK09HWGpRLzhuQTJmSXVlN1lWQS9nZ3k3SHFDNGdBdG5SYmNZR2dD"
 			"RmFBendvS3dFRzZBTUs2c0FXOE9TY0hNcldjVDQ1RGhtWVU5ZldPMFNpUi93TTZBeC9nS2Z2K3BB"
 			"KzRDM0psWVBPNlJKLytGVUh1WUVsdWlobzdnOGVxOXNZUTR1ang0ZDgybE41Zk5NRmdPSStjRUVl"
-			"K1pRUmJURWQ1NzU2ZmVoYW4xQXYydVJ3WFNRUHVGQU9mWDFCL2ZoUmoraWt2RUJTMg=="
+			"K1pRUmJURWQ1NzU2ZmVoYW4xQXYydVJ3WFNRUHVGQU9mWDFCL2ZoUmoraWt2RUJTMgAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"////////////////////////////////////////////////////////////////////////////"
+			"//+Pj4//gYGB/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg"
+			"/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/"
+			"4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g"
+			"4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg"
+			"4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg"
+			"/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/"
+			"4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g"
+			"4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg"
+			"4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg"
+			"/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/"
+			"4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4ODg/+Dg4P/g4OD/4A=="
 		)
 	)
 	(image
@@ -9638,7 +10103,43 @@
 			"AABsAAAAdQAAADMAAABVAAAAcwAAAGwAAAB6AAAAVAAAAHMAAABaAAAAOAAAAG4AAABnAAAAbQAA"
 			"AEwAAAA3AAAANwAAAG8AAABXAAAAegAAAFcAAAAxAAAAWgAAAHIAAABVAAAAdgAAAE8AAABlAAAA"
 			"WQAAAHcAAABrAAAATAAAAGgAAABYAAAAUAAAACsAAABwAAAAMwAAAFIAAABnAAAAbwAAAFcAAABS"
-			"AAAAYQAAAGMAAAByAAAAWAAAADMAAABmAAAAVAAAAHMAAABEAAAATgAAAG8AAABsAA=="
+			"AAAAYQAAAGMAAAByAAAAWAAAADMAAABmAAAAVAAAAHMAAABEAAAATgAAAG8AAABsAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABEAAAA"
+			"dgAAAEsAAABXAAAAZgAAAGMAAABWAAAAegAAAHIAAABHAAAAaAAAADIAAABFAAAAVgAAAHMAAABl"
+			"AAAAZQAAAGMAAAA3AAAAdAAAAFIAAAArAAAARAAAAFkAAAB5AAAAZAAAAFQAAAArAAAAZgAAAHQA"
+			"AABMAAAAdwAAAFMAAABBAAAAegAAADQAAAA0AAAAeAAAAHMAAABqAAAAdgAAAGEAAAAwAAAATwAA"
+			"AGIAAAA1AAAARwAAAE4AAABoAAAAdAAAAEMAAABaAAAAQgAAAEgAAABXAAAAdwAAAEYAAAArAAAA"
+			"UAAAADkAAABwAAAATAAAAEIAAAAzAAAANwAAAGwAAAA3AAAATQAAAHYAAABMAAAAQgAAAHQAAABl"
+			"AAAAdQAAAGsAAAB2AAAAcQAAAHUAAABsAAAAcgAAADUAAAA0AAAARQAAAFcAAABqAAAAUAAAAFMA"
+			"AABOAAAALwAAAGkAAAA3AAAAMAAAAGoAAAA4AAAAYwAAAHQAAAAwAAAANgAAAHcAAABwAAAARwAA"
+			"ADYAAAB3AAAAYQAAAGwAAABVAAAANAAAADMAAABmAAAAWAAAAHkAAABEAAAAbAAAAHQAAAB5AAAA"
+			"dgAAAFAAAABBAAAAaAAAAGQAAABkAAAANgAAAHIAAAArAAAALwAAADUAAABsAAAAMwAAAEgAAABE"
+			"AAAAdgAAAGMAAAA4AAAAMQAAAGgAAAAvAAAANQAAAGYAAABsAAAAcQAAAEUAAABmAAAAZQAAADUA"
+			"AABFAAAASQAAAGUAAAB4AAAAaQAAADMAAABpAAAAdgAAAEgAAABNAAAATAAAAEkAAABqAAAAYwAA"
+			"AGYAAABrAAAAVAAAAC8AAABVAAAAMgAAAFIAAAArAAAAdwAAAE0AAABkAAAAZgAAADcAAAA3AAAA"
+			"SAAAAG0AAABPAAAAKwAAAHYAAAB0AAAANQAAAGsAAABWAAAAcwAAAFAAAAA4AAAAZAAAAEUAAABO"
+			"AAAAOQAAAG4AAABZAAAAcAAAAC8AAABtAAAANwAAAGgAAABHAAAAZAAAAG4AAAB1AAAAOAAAAGwA"
+			"AABOAAAAMAAAAHYAAABQAAAAYwAAAFoAAABpAAAAMQAAADMAAABuAAAAbgAAAGoAAABpAAAAaQAA"
+			"AGIAAABlAAAAKwAAAFYAAABhAAAARAAAADcAAABVAAAAdAAAADYAAAA2AAAASwAAAGcAAABWAAAA"
+			"SwAAAGcAAABWAAAASwAAAGcAAABGAAAAQwAAAGcAAABGAAAAUwAAAG8AAABGAAAAUwAAAG8AAABC"
+			"AAAAUQAAAG8AAABCAAAAVQAAAHEAAABCAAAAVQAAAHEAAABBAAAAVQAAAEsAAABBAA=="
 		)
 	)
 	(image
@@ -11291,7 +11792,43 @@
 			"AEoAAABZAAAAVAAAAGoAAAB2AAAAKwAAADMAAABmAAAALwAAAFAAAABIAAAAUwAAAEkAAABkAAAA"
 			"VgAAAGgAAABNAAAAUQAAAHUAAABRAAAAcAAAAFQAAABRAAAATAAAAFgAAABuAAAAZwAAAEQAAABj"
 			"AAAAWQAAAFEAAABUAAAASwAAAFUAAAA1AAAATAAAAFoAAABpAAAAZwAAAE8AAABrAAAAcQAAAGQA"
-			"AAByAAAAeg=="
+			"AAByAAAAeqCD//qgg//6oIP/+qCD//qgg//+spX/+qCD//qgg//6oIP/SkpK/xwcHP8cHBz/ISEh"
+			"/xwcHP8hISH/HBwc/xwcHP8hISH/HBwc/xwcHP8cHBz/HBwc/yEhIf8hISH/HBwc/xwcHP8cHBz/"
+			"HBwc/xwcHP8cHBz/HBwc/xwcHP8cHBz/HBwc/xwcHP8cHBz/HBwc/xwcHP8hISH/ISEh/0FBQcJa"
+			"WlqUtrGwMEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABhAAAAagAAAG4AAABFAAAAdgAAAEMAAABLAAAAeQAAAGkAAABEAAAAbAAAAHYAAABq"
+			"AAAAOAAAADEAAABHAAAASwAAAEsAAAAvAAAAVQAAADMAAABTAAAAYgAAAGkAAABjAAAAeAAAAHAA"
+			"AABDAAAASQAAADEAAABOAAAAdAAAAEUAAABDAAAAdAAAADMAAAA4AAAATAAAAEEAAABhAAAAagAA"
+			"AHYAAAB6AAAAawAAAEYAAABYAAAAWgAAADQAAAA5AAAASgAAAGoAAAA5AAAAUAAAAFYAAAAyAAAA"
+			"ZQAAAGwAAAByAAAARgAAAEsAAABVAAAAZAAAAFMAAABpAAAAbQAAAEcAAABzAAAALwAAAEoAAABw"
+			"AAAAbwAAAFoAAAB5AAAAUQAAAFUAAAAyAAAAdQAAADAAAABOAAAAZQAAAEQAAABBAAAAawAAAHcA"
+			"AABlAAAATwAAAHkAAAB6AAAAVwAAAGgAAABVAAAAcQAAAGwAAABVAAAAcQAAAGwAAAA5AAAATwAA"
+			"ACsAAABzAAAAZAAAAEIAAABwAAAAVgAAAEsAAABwAAAAVgAAAEMAAABxAAAAVgAAAFMAAABxAAAA"
+			"VgAAAFMAAABxAAAAVgAAAFEAAABxAAAAbAAAAFUAAABxAAAAbAAAAFUAAABxAAAAbQAAAE8AAABS"
+			"AAAALwAAADAAAABwAAAAZAAAAE4AAAB5AAAAMAAAADcAAAAvAAAAdwAAAEsAAABnAAAAUQAAAFYA"
+			"AAAxAAAAQgAAAHkAAABhAAAAUQAAADIAAABqAAAASAAAAEYAAABEAAAAUQAAAEUAAABYAAAARAAA"
+			"AEoAAABKAAAAdwAAAGsAAABKAAAASAAAAE8AAABvAAAAOAAAAEMAAABzAAAAUwAAAFcAAAArAAAA"
+			"RAAAAFEAAABYAAAAKwAAAFQAAAAzAAAAcwAAAFoAAABBAAAASgAAAGgAAABaAAAAUQAAAGsAAABL"
+			"AAAAbAAAAHMAAABZAAAAbgAAAEYAAAB3AAAAOAAAAHQAAABNAAAAbgAAADcAAABYAAAAdwAAAEoA"
+			"AABYAAAARQAAAG0AAAAyAAAAagAAAGwAAAB2AAAAMwAAAEUAAABSAAAAZgAAAEkAAABkAAAAWAAA"
+			"AEEAAABMAAAATwAAAHkAAAAwAAAARQAAAGoAAABpAAAAVQAAAHUAAAA5AAAATQAAAHIAAAB1AAAA"
+			"TAAAAE0AAABZAAAAbAAAAGcAAAA5AAAAUAAAAGgAAAB5AAAAQwAAAEIAAAB4AAAARgAAAHQAAABS"
+			"AAAAbQAAAHQAAAB3AAAAYgAAAHYAAABaAAAAdgAAAEsAAABaAAAAawAAACsAAAA0AAAALwAAAEQA"
+			"AAA0AAAARw=="
 		)
 	)
 	(label "SC1"
@@ -11343,6 +11880,16 @@
 			(justify right bottom)
 		)
 		(uuid "b3af0352-c2ea-451a-9b4e-4c0bfd98a23f")
+	)
+	(label "A2"
+		(at 195.58 78.74 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cd38406f-97f0-4cb0-b905-02cb16eae62b")
 	)
 	(label "MUX_RESET"
 		(at 29.21 176.53 0)
@@ -11447,6 +11994,73 @@
 			(justify left)
 		)
 		(uuid "ed115d57-c506-4f0a-9bbe-6a2af3df32e3")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 196.85 88.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "064ea9be-db8c-48af-820c-9a39ecadb7aa")
+		(property "Reference" "#PWR0804"
+			(at 196.85 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 196.85 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 196.85 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 196.85 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 196.85 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "acfcd216-4a3f-48da-96ee-c86af7df4728")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/92d2c497-b664-4d29-9742-e826f97f08c5"
+					(reference "#PWR0804")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:R_Small")
@@ -11648,7 +12262,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Front"
 			(at 44.45 171.45 0)
 			(effects
 				(font
@@ -11707,7 +12321,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 196.85 63.5 0)
+		(at 210.82 63.5 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11715,8 +12329,8 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "557025a0-7031-42f1-9de2-2605914a327f")
-		(property "Reference" "C801"
-			(at 199.136 62.23 0)
+		(property "Reference" "C802"
+			(at 213.106 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11725,7 +12339,7 @@
 			)
 		)
 		(property "Value" "1u X7R 16V"
-			(at 199.136 64.77 0)
+			(at 213.106 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11734,7 +12348,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 196.85 63.5 0)
+			(at 210.82 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11743,7 +12357,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.ch/ProductDetail/TDK/CGA3E1X7R1C105K080AC?qs=XHchNesRtUbBVNsGg9%252BP9g%3D%3D"
-			(at 196.85 63.5 0)
+			(at 210.82 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11752,7 +12366,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 196.85 63.5 0)
+			(at 210.82 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11761,7 +12375,7 @@
 			)
 		)
 		(property "Manufacturer" "TDK"
-			(at 196.342 65.278 0)
+			(at 210.312 65.278 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11770,7 +12384,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" "CGA3E1X7R1C105K080AC"
-			(at 196.85 63.5 0)
+			(at 210.82 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11779,7 +12393,7 @@
 			)
 		)
 		(property "Supplier" "Mouser Electronics"
-			(at 196.85 63.5 0)
+			(at 210.82 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11788,7 +12402,7 @@
 			)
 		)
 		(property "Supplier Part Number" "810-CGA3E1X7R1C105AC"
-			(at 196.85 63.5 0)
+			(at 210.82 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11805,7 +12419,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/92d2c497-b664-4d29-9742-e826f97f08c5"
-					(reference "C801")
+					(reference "C802")
 					(unit 1)
 				)
 			)
@@ -11821,7 +12435,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "725ad5ba-78d2-4151-a014-11f09adc75a9")
-		(property "Reference" "#PWR0804"
+		(property "Reference" "#PWR0805"
 			(at 167.64 100.33 0)
 			(effects
 				(font
@@ -11872,7 +12486,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/92d2c497-b664-4d29-9742-e826f97f08c5"
-					(reference "#PWR0804")
+					(reference "#PWR0805")
 					(unit 1)
 				)
 			)
@@ -12414,83 +13028,16 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 201.93 78.74 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bb4be4aa-b364-4434-bdcb-f9970c9c4c01")
-		(property "Reference" "#PWR0803"
-			(at 201.93 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 201.93 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 201.93 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 201.93 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 201.93 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e7afdb48-8ed1-404a-8b03-73462f088fd1")
-		)
-		(instances
-			(project "Plume"
-				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/92d2c497-b664-4d29-9742-e826f97f08c5"
-					(reference "#PWR0803")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
-		(at 210.82 63.5 0)
+		(at 196.85 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "be8a5f64-57d8-4917-9ac8-62f32a1399c8")
-		(property "Reference" "C802"
-			(at 213.36 62.23 0)
+		(property "Reference" "C801"
+			(at 199.39 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12499,7 +13046,7 @@
 			)
 		)
 		(property "Value" "100n X7R 16V"
-			(at 213.36 64.77 0)
+			(at 199.39 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12508,7 +13055,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 210.82 63.5 0)
+			(at 196.85 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12517,7 +13064,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.ch/ProductDetail/Samsung-Electro-Mechanics/CL05B104KO5VPNC?qs=SRYZG9HaIQ0dGqjRr5dbew%3D%3D"
-			(at 210.82 63.5 0)
+			(at 196.85 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12526,7 +13073,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 210.82 63.5 0)
+			(at 196.85 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12535,7 +13082,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" "CL05B104KO5VPNC"
-			(at 210.82 63.5 0)
+			(at 196.85 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12544,7 +13091,7 @@
 			)
 		)
 		(property "Supplier" "Mouser Electronics"
-			(at 210.82 63.5 0)
+			(at 196.85 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12553,7 +13100,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 210.82 63.5 0)
+			(at 196.85 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12562,7 +13109,7 @@
 			)
 		)
 		(property "Supplier Part Number" "187-CL05B104KO5VPNC"
-			(at 210.82 63.5 0)
+			(at 196.85 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12579,7 +13126,7 @@
 		(instances
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/92d2c497-b664-4d29-9742-e826f97f08c5"
-					(reference "C802")
+					(reference "C801")
 					(unit 1)
 				)
 			)
@@ -12902,6 +13449,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 209.55 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d8b1e815-3cd8-4e0c-b7e6-77d428e973c5")
+		(property "Reference" "#PWR0803"
+			(at 209.55 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 209.55 82.804 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 209.55 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 209.55 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 209.55 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bc96c023-1295-40d8-ad96-614741bd560e")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/92d2c497-b664-4d29-9742-e826f97f08c5"
+					(reference "#PWR0803")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 44.45 181.61 270)
 		(mirror x)
@@ -12981,6 +13593,77 @@
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/92d2c497-b664-4d29-9742-e826f97f08c5"
 					(reference "TP802")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:SolderJumper_3_Open")
+		(at 201.93 86.36 180)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e1ca351b-a289-468c-911e-fa9f494254db")
+		(property "Reference" "JP801"
+			(at 201.93 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SolderJumper_3_Open"
+			(at 201.93 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "0_Plume:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm_clean"
+			(at 201.93 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 201.93 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Solder Jumper, 3-pole, open"
+			(at 201.93 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "e8702e33-4c8f-4bf4-b69d-3a52665ed53e")
+		)
+		(pin "2"
+			(uuid "f14d4b70-3060-4825-9fd9-92f525ca0186")
+		)
+		(pin "1"
+			(uuid "b3284edc-d859-40fd-95ed-257cbadaa983")
+		)
+		(instances
+			(project ""
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/92d2c497-b664-4d29-9742-e826f97f08c5"
+					(reference "JP801")
 					(unit 1)
 				)
 			)

@@ -118,6 +118,119 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector_Generic:Conn_01x01"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x01"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x01_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 1.27 -1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector_Generic:Conn_01x15"
 			(pin_names
 				(offset 1.016)
@@ -1680,7 +1793,7 @@
 		(members "SD1" "SC1")
 	)
 	(rectangle
-		(start 354.33 213.36)
+		(start 354.33 192.405)
 		(end 403.225 240.03)
 		(stroke
 			(width 1)
@@ -1967,7 +2080,7 @@
 	)
 	(text_box "LAYOUT NOTE:\n\nUse the \"Replicate Layout\" KiCad Plugin to layout copy-paste the layout of each driver unit."
 		(exclude_from_sim no)
-		(at 354.33 150.495 0)
+		(at 354.33 127.635 0)
 		(size 48.895 23.495)
 		(margins 2.25 2.25 2.25 2.25)
 		(stroke
@@ -2039,7 +2152,7 @@
 	)
 	(text_box "30 positions with screw: 44.48mm wide\n25 positions with screw: 39.48mm wide\n15 positions with screw: 29.48mm wide"
 		(exclude_from_sim no)
-		(at 276.86 81.28 0)
+		(at 358.14 84.455 0)
 		(size 30.48 8.255)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
@@ -2083,7 +2196,7 @@
 	)
 	(text_box "DEBUG NOTE:\n\nThe specific Samtec connectors used on this PCB are not usually in stock on Mouser/Digikey so they are directly ordered from Samtech's website."
 		(exclude_from_sim no)
-		(at 354.33 121.92 0)
+		(at 354.33 99.06 0)
 		(size 48.895 26.67)
 		(margins 2 2 2 2)
 		(stroke
@@ -2130,7 +2243,7 @@
 	)
 	(text_box "DESIGN NOTE:\n\nThis first iteration implements 18 drivers module, with 11 of them used at the front of the foot, and 7 at the rear.\n\nEach module is similar, with the DRV8214RTER IC, decoupling and bulk capacitors, test points, fault LED, and current sense resistor.\n\nFor the layout, every module are routed in the exact same way."
 		(exclude_from_sim no)
-		(at 354.33 176.53 0)
+		(at 354.33 153.67 0)
 		(size 48.895 34.29)
 		(margins 1.543 1.543 1.543 1.543)
 		(stroke
@@ -2198,6 +2311,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "28e9ed77-2033-4f86-89da-47a4af635cf7")
+	)
+	(junction
+		(at 298.45 73.66)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "308ed76d-e311-4b9f-baea-abea0a448a1a")
 	)
 	(junction
 		(at 45.72 128.27)
@@ -2404,6 +2523,12 @@
 		(uuid "998b470c-8918-4baf-bd0d-cc4ae591dba9")
 	)
 	(junction
+		(at 304.8 137.16)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9b4c83b0-2836-437b-b335-a7f50863bf24")
+	)
+	(junction
 		(at 195.58 237.49)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2432,6 +2557,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "aacff8b3-a0cb-42bd-ac28-d7b982c53e7f")
+	)
+	(junction
+		(at 302.26 146.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ad228d12-9235-46df-a342-9d679f376471")
 	)
 	(junction
 		(at 251.46 160.02)
@@ -2474,6 +2605,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bb68d02c-5811-4406-a585-6b14817bcbbf")
+	)
+	(junction
+		(at 292.1 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bb9c9a1d-4bb0-4b0d-b8ea-cc26e21bb2ed")
 	)
 	(junction
 		(at 190.5 156.21)
@@ -2779,6 +2916,16 @@
 	)
 	(wire
 		(pts
+			(xy 359.41 213.36) (xy 374.65 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "018caf01-41b8-48a3-9914-ea8bd5809f0f")
+	)
+	(wire
+		(pts
 			(xy 222.25 170.18) (xy 222.25 171.45)
 		)
 		(stroke
@@ -2829,13 +2976,23 @@
 	)
 	(wire
 		(pts
-			(xy 304.8 132.08) (xy 304.8 229.87)
+			(xy 304.8 132.08) (xy 304.8 137.16)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "0437ace3-79c4-40dd-a2ae-2e26a18d70c2")
+	)
+	(wire
+		(pts
+			(xy 298.45 73.66) (xy 298.45 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04fb0b31-5c5d-4681-bbf1-3d1faab67d3c")
 	)
 	(wire
 		(pts
@@ -3026,6 +3183,16 @@
 			(type default)
 		)
 		(uuid "0e00dcaf-f544-4c4b-a1f3-68883fe84b7e")
+	)
+	(wire
+		(pts
+			(xy 302.26 146.05) (xy 302.26 227.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e3d644e-88f2-4274-b92f-17bbb0b0a065")
 	)
 	(wire
 		(pts
@@ -3889,6 +4056,16 @@
 	)
 	(wire
 		(pts
+			(xy 292.1 71.12) (xy 292.1 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "475125f0-df2f-4e73-9c12-f49466d69509")
+	)
+	(wire
+		(pts
 			(xy 281.94 106.68) (xy 317.5 106.68)
 		)
 		(stroke
@@ -4039,7 +4216,7 @@
 	)
 	(wire
 		(pts
-			(xy 302.26 129.54) (xy 302.26 227.33)
+			(xy 302.26 129.54) (xy 302.26 146.05)
 		)
 		(stroke
 			(width 0)
@@ -4159,6 +4336,16 @@
 	)
 	(wire
 		(pts
+			(xy 292.1 86.36) (xy 298.45 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5adb4c3b-4d67-49b8-845c-cdbf80946ec7")
+	)
+	(wire
+		(pts
 			(xy 97.79 135.89) (xy 97.79 157.48)
 		)
 		(stroke
@@ -4176,6 +4363,16 @@
 			(type default)
 		)
 		(uuid "5c0d22c5-6422-41ef-a045-55452a0682cf")
+	)
+	(wire
+		(pts
+			(xy 359.41 218.44) (xy 374.65 218.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c820a71-d601-4d5c-8cd5-96e37d27d211")
 	)
 	(wire
 		(pts
@@ -4209,7 +4406,7 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 73.66) (xy 317.5 73.66)
+			(xy 269.24 73.66) (xy 298.45 73.66)
 		)
 		(stroke
 			(width 0)
@@ -4289,6 +4486,16 @@
 	)
 	(wire
 		(pts
+			(xy 359.41 223.52) (xy 374.65 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63edd3c1-79cd-4de6-b395-92cc35298b4c")
+	)
+	(wire
+		(pts
 			(xy 83.82 172.72) (xy 135.89 172.72)
 		)
 		(stroke
@@ -4349,7 +4556,7 @@
 	)
 	(wire
 		(pts
-			(xy 359.41 220.98) (xy 374.65 220.98)
+			(xy 359.41 198.12) (xy 374.65 198.12)
 		)
 		(stroke
 			(width 0)
@@ -4569,6 +4776,26 @@
 	)
 	(wire
 		(pts
+			(xy 292.1 71.12) (xy 317.5 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7aeee335-1a81-4ff9-9124-05b48d37b64b")
+	)
+	(wire
+		(pts
+			(xy 298.45 73.66) (xy 317.5 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b23e481-af9a-497d-9c58-f604de03bf96")
+	)
+	(wire
+		(pts
 			(xy 83.82 152.4) (xy 133.35 152.4)
 		)
 		(stroke
@@ -4699,7 +4926,7 @@
 	)
 	(wire
 		(pts
-			(xy 359.41 226.06) (xy 374.65 226.06)
+			(xy 359.41 203.2) (xy 374.65 203.2)
 		)
 		(stroke
 			(width 0)
@@ -4859,7 +5086,7 @@
 	)
 	(wire
 		(pts
-			(xy 266.7 71.12) (xy 317.5 71.12)
+			(xy 266.7 71.12) (xy 292.1 71.12)
 		)
 		(stroke
 			(width 0)
@@ -5999,6 +6226,16 @@
 	)
 	(wire
 		(pts
+			(xy 302.26 146.05) (xy 313.69 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d655f800-141c-4d74-9932-2e694c09488f")
+	)
+	(wire
+		(pts
 			(xy 260.35 240.03) (xy 260.35 261.62)
 		)
 		(stroke
@@ -6159,6 +6396,16 @@
 	)
 	(wire
 		(pts
+			(xy 304.8 137.16) (xy 304.8 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e1a78c53-9f73-4da4-a495-a3550ff95f49")
+	)
+	(wire
+		(pts
 			(xy 83.82 128.27) (xy 125.73 128.27)
 		)
 		(stroke
@@ -6306,6 +6553,26 @@
 			(type default)
 		)
 		(uuid "e85bdc02-a03d-4420-b4db-781c2b5634f5")
+	)
+	(wire
+		(pts
+			(xy 304.8 137.16) (xy 313.69 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e87015e1-69a3-4b33-a773-9a14776c2b79")
+	)
+	(wire
+		(pts
+			(xy 359.41 208.28) (xy 374.65 208.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8988844-b24e-4a29-bc76-9702479aa868")
 	)
 	(wire
 		(pts
@@ -20436,7 +20703,43 @@
 			"AABmAAAAZQAAAGYAAABYAAAAZgAAADcAAAA1AAAALwAAAC8AAAB1AAAAMwAAAHoAAAAwAAAARQAA"
 			"AGEAAABsAAAANAAAAEQAAABHAAAAcAAAAEcAAAByAAAAdQAAADMAAABWAAAAbgAAADEAAABWAAAA"
 			"cgAAAGQAAABoAAAAeQAAAGMAAAA5AAAASgAAAEoAAABMAAAAeAAAAEkAAABhAAAARAAAAG4AAABI"
-			"AAAAaQAAAEQAAABvAAAATgAAAHAAAAArAAAAcgAAAGsAAABLAAAAUQ=="
+			"AAAAaQAAAEQAAABvAAAATgAAAHAAAAArAAAAcgAAAGsAAABLAAAAUQAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP9xcXH/iYmJ/3d3d/93d3f/"
+			"cXFx/2lpaf9xcXH/d3d3/21tbf9+fn7/iYmJ/35+fv93d3f/cXFx/21tbf9+fn7/bW1t/2lpaf9t"
+			"bW3/cXFx/3d3d/9+fn7/d3d3/3d3d/93d3f/d3d3/3Fxcf93d3f/bW1t/21tbf9xcXH/bW1t/3Fx"
+			"cf9tbW3/fn5+/3Fxcf9tbW3/ZGRk/2RkZP9tbW3/fn5+/35+fv93d3f/fn5+/35+fv9tbW3/cXFx"
+			"/35+fv93d3f/fn5+/35+fv93d3f/cXFx/15eXv9tbW3/d3d3/35+fv93d3f/cXFx/35+fv9tbW3/"
+			"fn5+/35+fv+JiYn/d3d3/3d3d/9xcXH/bW1t/3Fxcf93d3f/aWlp/3d3d/93d3f/fn5+/3d3d/93"
+			"d3f/d3d3/35+fv9tbW3/bW1t/21tbf9+fn7/bW1t/3d3d/9+fn7/fn5+/35+fv93d3f/d3d3/21t"
+			"bf9tbW3/ZGRk/21tbf9+fn7/cXFx/2lpaf9xcXH/bW1t/3Fxcf9+fn7/cXFx/21tbf9+fn7/bW1t"
+			"/21tbf9+fn7/cXFx/3d3d/9+fn7/cXFx/3d3d/9+fn7/cXFx/3d3d/93d3f/d3d3/21tbf+JiYn/"
+			"fn5+/4mJif/S0tJ4R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdw"
+			"TABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BM"
+			"AEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwA"
+			"R3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABH"
+			"cEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwAR3BMAEdwTABHcEwARw=="
 		)
 	)
 	(label "OUT2_10"
@@ -20468,6 +20771,16 @@
 			(justify right bottom)
 		)
 		(uuid "03d83ce2-327d-462d-957f-5cdd5c52925c")
+	)
+	(label "SC0"
+		(at 359.41 213.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0fbb261a-b97a-4149-bb7c-491adc6dfede")
 	)
 	(label "OUT1_3"
 		(at 314.96 33.02 180)
@@ -20599,6 +20912,16 @@
 		)
 		(uuid "664dc46f-f68d-4479-b62c-cb9b240608d5")
 	)
+	(label "SD0"
+		(at 359.41 208.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6cbe8621-bed6-4f54-b1ca-bc37ff582c7b")
+	)
 	(label "OUT2_15"
 		(at 311.15 121.92 180)
 		(effects
@@ -20709,6 +21032,16 @@
 		)
 		(uuid "a530d31b-6789-4cbc-9ce7-b4c1a464578c")
 	)
+	(label "SC1"
+		(at 359.41 223.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a8b8def2-9478-46a3-96bd-a574609c5f70")
+	)
 	(label "SD0"
 		(at 97.79 77.47 180)
 		(effects
@@ -20720,7 +21053,7 @@
 		(uuid "abce5028-9f14-4573-b0f8-1a525fcd5f92")
 	)
 	(label "nSLEEP_REAR"
-		(at 359.41 226.06 0)
+		(at 359.41 203.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20800,8 +21133,18 @@
 		)
 		(uuid "c7708a22-ad1f-4ddf-8aac-5b15bada1feb")
 	)
+	(label "SD1"
+		(at 359.41 218.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cc7c609a-e60e-4214-9a0d-46162777056e")
+	)
 	(label "nSLEEP_FRONT"
-		(at 359.41 220.98 0)
+		(at 359.41 198.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21236,6 +21579,70 @@
 		(uuid "fe9bdd85-0008-4db3-a52d-ec56f0c39d61")
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_01x01")
+		(at 303.53 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "125e455e-c7c3-4d1c-85dd-c01e5876eb71")
+		(property "Reference" "J1103"
+			(at 302.768 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Solder Wire Pad 1,5x3mm"
+			(at 302.768 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "0_Plume:Connector_SolderWirePad_SMD_1,5x3mm"
+			(at 303.53 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 303.53 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 303.53 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "30be8faf-0f17-44d4-a19b-3dd8397539a7")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
+					(reference "J1103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 72.39 233.68 0)
 		(unit 1)
@@ -21444,7 +21851,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "33f3698d-6e4a-45f5-b3f9-0d6c5ff1ba2e")
-		(property "Reference" "J1102"
+		(property "Reference" "J1104"
 			(at 325.12 113.03 0)
 			(effects
 				(font
@@ -21577,7 +21984,7 @@
 		(instances
 			(project ""
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
-					(reference "J1102")
+					(reference "J1104")
 					(unit 1)
 				)
 			)
@@ -21645,6 +22052,91 @@
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
 					(reference "#PWR01106")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 374.65 218.44 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "434be3ec-e2bb-4453-8dca-e5c70006bfd7")
+		(property "Reference" "TP1105"
+			(at 379.73 218.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SD1"
+			(at 387.096 218.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.75mm_Front"
+			(at 374.65 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 374.65 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 374.65 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 374.65 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 374.65 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bf100768-e95c-414d-8fa1-8505e46cdf98")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
+					(reference "TP1105")
 					(unit 1)
 				)
 			)
@@ -21910,6 +22402,70 @@
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
 					(reference "#PWR01122")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x01")
+		(at 303.53 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "60abf0e1-706c-4c13-9a14-81753688b5cc")
+		(property "Reference" "J1102"
+			(at 302.768 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Solder Wire Pad 1,5x3mm"
+			(at 302.768 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "0_Plume:Connector_SolderWirePad_SMD_1,5x3mm"
+			(at 303.53 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 303.53 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 303.53 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b4efdc7f-dda2-4487-a316-84139c04a21e")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
+					(reference "J1102")
 					(unit 1)
 				)
 			)
@@ -22284,6 +22840,70 @@
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
 					(reference "#PWR01108")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x01")
+		(at 318.77 137.16 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "868722c4-8462-46d1-8a61-f702cd55c867")
+		(property "Reference" "J1105"
+			(at 318.008 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Solder Wire Pad 1,5x3mm"
+			(at 318.008 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "0_Plume:Connector_SolderWirePad_SMD_1,5x3mm"
+			(at 318.77 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 318.77 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 318.77 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f222868c-cb9d-4f89-ba0c-abc2caaa294f")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
+					(reference "J1105")
 					(unit 1)
 				)
 			)
@@ -22688,7 +23308,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 374.65 226.06 270)
+		(at 374.65 203.2 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -22697,7 +23317,7 @@
 		(dnp no)
 		(uuid "bbd3b1df-82cb-404c-8460-d5ab7fe3d545")
 		(property "Reference" "TP1102"
-			(at 379.73 226.06 90)
+			(at 379.73 203.2 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22706,7 +23326,7 @@
 			)
 		)
 		(property "Value" "nSLEEP_REAR"
-			(at 387.096 226.06 90)
+			(at 387.096 203.2 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22715,7 +23335,7 @@
 			)
 		)
 		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 374.65 220.98 0)
+			(at 374.65 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22724,7 +23344,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 374.65 220.98 0)
+			(at 374.65 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22733,7 +23353,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 374.65 226.06 0)
+			(at 374.65 203.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22742,7 +23362,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 374.65 226.06 0)
+			(at 374.65 203.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22751,7 +23371,7 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 374.65 226.06 0)
+			(at 374.65 203.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22839,16 +23459,16 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 374.65 220.98 270)
+		(at 374.65 213.36 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
-		(uuid "c66a97d4-292a-4f34-8245-1423bd9e1899")
-		(property "Reference" "TP1101"
-			(at 379.73 220.98 90)
+		(uuid "c4ea147f-98f6-45ac-8070-9f2a01faa764")
+		(property "Reference" "TP1104"
+			(at 379.73 213.36 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22856,8 +23476,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "nSLEEP_FRONT"
-			(at 387.096 220.98 90)
+		(property "Value" "SC0"
+			(at 387.096 213.36 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22865,8 +23485,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
-			(at 374.65 215.9 0)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.75mm_Front"
+			(at 374.65 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22875,7 +23495,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 374.65 215.9 0)
+			(at 374.65 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22884,7 +23504,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 374.65 220.98 0)
+			(at 374.65 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22893,7 +23513,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
-			(at 374.65 220.98 0)
+			(at 374.65 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22902,7 +23522,92 @@
 			)
 		)
 		(property "Supplier" ""
-			(at 374.65 220.98 0)
+			(at 374.65 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a947efe6-da6b-4461-986c-5e32c51b38f0")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
+					(reference "TP1104")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 374.65 198.12 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "c66a97d4-292a-4f34-8245-1423bd9e1899")
+		(property "Reference" "TP1101"
+			(at 379.73 198.12 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "nSLEEP_FRONT"
+			(at 387.096 198.12 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.5mm_Back"
+			(at 374.65 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 374.65 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 374.65 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 374.65 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 374.65 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22917,6 +23622,240 @@
 			(project "Plume"
 				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
 					(reference "TP1101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 374.65 223.52 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "d45088bc-76a3-4951-bd1b-82658e8849e7")
+		(property "Reference" "TP1106"
+			(at 379.73 223.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SC1"
+			(at 387.096 223.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.75mm_Front"
+			(at 374.65 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 374.65 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 374.65 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 374.65 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 374.65 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cd98efb2-3db8-4274-acb3-2f50320b5e2c")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
+					(reference "TP1106")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 374.65 208.28 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "df5817d0-7831-4e27-b334-993be02b51b1")
+		(property "Reference" "TP1103"
+			(at 379.73 208.28 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SD0"
+			(at 387.096 208.28 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "0_Plume:TestPoint_Pad_D0.75mm_Front"
+			(at 374.65 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 374.65 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 374.65 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" ""
+			(at 374.65 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 374.65 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c172bc85-7093-47fa-8ba1-89377e5e60a7")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
+					(reference "TP1103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x01")
+		(at 318.77 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "f0118053-6c9b-4da0-bdca-3b1d2851dc49")
+		(property "Reference" "J1106"
+			(at 318.008 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Solder Wire Pad 1,5x3mm"
+			(at 318.008 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "0_Plume:Connector_SolderWirePad_SMD_1,5x3mm"
+			(at 318.77 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 318.77 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 318.77 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1e47f8d1-7c96-4110-93ca-7ba1401d1fca")
+		)
+		(instances
+			(project "Plume"
+				(path "/0650c7a8-acba-429c-9f8e-eec0baf0bc1c/fede4c36-00cc-4d3d-b71c-5243ba232202/1d734d3e-47bf-494d-ad56-d8a87b193fe6"
+					(reference "J1106")
 					(unit 1)
 				)
 			)

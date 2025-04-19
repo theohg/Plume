@@ -73,8 +73,8 @@
         "diff_pair_gap_out_of_range": "error",
         "diff_pair_uncoupled_length_too_long": "error",
         "drill_out_of_range": "error",
-        "duplicate_footprints": "warning",
-        "extra_footprint": "warning",
+        "duplicate_footprints": "ignore",
+        "extra_footprint": "ignore",
         "footprint": "error",
         "footprint_filters_mismatch": "ignore",
         "footprint_symbol_mismatch": "warning",
@@ -623,6 +623,7 @@
       "/Project Architecture/Power - Battery Management/+VBAT": "rgb(255, 0, 255)",
       "/Project Architecture/Power - Path & Generation/+VDD": "rgb(0, 132, 0)",
       "/Project Architecture/Power - Wireless Receiver & USB/+VCHARGE": "rgb(0, 255, 255)",
+      "/Project Architecture/User - RGB LED Indicator/+5V": "rgb(204, 102, 0)",
       "GND": "rgb(64, 64, 64)"
     },
     "netclass_assignments": null,

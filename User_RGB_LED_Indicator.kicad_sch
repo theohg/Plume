@@ -10,6 +10,261 @@
 		(rev "${REVISION}")
 	)
 	(lib_symbols
+		(symbol "0_Plume:IN-PI22TAT5R5G5B"
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 5.08 5.715 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify right bottom)
+				)
+			)
+			(property "Value" "IN-PI22TAT5R5G5B"
+				(at 1.27 -5.715 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "0_Plume:INPI22TAT5R5G5B"
+				(at 1.27 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.inolux-corp.com/datasheet/SMDLED/Addressable%20LED/IN-PI22TAT5R5G5B_v1.2.pdf"
+				(at 2.54 -9.525 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "2427 RGB LED 4-Pin with Integrated IC"
+				(at 1.016 -17.272 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "RGB LED NeoPixel addressable"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "IN-PI22TAT5R5G5B_0_0"
+				(text "RGB"
+					(at 2.286 -4.191 0)
+					(effects
+						(font
+							(size 0.762 0.762)
+						)
+					)
+				)
+			)
+			(symbol "IN-PI22TAT5R5G5B_0_1"
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 1.778 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -3.556) (xy 1.778 -3.556)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -1.524) (xy 1.27 -2.54) (xy 1.27 -2.032)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -2.54) (xy 1.27 -3.556) (xy 1.27 -3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.683 -1.016) (xy 3.683 -3.556) (xy 3.683 -4.064)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.699 -1.524) (xy 2.667 -1.524) (xy 3.683 -3.556) (xy 4.699 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.699 -3.556) (xy 2.667 -3.556)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 5.08 5.08)
+					(end -5.08 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "IN-PI22TAT5R5G5B_1_1"
+				(pin input line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "DIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "VSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "DOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "0_Plume:REG71050DRVT"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -832,261 +1087,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "LED:WS2812B"
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at 5.08 5.715 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify right bottom)
-				)
-			)
-			(property "Value" "WS2812B"
-				(at 1.27 -5.715 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
-				(at 1.27 -7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-				(at 2.54 -9.525 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "RGB LED with integrated controller"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "RGB LED NeoPixel addressable"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "WS2812B_0_0"
-				(text "RGB"
-					(at 2.286 -4.191 0)
-					(effects
-						(font
-							(size 0.762 0.762)
-						)
-					)
-				)
-			)
-			(symbol "WS2812B_0_1"
-				(polyline
-					(pts
-						(xy 1.27 -2.54) (xy 1.778 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -3.556) (xy 1.778 -3.556)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.524) (xy 1.27 -2.54) (xy 1.27 -2.032)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -2.54) (xy 1.27 -3.556) (xy 1.27 -3.048)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.683 -1.016) (xy 3.683 -3.556) (xy 3.683 -4.064)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.699 -1.524) (xy 2.667 -1.524) (xy 3.683 -3.556) (xy 4.699 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.699 -3.556) (xy 2.667 -3.556)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 5.08 5.08)
-					(end -5.08 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "WS2812B_1_1"
-				(pin input line
-					(at -7.62 0 0)
-					(length 2.54)
-					(name "DIN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 7.62 270)
-					(length 2.54)
-					(name "VDD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "VSS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 7.62 0 180)
-					(length 2.54)
-					(name "DOUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers
@@ -1409,7 +1409,7 @@
 	)
 	(text_box "60mA Buck-Boost Charge Pump, with 5V level shifter to control 4-pin RGB LED"
 		(exclude_from_sim no)
-		(at 63.5 131.445 0)
+		(at 63.5 132.715 0)
 		(size 178.435 7.62)
 		(margins 1.9049 1.9049 1.9049 1.9049)
 		(stroke
@@ -12003,7 +12003,43 @@
 			"Ris4VExvOTc4K09ya0pWOXllTWNkRzIrNGM4TVRNVytWZjhVaktiNWM5TWMzd3Z5WTV5K2RrT0xW"
 			"OHZGUEZhVnJCOGVSeCthVjErZGtYWHpVaGs1NFN0R3JsU1ROb2FkbG5jZ3FuN3VMOHJGRG5GOUkz"
 			"Y0dvVndBNlNYN0lvcWU0cGRIRmlWOWRlU0FSZUh6WkZvZ1ppTlNlL3c1NG5WUXpDYTlCMFBLdFk1"
-			"SldLZCsxb25RSVI2WnlKRzBSUnkxTEZXbHJzNkFKZ2loVFM0VmhvV3V2R0EwNEI0K3hvWU5JLw=="
+			"SldLZCsxb25RSVI2WnlKRzBSUnkxTEZXbHJzNkFKZ2loVFM0VmhvV3V2R0EwNEI0K3hvWU5JLwAA"
+			"AEEAAABhAAAANgAAAHUAAABqAAAAagAAADIAAAA2AAAAOAAAACsAAAB2AAAAQwAAAEsAAAB0AAAA"
+			"UQAAAEMAAABIAAAAaAAAAGoAAAA5AAAASgAAAGgAAABxAAAAeQAAAEgAAABNAAAAYwAAAEUAAABi"
+			"AAAAbgAAAFYAAABrAAAAUAAAAHMAAABVAAAAbQAAAEcAAABqAAAAcQAAAHoAAABwAAAANQAAAGwA"
+			"AABqAAAAOQAAAEcAAABmAAAAMgAAAEMAAABvAAAAegAAADgAAAArAAAAaAAAAEUAAABkAAAATgAA"
+			"AEQAAAA1AAAAMwAAADgAAAB6AAAAbAAAAHEAAABGAAAASgAAAHcAAAAvAAAASQAAAEEAAABjAAAA"
+			"bQAAAHIAAAAwAAAALwAAAFcAAABVAAAAMQAAAE8AAABsAAAANgAAAEUAAAB1AAAAcwAAAEkAAABW"
+			"AAAAZQAAAG0AAABmAAAARgAAAHUAAABDAAAAVwAAAEIAAABuAAAAcAAAAGMAAAB5AAAAYgAAAEwA"
+			"AABIAAAAZQAAAC8AAABXAAAAdAAAAHcAAABmAAAAcAAAAGwAAAB4AAAAdAAAAHMAAAA3AAAAZAAA"
+			"AGQAAAAyAAAAVwAAAHoAAABKAAAAbAAAADYAAABDAAAAdQAAAHUAAABDAAAARAAAADkAAABmAAAA"
+			"WAAAAHoAAAB6AAAAWgAAAGUAAABQAAAAcgAAADIAAAArAAAAWAAAAEsAAAB6AAAAdgAAAGcAAABt"
+			"AAAAMwAAAHUAAAAxAAAAZgAAAFYAAABXAAAAQwAAAGoAAABhAAAATAAAAFkAAABiAAAAMQAAAHMA"
+			"AABlAAAARQAAAEMAAAByAAAASgAAAGMAAABaAAAAYwAAAGEAAAAwAAAAMQAAAHgAAAAxAAAAUwAA"
+			"ADEAAABXAAAANwAAAEYAAABhAAAAYwAAAEsAAABrAAAAWgAAAEoAAABrAAAARwAAADIAAABlAAAA"
+			"cgAAAG4AAAA4AAAATAAAAHYAAABKAAAAYgAAADUAAAB4AAAAWAAAAHUAAABXAAAAZAAAAFYAAAAz"
+			"AAAAWAAAAEwAAAAxAAAAWgAAADYAAAArAAAAcQAAAHkAAABFAAAAQwAAADEAAAAxAAAAUAAAADIA"
+			"AABWAAAAYQAAAEMAAABUAAAAcQAAAEoAAABxAAAALwAAAC8AAABGAAAAUgAAAHcAAAB1AAAAeQAA"
+			"ADAAAABKAAAAMgAAADgAAAA5AAAAVQAAAFYAAABZAAAASgAAAHcAAABuAAAAcQAAAGkAAAByAAAA"
+			"SgAAAGoAAABMAAAAVAAAAE4AAAAzAAAAVAAAAHYAAABlAAAATAAAAFoAAABoAAAAOQAAAFkAAP8+"
+			"NzP/Pjgz/z85M/8/OTP/Pzo0/z86Nv8/Ojf/Pzk4/z84Of8+ODr/PTg5/zs4N/84NDT/NDEw/zAu"
+			"Lf8uLSz/LSwq/y0sKf8sKyf/Kyom/ygnJP8kJCD/ISEd/x4fG/8bHhr/GR0a/xkcGf8ZGhj/GRkX"
+			"/xkZF/8YGBb/GBgW/xgYFv8YGBb/GBcV/xgXFf8XFhT/GBcV/xgXFf8YFxX/GBcV/xkYFv8ZGBb/"
+			"GhkX/xsaGP8cGxn/HBsZ/x8eHP8jIiD/JiUj/ykoJv8pKCb/KSgm/ygnJf8oJyX/KSgm/ysqKP8t"
+			"LCv/Liwt/y4sLf8tKyz/LSss/y0rLP8uLC3/LCsr/ykpKf8qKir/Kioq/ysrK/8rKyv/LCws/y0t"
+			"Lf8tLS3/LS0t/y0tLf8tLS3/LS0t/ywsLP8sLCz/LS0t/y0tLf8rKyv/Kioq/ywsLP8tLS3/Li4u"
+			"/y0tLf8tLS3/Li4u/y4uLv8sLCz/LCws/ywsLP8tLS3/LS0t/y0tLf8sLCz/LS0t/y8vL/8wMDD/"
+			"MDAw/y8vL/8uLi7/Ly8v/zAwMP8wMDD/Ly8v/y4uLv8wMDD/MTEx/zIyMv8xMTH/MDAw/zAwMP8x"
+			"MTH/MTEx/zExMf8wMDD/Ly8v/y8vL/8vLy//MDAw/zIyMv8yMjL/MjIy/y8vL/8uLi7/Li4u/zAw"
+			"MP8zMzP/NDQ0/zQ0NP8yMTX/MTE0/zExM/8yMjH/MzMw/zM0MP8zNS//MzQv/zEyLf8wMSz/LzAt"
+			"/zAwL/8xMTH/MjIy/zQ0Mv8zMzH/MzMx/zU1M/81NTP/NTUz/zQ0Mv80NDL/NTUz/zU1M/81NTP/"
+			"MjIw/zAwLv8wLy3/MC8s/y8uK/8wLyr/MDAp/zEwKf8xMSn/MjEq/zExKv8xMCr/Ly4q/y8tK/8u"
+			"LSv/Ly8t/zAxL/8xMS//MjIw/zMzMf8zMzH/MzMx/zIyMP8wMC7/Ly8t/y4uLP8uLiz/Ly8t/y8v"
+			"Lf8vLiz/Liwq/ywrKf8rKij/Kikn/yopJ/8pKCb/KSgm/ysqKP8vLiz/MTAu/zIxL/8xMC7/Ly4s"
+			"/y0tK/8sLCr/LCwr/ywsLP8tLS3/Li4u/y4uL/8uLi7/Li4s/y4uK/8tLin/LC0m/ysrJP8qKiT/"
+			"Kigk/ygnI/8mJSH/JCMf/yMiHv8iIR3/IiEd/yEgHf8gHx3/IB8d/x8eHP8fHhv/HR0b/xwcGv8c"
+			"HBr/GxsZ/xoaGP8ZGhf/GhsW/xscF/8dHhn/ICEc/yIjHv8jJB//IyQe/yQlH/8oJyT/Kikn/ysq"
+			"KP8vLiz/MzIw/zg3Nf8+PTv/RURC/0tKSP9SUU//XFtZ/2hnZf90c3H/fn17/4WCgfp+fXzzfQ=="
 		)
 	)
 	(image
@@ -14622,7 +14658,43 @@
 			"QUJwQUFBQVNRQUFBRElBQUFCVEFBQUFRd0FBQURVQUFBQnRBQUFBYVFBQUFFUUFBQUJTQUFBQWR3"
 			"QUFBRFFBQUFBNUFBQUFZZ0FBQUc0QUFBQTBBQUFBWlFBQUFIRUFBQUJFQUFBQWJnQUFBRVlBQUFC"
 			"RUFBQUFRUUFBQURjQUFBQnpBQUFBY0FBQUFIWUFBQUJ5QUFBQU1RQUFBREVBQUFBMUFBQUFTd0FB"
-			"QQ=="
+			"QUUxb0ZQZkNUM3E5RmVLa092TGF1YXFLVTFyWWExcnJvaElsN3lsMS9ma3ZmT0hzczN2MmRHN2N1"
+			"RkVhekVnaEZ5dGdCYXlBRmZoUUZIQU9tZzlGUmh1eEFsYkFDbGdCSzJBRjdoY0ZkdS9lM2V0ME91"
+			"Y0VGbzRLcDN4T0lUbzdHbzFSVXg0VzJqTjc2Z0ZTYUhlamFsMUphN1hMa0dBRDMvVXpyYWJPU2hq"
+			"Y2JCYS8vZHUvcFR3MHk4V2xpKzhGakNETUI2Z0F4aURaY0VWMktocVVBUVhnSlFNTGRoVGlQb09S"
+			"amJBRzd4RzhjSUFMOVhvQ1Bta3M2aWZBQWV6QUx2YXlUZnBRTWh6SjgzTE9RSVgyWkdzYXNxUTIy"
+			"amxJdHF2R2VBYjZzUTVzczhZTVlYTGlZengrT09KNXArTVprd3YyOHRxbzR4cGhtS01wTDVtNWhk"
+			"bGkxNjVkeFpaTm13SzhMQzh2RndONXRaUURlYzNvak8yR2RuUEN6Z2hObVVNNFRSZXlKWHRUK01P"
+			"NmhrTkZISVcybktaUWhuRnFTN29DeWdBMUFrOHlwRlJFNDFhejFkV3liZzdMOGwzVm45U2JlYk5X"
+			"MTFIVTNuNjRIRjcrOGVuVGc3ZmVlb3RYNldJRnJJQVZzQUpXNEVOVndCNDBINnFjTm1ZRnJJQVZz"
+			"QUpXd0FyYzZ3b3NMaTVPdnZlOTcvVUZHT1FzVWRzdUw0MVBDR0pzRVJ5QUNsUUFFWXF0Z1Flb0NJ"
+			"S0FFWFJUcnpYQ1c2UWNsRVY3YmpZZ3dNM3JONks5RkVqQVl5YWdRR0NhcEJMakFCVFpveVFCbExU"
+			"dGN3WW5DU1NrZnNBSitsUEhRY245V0V1UURyeEZwblBrTnZvR0NGRVB6c3hMQWJCdzVEYnF1S2FP"
+			"d256UnJtdDJWc281ZUdqTC9iSXRjdGt3RDNQU2xnRU5mZk56NW5Ybk1mU05OVWhUa3Y1dUVwUjU5"
+			"TkZIaWgzYnQybk11RmhlV2lyVzE5ZUxicWNUSVVpc0o0V0s2ZmtGc2dBdFBETkpmdk16NXpuSVRS"
+			"TmVNWHJXREdjeW1NbDkwamxDbVNiYW9hdWphS21yV3M4N1d0OEJlZE84S0tQUFY1ckZTNTNlNk0z"
+			"akowOWVQMzNqUm5JMzRxRmNySUFWc0FKV3dBcDh5QW9ZMEh6SWd0cWNGYkFDVnNBS1dBRXJjTzhy"
+			"SUVneit1WTN2emtveS9HOFB1SzM2V09kWERUeituRFhCa055UUNhOFNIQWh3NGprMlNJSW9pLzZp"
+			"blliMG04eHEwUzJhMnRyeGZWcjE4TzdBeWpCb2UyWUJSYll5amxCRjZCQmhoMG9SN2dTaFhrNE1r"
+			"eQBvAAAATgAAAGEAAABTAAAAOQAAAHkAAABMAAAATgAAAGMAAAAvAAAAVQAAAFcAAABJAAAAZgAA"
+			"AE0AAABGAAAAKwAAAHIAAAAzAAAAZQAAAFUAAABrAAAAbAAAAEQAAABpAAAAQgAAAGcAAAB6AAAA"
+			"WgAAAHIAAABtAAAAQQAAAHcAAABmAAAAMQAAADgAAABlAAAAOAAAAEsAAAAyAAAAMwAAAGgAAABy"
+			"AAAATQAAAHMAAABTAAAAUAAAAHQAAABOAAAAMgAAAGYAAAB2AAAATwAAAHUAAAA4AAAAVAAAAG8A"
+			"AABmAAAASAAAAHQAAABMAAAAbwAAAFcAAABtAAAANwAAAHIAAABVAAAAYgAAAGoAAABNAAAAagAA"
+			"ADMAAABkAAAAKwAAAFkAAAA5AAAAWAAAADEAAAA0AAAAZQAAADkAAAB4AAAAZgAAAGQAAABNAAAA"
+			"cgAAAEIAAABPAAAATAAAAHUAAABaAAAAMwAAAC8AAAAyAAAAWgAAAHcAAAAvAAAAKwAAADIAAABl"
+			"AAAAYwAAACsAAAA5AAAANgAAAGYAAAAvAAAANgAAAEwAAABXAAAAWAAAAHoAAAB6AAAAWQAAADMA"
+			"AABWAAAAawAAACsAAABlAAAAZQAAAE8AAABxAAAARAAAAFoAAAA3AAAAZgAAAGYAAABlAAAAdQAA"
+			"AHMAAABIAAAAWAAAADMAAAB2AAAAdAAAAHQAAABVAAAAYwAAADAAAABJAAAAVgAAADYAAABDAAAA"
+			"NAAAAFYAAAB4AAAAbQAAAEsAAAA2AAAASQAAAEsAAAB3AAAAaAAAAFMAAABHAAAAMAAAAFEAAAB2"
+			"AAAAbgAAAFoAAABGAAAASgAAAHAAAABHAAAAQgAAAHUAAABGAAAAaAAAAHgAAABDAAAAUAAAAFQA"
+			"AABCAAAAUAAAAEcAAABZAAAAMQAAAGcAAABUAAAAUgAAAFIAAABxAAAAYwAAAGMAAABxAAAAcgAA"
+			"AHAAAAArAAAASwAAAFgAAABUAAAAbAAAADMAAABBAAAAbAAAAHYAAABhAAAAKwAAADIAAAA4AAAA"
+			"OQAAAEMAAABJAAAAbAAAAFkAAABjAAAAZQAAAHgAAABoAAAANAAAAHUAAAA0AAAAeQAAAFIAAAAx"
+			"AAAAdgAAAGMAAAA4AAAAVAAAADEAAABvAAAAeAAAAGcAAABPAAAAdgAAADQAAAAzAAAAYwAAAEoA"
+			"AABNAAAAZQAAAFEAAAB1AAAAeQAAAHIAAAAwAAAANwAAAGUAAABiAAAAUwAAAGgAAABHAAAAWQAA"
+			"AGUAAABOAAAAYQAAAEwAAAA1AAAALwAAAGwAAABPAAAAMQAAAHkAAABZAAAAdAAAADQAAAA2AAAA"
+			"VA=="
 		)
 	)
 	(image
@@ -18014,7 +18086,43 @@
 			"eGFjbXd4UW5SUmJXeHRWMU4xSzNka2FuRnJibUkzY0hFNFZVWnNUM0VyTTNCMldrc3Jha1JLVHl0"
 			"Uk56VllUMUJWV0VjNWJXeHRkRE5WUW0xWWNuUXJhVUpMUVRKWGVsVTJTbFpJTTNCTlNGSmlPVEJx"
 			"ZFRaNVdqVTVaalJuUjBkNGRIVXdVMFJoVUU5aE1WbG5NWEZNYm5ocmQxRjVialZ2U2pWT1dIUjBZ"
-			"alZRUW5SRk0zWnBXR0ZrYTJReVlsTktWMHg1ZG5WMFNDdHRNVQ=="
+			"alZRUW5SRk0zWnBXR0ZrYTJReVlsTktWMHg1ZG5WMFNDdHRNVQAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRFRmlXWFpEY2s1c2NVaDFhbHBL"
+			"ZVVSNlZGWndZbXhqVUVWUGVuRjNVRWRVUW01NVVVbEtOV00wYXpsTFUwMXJOV3A2ZWtkaU9VMVdP"
+			"VzlzT0dOQ1NIUlVTRzl4Vm1wUmFqZEtSak40TjNCd2MxTktlbXh6YWtad1ZWSkxVRmhUWmpCemF6"
+			"RlNRbkl4WWs0M1NscEZja1paZEcweFpVaFpZbVJ2UTJ0cWNVUnRRMnhQY0RBMmRVOUNaa2NyY0Rk"
+			"TEwxUXpORkZoWTNCNmRUVnNMMnh5YlVkd1pqZEVRbFJEVW5ObWNHd3pVamcxY2pkaVNVZzJNMGRR"
+			"UTJaQ01IYzNSeTlFTW14bFozY3ZZbk5GTldaUFoySnJSR0ZLVjNweVozZFdNMU5uZFhZeGNqZGhS"
+			"Rko0YW1sT1pqWlNhelV3U25wRWJsSjNXVXRrVUhSeUwxVnNOakJVTTAxSE56UTBibVZzTkRscmNs"
+			"TjFlWGhvTDBFNWVsaENUMmxCZW1WMGN6UXlObTR5UVd0VU5VNXllUUJIY0V3QVIzQk1BRWR3VEFC"
+			"SGNFd0FSM0JNQUVkd1RBQkhjRXdBUjNCTUFFZHdUQUJIY0V3QVIzQk1BRWR3VEFCSGNFd0FSM0JN"
+			"QUVkd1RBQkhjRXdBUjNCTUFFZHdUQUJIY0V3QVIzQk1BRWR3VEFCSGNFd0FSM0JNQUVkd1RBQkhj"
+			"RXdBUjNCTUFFZHdUQUJIY0V3QVIzQk1BRWR3VEFCSGNFd0FSM0JNQUVkd1RBQkhjRXdBUjNCTUFF"
+			"ZHdUQUJIY0V3QVIzQk1BRWR3VEFCSGNFd0FSM0JNQUVkd1RBQkhjRXdBUjNCTUFFZHdUQUJIY0V3"
+			"QVIzQk1BRWR3VEFCSGNFd0FSM0JNQUVkd1RBQkhjRXdBUjNCTUFFZHdUQUJIY0V3QVIzQk1BRWR3"
+			"VEFCSGNFd0FSM0JNQUVkd1RBQkhjRXdBUjNCTUFFZHdUQUJIY0V3QVIzQk1BRWR3VEFCSGNFd0FS"
+			"M0JNQUVkd1RBQkhjRXdBUjNCTUFFZHdUQUJIY0V3QVIzQk1BRWR3VEFCSGNFd0FSM0JNQUVkd1RB"
+			"QkhjRXdBUjNCTUFFZHdUQUJIY0V3QVIzQk1BRWR3VEFCSGNFd0FSM0JNQUVkd1RBQkhjRXdBUjNC"
+			"TUFFZHdUQUJIY0V3QVIzQk1BRWR3VEFCSGNFd0FSM0JNQUVkd1RBQkhjRXdBUjNCTUFFZHdUQUJI"
+			"Y0V3QVIzQk1BRWR3VEFCSGNFd0FSM0JNQUVkd1RBQkhjRXdBUjNCTUFFZHdUQUJIY0V3QVIzQk1B"
+			"RWR3VEFCSGNFd0FSM0JNQUVkd1RBQkhjRXdBUjNCTUFFZHdUQQ=="
 		)
 	)
 	(image
@@ -26934,7 +27042,43 @@
 			"AAA3RqcFAAAAADdGpwUAAAAArb8nBgAAAADM4xQFAAAAAKPNPwUAAAAAF8MuBQAAAAB9jacFAAAA"
 			"AEDZHgUAAAAAPThjBQAAAAC+4GIFAAAAALj+rAUAAAAAGrsZBQAAAAAjS2UFAAAAAEYoPwUAAAAA"
 			"rDkoBgAAAACpUz4FAAAAAGkabAUAAAAANTxoBQAAAAD7VigGAAAAAL4yGQUAAAAAvuBiBQAAAAAA"
-			"JEEFAAAAACfIpwUAAAAAVawrBQAAAABZlKcFAA=="
+			"JEEFAAAAACfIpwUAAAAAVawrBQAAAABZlKcFAAAAAHAAAAB0AAAAbAAAAGEAAABvAAAASwAAAFYA"
+			"AABJAAAAUAAAAEUAAABVAAAAMwAAAHMAAAB4AAAASQAAAGwAAABEAAAAdQAAAFYAAAAzAAAARgAA"
+			"AFkAAABIAAAAZAAAAFgAAABYAAAASwAAAFcAAABmAAAAMgAAAG0AAAB3AAAAYgAAAHAAAAAwAAAA"
+			"SgAAADYAAABoAAAAbwAAAE0AAABNAAAANwAAAGgAAABJAAAAWAAAADMAAABJAAAARAAAAGUAAABL"
+			"AAAAVgAAADkAAABjAAAAbwAAADYAAABTAAAAcwAAAGMAAAA2AAAASwAAAHQAAAByAAAAbgAAAGUA"
+			"AABZAAAAeQAAAE8AAABNAAAASwAAADcAAABCAAAAcQAAAGkAAAB6AAAANgAAAGoAAABqAAAAMgAA"
+			"AEgAAABtAAAAaAAAAHoAAABnAAAANwAAAEYAAAA1AAAAcgAAAEgAAABEAAAARQAAAEMAAABhAAAA"
+			"LwAAAGgAAABWAAAAdwAAAGEAAAA1AAAAcAAAAE8AAAAzAAAAKwAAAHUAAABnAAAAdwAAAFcAAAB3"
+			"AAAASQAAAE8AAAA4AAAAWgAAAG0AAABiAAAALwAAADcAAABuAAAAcAAAAHQAAABoAAAAQQAAAGcA"
+			"AABYAAAAdwAAADUAAABBAAAANgAAAE0AAABRAAAAbwAAAHIAAABvAAAAKwAAAEwAAABKAAAAVQAA"
+			"AHcAAABZAAAAVAAAAEQAAABGAAAASgAAAHoAAABaAAAARgAAAC8AAAA1AAAANgAAAC8AAAB4AAAA"
+			"cQAAAHIAAABOAAAANwAAAGYAAABlAAAANQAAAEsAAAA1AAAAeQAAAC8AAABOAAAAMQAAADgAAABD"
+			"AAAAZgAAAHAAAABKAAAAWgAAAHoAAABrAAAAQgAAADQAAAB6AAAANwAAADQAAAAvAAAAeAAAAFcA"
+			"AAArAAAARAAAAGsAAAB6AAAANQAAAFMAAAAvAAAAWgAAAEwAAAAvAAAAZgAAAHkAAAA1AAAAWQAA"
+			"AHYAAABhAAAATgAAAHoAAAAvAAAATgAAAGgAAABxAAAAYwAAAC8AAABhAAAAVQAAAE4AAAA2AAAA"
+			"UwAAAHUAAABQAAAASwAAAHQAAABqAAAAawAAAGIAAABjAAAAdgAAAEUAAABPAAAASgAAAC8AAAB6"
+			"AAAATgAAADYAAABqAAAAMgAAAG4AAABvAAAANwAAADkAAAAvAAAALwAAAGQAAAAzAAAAcQAAAGgA"
+			"AAArAAAAOQAAADEAAAB3AAAAcgAAADkAAABkAAAAdgAAAGYAAABuAAAAaAAAAEwAAABiAAAAUAAA"
+			"AGsAAAB6AAAAQQAAAGcAAABnAAAALwAAAHgAAABBAAAAQgAAAEEAAABoAAAARQAAAEYAAABoAAAA"
+			"QgAAAFEAAABSAAAAOAAAAGYAAABzAAAAdQAAAEwAAABhAAAAUwAAAEkAAABQAAAAdwAAAE0AAABy"
+			"AAAANgAAAEYAAAB4AAAAQQAAAFMAAABGAAAARwAAADIAAABHAAAANgAAAG0AAABRAAAANAAAAHEA"
+			"AABXAAAAWAAAAFgAAABnAAAAcgAAAGYAAAArAAAAOQAAADcAAAAzAAAAUQAAAHYAAABFAAAARAAA"
+			"AG8AAAAxAAAAdAAAAHYAAAB2AAAAYgAAAFYAAAA4AAAARQAAAFkAAAA4AAAASQAAAEUAAABDAAAA"
+			"QgAAAEEAAABnAAAARQAAAEMAAABYAAAAQwAAAGcAAABnAAAAcAAAAG0AAABqAAAAbAAAADQAAABJ"
+			"AAAAVQAAAFUAAAB6AAAANQAAADIAAABiAAAAVgAAAEIAAABMAAAAcAAAAEYAAAA0AAAATAAAADMA"
+			"AAB2AAAAZgAAAFcAAAA4AAAANAAAAC8AAAAvAAAAegAAAHoAAAB1AAAAMgAAAFcAAAA3AAAAOQAA"
+			"AHAAAABtAAAAUgAAAGcAAABKAAAAQwAAAGkAAABlAAAAcAAAAGgAAABDAAAAaQAAAG0AAABvAAAA"
+			"agAAAFoAAAArAAAAUQAAAG4AAABJAAAASwAAAFQAAABJAAAAYgAAADYAAABaAAAAMgAAAFIAAABJ"
+			"AAAAQQAAAEEAAABBAAAAUQAAAEkAAABSAAAAQgAAAFkAAABRAAAAVQAAAEUAAABmAAAASAAAADcA"
+			"AABMAAAAaQAAADIAAABrAAAAaQAAAEQAAAA4AAAARAAAAEsAAAArAAAAaAAAAGMAAABRAAAARQAA"
+			"AGgAAABSAAAAdAAAAGgAAAB0AAAAdQAAAFMAAABEAAAARgAAAC8AAAAvAAAAdgAAAHgAAAB3AAAA"
+			"egAAAGoAAABuAAAAbgAAAGgAAABIAAAALwAAADgAAAB4AAAAMwAAADgAAABNAAAAeAAAAFgAAAA4"
+			"AAAALwAAACsAAAB5AAAAQgAAAEEAAABnAAAAQQAAAEEAAABCAAAAQQAAAGcAAABSAAAAZQAAAEYA"
+			"AAB4AAAAQgAAAFMAAAB2AAAARwAAADcAAABSAAAAcAAAAEsAAAArAAAARQAAAEYAAABFAAAAMgAA"
+			"AGEAAABsAAAAcgAAAFUAAABTAAAANgAAAEMAAAA2AAAAQgAAAHoAAABUAAAAZgAAAGYAAABQAAAA"
+			"RgAAAHgAAAAvAAAALwAAAGYAAABWAAAAaAAAAHEAAABhAAAAVwAAAFcAAAA2AAAAcQAAADYAAABO"
+			"AAAAMgAAADIAAAAwAAAAVwAAAEEAAABrAAAASw=="
 		)
 	)
 	(label "CPUMP-"
@@ -27500,7 +27644,7 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "0_Plume:IN-PI22TAT5R5G5B")
 		(at 208.28 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -27544,8 +27688,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RGB LED with integrated controller"
-			(at 208.28 97.79 0)
+		(property "Description" "2427 RGB LED 4-Pin with Integrated IC"
+			(at 209.296 115.062 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27911,7 +28055,7 @@
 				)
 			)
 		)
-		(property "Value" "REG71050DRVT"
+		(property "Value" "REG71050DRVR"
 			(at 132.08 110.744 0)
 			(effects
 				(font
