@@ -28,6 +28,9 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32wbxx_hal.h"
+#include "app_conf.h"
+#include "app_entry.h"
+#include "app_common.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -61,8 +64,8 @@ void Error_Handler(void);
 #define EN2_GPIO_Port GPIOA
 #define BAT_SENSE_Pin GPIO_PIN_1
 #define BAT_SENSE_GPIO_Port GPIOA
-#define BAT_SENSE_EN_Pin GPIO_PIN_0
-#define BAT_SENSE_EN_GPIO_Port GPIOA
+#define IMU_INT1_Pin GPIO_PIN_0
+#define IMU_INT1_GPIO_Port GPIOA
 #define DIN_3V3_Pin GPIO_PIN_3
 #define DIN_3V3_GPIO_Port GPIOC
 #define _5V_ENABLE_Pin GPIO_PIN_2
@@ -95,14 +98,12 @@ void Error_Handler(void);
 #define nFAULT0_GPIO_Port GPIOA
 #define nFAULT10_Pin GPIO_PIN_5
 #define nFAULT10_GPIO_Port GPIOA
-#define nFAULT5_Pin GPIO_PIN_4
-#define nFAULT5_GPIO_Port GPIOA
 #define EN1_Pin GPIO_PIN_3
 #define EN1_GPIO_Port GPIOA
 #define nFAULT2_Pin GPIO_PIN_0
 #define nFAULT2_GPIO_Port GPIOH
-#define nFAULT1_Pin GPIO_PIN_1
-#define nFAULT1_GPIO_Port GPIOH
+#define BAT_SENSE_EN_Pin GPIO_PIN_1
+#define BAT_SENSE_EN_GPIO_Port GPIOH
 #define nFAULT3_Pin GPIO_PIN_14
 #define nFAULT3_GPIO_Port GPIOD
 #define nSLEEP_FRONT_Pin GPIO_PIN_1
@@ -111,8 +112,6 @@ void Error_Handler(void);
 #define nFAULT4_GPIO_Port GPIOD
 #define IMU_INT2_Pin GPIO_PIN_12
 #define IMU_INT2_GPIO_Port GPIOD
-#define IMU_INT1_Pin GPIO_PIN_7
-#define IMU_INT1_GPIO_Port GPIOD
 #define nFAULT14_Pin GPIO_PIN_3
 #define nFAULT14_GPIO_Port GPIOD
 #define nSLEEP_REAR_Pin GPIO_PIN_7
@@ -121,8 +120,10 @@ void Error_Handler(void);
 #define SWITCH1_GPIO_Port GPIOE
 #define SWITCH2_Pin GPIO_PIN_4
 #define SWITCH2_GPIO_Port GPIOD
-#define nFAULT1D15_Pin GPIO_PIN_15
-#define nFAULT1D15_GPIO_Port GPIOD
+#define nFAULT1_Pin GPIO_PIN_15
+#define nFAULT1_GPIO_Port GPIOD
+#define nFAULT1D10_Pin GPIO_PIN_10
+#define nFAULT1D10_GPIO_Port GPIOD
 #define nFAULT7_Pin GPIO_PIN_2
 #define nFAULT7_GPIO_Port GPIOE
 #define nFAULT6_Pin GPIO_PIN_0
