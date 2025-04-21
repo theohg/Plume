@@ -1077,6 +1077,19 @@
 		(uuid a7398a61-615c-4eae-b730-4761da43e401)
 	)
 	(rectangle
+		(start 153.035 118.11)
+		(end 168.91 123.19)
+		(stroke
+			(width 0)
+			(type dot)
+			(color 255 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(uuid c744ba71-2db0-412a-aba0-48344ceca168)
+	)
+	(rectangle
 		(start 156.845 104.775)
 		(end 163.195 113.03)
 		(stroke
@@ -1128,7 +1141,7 @@
 	)
 	(text_box "DESIGN NOTE - FAULT LED:\n\nAPTD1608LQBC/D has a typical luminous \nintensity of 20mcd (millicandela) @2mA\nTyp. Vf = 2.65V @2mA,\n\nTyp. If = (3.3V - 2.65V)/330hm ≈ 2 mA\nP = 2.65V×2mA ≈ 5 mW < 120 mW (max rating)"
 		(exclude_from_sim no)
-		(at 134.62 48.895 0)
+		(at 133.985 48.895 0)
 		(size 36.195 22.86)
 		(margins 1.3525 1.3525 1.3525 1.3525)
 		(stroke
@@ -1148,6 +1161,29 @@
 			(justify left top)
 		)
 		(uuid "3bdfda2e-3f79-4161-a4ca-2f026842e07d")
+	)
+	(text_box "Current analysis DRV8214:\n\nNormal mode motor stopped: 2.8 mA\n\nSleep: 100nA\n"
+		(exclude_from_sim no)
+		(at 233.045 123.19 0)
+		(size 40.64 16.51)
+		(margins 2 2 2 2)
+		(stroke
+			(width 0.762)
+			(type solid)
+			(color 255 165 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(face "Arial")
+				(size 1.524 1.524)
+				(color 0 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "86608908-047c-417b-b1d1-98405a3bf27a")
 	)
 	(text_box "DRV8214 2-A Brushed DC Motor Driver with Ripple Counting, Stall Detection, and Speed Regulation"
 		(exclude_from_sim no)
@@ -1175,7 +1211,7 @@
 	)
 	(text_box "DESIGN NOTE - IPROPI Resistor:\n\nThe current regulation threshold (ITRIP) is set through a combination of the VREF voltage and IPROPI output resistor (RIPROPI). This is done by comparing the voltage drop across the external RIPROPI resistor to VVREF with an internal comparator\n\nITRIP (A) = VVREF (V) / (RIPROPI (Ω) x AIPROPI (μA/A))\nITRIP (A) = 0.5V / (680Ω x 5560μA/A) ≈ 132mA"
 		(exclude_from_sim no)
-		(at 81.915 48.895 0)
+		(at 81.28 48.895 0)
 		(size 50.165 22.86)
 		(margins 1.3525 1.3525 1.3525 1.3525)
 		(stroke
@@ -1198,7 +1234,7 @@
 	)
 	(text_box "DESIGN NOTE - Bulk Capacitance:\n\nHaving appropriate local bulk capacitance is an important factor in motor drive system design. Having more bulk capacitance is generally beneficial, while the disadvantages are increased cost and physical size.\n\nThe amount of local capacitance needed depends on a variety of factors, including:\n• The highest current required by the motor system\n• The capacitance of the power supply and ability to source current\n• The amount of parasitic inductance between the power supply and motor system\n• The acceptable voltage ripple\n• The type of motor used (brushed DC, brushless DC, stepper)\n• The motor braking method\n\nThe inductance between the power supply and motor drive system limits how the rate current can change from the power supply. If the local bulk capacitance is too small, the system responds to excessive current demands or dumps from the motor with a change in voltage. When adequate bulk capacitance is used, the motor voltage remains stable and high current can be quickly supplied.\n\nThe data sheet generally provides a recommended value, but system-level testing is required to determine the appropriate sized bulk capacitor.\n\nThe voltage rating for bulk capacitors should be higher than the operating voltage, to provide margin for cases when the motor transfers energy to the supply."
 		(exclude_from_sim no)
-		(at 27.94 48.895 0)
+		(at 27.305 48.895 0)
 		(size 51.435 74.93)
 		(margins 1.3525 1.3525 1.3525 1.3525)
 		(stroke
@@ -1391,6 +1427,17 @@
 			(type default)
 		)
 		(uuid "2655ce26-39a0-4820-981c-07b44e84cf5a")
+	)
+	(polyline
+		(pts
+			(xy 153.035 120.015) (xy 79.375 111.125)
+		)
+		(stroke
+			(width 0)
+			(type dot)
+			(color 255 0 0 1)
+		)
+		(uuid "2def4ef7-90bd-4e47-a9e7-9ae7c888797c")
 	)
 	(wire
 		(pts
@@ -19078,7 +19125,43 @@
 			"AGIAAABZAAAAdwAAAHkAAABuAAAASAAAAEsAAABHAAAAagAAAGoAAABrAAAAVwAAAFcAAABFAAAA"
 			"ZAAAAC8AAABSAAAAcwAAAGsAAABzAAAAYQAAAHMAAAA0AAAARQAAAGIAAAA5AAAAZwAAAHYAAABG"
 			"AAAAeAAAAFgAAABVAAAAcwAAAGUAAABrAAAAUwAAAC8AAAB2AAAAQwAAAGgAAAB0AAAAMwAAAG4A"
-			"AABtAAAAVAAAADAAAA=="
+			"AABtAAAAVAAAADAAAAAvAAAAWQAAAHcAAABDAAAAZQAAADUAAAA1AAAAQwAAAEkAAABJAAAAZQAA"
+			"AGMAAAB0AAAAUQAAADIAAAA5AAAAVAAAADkAAABOAAAAMwAAAEcAAAB5AAAAMAAAADAAAAB4AAAA"
+			"MQAAACsAAABGAAAAZwAAADcAAABsAAAAMgAAAHEAAAA5AAAAcwAAAGMAAABxAAAAcQAAADgAAAAy"
+			"AAAAawAAAFoAAABSAAAAVQAAAGwAAABWAAAAVQAAAGYAAABzAAAANwAAAGQAAABJAAAANAAAAFAA"
+			"AABxAAAAWQAAADkAAABNAAAAMQAAAG4AAABYAAAAbgAAAFkAAABoAAAAeAAAAGQAAAA0AAAAdwAA"
+			"AFcAAABvAAAAWgAAAGUAAABuAAAASQAAAGUAAAArAAAAdAAAAGcAAABSAAAAVwAAAFIAAABqAAAA"
+			"VAAAAEgAAABjAAAAcQAAAHkAAABLAAAAVAAAAGIAAABoAAAAVwAAADQAAABKAAAAbgAAAGIAAABH"
+			"AAAAcAAAAHMAAABzAAAAdwAAAC8AAABNAAAAWQAAAG8AAAB1AAAAMQAAAGYAAABlAAAASgAAAEgA"
+			"AAAyAAAAeQAAAFkAAABmAAAAZAAAAGIAAABSAAAAegAAADgAAABuAAAASgAAAGQAAABYAAAANwAA"
+			"AHgAAAAwAAAAcgAAAHYAAAB4AAAAcQAAAEkAAAAvAAAAUwAAAGIAAAAyAAAANwAAAFcAAABqAAAA"
+			"cQAAAFIAAAA4AAAAWgAAADQAAABqAAAAcwAAADAAAABhAAAAUwAAAHMAAABlAAAAawAAAGsAAABy"
+			"AAAAUQAAAHMAAABVAAAASAAAAFgAAABhAAAAYgAAAFkAAAAyAAAARQAAAHIAAABoAAAATgAAACsA"
+			"AABNAAAAUgAAAG0AAABBAAAAUAAAAEMAAABnAAAAVAAAAFoAAABMAAAAcwAAADUAAABxAAAAMQAA"
+			"AHYAAABJAAAAdQAAAFAAAAA3AAAAdAAAAFgAAABQAAAANAAAAHoAAABJAAAAcAAAAFcAAABpAAAA"
+			"UwAAAHoAAABBAAAAbQAAAEQAAABZAAAAMQAAAE8AAABnAAAAUAAAAFAAAABWAAAAaAAAADIAAABE"
+			"AAAAeAAAADQAAABPAAAATgAAAG0AAABjAAAAMwAAAHAAAABOAAAAeAAAADgAAABTAAAAcgAAADIA"
+			"AABoAAAAcQAAAG4AAAAxAAAAQgAAADcAAAA0AAAAUwAAAGYAAABGAAAARAAAAHAAAABLAAAANAAA"
+			"AGYAAABpAAAAQwAAAFgAAAA4AAAARwAAAGgAAABjAAAANgAAAE0AAABQAAAARwAAAHcAAABOAAAA"
+			"SgAAAG4AAABhAAAAWQAAAEcAAAAyAAAARwAAAG4AAABEAAAAawAAAFoAAAA5AAAAdgAAAEwAAABV"
+			"AAAAOQAAAGwAAAB6AAAAOQAAAHYAAAA3AAAAOQAAAHgAAAA4AAAAcQAAAHIAAAA2AAAAMwAAAGgA"
+			"AABXAAAARAAAAG4AAAAvAAAAZAAAAHgAAAB5AAAAMwAAADIAAAB4AAAAVAAAAFkAAABzAAAATAAA"
+			"AHkAAABVAAAAYgAAAFkAAAAvAAAANwAAAEkAAABOAAAANgAAAFgAAABBAAAATgAAADgAAABzAAAA"
+			"cgAAAHIAAAB1AAAAUAAAAFkAAAA3AAAASwAAAGIAAABmAAAAbAAAAE0AAABOAAAAagAAAC8AAABi"
+			"AAAAbgAAAEMAAAB4AAAASgAAAGQAAABFAAAASgAAAEIAAAAwAAAATwAAAHYAAABEAAAAdAAAAHAA"
+			"AAArAAAAeAAAADUAAABvAAAAMwAAAGMAAABwAAAAcwAAAFEAAABrAAAAdAAAAHUAAAAyAAAAMAAA"
+			"AGQAAABFAAAAZAAAAGcAAAA3AAAAOAAAADUAAABkAAAARgAAAHUAAAArAAAAbwAAADcAAABZAAAA"
+			"MgAAAHMAAABZAAAAZgAAAGMAAABDAAAAagAAAEgAAABOAAAANwAAAG4AAABSAAAAUQAAAHkAAAAv"
+			"AAAANAAAAGkAAABsAAAAMQAAAHMAAAA3AAAAbQAAAHYAAAB2AAAAQgAAAFUAAABBAAAAdQAAAEQA"
+			"AABxAAAAdwAAAEMAAAAzAAAAUAAAACsAAAAzAAAAbAAAADgAAABCAAAAZQAAAEEAAABuAAAAcwAA"
+			"AEoAAAA3AAAAQwAAAFcAAAB3AAAAbAAAADgAAABBAAAAUAAAAEkAAABJAAAASAAAAHYAAABsAAAA"
+			"UwAAAGoAAAByAAAAYwAAAHMAAABrAAAANAAAAFAAAABEAAAAWgAAADcAAABiAAAAMQAAAEsAAABE"
+			"AAAAdwAAADUAAABQAAAAUgAAAHoAAABnAAAAQQAAAHIAAAA2AAAARAAAAEkAAABZAAAAdQAAAHQA"
+			"AABmAAAAaAAAAGoAAABsAAAATwAAAFEAAAAzAAAAMgAAAFkAAAA2AAAATwAAAGUAAABMAAAAaQAA"
+			"AE4AAABCAAAAQQAAADkAAABuAAAAOQAAAGwAAABOAAAANwAAAHQAAAAvAAAAagAAAEwAAABMAAAA"
+			"cQAAAFIAAABNAAAAZgAAAFIAAABDAAAAQgAAAGwAAABBAAAARAAAAE8AAABzAAAAZQAAAEkAAAA0"
+			"AAAAOQAAAFgAAABnAAAAZwAAAHoAAABPAAAAWQAAAFkAAABMAAAAcAAAAFAAAABxAAAAVAAAAEsA"
+			"AABJAAAAZQAAAG0AAA=="
 		)
 	)
 	(label "FAULT_LED"
@@ -20283,7 +20366,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.fr/ProductDetail/Vishay-Dale/CRCW0402680RFKEDC?qs=E3Y5ESvWgWPmgUvh1o91RA%3D%3D"
 			(at 114.3 90.17 0)
 			(effects
 				(font
@@ -20310,7 +20393,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Vishay / Dale"
 			(at 114.3 90.17 0)
 			(effects
 				(font
@@ -20319,7 +20402,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" ""
+		(property "Manufacturer Part Number" "CRCW0402680RFKEDC"
 			(at 114.3 90.17 0)
 			(effects
 				(font
@@ -20328,7 +20411,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier Part Number" ""
+		(property "Supplier Part Number" "71-CRCW0402680RFKEDC"
 			(at 114.3 90.17 0)
 			(effects
 				(font

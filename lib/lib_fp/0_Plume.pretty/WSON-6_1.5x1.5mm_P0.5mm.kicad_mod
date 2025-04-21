@@ -8,6 +8,7 @@
 	(property "Reference" "REF**"
 		(at 0 -2 0)
 		(layer "F.SilkS")
+		(hide yes)
 		(uuid "9a9b0bce-9121-4d23-a06c-8ce40af0a8c5")
 		(effects
 			(font
@@ -232,7 +233,7 @@
 	)
 	(pad "6" smd roundrect
 		(at 0.6 -0.5 270)
-		(size 0.25 0.77)
+		(size 0.25 0.7)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
 		(solder_mask_margin 0.05)

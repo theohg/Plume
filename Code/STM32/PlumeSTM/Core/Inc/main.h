@@ -57,6 +57,76 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define EN2_Pin GPIO_PIN_2
+#define EN2_GPIO_Port GPIOA
+#define BAT_SENSE_Pin GPIO_PIN_1
+#define BAT_SENSE_GPIO_Port GPIOA
+#define BAT_SENSE_EN_Pin GPIO_PIN_0
+#define BAT_SENSE_EN_GPIO_Port GPIOA
+#define DIN_3V3_Pin GPIO_PIN_3
+#define DIN_3V3_GPIO_Port GPIOC
+#define _5V_ENABLE_Pin GPIO_PIN_2
+#define _5V_ENABLE_GPIO_Port GPIOC
+#define BUTTON1_Pin GPIO_PIN_7
+#define BUTTON1_GPIO_Port GPIOB
+#define BUTTON2_Pin GPIO_PIN_5
+#define BUTTON2_GPIO_Port GPIOB
+#define BUTTON3_Pin GPIO_PIN_4
+#define BUTTON3_GPIO_Port GPIOB
+#define BUTTON4_Pin GPIO_PIN_10
+#define BUTTON4_GPIO_Port GPIOC
+#define MUX_RESET_Pin GPIO_PIN_15
+#define MUX_RESET_GPIO_Port GPIOA
+#define nFAULT13_Pin GPIO_PIN_0
+#define nFAULT13_GPIO_Port GPIOD
+#define nFAULT17_Pin GPIO_PIN_1
+#define nFAULT17_GPIO_Port GPIOD
+#define nFAULT15_Pin GPIO_PIN_13
+#define nFAULT15_GPIO_Port GPIOB
+#define nFAULT8_Pin GPIO_PIN_12
+#define nFAULT8_GPIO_Port GPIOB
+#define nFAULT9_Pin GPIO_PIN_4
+#define nFAULT9_GPIO_Port GPIOE
+#define nFAULT12_Pin GPIO_PIN_4
+#define nFAULT12_GPIO_Port GPIOC
+#define nFAULT11_Pin GPIO_PIN_8
+#define nFAULT11_GPIO_Port GPIOA
+#define nFAULT0_Pin GPIO_PIN_6
+#define nFAULT0_GPIO_Port GPIOA
+#define nFAULT10_Pin GPIO_PIN_5
+#define nFAULT10_GPIO_Port GPIOA
+#define nFAULT5_Pin GPIO_PIN_4
+#define nFAULT5_GPIO_Port GPIOA
+#define EN1_Pin GPIO_PIN_3
+#define EN1_GPIO_Port GPIOA
+#define nFAULT2_Pin GPIO_PIN_0
+#define nFAULT2_GPIO_Port GPIOH
+#define nFAULT1_Pin GPIO_PIN_1
+#define nFAULT1_GPIO_Port GPIOH
+#define nFAULT3_Pin GPIO_PIN_14
+#define nFAULT3_GPIO_Port GPIOD
+#define nSLEEP_FRONT_Pin GPIO_PIN_1
+#define nSLEEP_FRONT_GPIO_Port GPIOE
+#define nFAULT4_Pin GPIO_PIN_13
+#define nFAULT4_GPIO_Port GPIOD
+#define IMU_INT2_Pin GPIO_PIN_12
+#define IMU_INT2_GPIO_Port GPIOD
+#define IMU_INT1_Pin GPIO_PIN_7
+#define IMU_INT1_GPIO_Port GPIOD
+#define nFAULT14_Pin GPIO_PIN_3
+#define nFAULT14_GPIO_Port GPIOD
+#define nSLEEP_REAR_Pin GPIO_PIN_7
+#define nSLEEP_REAR_GPIO_Port GPIOC
+#define SWITCH1_Pin GPIO_PIN_3
+#define SWITCH1_GPIO_Port GPIOE
+#define SWITCH2_Pin GPIO_PIN_4
+#define SWITCH2_GPIO_Port GPIOD
+#define nFAULT1D15_Pin GPIO_PIN_15
+#define nFAULT1D15_GPIO_Port GPIOD
+#define nFAULT7_Pin GPIO_PIN_2
+#define nFAULT7_GPIO_Port GPIOE
+#define nFAULT6_Pin GPIO_PIN_0
+#define nFAULT6_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 
