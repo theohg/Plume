@@ -537,6 +537,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, DIN_3V3_Pin|_5V_ENABLE_Pin|nSLEEP_REAR_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : EN2_Pin MUX_RESET_Pin EN1_Pin */
@@ -556,29 +559,25 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : BUTTON1_Pin BUTTON2_Pin BUTTON3_Pin */
   GPIO_InitStruct.Pin = BUTTON1_Pin|BUTTON2_Pin|BUTTON3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : BUTTON4_Pin */
   GPIO_InitStruct.Pin = BUTTON4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(BUTTON4_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : nFAULT13_Pin nFAULT17_Pin nFAULT3_Pin nFAULT4_Pin
-                           IMU_INT2_Pin nFAULT14_Pin SWITCH2_Pin nFAULT1_Pin
-                           nFAULT1D10_Pin */
-  GPIO_InitStruct.Pin = nFAULT13_Pin|nFAULT17_Pin|nFAULT3_Pin|nFAULT4_Pin
-                          |IMU_INT2_Pin|nFAULT14_Pin|SWITCH2_Pin|nFAULT1_Pin
-                          |nFAULT1D10_Pin;
+  /*Configure GPIO pins : nFAULT13_Pin nFAULT17_Pin nFAULT14_Pin nFAULT1D10_Pin */
+  GPIO_InitStruct.Pin = nFAULT13_Pin|nFAULT17_Pin|nFAULT14_Pin|nFAULT1D10_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : nFAULT15_Pin nFAULT8_Pin */
   GPIO_InitStruct.Pin = nFAULT15_Pin|nFAULT8_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : nFAULT9_Pin SWITCH1_Pin nFAULT7_Pin nFAULT6_Pin */
@@ -590,7 +589,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : nFAULT12_Pin */
   GPIO_InitStruct.Pin = nFAULT12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(nFAULT12_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : nFAULT11_Pin nFAULT0_Pin nFAULT10_Pin */
@@ -599,11 +598,26 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : nFAULT2_Pin BAT_SENSE_EN_Pin */
-  GPIO_InitStruct.Pin = nFAULT2_Pin|BAT_SENSE_EN_Pin;
+  /*Configure GPIO pin : nFAULT2_Pin */
+  GPIO_InitStruct.Pin = nFAULT2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
+  HAL_GPIO_Init(nFAULT2_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : BAT_SENSE_EN_Pin */
+  GPIO_InitStruct.Pin = BAT_SENSE_EN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(BAT_SENSE_EN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : nFAULT3_Pin nFAULT4_Pin IMU_INT2_Pin SWITCH2_Pin
+                           nFAULT1_Pin */
+  GPIO_InitStruct.Pin = nFAULT3_Pin|nFAULT4_Pin|IMU_INT2_Pin|SWITCH2_Pin
+                          |nFAULT1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pin : nSLEEP_FRONT_Pin */
   GPIO_InitStruct.Pin = nSLEEP_FRONT_Pin;

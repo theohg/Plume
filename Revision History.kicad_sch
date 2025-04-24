@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "Revision History")
-		(date "2025-04-21")
+		(date "2025-04-24")
 		(rev "${REVISION}")
 		(company "${COMPANY}")
 	)
@@ -214,7 +214,7 @@
 		)
 		(uuid "f47af890-f55a-44bf-b54f-b7df3adde008")
 	)
-	(text_box "Ordered 24/04/2025: 5 PCB for XXX.XX$"
+	(text_box "Ordered 24/04/2025: 5 PCB for 232.48$"
 		(exclude_from_sim no)
 		(at 20.32 36.83 0)
 		(size 62.23 7.62)
