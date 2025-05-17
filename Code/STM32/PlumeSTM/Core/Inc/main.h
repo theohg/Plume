@@ -28,9 +28,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32wbxx_hal.h"
-#include "app_conf.h"
-#include "app_entry.h"
-#include "app_common.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -66,18 +63,20 @@ void Error_Handler(void);
 #define BAT_SENSE_GPIO_Port GPIOA
 #define IMU_INT1_Pin GPIO_PIN_0
 #define IMU_INT1_GPIO_Port GPIOA
-#define DIN_3V3_Pin GPIO_PIN_3
-#define DIN_3V3_GPIO_Port GPIOC
-#define _5V_ENABLE_Pin GPIO_PIN_2
-#define _5V_ENABLE_GPIO_Port GPIOC
+#define LED_5V_EN_Pin GPIO_PIN_2
+#define LED_5V_EN_GPIO_Port GPIOC
 #define BUTTON1_Pin GPIO_PIN_7
 #define BUTTON1_GPIO_Port GPIOB
+#define BUTTON1_EXTI_IRQn EXTI9_5_IRQn
 #define BUTTON2_Pin GPIO_PIN_5
 #define BUTTON2_GPIO_Port GPIOB
+#define BUTTON2_EXTI_IRQn EXTI9_5_IRQn
 #define BUTTON3_Pin GPIO_PIN_4
 #define BUTTON3_GPIO_Port GPIOB
+#define BUTTON3_EXTI_IRQn EXTI4_IRQn
 #define BUTTON4_Pin GPIO_PIN_10
 #define BUTTON4_GPIO_Port GPIOC
+#define BUTTON4_EXTI_IRQn EXTI15_10_IRQn
 #define MUX_RESET_Pin GPIO_PIN_15
 #define MUX_RESET_GPIO_Port GPIOA
 #define nFAULT13_Pin GPIO_PIN_0
@@ -94,6 +93,8 @@ void Error_Handler(void);
 #define nFAULT12_GPIO_Port GPIOC
 #define nFAULT11_Pin GPIO_PIN_8
 #define nFAULT11_GPIO_Port GPIOA
+#define nFAULT16_Pin GPIO_PIN_7
+#define nFAULT16_GPIO_Port GPIOA
 #define nFAULT0_Pin GPIO_PIN_6
 #define nFAULT0_GPIO_Port GPIOA
 #define nFAULT10_Pin GPIO_PIN_5
@@ -120,10 +121,10 @@ void Error_Handler(void);
 #define SWITCH1_GPIO_Port GPIOE
 #define SWITCH2_Pin GPIO_PIN_4
 #define SWITCH2_GPIO_Port GPIOD
-#define nFAULT1_Pin GPIO_PIN_15
+#define CHARGE_STATUS_Pin GPIO_PIN_15
+#define CHARGE_STATUS_GPIO_Port GPIOD
+#define nFAULT1_Pin GPIO_PIN_10
 #define nFAULT1_GPIO_Port GPIOD
-#define nFAULT1D10_Pin GPIO_PIN_10
-#define nFAULT1D10_GPIO_Port GPIOD
 #define nFAULT7_Pin GPIO_PIN_2
 #define nFAULT7_GPIO_Port GPIOE
 #define nFAULT6_Pin GPIO_PIN_0

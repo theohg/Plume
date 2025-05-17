@@ -1,0 +1,12 @@
+../Drivers/CMSIS/Include/core_cm4.h:2059:26:uint32_t ITM_SendChar(uint32_t)	5
+/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:144:8:constexpr DRV8214_Config::DRV8214_Config()	1
+/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:195:9:DRV8214::DRV8214(uint8_t, uint8_t, uint16_t, uint8_t, uint8_t, uint8_t, uint16_t)	1
+../Core/Src/main.cpp:152:5:int main()	9
+../Core/Src/main.cpp:396:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:451:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:476:6:void HAL_GPIO_EXTI_Callback(uint16_t)	5
+../Core/Src/main.cpp:502:5:int _write(int, char*, int)	2
+../Core/Src/main.cpp:514:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	3
+../Core/Src/main.cpp:533:6:void Error_Handler()	1
+../Core/Src/main.cpp:542:1:void __static_initialization_and_destruction_0()	1
+../Core/Src/main.cpp:542:1:cpp)	1

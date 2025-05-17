@@ -1,0 +1,1011 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2025 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include <stdbool.h>
+#include <stdio.h>
+// #include "ws2812.h"
+#include "WS2812_SPI.h" // Include the header for WS2812 functions
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define USE_STOP_MODE
+#define VREF_MCU                  3.3f    // ADC Reference Voltage (e.g., 3.3V)
+#define ADC_RESOLUTION            4095.0f // For 12-bit ADC (2^12 - 1)
+#define R502_VALUE                3000.0f // 3k Ohm
+#define R503_VALUE                10000.0f// 10k Ohm
+#define BATTERY_SENSE_DIVIDER_RATIO ((R502_VALUE + R503_VALUE) / R503_VALUE) // 
+
+// Timer for periodic measurement (e.g., TIM2, set up for 5 seconds interrupt)
+// Assuming htim2 is your timer handle for periodic measurements
+extern TIM_HandleTypeDef htim2; // Or whatever timer you use
+
+// ADC handle (e.g., ADC1)
+extern ADC_HandleTypeDef hadc1; // Or whatever ADC you use
+
+volatile uint8_t g_measure_battery_flag = 0;
+float g_battery_voltage = 0.0f;
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+
+I2C_HandleTypeDef hi2c1;
+I2C_HandleTypeDef hi2c3;
+
+IPCC_HandleTypeDef hipcc;
+
+RTC_HandleTypeDef hrtc;
+
+SPI_HandleTypeDef hspi2;
+DMA_HandleTypeDef hdma_spi2_tx;
+
+TIM_HandleTypeDef htim2;
+
+/* USER CODE BEGIN PV */
+volatile bool wakeup_event = false;
+volatile uint8_t button_ID = 0;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+void PeriphCommonClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
+static void MX_ADC1_Init(void);
+static void MX_I2C1_Init(void);
+static void MX_I2C3_Init(void);
+static void MX_IPCC_Init(void);
+static void MX_RTC_Init(void);
+static void MX_TIM2_Init(void);
+static void MX_SPI2_Init(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* Configure the peripherals common clocks */
+  PeriphCommonClock_Config();
+
+  /* IPCC initialisation */
+  MX_IPCC_Init();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_ADC1_Init();
+  MX_I2C1_Init();
+  MX_I2C3_Init();
+  MX_RTC_Init();
+  MX_TIM2_Init();
+  MX_SPI2_Init();
+  /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+  //HAL_GPIO_WritePin(MUX_RESET_GPIO_Port, MUX_RESET_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET); 
+  HAL_GPIO_WritePin(LED_5V_EN_GPIO_Port, LED_5V_EN_Pin, GPIO_PIN_RESET);
+
+  // Start the timer in interrupt mode
+  // Example: if you want to measure every 5 seconds, and your timer is TIM2
+  // Configure TIM2 in CubeMX for a 5-second period (e.g., Prescaler & Period values)
+  // and enable its update interrupt.
+  if (HAL_TIM_Base_Start_IT(&htim2) != HAL_OK) // Assuming htim2 is for battery measurement
+  {
+    Error_Handler();
+  }
+  // Initialize WS2812 LED control
+  // ws2812_init(&hspi2); // Pass the handle of the SPI peripheral you configured
+  uint8_t r = 20, g = 0, b = 0;
+  uint8_t state = 0;
+
+  // // --- TEST RED ---
+  // HAL_GPIO_WritePin(LED_5V_EN_GPIO_Port, LED_5V_EN_Pin, GPIO_PIN_SET); // Turn 5V ON
+  // HAL_Delay(1); // Power stabilize
+  // ws2812_set_led_color(0, 50, 0, 0); // Set Red
+
+  // ws2812_show(); // This will start DMA
+  // // Wait for DMA to complete - ws2812_show() itself doesn't turn off power in this modified test
+  // while(ws2812_spi_tx_complete == 0) {
+  //     // You can put a WFI or a small HAL_Delay(1) here if you want to be less busy-wait
+  //     // but for testing, a tight loop is fine.
+  // }
+  // HAL_Delay(1998); // Hold red (total ~2000ms with the 1ms stabilize + DMA time)
+  // HAL_GPIO_WritePin(LED_5V_EN_GPIO_Port, LED_5V_EN_Pin, GPIO_PIN_RESET); // Turn 5V OFF
+  // HAL_Delay(100); // Small delay before next color, just to see a distinct off state
+
+  // // --- TEST GREEN ---
+  // HAL_GPIO_WritePin(LED_5V_EN_GPIO_Port, LED_5V_EN_Pin, GPIO_PIN_SET); // Turn 5V ON
+  // HAL_Delay(1);
+  // ws2812_set_led_color(0, 0, 50, 0); // Set Green
+  // ws2812_show();
+  // while(ws2812_spi_tx_complete == 0) { /* wait */ }
+  // HAL_Delay(1998);
+  // HAL_GPIO_WritePin(LED_5V_EN_GPIO_Port, LED_5V_EN_Pin, GPIO_PIN_RESET); // Turn 5V OFF
+  // HAL_Delay(100);
+
+  // // --- TEST BLUE ---
+  // HAL_GPIO_WritePin(LED_5V_EN_GPIO_Port, LED_5V_EN_Pin, GPIO_PIN_SET); // Turn 5V ON
+  // HAL_Delay(1);
+  // ws2812_set_led_color(0, 0, 0, 50); // Set Blue
+  // ws2812_show();
+  // while(ws2812_spi_tx_complete == 0) { /* wait */ }
+  // HAL_Delay(1998);
+  // HAL_GPIO_WritePin(LED_5V_EN_GPIO_Port, LED_5V_EN_Pin, GPIO_PIN_RESET); // Turn 5V OFF
+  // HAL_Delay(100);
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+
+  while (1)
+  {
+    if (wakeup_event) {
+      // Process the wakeup event (button press)
+      printf("Button press detected! ID: %d\r\n", button_ID);
+      HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_RESET);
+      wakeup_event = false; // Reset flag AFTER processing it
+      HAL_Delay(500);     // Stay awake for 5 seconds
+      HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_SET); // Turn LED OFF
+    }
+
+    // Simple RGB LED animation example
+    switch(state) {
+      case 0: r = 20; g = 0; b = 0; break; // Red
+      case 1: r = 0; g = 20; b = 0; break; // Green
+      case 2: r = 0; g = 0; b = 20; break; // Blue
+      case 3: r = 20; g = 20; b = 0; break; // Yellow
+      case 4: r = 0; g = 20; b = 20; break; // Cyan
+      case 5: r = 20; g = 0; b = 20; break; // Magenta
+      case 6: r = 20; g = 20; b = 20; break; // White
+      case 7: r = 0; g = 0; b = 0; break; // Off
+    }
+
+    for (int i=0; i<4; i++)
+	  {
+		 setLED(i, 255, 0, 0);
+	  }
+	  WS2812_Send(5);
+	  HAL_Delay(1000);
+
+	  for (int i=0; i<4; i++)
+	  {
+		 setLED(i, 0, 255, 0);
+	  }
+	  WS2812_Send(5);
+	  HAL_Delay(1000);
+
+	  for (int i=0; i<4; i++)
+	  {
+		 setLED(i, 0, 0, 255);
+	  }
+	  WS2812_Send(5);
+	  HAL_Delay(1000);
+    // ws2812_set_led_color(0, r, g, b); // Set color for the first LED (index 0)
+    // // If you have more LEDs, call ws2812_set_led_color for each.
+    // // e.g., ws2812_set_led_color(1, b, r, g); // for a second LED
+
+    // ws2812_show(); // Transmit data to LEDs
+
+    state = (state + 1) % 8; // Cycle through 8 states (7 colors + off)
+    HAL_Delay(500); // Wait 500ms
+
+    if (g_measure_battery_flag)
+    {
+        g_measure_battery_flag = 0; // Reset the flag
+
+        // 1. Enable BAT_SENSE circuitry
+        HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_SET);
+
+        // 2. Wait for voltage to settle (C504 charging)
+        // Tau = R_eff * C = 2.31kOhm * 100nF = 0.231 ms. 5*Tau ~ 1.15 ms.
+        // Let's use a slightly larger delay for safety margin.
+        HAL_Delay(10); 
+
+        // 3. Start ADC conversion
+        if (HAL_ADC_Start(&hadc1) != HAL_OK)
+        {
+            printf("ADC Start Error\r\n");
+            // Optionally turn off BAT_SENSE_EN here if error occurs early
+            HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
+            // Handle error
+        }
+        else
+        {
+            // 4. Poll for ADC conversion complete (timeout e.g., 100ms)
+            if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+            {
+                // 5. Read ADC value
+                uint32_t adc_raw_value = HAL_ADC_GetValue(&hadc1);
+
+                // 6. Calculate voltage
+                // V_sense = (ADC_raw / ADC_max_resolution) * V_ref
+                float v_sense = ((float)adc_raw_value / ADC_RESOLUTION) * VREF_MCU;
+                // VBAT = V_sense * (R502 + R503) / R503
+                g_battery_voltage = v_sense * BATTERY_SENSE_DIVIDER_RATIO;
+
+                // For debugging:
+                // Convert battery voltage to millivolts (integer)
+                uint32_t battery_millivolts = (uint32_t)(g_battery_voltage * 1000.0f);
+
+                // Simple printf for debugging
+                printf("ADC Raw: %lu, VBAT_mV: %lu\r\n",
+                       adc_raw_value,
+                       battery_millivolts);
+            }
+            else
+            {
+                printf("ADC Poll Timeout\r\n");
+                // Handle timeout
+            }
+            // Stop ADC (important if not in continuous mode, good practice anyway)
+            HAL_ADC_Stop(&hadc1);
+        }
+
+        // 7. Disable BAT_SENSE circuitry to save power
+        HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
+
+        // Now g_battery_voltage holds the latest reading.
+        // You can use it for low battery checks, display, etc.
+    }
+
+
+//	  // Prepare to enter Stop 2 mode
+//	  HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_SET); // Ensure LED is OFF before sleep
+//
+//	  printf("Entering Stop 2 Mode...\r\n");
+//	  HAL_Delay(10); // Allow printf to complete if UART is used
+//
+//	  /* Clear any pending EXTI Line flag for your button.
+//		 This is CRITICAL to prevent immediate wakeup if the interrupt fired
+//		 just before trying to sleep or if it wasn't cleared properly. */
+//	  // Replace BUTTON_EXTI_Pin with your actual button GPIO_PIN_X
+//	  __HAL_GPIO_EXTI_CLEAR_IT(BUTTON1_Pin);
+//	  // If you have multiple EXTI sources, clear them specifically or be very careful.
+//
+//	  /* At this point, also ensure no other unintended wakeup sources are active
+//		 or have pending flags (e.g., RTC Alarm, LPUART RXNE if enabled for wakeup) */
+//
+//	  /* Suspend Tick increment to prevent wakeup by Systick interrupt. */
+//	  HAL_SuspendTick();
+//
+//	  /* Enter Stop 2 Mode - MCU will stop here until an EXTI or other enabled wakeup event */
+//	  HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
+//
+//	  /* --- WAKE UP from STOP 2 --- */
+//	  // Execution resumes here after wakeup
+//
+//	  /* Resume Tick interrupt */
+//	  HAL_ResumeTick();
+//
+//	  /* Reconfigure the System Clock after waking from STOP_MODE */
+//	  /* This is important because STOP mode might switch to a low-power oscillator (MSI or HSI).
+//		 SystemClock_Config() usually restores your PLL and main clock settings. */
+//	  SystemClock_Config();
+//
+//	  // If we woke up, it was either due to the button (wakeup_event will be true by ISR)
+//	  // or some other configured wakeup source.
+//	  // The original `wakeup_event = true;` here was the main bug for the loop.
+//	  // Now, the `if (wakeup_event)` at the top of the loop handles it.
+//
+//	  if (!wakeup_event) {
+//		  // This means we woke up from something OTHER than the button press.
+//		  // This could be another EXTI, RTC, etc., or a spurious wakeup if flags weren't cleared.
+//		  printf("Woke up from Stop 2 Mode (Not by button)...\r\n");
+//		  // You might want a small delay or specific handling here if this case is unexpected
+//		  // and happens frequently.
+//	  }
+
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage
+  */
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI1
+                              |RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV1;
+  RCC_OscInitStruct.PLL.PLLN = 30;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV3;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure the SYSCLKSource, HCLK, PCLK1 and PCLK2 clocks dividers
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK4|RCC_CLOCKTYPE_HCLK2
+                              |RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLK2Divider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.AHBCLK4Divider = RCC_SYSCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
+  * @brief Peripherals Common Clock Configuration
+  * @retval None
+  */
+void PeriphCommonClock_Config(void)
+{
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+  /** Initializes the peripherals clock
+  */
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SMPS;
+  PeriphClkInitStruct.SmpsClockSelection = RCC_SMPSCLKSOURCE_HSI;
+  PeriphClkInitStruct.SmpsDivSelection = RCC_SMPSCLKDIV_RANGE1;
+
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN Smps */
+
+  /* USER CODE END Smps */
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Common config
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.OversamplingMode = DISABLE;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_6;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_47CYCLES_5;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.Timing = 0x0070133F;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief I2C3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C3_Init(void)
+{
+
+  /* USER CODE BEGIN I2C3_Init 0 */
+
+  /* USER CODE END I2C3_Init 0 */
+
+  /* USER CODE BEGIN I2C3_Init 1 */
+
+  /* USER CODE END I2C3_Init 1 */
+  hi2c3.Instance = I2C3;
+  hi2c3.Init.Timing = 0x0070133F;
+  hi2c3.Init.OwnAddress1 = 0;
+  hi2c3.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c3.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c3.Init.OwnAddress2 = 0;
+  hi2c3.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+  hi2c3.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c3.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c3, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c3, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C3_Init 2 */
+
+  /* USER CODE END I2C3_Init 2 */
+
+}
+
+/**
+  * @brief IPCC Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_IPCC_Init(void)
+{
+
+  /* USER CODE BEGIN IPCC_Init 0 */
+
+  /* USER CODE END IPCC_Init 0 */
+
+  /* USER CODE BEGIN IPCC_Init 1 */
+
+  /* USER CODE END IPCC_Init 1 */
+  hipcc.Instance = IPCC;
+  if (HAL_IPCC_Init(&hipcc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN IPCC_Init 2 */
+
+  /* USER CODE END IPCC_Init 2 */
+
+}
+
+/**
+  * @brief RTC Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_RTC_Init(void)
+{
+
+  /* USER CODE BEGIN RTC_Init 0 */
+
+  /* USER CODE END RTC_Init 0 */
+
+  /* USER CODE BEGIN RTC_Init 1 */
+
+  /* USER CODE END RTC_Init 1 */
+
+  /** Initialize RTC Only
+  */
+  hrtc.Instance = RTC;
+  hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
+  hrtc.Init.AsynchPrediv = 127;
+  hrtc.Init.SynchPrediv = 255;
+  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
+  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+  hrtc.Init.OutPutRemap = RTC_OUTPUT_REMAP_NONE;
+  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Enable the WakeUp
+  */
+  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN RTC_Init 2 */
+
+  /* USER CODE END RTC_Init 2 */
+
+}
+
+/**
+  * @brief SPI2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI2_Init(void)
+{
+
+  /* USER CODE BEGIN SPI2_Init 0 */
+
+  /* USER CODE END SPI2_Init 0 */
+
+  /* USER CODE BEGIN SPI2_Init 1 */
+
+  /* USER CODE END SPI2_Init 1 */
+  /* SPI2 parameter configuration*/
+  hspi2.Instance = SPI2;
+  hspi2.Init.Mode = SPI_MODE_MASTER;
+  hspi2.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi2.Init.NSS = SPI_NSS_SOFT;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi2.Init.CRCPolynomial = 7;
+  hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  if (HAL_SPI_Init(&hspi2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI2_Init 2 */
+
+  /* USER CODE END SPI2_Init 2 */
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 3999;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 39999;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMAMUX1_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+
+  /* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, EN2_Pin|MUX_RESET_Pin|RED_LED_Pin|EN1_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, LED_5V_EN_Pin|nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : EN2_Pin MUX_RESET_Pin RED_LED_Pin EN1_Pin */
+  GPIO_InitStruct.Pin = EN2_Pin|MUX_RESET_Pin|RED_LED_Pin|EN1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LED_5V_EN_Pin */
+  GPIO_InitStruct.Pin = LED_5V_EN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(LED_5V_EN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : BUTTON1_Pin BUTTON2_Pin BUTTON3_Pin */
+  GPIO_InitStruct.Pin = BUTTON1_Pin|BUTTON2_Pin|BUTTON3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : BUTTON4_Pin */
+  GPIO_InitStruct.Pin = BUTTON4_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(BUTTON4_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : nFAULT13_Pin nFAULT17_Pin nFAULT3_Pin nFAULT4_Pin
+                           nFAULT14_Pin nFAULT1_Pin nFAULT1D10_Pin */
+  GPIO_InitStruct.Pin = nFAULT13_Pin|nFAULT17_Pin|nFAULT3_Pin|nFAULT4_Pin
+                          |nFAULT14_Pin|nFAULT1_Pin|nFAULT1D10_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : nFAULT15_Pin nFAULT8_Pin */
+  GPIO_InitStruct.Pin = nFAULT15_Pin|nFAULT8_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : nFAULT9_Pin nFAULT7_Pin nFAULT6_Pin */
+  GPIO_InitStruct.Pin = nFAULT9_Pin|nFAULT7_Pin|nFAULT6_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : nFAULT12_Pin */
+  GPIO_InitStruct.Pin = nFAULT12_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(nFAULT12_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : nFAULT11_Pin nFAULT16_Pin nFAULT0_Pin nFAULT10_Pin */
+  GPIO_InitStruct.Pin = nFAULT11_Pin|nFAULT16_Pin|nFAULT0_Pin|nFAULT10_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_9;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : nFAULT2_Pin */
+  GPIO_InitStruct.Pin = nFAULT2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(nFAULT2_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : BAT_SENSE_EN_Pin */
+  GPIO_InitStruct.Pin = BAT_SENSE_EN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(BAT_SENSE_EN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : nSLEEP_FRONT_Pin */
+  GPIO_InitStruct.Pin = nSLEEP_FRONT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(nSLEEP_FRONT_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : IMU_INT2_Pin SWITCH2_Pin */
+  GPIO_InitStruct.Pin = IMU_INT2_Pin|SWITCH2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : nSLEEP_REAR_Pin */
+  GPIO_InitStruct.Pin = nSLEEP_REAR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(nSLEEP_REAR_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : SWITCH1_Pin */
+  GPIO_InitStruct.Pin = SWITCH1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(SWITCH1_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
+
+  /* USER CODE END MX_GPIO_Init_2 */
+}
+
+/* USER CODE BEGIN 4 */
+/**
+  * @brief  EXTI line detection callback.
+  * @param  GPIO_Pin: Specifies the port pin connected to corresponding EXTI line.
+  * @retval None
+  */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  if (GPIO_Pin == BUTTON1_Pin) // Replace YOUR_BUTTON_PIN with the actual pin, e.g., GPIO_PIN_13
+  {
+	  wakeup_event = true; // Set flag for next loop iteration
+	  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+	  button_ID = 1;
+  } else if (GPIO_Pin == BUTTON2_Pin) {
+	  wakeup_event = true; // Set flag for next loop iteration
+	  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+	  button_ID = 2;
+  }
+  else if (GPIO_Pin == BUTTON3_Pin) {
+	  wakeup_event = true; // Set flag for next loop iteration
+	  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+	  button_ID = 3;
+  }
+  else if (GPIO_Pin == BUTTON4_Pin) {
+	  wakeup_event = true; // Set flag for next loop iteration
+	  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+	  button_ID = 4;
+  }
+  // You can add else if blocks for other EXTI pins if needed
+  // else if (GPIO_Pin == OTHER_EXTI_PIN) { ... }
+}
+
+int _write(int file, char *ptr, int len)
+{
+  (void)file;
+  int DataIdx;
+
+  for (DataIdx = 0; DataIdx < len; DataIdx++)
+  {
+	  ITM_SendChar(*ptr++);
+  }
+  return len;
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  // Check which Systick timer is generating the interrupt
+  if (htim->Instance == TIM1) { // Or whatever your HAL_IncTick uses
+    HAL_IncTick();
+  }
+  // Check if it's our battery measurement timer (e.g., TIM2)
+  else if (htim->Instance == htim2.Instance) // Check against the specific timer instance
+  {
+    g_measure_battery_flag = 1;
+  }
+  // Add other timer callbacks if you have them
+}
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

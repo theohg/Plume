@@ -1,0 +1,14 @@
+/*
+ * WS2812_SPI.h
+ *
+ *  Created on: Sep 4, 2023
+ *      Author: arunrawat
+ */
+
+#ifndef INC_WS2812_SPI_H_
+#define INC_WS2812_SPI_H_
+
+
+void WS2812_SetColor (int RED, int GREEN, int BLUE, int brightness_val);
+
+#endif /* INC_WS2812_SPI_H_ */
