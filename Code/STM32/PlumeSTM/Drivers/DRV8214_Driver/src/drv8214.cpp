@@ -9,7 +9,7 @@
 #include "drv8214.h"
 
 // Initialize the motor driver with default settings
-void DRV8214::init(const DRV8214_Config& cfg) {
+uint8_t DRV8214::init(const DRV8214_Config& cfg) {
 
     // Store the configuration settings
     config = cfg;
@@ -23,6 +23,7 @@ void DRV8214::init(const DRV8214_Config& cfg) {
     setStallDetection(config.stall_enabled); // Default to stall detection enabled
     setStallBehavior(config.stall_behavior); // Default to outputs disabled on stall
     enableStallInterrupt(); // Default to enable stall interrupt
+    enableCountThresholdInterrupt(); // Default to enable count threshold interrupt
     setBridgeBehaviorThresholdReached(config.bridge_behavior_thr_reached); // Default to H-bridge stays enabled when RC_CNT exceeds threshold
     setInternalVoltageReference(0); // Default to internal voltage reference of 500mV
     setSoftStartStop(config.soft_start_stop_enabled); // Default to soft start/stop disbaled
@@ -35,6 +36,8 @@ void DRV8214::init(const DRV8214_Config& cfg) {
     brakeMotor(true); // Default to brake motor
     enableErrorCorrection(false); // Default to disable error correction
     if (config.verbose) {printMotorConfig(true);}
+
+    return DRV8214_OK; // Return success code
 }
 
 // --- Helper Functions ---
@@ -329,7 +332,7 @@ void DRV8214::disableStallInterrupt() {
 }
 
 void DRV8214::enableCountThresholdInterrupt() {
-    drv8214_i2c_modify_register(address, DRV8214_CONFIG4, CONFIG4_RC_REP, true);
+    drv8214_i2c_modify_register_bits(address, DRV8214_CONFIG4, CONFIG4_RC_REP, 0b10000000);
 }
 
 void DRV8214::disableCountThresholdInterrupt() {
@@ -676,7 +679,7 @@ void DRV8214::turnForward(uint16_t speed, float voltage, float requested_current
             setVoltageSpeed(voltage);
             break;
     }
-    enableHbridge();
+    
     if (config.control_mode == PWM) {
         // Table 8-5 => Forward => Input1=1, Input2=0
         drv8214_i2c_modify_register(address, DRV8214_CONFIG4, CONFIG4_I2C_EN_IN1, true);  // Input1=1
@@ -687,6 +690,7 @@ void DRV8214::turnForward(uint16_t speed, float voltage, float requested_current
         drv8214_i2c_modify_register(address, DRV8214_CONFIG4, CONFIG4_I2C_EN_IN1, true); // EN=1
         drv8214_i2c_modify_register(address, DRV8214_CONFIG4, CONFIG4_I2C_PH_IN2, true); // PH=1
     }
+    enableHbridge();
     if (config.verbose) { drvPrint("Turning Forward\n"); }
 }
 

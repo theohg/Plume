@@ -12,6 +12,9 @@
 #include "drv8214_platform_config.h" // For platform detection
 #include "drv8214_platform_i2c.h"    // For abstracted I2C functions
 
+// /*! @name To define success code */
+#define DRV8214_OK           0
+
 // I2C Address (depends on A0, A1 pin settings)
 #define DRV8214_I2C_ADDR_00  0x30  // = 0x60/0x61 in 8-bit  -   A1 = 0, A0 = 0 
 #define DRV8214_I2C_ADDR_0Z  0x31  // = 0x62/0x63 in 8-bit  -   A1 = 0, A0 = High-Z
@@ -195,7 +198,7 @@ class DRV8214 {
         DRV8214(uint8_t addr, uint8_t id, uint16_t sense_resistor, uint8_t ripples, uint8_t rm, uint8_t reduction_ratio, uint16_t rpm) : address(addr), driver_ID(id), Ripropri(sense_resistor), ripples_per_revolution(ripples), motor_internal_resistance(rm), motor_reduction_ratio(reduction_ratio), motor_max_rpm(rpm) {}
     
         // Initialization
-        void init(const DRV8214_Config& config);
+        uint8_t init(const DRV8214_Config& config);
 
         // --- Helper Functions ---
         uint8_t  getDriverAdress();

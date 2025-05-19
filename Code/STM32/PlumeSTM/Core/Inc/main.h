@@ -65,6 +65,9 @@ void Error_Handler(void);
 #define IMU_INT1_GPIO_Port GPIOA
 #define LED_5V_EN_Pin GPIO_PIN_2
 #define LED_5V_EN_GPIO_Port GPIOC
+#define BUTTON5_Pin GPIO_PIN_3
+#define BUTTON5_GPIO_Port GPIOH
+#define BUTTON5_EXTI_IRQn EXTI3_IRQn
 #define BUTTON1_Pin GPIO_PIN_7
 #define BUTTON1_GPIO_Port GPIOB
 #define BUTTON1_EXTI_IRQn EXTI9_5_IRQn

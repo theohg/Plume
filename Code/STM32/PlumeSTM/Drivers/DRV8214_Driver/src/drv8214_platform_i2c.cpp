@@ -59,7 +59,7 @@ uint8_t drv8214_i2c_read_register(uint8_t device_address, uint8_t reg) {
 
 void drv8214_i2c_modify_register(uint8_t device_address, uint8_t reg, uint8_t mask, uint8_t enable_bits) {
     uint8_t current_value = drv8214_i2c_read_register(device_address, reg);
-    if (enable_bits) { // Assuming 1 means enable
+    if (enable_bits) {
         current_value |= mask;  // Set bits
     } else {
         current_value &= ~mask; // Clear bits

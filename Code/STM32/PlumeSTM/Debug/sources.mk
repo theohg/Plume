@@ -40,6 +40,7 @@ CPP_DEPS :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
+Drivers/BMI270_Driver/src \
 Drivers/DRV8214_Driver/src \
 Drivers/STM32WBxx_HAL_Driver/Src \
 Drivers/TCA9548_Driver/src \

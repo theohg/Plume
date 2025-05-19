@@ -12,6 +12,7 @@ RM := rm -rf
 -include Drivers/TCA9548_Driver/src/subdir.mk
 -include Drivers/STM32WBxx_HAL_Driver/Src/subdir.mk
 -include Drivers/DRV8214_Driver/src/subdir.mk
+-include Drivers/BMI270_Driver/src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
@@ -87,7 +88,7 @@ main-build: PlumeSTM.elf secondary-outputs
 
 # Tool invocations
 PlumeSTM.elf PlumeSTM.map: $(OBJS) $(USER_OBJS) /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/STM32WB5MMGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "PlumeSTM.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/STM32WB5MMGHX_FLASH.ld" -Wl,-Map="PlumeSTM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+	arm-none-eabi-g++ -o "PlumeSTM.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/STM32WB5MMGHX_FLASH.ld" -Wl,-Map="PlumeSTM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

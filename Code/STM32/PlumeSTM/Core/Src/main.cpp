@@ -26,6 +26,7 @@
 #include "rtc.h"
 #include "spi.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -35,7 +36,9 @@
 #include "WS2812_SPI.h"             // For WS2812 LED control
 #include "drv8214.h"                // For DRV8214 driver control
 #include "drv8214_platform_i2c.h"   // For I2C functions
-#include "TCA9548.h"
+#include "TCA9548.h"                // For I2C MUX control  
+#include "bmi270.h"                 // For BMI270 IMU
+#include "bmi2_user_interface.h"    // For BMI270 user interface
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,12 +56,16 @@
 #define BATTERY_SENSE_DIVIDER_RATIO ((R502_VALUE + R503_VALUE) / R503_VALUE)
 
 // Driver and motor configuration
-#define NUM_DRIVERS 1 // Number of DRV8214 drivers in the system
+#define NUM_DRIVERS 2 // Number of DRV8214 drivers in the system
 #define IPROPI_RESISTOR 680 // Value in Ohms of the resistor connected to IPROPI pin
 #define NUM_RIPPLES 6 // Number of current ripples per output shaft revolution (= nb of ripples per motor revolution x reduction ratio)
 #define MOTOR_INTERNAL_RESISTANCE 20 // Internal resistance of the motor in Ohms
 #define MOTOR_REDUCTION_RATIO 26 // Reduction ratio of the motor
 #define MAX_MOTOR_RPM 1154 // Maximum speed of the motor in RPM 1154
+
+// prinf destination
+//#define USE_UART
+#define USE_SWD
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -87,17 +94,23 @@ float nb_ripples_per_mm = full_range_ripples / full_range_mm;
 
 // MUX
 i2c_mux_t i2c_multiplexer;
-uint8_t i2c_channel_to_use = 1;
+uint8_t i2c_channel_to_use =1;
+
+//UART
+extern UART_HandleTypeDef huart1;
+
+// IMU
+extern I2C_HandleTypeDef hi2c3;
+struct bmi2_dev bmi270_sensor;  // BMI270 device structure
 
 // Global variables
 static uint16_t speed = MAX_MOTOR_RPM * 0.7;
 static uint16_t speed_low = MAX_MOTOR_RPM*0.5;
-static float voltage = 2.0;
-static float current = 0.2;
+static float voltage = 3.0;
+static float current = 1;
 static int speed_step = 5; // speed_step ranges from 1 (lowest) to 5 (full speed)
 static float nb_of_steps = 5;
 static uint8_t faults = 0;
-static uint32_t color = 0;
 uint16_t ripple_target = 27000;    // Number of ripples to move when in ripple mode
 static const bool stops_after_ripples = true;   // If true, the motor will stop when ripple_target is reached
 static const bool stops_at_stall = true;        // If true, the motor will stop when a stall is detected
@@ -123,21 +136,22 @@ uint16_t current_ripple_count = 0;
 
 // Create an array of DRV8214 objects
 DRV8214 drivers[NUM_DRIVERS] = {
-  DRV8214(DRV8214_I2C_ADDR_00, 0, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM)
+ DRV8214(DRV8214_I2C_ADDR_11, 8, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+ DRV8214(DRV8214_I2C_ADDR_11, 17, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM)
 };
 
 // Create an array of configuration structs
 DRV8214_Config driver_configs[NUM_DRIVERS];
-
-// Create a TCA9548 object
-//TCA9548 multiplexer = TCA9548(0x70);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+void I2C_Scan(I2C_HandleTypeDef *hi2c);
+void printByteAsBinary(uint8_t value);      // Prints an 8-bit value as binary with leading zeros
+void print2BytesAsBinary(uint16_t value);   // Prints a 16-bit value as binary with leading zeros
+void printRegisters(uint8_t driver_id);     // Prints some of the registers of the selected driver
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -187,46 +201,121 @@ int main(void)
   MX_RTC_Init();
   MX_TIM2_Init();
   MX_SPI2_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  printf(" "); // First empty prinf because a bug causes the first character to be lost
+  // Default GPIO states
+  HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(MUX_RESET_GPIO_Port, MUX_RESET_Pin, GPIO_PIN_SET);
 
-//  HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
-//  HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
-//  //HAL_GPIO_WritePin(MUX_RESET_GPIO_Port, MUX_RESET_Pin, GPIO_PIN_RESET);
-//  HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
-//
-//  // Start the timer in interrupt mode
-//  // Example: if you want to measure every 5 seconds, and your timer is TIM2
-//  // Configure TIM2 in CubeMX for a 5-second period (e.g., Prescaler & Period values)
-//  // and enable its update interrupt.
-//  if (HAL_TIM_Base_Start_IT(&htim2) != HAL_OK) { Error_Handler();}
-//
-//  // Pass the HAL I2C handle to your I2C platform layer
-//  drv8214_i2c_set_handle(&hi2c1); // &hi2c1 is defined in Core/Src/i2c.c and declared in Core/Inc/i2c.h
-//
-//  printf("\nInitializing PCA9546A multiplexer...\n");
-//  // Initialize the I2C multiplexer structure
-//  i2c_multiplexer.hi2c = &hi2c1; // Assign the I2C peripheral handle
-//  i2c_multiplexer.rst_port = MUX_RESET_GPIO_Port;  // From main.h
-//  i2c_multiplexer.rst_pin = MUX_RESET_Pin;         // From main.h
-//  i2c_multiplexer.addr_offset = 0;
-//
-//  printf("Selecting I2C multiplexer channel %d...", i2c_channel_to_use);
-//  if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) == 0) {
-//      printf(" Channel %d selected successfully!\n", i2c_channel_to_use);
-//  } else {
-//      printf("Failed to select channel %d on I2C multiplexer.\n", i2c_channel_to_use);
-//      // Handle error: cannot communicate with devices on this channel
-//  }
-//
-//  printf("Initializing DRV8214 drivers...\n");
-//	for (int i = 0; i < NUM_DRIVERS; i++) {  // Initialize each driver
-//    driver_configs[i] = DRV8214_Config();
-//    if (i == 0) { driver_configs[i].verbose = true; } // Set verbose only for the first driver
-//    //drivers[i].setDebugStream(console); // Let the driver’s library know which stream to use for debug
-//    drivers[i].init(driver_configs[i]);
-//    drivers[i].resetFaultFlags();
-//  }
-  printf("\nDRV8214 drivers initialized successfully!\n");
+  // Start the timer in interrupt mode
+  // Example: if you want to measure every 5 seconds, and your timer is TIM2
+  // Configure TIM2 in CubeMX for a 5-second period (e.g., Prescaler & Period values)
+  // and enable its update interrupt.
+  if (HAL_TIM_Base_Start_IT(&htim2) != HAL_OK) { Error_Handler();}
+
+  printf("Initializing PCA9546A multiplexer... ");
+  // Initialize the I2C multiplexer structure
+  i2c_multiplexer.hi2c = &hi2c1; // Assign the I2C peripheral handle
+  i2c_multiplexer.rst_port = MUX_RESET_GPIO_Port;  // From main.h
+  i2c_multiplexer.rst_pin = MUX_RESET_Pin;         // From main.h
+  i2c_multiplexer.addr_offset = 0;
+
+  // select the desired chanel based on the switch 1 position
+  if (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_SET) {
+    i2c_channel_to_use = 0; // Channel 1
+    HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+  } else {
+    i2c_channel_to_use = 1; // Channel 0
+    HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_SET);
+  }
+  if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) == 0) {
+      printf("PCA9546A Initialized Successfully! Channel %d selected.\n", i2c_channel_to_use);
+  } else {
+      printf("Failed to select channel %d on I2C multiplexer.\n", i2c_channel_to_use);
+  }
+
+  // I2C1 scanning
+  I2C_Scan(&hi2c1);
+  // I2C3 scanning
+  I2C_Scan(&hi2c3);
+
+  printf("Initializing DRV8214 drivers...\n");
+  // Pass the HAL I2C handle to the I2C platform layer
+  drv8214_i2c_set_handle(&hi2c1); // &hi2c1 is defined in Core/Src/i2c.c and declared in Core/Inc/i2c.h
+  for (int i = 0; i < NUM_DRIVERS; i++) {  // Initialize each driver
+    driver_configs[i] = DRV8214_Config();
+    if (drivers[i].init(driver_configs[i]) == DRV8214_OK) {
+      drivers[i].resetFaultFlags();
+      printf("DRV8214 driver %d initialized successfully!\n", i);
+    } else {
+      printf("Failed to initialize DRV8214 driver %d.\n", i);
+      Error_Handler();
+    }
+  }
+
+  printf("Initializing BMI270 IMU... ");
+  bmi2_set_i2c_handle(&hi2c3);
+  // Configure the bmi2_dev structure
+  bmi270_sensor.intf_ptr = &hi2c3; // Pass a pointer to the I2C HAL handle
+  bmi270_sensor.intf = BMI2_I2C_INTF;
+  bmi270_sensor.read = bmi2_i2c_read;
+  bmi270_sensor.write = bmi2_i2c_write;
+  bmi270_sensor.delay_us = bmi2_delay_us;
+  bmi270_sensor.read_write_len = 32;    // Max burst read/write length (check BMI270 datasheet, 32 or 64 for features is common)
+                                        // For config file loading, this might need to be larger if the API doesn't chunk it.
+                                        // The bmi270_config_file is 8KB, the API chunks this. 32 should be fine for most operations.
+  bmi270_sensor.config_file_ptr = NULL; // bmi270_init will assign the internal one
+  int8_t rslt_bmi = bmi270_init(&bmi270_sensor);
+  if (rslt_bmi == BMI2_OK) {
+      printf("BMI270 initialized successfully! Chip ID: 0x%X\r\n", bmi270_sensor.chip_id);
+  } else {
+      printf("BMI270 initialization failed. Error code: %d\r\n", rslt_bmi);
+      Error_Handler();
+  }
+
+  // --- Example: Enable Accelerometer and Gyroscope ---
+  if (rslt_bmi == BMI2_OK) {
+    uint8_t sens_list[] = { BMI2_ACCEL, BMI2_GYRO };
+    rslt_bmi = bmi270_sensor_enable(sens_list, 2, &bmi270_sensor);
+    if (rslt_bmi != BMI2_OK) {
+        printf("BMI270 Sensor Enable failed. Error: %d\r\n", rslt_bmi);
+    } else {
+        printf("BMI270 Accel & Gyro enabled.\r\n");
+    }
+
+    // Configure Accelerometer (example: 2g range, 100Hz ODR, Normal Mode)
+    struct bmi2_sens_config sens_cfg;
+    sens_cfg.type = BMI2_ACCEL;
+    sens_cfg.cfg.acc.range = BMI2_ACC_RANGE_2G;
+    sens_cfg.cfg.acc.odr = BMI2_ACC_ODR_100HZ;
+    sens_cfg.cfg.acc.bwp = BMI2_ACC_NORMAL_AVG4; // Normal bandwidth parameter
+    sens_cfg.cfg.acc.filter_perf = BMI2_PERF_OPT_MODE; // Filter performance mode
+    rslt_bmi = bmi2_set_sensor_config(&sens_cfg, 1, &bmi270_sensor);
+    if (rslt_bmi != BMI2_OK) {
+        printf("BMI270 Accel Config failed. Error: %d\r\n", rslt_bmi);
+    } else {
+        printf("BMI270 Accel configured.\r\n");
+    }
+    
+    // Configure Gyroscope (example: 2000dps range, 100Hz ODR, Normal Mode)
+    sens_cfg.type = BMI2_GYRO;
+    sens_cfg.cfg.gyr.range = BMI2_GYR_RANGE_2000;
+    sens_cfg.cfg.gyr.odr = BMI2_GYR_ODR_100HZ;
+    sens_cfg.cfg.gyr.bwp = BMI2_GYR_NORMAL_MODE; // Normal bandwidth parameter
+    sens_cfg.cfg.gyr.filter_perf = BMI2_PERF_OPT_MODE; // Filter performance mode
+    sens_cfg.cfg.gyr.noise_perf = BMI2_POWER_OPT_MODE; // Noise performance mode
+    rslt_bmi = bmi2_set_sensor_config(&sens_cfg, 1, &bmi270_sensor);
+    if (rslt_bmi != BMI2_OK) {
+        printf("BMI270 Gyro Config Failed. Error: %d\r\n", rslt_bmi);
+    } else {
+        printf("BMI270 Gyro configured.\r\n");
+    }
+  }
 
   // Blink the LED to indicate startup finished
   WS2812_SetColor(255, 0, 0, 100);
@@ -243,8 +332,35 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   while (1)
-  {
-    
+  { 
+    if (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_SET && i2c_channel_to_use == 0) {
+      i2c_channel_to_use = 1;
+      HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_SET);
+      if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) == 0) {
+        printf("Channel %d selected successfully!\n", i2c_channel_to_use);
+      } else {
+          printf("Failed to select channel %d on I2C multiplexer.\n", i2c_channel_to_use);
+      }
+      HAL_Delay(10);
+      driver_configs[i2c_channel_to_use] = DRV8214_Config();
+      	 drivers[i2c_channel_to_use].init(driver_configs[i2c_channel_to_use]);
+      	 drivers[i2c_channel_to_use].resetFaultFlags();
+   } else if (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_RESET && i2c_channel_to_use == 1) {
+      i2c_channel_to_use = 0;
+
+      HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+      if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) == 0) {
+        printf("Channel %d selected successfully!\n", i2c_channel_to_use);
+      } else {
+          printf("Failed to select channel %d on I2C multiplexer.\n", i2c_channel_to_use);
+      }
+      HAL_Delay(10);
+      driver_configs[i2c_channel_to_use] = DRV8214_Config();
+	 drivers[i2c_channel_to_use].init(driver_configs[i2c_channel_to_use]);
+	 drivers[i2c_channel_to_use].resetFaultFlags();
+   }
 
     if (wakeup_event) {
       // Process the wakeup event (button press)
@@ -255,18 +371,30 @@ int main(void)
         case 1:
           WS2812_SetColor(255, 0, 0, 100); // Red
           // Move the motor forward
-          drivers[0].turnForward(speed_low, voltage, current);
+          drivers[i2c_channel_to_use].turnXRipples(ripple_target, stops_after_ripples, true, speed, voltage, current);
+          //drivers[i2c_channel_to_use].turnForward(speed_low, voltage, current);
           break;
         case 2:
           WS2812_SetColor(0, 255, 0, 100); // Green
           // Move the motor backward
-          drivers[0].turnReverse(speed_low, voltage, current);
+          drivers[i2c_channel_to_use].turnReverse(speed_low, voltage, current);
           break;
         case 3:
           WS2812_SetColor(0, 0, 255, 100); // Blue
+          printf("Clearing fault flags...\r\n");
+          drivers[i2c_channel_to_use].resetRippleCounter();
+          drivers[i2c_channel_to_use].resetFaultFlags();
+          I2C_Scan(&hi2c1);
+          HAL_Delay(1000); // Pause to see results
           break;
         case 4:
           WS2812_SetColor(255, 255, 0, 100); // Yellow
+          printRegisters(i2c_channel_to_use);
+          break;
+        case 5:
+          WS2812_SetColor(255, 0, 255, 100); // Magenta
+          // Stop the motor
+          drivers[i2c_channel_to_use].brakeMotor();
           break;
         default:
           WS2812_SetColor(0, 0, 0, 100); // Off
@@ -274,6 +402,43 @@ int main(void)
       }
       HAL_Delay(1000);
       WS2812_SetColor(0, 0, 0, 100); // Turn off the LED
+    }
+
+    if (rslt_bmi == BMI2_OK) { // Only if initialization and config were successful
+      struct bmi2_sens_data sensor_values; // Use the union directly as per bmi2_get_sensor_data signature
+      int8_t rslt_data;
+
+      // The bmi2_get_sensor_data function will attempt to read data for
+      // all sensors that are currently enabled (ACC, GYR, AUX) and sensortime.
+      // It populates the fields within the 'sensor_values' union accordingly.
+      rslt_data = bmi2_get_sensor_data(&sensor_values, &bmi270_sensor); // Pass the address of the union
+
+      if (rslt_data == BMI2_OK) {
+          // Check which sensors were enabled to print their data meaningfully
+          // You can check dev->sens_en_stat or the PWR_CTRL register if needed,
+          // or just assume accel and gyro are enabled based on prior setup.
+
+          // Assuming Accelerometer was enabled
+          printf("ACC: X=%d Y=%d Z=%d | ",
+                 sensor_values.acc.x,
+                 sensor_values.acc.y,
+                 sensor_values.acc.z);
+
+          // Assuming Gyroscope was enabled
+          printf("GYR: X=%d Y=%d Z=%d",
+                 sensor_values.gyr.x,
+                 sensor_values.gyr.y,
+                 sensor_values.gyr.z);
+
+          // Print sensortime (if available and meaningful in your setup)
+          // The bmi2_parse_sensor_data in bmi2.c shows how sens_time is populated in the struct.
+          // If bmi2_get_sensor_data directly populates it:
+          printf(" | ST: %lu\r\n", (unsigned long)sensor_values.sens_time);
+
+      } else {
+          printf("BMI270 Get Sensor Data Failed. Error: %d\r\n", rslt_data);
+      }
+      HAL_Delay(100); // Read data every 100ms
     }
 
     if (g_measure_battery_flag)
@@ -315,9 +480,9 @@ int main(void)
                 uint32_t battery_millivolts = (uint32_t)(g_battery_voltage * 1000.0f);
 
                 // Simple printf for debugging
-                printf("ADC Raw: %lu, VBAT_mV: %lu\r\n",
-                       adc_raw_value,
-                       battery_millivolts);
+//                printf("ADC Raw: %lu, VBAT_mV: %lu\r\n",
+//                       adc_raw_value,
+//                       battery_millivolts);
             }
             else
             {
@@ -334,7 +499,6 @@ int main(void)
         // Now g_battery_voltage holds the latest reading.
         // You can use it for low battery checks, display, etc.
     }
-
 
 //	  // Prepare to enter Stop 2 mode
 //	  HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_SET); // Ensure LED is OFF before sleep
@@ -495,21 +659,48 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 	  button_ID = 4;
   }
-  // You can add else if blocks for other EXTI pins if needed
-  // else if (GPIO_Pin == OTHER_EXTI_PIN) { ... }
-}
-
-int _write(int file, char *ptr, int len)
-{
-  (void)file;
-  int DataIdx;
-
-  for (DataIdx = 0; DataIdx < len; DataIdx++)
-  {
-	  ITM_SendChar(*ptr++);
+  else if (GPIO_Pin == BUTTON5_Pin) {
+    wakeup_event = true; // Set flag for next loop iteration
+    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+    button_ID = 5;
   }
-  return len;
 }
+#ifdef __cplusplus
+  extern "C" {
+  #endif
+#ifdef USE_SWD
+  int _write(int file, char *ptr, int len)
+  {
+    (void)file;
+    int DataIdx;
+
+    for (DataIdx = 0; DataIdx < len; DataIdx++)
+    {
+      ITM_SendChar(*ptr++);
+    }
+    return len;
+  }
+#endif
+#ifdef USE_UART
+  int _write(int file, char *ptr, int len)
+  {
+    (void)file; // Unused parameter
+    HAL_StatusTypeDef status;
+
+    // Assuming huart1 is configured for USART1
+    // Adjust if your handle is named differently or you use a different USART
+    status = HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+
+    if (status == HAL_OK) {
+        return len;
+    } else {
+        return -1;
+    }
+}
+#endif
+#ifdef __cplusplus
+  }
+#endif
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
@@ -524,6 +715,156 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   }
   // Add other timer callbacks if you have them
 }
+
+void I2C_Scan(I2C_HandleTypeDef *hi2c) {
+  if (hi2c->Instance == I2C1) {
+    printf("Scanning I2C Bus 1 (MUX Channel %d)...\r\n", i2c_channel_to_use);
+  } else if (hi2c->Instance == I2C3) {
+    printf("Scanning I2C Bus 3...\r\n");
+  } else {
+    printf("Scanning Unknown I2C Bus...\r\n");
+  }
+
+  HAL_StatusTypeDef res;
+  uint8_t i = 0;
+  for (i = 1; i < 128; i++) {
+    res = HAL_I2C_IsDeviceReady(hi2c, (uint16_t)(i << 1), 2, 10); // 2 trials, 10ms timeout
+    if (res == HAL_OK) {
+      printf("I2C Device Found at Address: 0x%02X\r\n", i);
+    }
+  }
+  if (hi2c->Instance == I2C1) {
+    printf("I2C Bus 1 (MUX Channel %d) Scan Complete.\r\n", i2c_channel_to_use);
+  } else if (hi2c->Instance == I2C3) {
+    printf("I2C Bus 3 Scan Complete.\r\n");
+  } else {
+    printf("Unknown I2C Bus Scan Complete.\r\n");
+  }
+}
+
+void printByteAsBinary(uint8_t value) {
+  for (int i = 7; i >= 0; i--) {
+    printf("%d", (value >> i) & 1); // Print 0 or 1
+  }
+}
+
+void print2BytesAsBinary(uint16_t value) {
+  for (int i = 15; i >= 0; i--) {
+    printf("%d", (value >> i) & 1); // Print 0 or 1
+  }
+}
+
+
+void printRegisters(uint8_t driver_id) {
+
+  // variable to avoid float printing
+  char buffer[50];
+  printf("Speed of motor: ");
+  printf("%d", drivers[driver_id].getMotorSpeedRPM());
+  printf(" RPM or ");
+  printf("%.2f", drivers[driver_id].getMotorSpeedRAD());
+  printf(" rad/s | ");
+
+  printf("Voltage: ");
+  printf("%.2f", drivers[driver_id].getMotorVoltage());
+  printf(" V | ");
+
+  printf("Current: ");
+  printf("%.2f", drivers[driver_id].getMotorCurrent());
+  printf(" A | ");
+
+  printf("Speed of shaft: ");
+  printf("%d", drivers[driver_id].getMotorSpeedShaftRPM());
+  printf(" RPM or ");
+  printf("%.2f", drivers[driver_id].getMotorSpeedShaftRAD());
+  printf(" rad/s | ");
+
+  printf("Duty Cycle: ");
+  printf("%hhu", drivers[driver_id].getDutyCycle()); // %hhu for uint8_t
+  printf("%% | ");
+
+  printf("Tinrush: ");
+  printf("%hu", drivers[driver_id].getInrushDuration()); // %hu for uint16_t
+  printf(" ms | "); // Added space and separator for consistency
+
+  printf("RC_STATUS1 (SPEED): 0b");
+  printByteAsBinary(drivers[driver_id].getMotorSpeedRegister());
+  printf(" | ");
+
+  printf("REG_STATUS1 (VOLTAGE): 0b");
+  printByteAsBinary(drivers[driver_id].getMotorVoltageRegister());
+  printf(" | ");
+
+  printf("REG_STATUS2 (CURRENT): 0b");
+  printByteAsBinary(drivers[driver_id].getMotorCurrentRegister());
+  printf(" | ");
+
+  printf("Ripple counter: ");
+  printf("%hu", drivers[driver_id].getRippleCount()); // %hu for uint16_t
+  printf(" | 0b");
+  print2BytesAsBinary(drivers[driver_id].getRippleCount());
+  printf(" | ");
+
+  drivers[driver_id].printFaultStatus(); // Assuming this function prints its own content + newline if needed
+
+  printf("CONFIG0: 0b");
+  printByteAsBinary(drivers[driver_id].getCONFIG0());
+  printf(" | ");
+
+  printf("CONFIG3: 0b");
+  printByteAsBinary(drivers[driver_id].getCONFIG3());
+  printf(" | ");
+
+  printf("CONFIG4: 0b");
+  printByteAsBinary(drivers[driver_id].getCONFIG4());
+  printf(" | ");
+
+  printf("REG_CTRL0: 0b");
+  printByteAsBinary(drivers[driver_id].getREG_CTRL0());
+  printf(" | ");
+
+  printf("REG_CTRL1 (TARGET SPEED): 0b");
+  printByteAsBinary(drivers[driver_id].getREG_CTRL1());
+  printf(" | ");
+
+  printf("REG_CTRL2 (DUTY): 0b");
+  printByteAsBinary(drivers[driver_id].getREG_CTRL2());
+  printf(" | ");
+
+  printf("RC_CTRL0: 0b");
+  printByteAsBinary(drivers[driver_id].getRC_CTRL0());
+  printf(" | ");
+
+  printf("KMC: ");
+  printf("%hhu", drivers[driver_id].getKMC()); // %hhu for uint8_t
+  printf(" | Ripple Threshold Scaled: ");
+  printf("%hu", drivers[driver_id].getRippleThresholdScaled()); // %hu for uint16_t
+  printf(" | Ripples Threshold: ");
+  printf("%hu", drivers[driver_id].getRippleThreshold()); // %hu for uint16_t
+  printf(" or 0b");
+  print2BytesAsBinary(drivers[driver_id].getRippleThreshold());
+  printf(" | ");
+
+  printf("RC_CTRL1: 0b");
+  printByteAsBinary(drivers[driver_id].getRC_CTRL1());
+  printf(" | ");
+
+  printf("RC_CTRL2: 0b");
+  printByteAsBinary(drivers[driver_id].getRC_CTRL2());
+  printf(" | ");
+
+  printf("RC_CTRL6: 0b");
+  printByteAsBinary(drivers[driver_id].getRC_CTRL6());
+  printf(" | ");
+
+  printf("RC_CTRL7: 0b");
+  printByteAsBinary(drivers[driver_id].getRC_CTRL7());
+  printf(" | ");
+
+  printf("RC_CTRL8: 0b");
+  printByteAsBinary(drivers[driver_id].getRC_CTRL8());
+  printf("\n"); // Final newline for the whole block
+}
 /* USER CODE END 4 */
 
 /**
@@ -537,6 +878,11 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+    // red LED ON
+    WS2812_SetColor(255, 0, 0, 100); // Red
+    HAL_Delay(200); // Wait for 1 second
+    WS2812_SetColor(0, 0, 0, 100); // Turn off the LED
+    HAL_Delay(200); // Wait for 1 second
   }
   /* USER CODE END Error_Handler_Debug */
 }
