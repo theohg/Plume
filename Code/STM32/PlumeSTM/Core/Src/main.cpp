@@ -43,7 +43,12 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef enum {
+  WAKEUP_SOURCE_UNKNOWN,
+  WAKEUP_SOURCE_IMU,
+  WAKEUP_SOURCE_BUTTON, // If you add button wakeups
+  WAKEUP_SOURCE_RTC     // If you add RTC wakeups
+} WakeupSource_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -62,6 +67,9 @@
 #define MOTOR_INTERNAL_RESISTANCE 20 // Internal resistance of the motor in Ohms
 #define MOTOR_REDUCTION_RATIO 26 // Reduction ratio of the motor
 #define MAX_MOTOR_RPM 1154 // Maximum speed of the motor in RPM 1154
+
+// IMU
+#define INACTIVITY_TIMEOUT_MS 1000 // 30 seconds
 
 // prinf destination
 //#define USE_UART
@@ -102,6 +110,10 @@ extern UART_HandleTypeDef huart1;
 // IMU
 extern I2C_HandleTypeDef hi2c3;
 struct bmi2_dev bmi270_sensor;  // BMI270 device structure
+extern TIM_HandleTypeDef htim16;
+volatile bool inactivity_timer_elapsed_flag = false;
+volatile bool imu_wakeup_pending = false; // Flag set by EXTI for IMU
+WakeupSource_t g_wakeup_source = WAKEUP_SOURCE_UNKNOWN;
 
 // Global variables
 static uint16_t speed = MAX_MOTOR_RPM * 0.7;
@@ -152,11 +164,217 @@ void I2C_Scan(I2C_HandleTypeDef *hi2c);
 void printByteAsBinary(uint8_t value);      // Prints an 8-bit value as binary with leading zeros
 void print2BytesAsBinary(uint16_t value);   // Prints a 16-bit value as binary with leading zeros
 void printRegisters(uint8_t driver_id);     // Prints some of the registers of the selected driver
+void Configure_BMI270_LowPower_AnyMotion(struct bmi2_dev *dev);
+void EnterStandbyMode(void);
+void ResetInactivityTimer(void);
+void CheckWakeupSource(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void CheckWakeupSource(void) {
+  if (__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET) {
+      __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB); // Clear Standby flag
 
+      // Check individual wakeup flags
+      if (__HAL_PWR_GET_FLAG(PWR_FLAG_WUF1) != RESET) { // PA0 - IMU
+          __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
+          printf("Woke up from Standby via IMU (WKUP1/PA0).\r\n");
+          g_wakeup_source = WAKEUP_SOURCE_IMU;
+          // imu_wakeup_pending can be set here if needed for immediate action,
+          // but usually, the fact that we woke up is enough.
+      }
+      // Add checks for other WKUP pins if used for buttons, e.g. PWR_FLAG_WUF2 etc.
+      // else if (__HAL_PWR_GET_FLAG(PWR_FLAG_WUFx) != RESET) { ... }
+      else {
+          printf("Woke up from Standby (source other than IMU on PA0 or unknown).\r\n");
+          g_wakeup_source = WAKEUP_SOURCE_UNKNOWN; // Or RTC, etc.
+      }
+  } else {
+      printf("Normal power-on or reset (not from Standby).\r\n");
+  }
+}
+
+void Configure_BMI270_LowPower_AnyMotion(struct bmi2_dev *dev) {
+  int8_t rslt;
+  uint8_t sens_list[1];
+  struct bmi2_sens_config sens_cfg;
+  struct bmi2_int_pin_config int_pin_cfg;
+
+  printf("Configuring BMI270 for Low Power Any Motion...\r\n");
+
+  // 1. Disable all sensors first (good practice before reconfiguring)
+  uint8_t all_sensors_off[] = { BMI2_ACCEL, BMI2_GYRO, BMI2_AUX }; // Add BMI2_TEMP if ever used
+  rslt = bmi270_sensor_disable(all_sensors_off, sizeof(all_sensors_off)/sizeof(all_sensors_off[0]), dev);
+  if (rslt != BMI2_OK) {
+      printf("BMI270 Disable All Sensors failed. Error: %d\r\n", rslt);
+      Error_Handler();
+  }
+   printf("All sensors disabled.\r\n");
+
+  // 2. Enable Accelerometer only
+  sens_list[0] = BMI2_ACCEL;
+  rslt = bmi270_sensor_enable(sens_list, 1, dev);
+  if (rslt != BMI2_OK) {
+      printf("BMI270 Accel Enable failed. Error: %d\r\n", rslt);
+      Error_Handler();
+  }
+  printf("Accelerometer enabled.\r\n");
+
+  // 3. Configure Accelerometer for low power
+  //    Datasheet page 26, Table 6: Low power mode -> ACC_CONF.acc_filter_perf = 0
+  //    Datasheet page 20, Flowchart: Recommends ACC_CONF = 0x17 for 50Hz, osr2_avg2, low power filter.
+  //    ACC_CONF (0x40):
+  //      [7] acc_filter_perf: 0 for low power
+  //      [6:4] acc_bwp: 001b (OSR2_AVG2 for low power based on datasheet filter table for acc_filter_perf=0)
+  //      [3:0] acc_odr: 0111b (50Hz - minimum for features if acc_filter_perf=0, page 41)
+  //      Result: 0_001_0111 = 0x17
+  sens_cfg.type = BMI2_ACCEL;
+  rslt = bmi2_get_sensor_config(&sens_cfg, 1, dev); // Get current to modify
+  if (rslt != BMI2_OK) {
+      printf("BMI270 Get Accel Config failed. Error: %d\r\n", rslt);
+      Error_Handler();
+  }
+  sens_cfg.cfg.acc.odr = BMI2_ACC_ODR_50HZ;        // 50Hz, as features might need this ODR minimum
+  sens_cfg.cfg.acc.bwp = BMI2_ACC_OSR2_AVG2;       // Low power bandwidth (osr2_avg2)
+  sens_cfg.cfg.acc.filter_perf = BMI2_POWER_OPT_MODE; // Low power filter performance (acc_filter_perf = 0)
+  // sens_cfg.cfg.acc.range = BMI2_ACC_RANGE_2G; // Already set or keep default
+  rslt = bmi2_set_sensor_config(&sens_cfg, 1, dev);
+  if (rslt != BMI2_OK) {
+      printf("BMI270 Accel Low Power Config failed. Error: %d\r\n", rslt);
+      Error_Handler();
+  }
+  printf("Accelerometer configured for low power (ODR: 50Hz, BWP: OSR2_AVG2, Filter: Power Optimized).\r\n");
+
+  // 4. Enable Advanced Power Saving (after sensor config)
+  //    PWR_CONF (0x7C): bit 1 adv_power_save = 1
+  rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
+  if (rslt != BMI2_OK) {
+      printf("BMI270 Enable Advanced Power Save failed. Error: %d\r\n", rslt);
+      Error_Handler();
+  }
+  printf("Advanced Power Saving enabled.\r\n");
+
+  // 5. Configure Any-Motion feature
+  //    ANYMO_1 (Page 1, 0x0C-0x0D in FEATURES): duration, select_x/y/z
+  //    ANYMO_2 (Page 1, 0x0E-0x0F in FEATURES): threshold, enable
+  struct bmi2_sens_config anymotion_cfg;
+  anymotion_cfg.type = BMI2_ANY_MOTION;
+  rslt = bmi270_get_sensor_config(&anymotion_cfg, 1, dev); // Get defaults
+   if (rslt != BMI2_OK) {
+      printf("BMI270 Get AnyMotion Config failed. Error: %d\r\n", rslt);
+      // Don't Error_Handler() here, could be feature not active yet. We will set it.
+  }
+
+  anymotion_cfg.cfg.any_motion.duration = 2;    // 2 samples * 20ms/sample (at 50Hz) = 40ms
+  anymotion_cfg.cfg.any_motion.threshold = 20;  // Threshold: 20 * 0.061mg/LSB (for 2g range) ~ 1.22mg.
+                                                // For 2g range, sensitivity is 16384 LSB/g.
+                                                // Threshold (g) = threshold_lsb / 16384.
+                                                // Threshold (mg) = (threshold_lsb * 1000) / 16384.
+                                                // A value of 20 means 20 * 1000 / 16384 ~= 1.22 mg. This is very sensitive.
+                                                // Datasheet page 43 typical threshold is 0xAA for anymotion (83mg). Let's try that.
+  anymotion_cfg.cfg.any_motion.threshold = 0xAA; // Let's use a moderate value like 32 decimal for testing (~2mg)
+  anymotion_cfg.cfg.any_motion.select_x = BMI2_ENABLE;
+  anymotion_cfg.cfg.any_motion.select_y = BMI2_ENABLE;
+  anymotion_cfg.cfg.any_motion.select_z = BMI2_ENABLE;
+  // The .enable field within any_motion struct is for axis selection, not the feature itself.
+  // Feature is enabled by bmi270_sensor_enable for BMI2_ANY_MOTION type.
+
+  rslt = bmi270_set_sensor_config(&anymotion_cfg, 1, dev);
+  if (rslt != BMI2_OK) {
+      printf("BMI270 Set AnyMotion Config failed. Error: %d\r\n", rslt);
+      Error_Handler();
+  }
+  printf("Any Motion configured (Duration: %d, Threshold: 0x%X).\r\n",
+         anymotion_cfg.cfg.any_motion.duration, anymotion_cfg.cfg.any_motion.threshold);
+
+
+  // 6. Enable Any-Motion feature
+  sens_list[0] = BMI2_ANY_MOTION;
+  rslt = bmi270_sensor_enable(sens_list, 1, dev);
+  if (rslt != BMI2_OK) {
+      printf("BMI270 AnyMotion Sensor Enable failed. Error: %d\r\n", rslt);
+      Error_Handler();
+  }
+  printf("Any Motion feature enabled.\r\n");
+
+  // 7. Configure BMI270 Interrupt Pin (e.g., INT1)
+  //    INT1_IO_CTRL (0x53), INT_LATCH (0x55)
+  int_pin_cfg.pin_type = BMI2_INT1; // Or BMI2_INT2, ensure physical connection matches
+  int_pin_cfg.int_latch = BMI2_INT_NON_LATCH; // Non-latched for edge trigger
+  int_pin_cfg.pin_cfg[0].lvl = BMI2_INT_ACTIVE_HIGH; // Active high for STM32 rising edge EXTI
+  int_pin_cfg.pin_cfg[0].od = BMI2_INT_PUSH_PULL;
+  int_pin_cfg.pin_cfg[0].output_en = BMI2_INT_OUTPUT_ENABLE;
+  int_pin_cfg.pin_cfg[0].input_en = BMI2_INT_INPUT_DISABLE; // INT1 as output
+  // If using BMI2_INT2, configure pin_cfg[1]
+  rslt = bmi2_set_int_pin_config(&int_pin_cfg, dev);
+  if (rslt != BMI2_OK) {
+      printf("BMI270 Set INT Pin Config failed. Error: %d\r\n", rslt);
+      Error_Handler();
+  }
+  printf("BMI270 INT1 configured as Active High, Push-Pull output.\r\n");
+
+  // 8. Map Any-Motion interrupt to the configured INT pin
+  rslt = bmi2_map_feat_int(BMI2_ANY_MOTION, BMI2_INT1, dev); // Map to INT1
+  if (rslt != BMI2_OK) {
+      printf("BMI270 Map AnyMotion to INT1 failed. Error: %d\r\n", rslt);
+      Error_Handler();
+  }
+  printf("Any Motion interrupt mapped to INT1.\r\n");
+  printf("BMI270 Low Power Any Motion Setup Complete.\r\n");
+}
+
+void EnterStandbyMode(void) {
+  printf("Preparing to enter Standby Mode...\r\n");
+  WS2812_SetColor(0,0,0,0); // Turn off LED
+  HAL_Delay(100); // Allow UART to flush
+
+  // Set nSLEEP pins low
+  HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+  printf("nSLEEP pins set LOW.\r\n");
+
+  // Ensure PA0 (WKUP1) is configured for wakeup.
+  // Disable other wakeup pins if not used to prevent unintended wakeups.
+  // Example: HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN2);
+
+  // Clear all wakeup flags (especially WUF1 for PA0)
+  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
+   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
+   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF2);
+   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF3);
+   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF4);
+   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF5);
+
+   // Disable all wakeup pins except the one we want
+   HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN2); // Assuming PA2 is WKUP2
+   HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN3);
+   HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN4);
+   HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN5);
+
+  // Enable WakeUp Pin PA0 (WKUP1)
+  // The edge (HIGH or LOW) depends on BMI270 INT pin's active level and STM32 EXTI config.
+  // If BMI270 INT1 is Active High, and EXTI0 is Rising Edge:
+  HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1_HIGH);
+  // If BMI270 INT1 is Active Low, and EXTI0 is Falling Edge:
+  // HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1_LOW);
+
+  printf("Entering Standby Mode. STM32 will reset on wakeup.\r\n");
+  HAL_Delay(10); // Final small delay for printf
+
+  // Enter Standby mode
+  HAL_PWR_EnterSTANDBYMode();
+
+  // --- Code execution stops here and will resume from Reset_Handler on wakeup ---
+  // --- Effectively, main() will restart from the beginning.             ---
+}
+
+void ResetInactivityTimer(void) {
+  // printf("Inactivity timer reset.\r\n");
+  inactivity_timer_elapsed_flag = false;
+  __HAL_TIM_SET_COUNTER(&htim16, 0); // Reset counter for TIM6
+  HAL_TIM_Base_Start_IT(&htim16);    // Restart TIM6
+}
 /* USER CODE END 0 */
 
 /**
@@ -202,11 +420,12 @@ int main(void)
   MX_TIM2_Init();
   MX_SPI2_Init();
   MX_USART1_UART_Init();
+  MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
-  printf(" "); // First empty prinf because a bug causes the first character to be lost
+  printf(" System Initialized. Wakeup source: %d (0=Unk, 1=IMU)\r\n", g_wakeup_source);
   // Default GPIO states
-  HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+  // HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+  // HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(MUX_RESET_GPIO_Port, MUX_RESET_Pin, GPIO_PIN_SET);
 
@@ -278,44 +497,63 @@ int main(void)
       Error_Handler();
   }
 
-  // --- Example: Enable Accelerometer and Gyroscope ---
+  // --- BMI270 LOW POWER AND ANY MOTION SETUP ---
   if (rslt_bmi == BMI2_OK) {
-    uint8_t sens_list[] = { BMI2_ACCEL, BMI2_GYRO };
-    rslt_bmi = bmi270_sensor_enable(sens_list, 2, &bmi270_sensor);
-    if (rslt_bmi != BMI2_OK) {
-        printf("BMI270 Sensor Enable failed. Error: %d\r\n", rslt_bmi);
-    } else {
-        printf("BMI270 Accel & Gyro enabled.\r\n");
-    }
-
-    // Configure Accelerometer (example: 2g range, 100Hz ODR, Normal Mode)
-    struct bmi2_sens_config sens_cfg;
-    sens_cfg.type = BMI2_ACCEL;
-    sens_cfg.cfg.acc.range = BMI2_ACC_RANGE_2G;
-    sens_cfg.cfg.acc.odr = BMI2_ACC_ODR_100HZ;
-    sens_cfg.cfg.acc.bwp = BMI2_ACC_NORMAL_AVG4; // Normal bandwidth parameter
-    sens_cfg.cfg.acc.filter_perf = BMI2_PERF_OPT_MODE; // Filter performance mode
-    rslt_bmi = bmi2_set_sensor_config(&sens_cfg, 1, &bmi270_sensor);
-    if (rslt_bmi != BMI2_OK) {
-        printf("BMI270 Accel Config failed. Error: %d\r\n", rslt_bmi);
-    } else {
-        printf("BMI270 Accel configured.\r\n");
-    }
-    
-    // Configure Gyroscope (example: 2000dps range, 100Hz ODR, Normal Mode)
-    sens_cfg.type = BMI2_GYRO;
-    sens_cfg.cfg.gyr.range = BMI2_GYR_RANGE_2000;
-    sens_cfg.cfg.gyr.odr = BMI2_GYR_ODR_100HZ;
-    sens_cfg.cfg.gyr.bwp = BMI2_GYR_NORMAL_MODE; // Normal bandwidth parameter
-    sens_cfg.cfg.gyr.filter_perf = BMI2_PERF_OPT_MODE; // Filter performance mode
-    sens_cfg.cfg.gyr.noise_perf = BMI2_POWER_OPT_MODE; // Noise performance mode
-    rslt_bmi = bmi2_set_sensor_config(&sens_cfg, 1, &bmi270_sensor);
-    if (rslt_bmi != BMI2_OK) {
-        printf("BMI270 Gyro Config Failed. Error: %d\r\n", rslt_bmi);
-    } else {
-        printf("BMI270 Gyro configured.\r\n");
-    }
+    Configure_BMI270_LowPower_AnyMotion(&bmi270_sensor);
   }
+  // --- END BMI270 SETUP ---
+
+  if (g_wakeup_source == WAKEUP_SOURCE_UNKNOWN) { // Only blink on cold boot
+      WS2812_SetColor(255, 0, 0, 100); HAL_Delay(330);
+      WS2812_SetColor(0, 255, 0, 100); HAL_Delay(330);
+      WS2812_SetColor(0, 0, 255, 100); HAL_Delay(330);
+  } else if (g_wakeup_source == WAKEUP_SOURCE_IMU) {
+      WS2812_SetColor(255, 255, 255, 100); // White for IMU wakeup
+      HAL_Delay(1000);
+  }
+  WS2812_SetColor(0, 0, 0, 100);
+
+  ResetInactivityTimer(); // Start the 30-second inactivity timer
+  printf("Main loop started. Inactivity timer running for %lu ms.\r\n", INACTIVITY_TIMEOUT_MS);
+
+  // // --- Example: Enable Accelerometer and Gyroscope ---
+  // if (rslt_bmi == BMI2_OK) {
+  //   uint8_t sens_list[] = { BMI2_ACCEL, BMI2_GYRO };
+  //   rslt_bmi = bmi270_sensor_enable(sens_list, 2, &bmi270_sensor);
+  //   if (rslt_bmi != BMI2_OK) {
+  //       printf("BMI270 Sensor Enable failed. Error: %d\r\n", rslt_bmi);
+  //   } else {
+  //       printf("BMI270 Accel & Gyro enabled.\r\n");
+  //   }
+
+  //   // Configure Accelerometer (example: 2g range, 100Hz ODR, Normal Mode)
+  //   struct bmi2_sens_config sens_cfg;
+  //   sens_cfg.type = BMI2_ACCEL;
+  //   sens_cfg.cfg.acc.range = BMI2_ACC_RANGE_2G;
+  //   sens_cfg.cfg.acc.odr = BMI2_ACC_ODR_100HZ;
+  //   sens_cfg.cfg.acc.bwp = BMI2_ACC_NORMAL_AVG4; // Normal bandwidth parameter
+  //   sens_cfg.cfg.acc.filter_perf = BMI2_PERF_OPT_MODE; // Filter performance mode
+  //   rslt_bmi = bmi2_set_sensor_config(&sens_cfg, 1, &bmi270_sensor);
+  //   if (rslt_bmi != BMI2_OK) {
+  //       printf("BMI270 Accel Config failed. Error: %d\r\n", rslt_bmi);
+  //   } else {
+  //       printf("BMI270 Accel configured.\r\n");
+  //   }
+    
+  //   // Configure Gyroscope (example: 2000dps range, 100Hz ODR, Normal Mode)
+  //   sens_cfg.type = BMI2_GYRO;
+  //   sens_cfg.cfg.gyr.range = BMI2_GYR_RANGE_2000;
+  //   sens_cfg.cfg.gyr.odr = BMI2_GYR_ODR_100HZ;
+  //   sens_cfg.cfg.gyr.bwp = BMI2_GYR_NORMAL_MODE; // Normal bandwidth parameter
+  //   sens_cfg.cfg.gyr.filter_perf = BMI2_PERF_OPT_MODE; // Filter performance mode
+  //   sens_cfg.cfg.gyr.noise_perf = BMI2_POWER_OPT_MODE; // Noise performance mode
+  //   rslt_bmi = bmi2_set_sensor_config(&sens_cfg, 1, &bmi270_sensor);
+  //   if (rslt_bmi != BMI2_OK) {
+  //       printf("BMI270 Gyro Config Failed. Error: %d\r\n", rslt_bmi);
+  //   } else {
+  //       printf("BMI270 Gyro configured.\r\n");
+  //   }
+  // }
 
   // Blink the LED to indicate startup finished
   WS2812_SetColor(255, 0, 0, 100);
@@ -333,6 +571,23 @@ int main(void)
 
   while (1)
   { 
+    // Check for IMU wakeup (flag set in EXTI callback)
+    if (imu_wakeup_pending) {
+      imu_wakeup_pending = false; // Clear flag
+      printf("IMU Wakeup processed in main loop.\r\n");
+      WS2812_SetColor(255, 165, 0, 100); // Orange
+      HAL_Delay(500);
+      WS2812_SetColor(0, 0, 0, 100);
+      ResetInactivityTimer();
+      // Add any specific actions for IMU wakeup here
+    }
+
+    // Check for inactivity timer timeout
+    if (inactivity_timer_elapsed_flag) {
+      inactivity_timer_elapsed_flag = false; // Clear flag
+      EnterStandbyMode(); // This function will not return; MCU resets on wakeup.
+    }
+
     if (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_SET && i2c_channel_to_use == 0) {
       i2c_channel_to_use = 1;
       HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
@@ -346,21 +601,20 @@ int main(void)
       driver_configs[i2c_channel_to_use] = DRV8214_Config();
       	 drivers[i2c_channel_to_use].init(driver_configs[i2c_channel_to_use]);
       	 drivers[i2c_channel_to_use].resetFaultFlags();
-   } else if (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_RESET && i2c_channel_to_use == 1) {
-      i2c_channel_to_use = 0;
-
-      HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
-      if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) == 0) {
-        printf("Channel %d selected successfully!\n", i2c_channel_to_use);
-      } else {
-          printf("Failed to select channel %d on I2C multiplexer.\n", i2c_channel_to_use);
-      }
-      HAL_Delay(10);
-      driver_configs[i2c_channel_to_use] = DRV8214_Config();
-	 drivers[i2c_channel_to_use].init(driver_configs[i2c_channel_to_use]);
-	 drivers[i2c_channel_to_use].resetFaultFlags();
-   }
+    } else if (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_RESET && i2c_channel_to_use == 1) {
+        i2c_channel_to_use = 0;
+        HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+        if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) == 0) {
+          printf("Channel %d selected successfully!\n", i2c_channel_to_use);
+        } else {
+            printf("Failed to select channel %d on I2C multiplexer.\n", i2c_channel_to_use);
+        }
+        HAL_Delay(10);
+        driver_configs[i2c_channel_to_use] = DRV8214_Config();
+      drivers[i2c_channel_to_use].init(driver_configs[i2c_channel_to_use]);
+      drivers[i2c_channel_to_use].resetFaultFlags();
+    }
 
     if (wakeup_event) {
       // Process the wakeup event (button press)
@@ -712,6 +966,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   else if (htim->Instance == htim2.Instance) // Check against the specific timer instance
   {
     g_measure_battery_flag = 1;
+  }
+  else if (htim->Instance == TIM16) // Inactivity Timer (e.g. TIM16)
+  {
+    inactivity_timer_elapsed_flag = true;
+    HAL_TIM_Base_Stop_IT(&htim16); // Stop timer, will be restarted on activity
+    printf("Inactivity timer elapsed.\r\n");
   }
   // Add other timer callbacks if you have them
 }

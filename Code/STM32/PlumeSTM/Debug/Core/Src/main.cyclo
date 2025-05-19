@@ -1,16 +1,20 @@
 ../Drivers/CMSIS/Include/core_cm4.h:2059:26:uint32_t ITM_SendChar(uint32_t)	5
 /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:147:8:constexpr DRV8214_Config::DRV8214_Config()	1
 /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:198:9:DRV8214::DRV8214(uint8_t, uint8_t, uint16_t, uint8_t, uint8_t, uint8_t, uint16_t)	1
-../Core/Src/main.cpp:166:5:int main()	33
-../Core/Src/main.cpp:560:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:615:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:640:6:void HAL_GPIO_EXTI_Callback(uint16_t)	6
-../Core/Src/main.cpp:672:7:int _write(int, char*, int)	2
-../Core/Src/main.cpp:705:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	3
-../Core/Src/main.cpp:719:6:void I2C_Scan(I2C_HandleTypeDef*)	7
-../Core/Src/main.cpp:745:6:void printByteAsBinary(uint8_t)	2
-../Core/Src/main.cpp:751:6:void print2BytesAsBinary(uint16_t)	2
-../Core/Src/main.cpp:758:6:void printRegisters(uint8_t)	1
-../Core/Src/main.cpp:874:6:void Error_Handler()	1
-../Core/Src/main.cpp:888:1:void __static_initialization_and_destruction_0()	1
-../Core/Src/main.cpp:888:1:cpp)	1
+../Core/Src/main.cpp:175:6:void CheckWakeupSource()	3
+../Core/Src/main.cpp:198:6:void Configure_BMI270_LowPower_AnyMotion(bmi2_dev*)	11
+../Core/Src/main.cpp:327:6:void EnterStandbyMode()	1
+../Core/Src/main.cpp:366:6:void ResetInactivityTimer()	1
+../Core/Src/main.cpp:378:5:int main()	34
+../Core/Src/main.cpp:808:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:863:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:888:6:void HAL_GPIO_EXTI_Callback(uint16_t)	6
+../Core/Src/main.cpp:920:7:int _write(int, char*, int)	2
+../Core/Src/main.cpp:953:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	4
+../Core/Src/main.cpp:973:6:void I2C_Scan(I2C_HandleTypeDef*)	7
+../Core/Src/main.cpp:999:6:void printByteAsBinary(uint8_t)	2
+../Core/Src/main.cpp:1005:6:void print2BytesAsBinary(uint16_t)	2
+../Core/Src/main.cpp:1012:6:void printRegisters(uint8_t)	1
+../Core/Src/main.cpp:1128:6:void Error_Handler()	1
+../Core/Src/main.cpp:1142:1:void __static_initialization_and_destruction_0()	1
+../Core/Src/main.cpp:1142:1:cpp)	1
