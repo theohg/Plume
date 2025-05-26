@@ -1,3 +1,0 @@
-../Drivers/TCA9548_Driver/src/TCA9548.cpp:16:5:int i2c_mux_reset(i2c_mux_t*)	16	static
-../Drivers/TCA9548_Driver/src/TCA9548.cpp:31:5:int i2c_mux_select(i2c_mux_t*, int)	24	static
-../Drivers/TCA9548_Driver/src/TCA9548.cpp:38:5:int i2c_mux_select_multi(i2c_mux_t*, uint8_t)	32	static

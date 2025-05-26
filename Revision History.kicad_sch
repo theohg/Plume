@@ -11,6 +11,58 @@
 		(company "${COMPANY}")
 	)
 	(lib_symbols)
+	(circle
+		(center 42.418 159.131)
+		(radius 1.27)
+		(stroke
+			(width -0.0001)
+			(type solid)
+		)
+		(fill
+			(type color)
+			(color 0 255 0 1)
+		)
+		(uuid 2738453d-4095-467b-8b33-2e3fdecc6b52)
+	)
+	(circle
+		(center 21.59 49.53)
+		(radius 1.27)
+		(stroke
+			(width -0.0001)
+			(type solid)
+		)
+		(fill
+			(type color)
+			(color 0 255 0 1)
+		)
+		(uuid 5097ba73-ebe6-4c95-9a51-61d585b61c63)
+	)
+	(text "Done"
+		(exclude_from_sim no)
+		(at 48.26 160.02 0)
+		(effects
+			(font
+				(size 1.778 1.778)
+				(thickness 0.3556)
+				(bold yes)
+				(color 0 0 0 1)
+			)
+		)
+		(uuid "abba4a09-20a6-4e21-9345-140edc9a12c5")
+	)
+	(text "Not done yet"
+		(exclude_from_sim no)
+		(at 52.07 163.83 0)
+		(effects
+			(font
+				(size 1.778 1.778)
+				(thickness 0.3556)
+				(bold yes)
+				(color 0 0 0 1)
+			)
+		)
+		(uuid "cb908854-c7e1-42df-8600-226560051945")
+	)
 	(text_box "- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________"
 		(exclude_from_sim no)
 		(at 220.98 40.64 0)
@@ -102,14 +154,14 @@
 		)
 		(uuid "61447e65-3862-4ca7-a61e-5d8506cb38bb")
 	)
-	(text_box "- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________"
+	(text_box "- Changed Silkscreen for motor testpoints from D10 to D8\n\n- GND test point next to battery connector isn't actually a GND test point -> changed to BAT-\n\n- Make the slot for the battery cables wider, move the connector further inside the PCB.\n\n- Move R & C of holes further in the bottom\n\n- Power LED is not ON when VBUS is present\n\n- Paste mask of the STM32 MCU is bad apparently\n\n- Need to short +VBAT and DOUT/COUT to enable the device\n\n- Switch 1 and switch2 needs to be routed to different GPIO to have them as interrupt\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________\n\n- _________________________________"
 		(exclude_from_sim no)
-		(at 22.86 40.64 0)
+		(at 22.86 46.99 0)
 		(size 58.42 115.57)
 		(margins 1.4287 1.4287 1.4287 1.4287)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -214,7 +266,7 @@
 		)
 		(uuid "f47af890-f55a-44bf-b54f-b7df3adde008")
 	)
-	(text_box "Ordered 24/04/2025: 5 PCB for 232.48$"
+	(text_box "Ordered 24/04/2025: 5 PCB for 232.48$\nComponents for 4 PCB on Mouser: 300 CHF"
 		(exclude_from_sim no)
 		(at 20.32 36.83 0)
 		(size 62.23 7.62)
@@ -240,6 +292,61 @@
 	)
 	(polyline
 		(pts
+			(xy 22.86 111.76) (xy 20.955 109.855)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "219e9aae-5fa0-4f2d-8d57-6d9585e7d546")
+	)
+	(polyline
+		(pts
+			(xy 22.86 69.85) (xy 20.955 67.945)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "22eeb99b-16d4-4c1a-8195-24d4b9fc46cd")
+	)
+	(polyline
+		(pts
+			(xy 20.955 60.96) (xy 22.86 59.055)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "354230d8-e12c-4155-9702-c795997e9961")
+	)
+	(polyline
+		(pts
+			(xy 43.688 164.211) (xy 41.783 162.306)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "36adf4fa-9579-4355-ba80-3de2c9e07dce")
+	)
+	(polyline
+		(pts
+			(xy 22.86 102.235) (xy 20.955 100.33)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "45b2f5ca-4e91-4540-ad41-af3eb4b7d6d9")
+	)
+	(polyline
+		(pts
 			(xy 19.05 31.75) (xy 19.05 149.86)
 		)
 		(stroke
@@ -262,6 +369,39 @@
 	)
 	(polyline
 		(pts
+			(xy 22.86 85.725) (xy 20.955 83.82)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "5f88252c-0fef-42c4-ae0e-8c6ad7d980f6")
+	)
+	(polyline
+		(pts
+			(xy 22.86 92.71) (xy 20.955 90.805)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "6245eaac-367f-4976-b0a3-d9595aa3da59")
+	)
+	(polyline
+		(pts
+			(xy 20.955 111.76) (xy 22.86 109.855)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "644bec5d-6169-4bc0-a665-b0c4f9b03c40")
+	)
+	(polyline
+		(pts
 			(xy 85.09 31.75) (xy 85.09 149.86)
 		)
 		(stroke
@@ -270,6 +410,28 @@
 			(color 0 0 0 1)
 		)
 		(uuid "74018a10-ab58-4dc2-b4e6-376117e1ffc0")
+	)
+	(polyline
+		(pts
+			(xy 20.955 79.375) (xy 22.86 77.47)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "75d3ce82-91f1-4cb1-b788-f637bb1c091e")
+	)
+	(polyline
+		(pts
+			(xy 41.783 164.211) (xy 43.688 162.306)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "76b5a0eb-0bc3-45e3-85bb-059de6b79228")
 	)
 	(polyline
 		(pts
@@ -284,6 +446,17 @@
 	)
 	(polyline
 		(pts
+			(xy 20.955 92.71) (xy 22.86 90.805)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "aabbfdfa-6c78-4d60-bc41-c56e2af7e409")
+	)
+	(polyline
+		(pts
 			(xy 19.05 31.75) (xy 19.05 149.86)
 		)
 		(stroke
@@ -292,6 +465,61 @@
 			(color 0 0 0 1)
 		)
 		(uuid "b271ef24-6836-4d14-b8f8-8568bc734aca")
+	)
+	(polyline
+		(pts
+			(xy 22.86 79.375) (xy 20.955 77.47)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "be1699b3-74fc-41c0-baa2-6dcf0fbd418d")
+	)
+	(polyline
+		(pts
+			(xy 20.955 102.235) (xy 22.86 100.33)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "cb36bde7-bbb1-4e84-8109-8ce708c07291")
+	)
+	(polyline
+		(pts
+			(xy 20.955 85.725) (xy 22.86 83.82)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "d26a8cf0-9a29-4c3b-a88e-e727e723408e")
+	)
+	(polyline
+		(pts
+			(xy 20.955 69.85) (xy 22.86 67.945)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "d9530434-17c9-4bdd-8d94-75627877431f")
+	)
+	(polyline
+		(pts
+			(xy 22.86 60.96) (xy 20.955 59.055)
+		)
+		(stroke
+			(width 0.381)
+			(type solid)
+			(color 255 0 0 1)
+		)
+		(uuid "df3e5ade-2c1d-41bd-a5d8-daaac7799a02")
 	)
 	(polyline
 		(pts

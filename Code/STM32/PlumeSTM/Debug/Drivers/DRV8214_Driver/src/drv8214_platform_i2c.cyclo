@@ -1,5 +1,0 @@
-../Drivers/DRV8214_Driver/src/drv8214_platform_i2c.cpp:7:10:void drv8214_i2c_set_handle(I2C_HandleTypeDef*)	1
-../Drivers/DRV8214_Driver/src/drv8214_platform_i2c.cpp:12:6:void drv8214_i2c_write_register(uint8_t, uint8_t, uint8_t)	2
-../Drivers/DRV8214_Driver/src/drv8214_platform_i2c.cpp:30:9:uint8_t drv8214_i2c_read_register(uint8_t, uint8_t)	4
-../Drivers/DRV8214_Driver/src/drv8214_platform_i2c.cpp:60:6:void drv8214_i2c_modify_register(uint8_t, uint8_t, uint8_t, uint8_t)	2
-../Drivers/DRV8214_Driver/src/drv8214_platform_i2c.cpp:70:6:void drv8214_i2c_modify_register_bits(uint8_t, uint8_t, uint8_t, uint8_t)	1

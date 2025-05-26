@@ -1,6 +1,0 @@
-../Core/Src/ws2812.c:9:6:ws2812_init	16	static
-../Core/Src/ws2812.c:45:6:ws2812_set_led_color	32	static
-../Core/Src/ws2812.c:74:6:ws2812_set_all_leds_color	24	static
-../Core/Src/ws2812.c:80:6:ws2812_clear_all_leds	8	static
-../Core/Src/ws2812.c:84:6:ws2812_show	8	static
-../Core/Src/ws2812.c:99:6:HAL_SPI_TxCpltCallback	16	static

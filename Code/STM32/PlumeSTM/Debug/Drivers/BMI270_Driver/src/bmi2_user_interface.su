@@ -1,4 +1,0 @@
-../Drivers/BMI270_Driver/src/bmi2_user_interface.c:7:6:bmi2_set_i2c_handle	16	static
-../Drivers/BMI270_Driver/src/bmi2_user_interface.c:11:23:bmi2_i2c_read	40	static
-../Drivers/BMI270_Driver/src/bmi2_user_interface.c:27:23:bmi2_i2c_write	40	static
-../Drivers/BMI270_Driver/src/bmi2_user_interface.c:43:6:bmi2_delay_us	24	static,ignoring_inline_asm

@@ -7,3 +7,12 @@
 [submodule "Code/DRV8214_DEV/lib/mcp23017"]
 	path = Code/DRV8214_DEV/lib/mcp23017
 	url = git@github.com:blemasle/arduino-mcp23017.git
+[submodule "Software/PLUME_ESP32/lib/TCA9545A"]
+	path = Software/PLUME_ESP32/lib/TCA9545A
+	url = git@github.com:RobTillaart/TCA9548.git
+[submodule "Software/PLUME_ESP32/lib/drv8214_multiplatform"]
+	path = Software/PLUME_ESP32/lib/drv8214_multiplatform
+	url = git@github.com:PatateMagique/drv8214_multiplatform.git
+[submodule "Software/PLUME_ESP32/lib/mcp23017"]
+	path = Software/PLUME_ESP32/lib/mcp23017
+	url = git@github.com:blemasle/arduino-mcp23017.git

@@ -1,2 +1,0 @@
-../Core/Src/WS2812_SPI.cpp:18:13:void ws2812_send_spi_data(uint8_t, uint8_t, uint8_t)	3
-../Core/Src/WS2812_SPI.cpp:43:6:void WS2812_SetColor(uint8_t, uint8_t, uint8_t, uint8_t)	8
