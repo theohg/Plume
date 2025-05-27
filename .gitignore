@@ -1,3 +1,6 @@
+# KiCad autosave and temporary files
+#auto_saved_files#
+_autosave-Plume.kicad_sch
 *-backups
 **/*.xml
 **/*.lck
@@ -6,9 +9,16 @@
 **/*.tmp
 **/*.bak
 **/*.kicad_sch-bak
+
+# KiCad-specific files
 fp-info-cache
 fp-lib-table
 sym-lib-table
+
+# macOS system file
 .DS_Store
+
+# Backup folders and files
 Plume-backups/
 Images/.*.drawio.bkp
+\#auto_saved_files#
