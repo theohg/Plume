@@ -63,6 +63,7 @@ void Error_Handler(void);
 #define BAT_SENSE_GPIO_Port GPIOA
 #define IMU_INT1_Pin GPIO_PIN_0
 #define IMU_INT1_GPIO_Port GPIOA
+#define IMU_INT1_EXTI_IRQn EXTI0_IRQn
 #define LED_5V_EN_Pin GPIO_PIN_2
 #define LED_5V_EN_GPIO_Port GPIOC
 #define BUTTON5_Pin GPIO_PIN_3

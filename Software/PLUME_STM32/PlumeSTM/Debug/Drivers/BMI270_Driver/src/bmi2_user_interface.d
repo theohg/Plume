@@ -1,6 +1,6 @@
 Drivers/BMI270_Driver/src/bmi2_user_interface.o: \
  ../Drivers/BMI270_Driver/src/bmi2_user_interface.c \
- /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2_user_interface.h \
+ /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2_user_interface.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h \
  ../Core/Inc/stm32wbxx_hal_conf.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_dma.h \
@@ -48,10 +48,10 @@ Drivers/BMI270_Driver/src/bmi2_user_interface.o: \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_uart.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_uart_ex.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_system.h \
- /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2.h \
- /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2_defs.h \
+ /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2.h \
+ /Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2_defs.h \
  ../Core/Inc/i2c.h ../Core/Inc/main.h
-/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2_user_interface.h:
+/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2_user_interface.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h:
 ../Core/Inc/stm32wbxx_hal_conf.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_dma.h:
@@ -99,7 +99,7 @@ Drivers/BMI270_Driver/src/bmi2_user_interface.o: \
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_uart.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_uart_ex.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_system.h:
-/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2.h:
-/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Code/STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2_defs.h:
+/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2.h:
+/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/BMI270_Driver/include/bmi2_defs.h:
 ../Core/Inc/i2c.h:
 ../Core/Inc/main.h:

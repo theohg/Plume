@@ -113,6 +113,7 @@ struct bmi2_dev bmi270_sensor;  // BMI270 device structure
 extern TIM_HandleTypeDef htim16;
 volatile bool inactivity_timer_elapsed_flag = false;
 volatile bool imu_wakeup_pending = false; // Flag set by EXTI for IMU
+volatile bool woke_up_from_stop_mode = false;
 WakeupSource_t g_wakeup_source = WAKEUP_SOURCE_UNKNOWN;
 
 // Global variables
@@ -168,6 +169,7 @@ void Configure_BMI270_LowPower_AnyMotion(struct bmi2_dev *dev);
 void EnterStandbyMode(void);
 void ResetInactivityTimer(void);
 void CheckWakeupSource(void);
+void Wakeup_Reinit_Peripherals(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -181,8 +183,7 @@ void CheckWakeupSource(void) {
           __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
           printf("Woke up from Standby via IMU (WKUP1/PA0).\r\n");
           g_wakeup_source = WAKEUP_SOURCE_IMU;
-          // imu_wakeup_pending can be set here if needed for immediate action,
-          // but usually, the fact that we woke up is enough.
+          HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN1);
       }
       // Add checks for other WKUP pins if used for buttons, e.g. PWR_FLAG_WUF2 etc.
       // else if (__HAL_PWR_GET_FLAG(PWR_FLAG_WUFx) != RESET) { ... }
@@ -324,49 +325,62 @@ void Configure_BMI270_LowPower_AnyMotion(struct bmi2_dev *dev) {
   printf("BMI270 Low Power Any Motion Setup Complete.\r\n");
 }
 
-void EnterStandbyMode(void) {
-  printf("Preparing to enter Standby Mode...\r\n");
+void EnterStop2Mode(void) {
+  printf("Preparing to enter Stop2 Mode...\r\n");
   WS2812_SetColor(0,0,0,0); // Turn off LED
-  HAL_Delay(100); // Allow UART to flush
 
-  // Set nSLEEP pins low
   HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
   printf("nSLEEP pins set LOW.\r\n");
+  HAL_Delay(100); // UART flush
 
-  // Ensure PA0 (WKUP1) is configured for wakeup.
-  // Disable other wakeup pins if not used to prevent unintended wakeups.
-  // Example: HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN2);
+  // Stop peripherals and timers to prevent them from waking the MCU
+  HAL_TIM_Base_Stop_IT(&htim2);
+  HAL_TIM_Base_Stop_IT(&htim16);
+  HAL_ADC_Stop(&hadc1); // Ensure ADC is stopped
 
-  // Clear all wakeup flags (especially WUF1 for PA0)
-  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
-   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
-   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF2);
-   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF3);
-   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF4);
-   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF5);
+  // Clear all wakeup flags to prevent immediate re-wakeup
+  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+  __HAL_GPIO_EXTI_CLEAR_FLAG(IMU_INT1_Pin | BUTTON1_Pin | BUTTON2_Pin | BUTTON3_Pin | BUTTON4_Pin | BUTTON5_Pin);
+  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1 | PWR_FLAG_WUF2 | PWR_FLAG_WUF3 | PWR_FLAG_WUF4 | PWR_FLAG_WUF5);
 
-   // Disable all wakeup pins except the one we want
-   HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN2); // Assuming PA2 is WKUP2
-   HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN3);
-   HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN4);
-   HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN5);
-
-  // Enable WakeUp Pin PA0 (WKUP1)
-  // The edge (HIGH or LOW) depends on BMI270 INT pin's active level and STM32 EXTI config.
-  // If BMI270 INT1 is Active High, and EXTI0 is Rising Edge:
   HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1_HIGH);
-  // If BMI270 INT1 is Active Low, and EXTI0 is Falling Edge:
-  // HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1_LOW);
 
-  printf("Entering Standby Mode. STM32 will reset on wakeup.\r\n");
-  HAL_Delay(10); // Final small delay for printf
+  // Enter Stop2 mode
+  HAL_SuspendTick(); // Suspend SysTick to prevent wakeup from it
+  HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
+}
 
-  // Enter Standby mode
+void EnterStandbyMode(void) {
+  printf("Preparing to enter Standby Mode...\r\n");
+  WS2812_SetColor(0,0,0,0);
+
+  // Set nSLEEP pins of external devices low if needed
+  HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+  printf("nSLEEP pins set LOW.\r\n");
+  HAL_Delay(100); // UART flush
+
+  // 1. Enable PWR peripheral clock
+  //  __HAL_RCC_PWR_CLK_ENABLE();
+
+  // 4. Enable the desired WakeUp Pin (PA0 = WKUP1, rising edge for active high IMU signal)
+  HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1_HIGH);
+
+  // 3. Disable unused WakeUp Pins
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN2);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN3);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN4);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN5);
+
+  // 2. Clear ALL Wakeup Flags (Standby and individual WUFx)
+  //    This prevents immediate wakeup if a flag was already set.
+  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1 | PWR_FLAG_WUF2 | PWR_FLAG_WUF3 | PWR_FLAG_WUF4 | PWR_FLAG_WUF5); // Clear all at once
+
+  // 5. Enter Standby mode
   HAL_PWR_EnterSTANDBYMode();
-
-  // --- Code execution stops here and will resume from Reset_Handler on wakeup ---
-  // --- Effectively, main() will restart from the beginning.             ---
+  // MCU should reset on wakeup from here
 }
 
 void ResetInactivityTimer(void) {
@@ -374,6 +388,42 @@ void ResetInactivityTimer(void) {
   inactivity_timer_elapsed_flag = false;
   __HAL_TIM_SET_COUNTER(&htim16, 0); // Reset counter for TIM6
   HAL_TIM_Base_Start_IT(&htim16);    // Restart TIM6
+}
+
+void Wakeup_Reinit_Peripherals(void)
+{
+    printf("Re-initializing peripherals after wakeup...\r\n");
+
+    // De-initialize all used peripherals to reset their HAL state handles.
+    HAL_TIM_Base_DeInit(&htim2);
+    HAL_TIM_Base_DeInit(&htim16);
+    HAL_ADC_DeInit(&hadc1);
+    HAL_I2C_DeInit(&hi2c1);
+    HAL_I2C_DeInit(&hi2c3);
+//    HAL_SPI_DeInit(&spi2);
+    HAL_UART_DeInit(&huart1);
+
+    // Re-initialize all peripherals as if from a cold boot.
+
+    MX_GPIO_Init(); // Good practice to re-init GPIOs too
+    MX_DMA_Init();
+    MX_ADC1_Init();
+    MX_I2C1_Init();
+    MX_I2C3_Init();
+    MX_SPI2_Init();
+    MX_TIM2_Init();
+    MX_TIM16_Init();
+    MX_USART1_UART_Init();
+
+    // Restart any timers that should be running
+    if (HAL_TIM_Base_Start_IT(&htim2) != HAL_OK) { Error_Handler(); }
+
+    // Re-select the I2C MUX channel since the I2C peripheral was reset.
+    if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) != 0) {
+        printf("Failed to re-select MUX channel %d after wakeup.\n", i2c_channel_to_use);
+    } else {
+        printf("I2C MUX channel %d re-selected successfully.\n", i2c_channel_to_use);
+    }
 }
 /* USER CODE END 0 */
 
@@ -385,7 +435,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -394,7 +443,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  CheckWakeupSource();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -511,7 +560,7 @@ int main(void)
       WS2812_SetColor(255, 255, 255, 100); // White for IMU wakeup
       HAL_Delay(1000);
   }
-  WS2812_SetColor(0, 0, 0, 100);
+  WS2812_SetColor(0, 0, 0, 0);
 
   ResetInactivityTimer(); // Start the 30-second inactivity timer
   printf("Main loop started. Inactivity timer running for %lu ms.\r\n", INACTIVITY_TIMEOUT_MS);
@@ -571,21 +620,36 @@ int main(void)
 
   while (1)
   { 
-    // Check for IMU wakeup (flag set in EXTI callback)
-    if (imu_wakeup_pending) {
-      imu_wakeup_pending = false; // Clear flag
-      printf("IMU Wakeup processed in main loop.\r\n");
-      WS2812_SetColor(255, 165, 0, 100); // Orange
-      HAL_Delay(500);
-      WS2812_SetColor(0, 0, 0, 100);
-      ResetInactivityTimer();
-      // Add any specific actions for IMU wakeup here
-    }
-
     // Check for inactivity timer timeout
-    if (inactivity_timer_elapsed_flag) {
+	  if (inactivity_timer_elapsed_flag) {
       inactivity_timer_elapsed_flag = false; // Clear flag
-      EnterStandbyMode(); // This function will not return; MCU resets on wakeup.
+
+      // --- Prepare and Enter Stop 2 Mode ---
+      EnterStop2Mode();
+
+      // 1. Resume the HAL Tick. Essential for HAL_Delay and timeouts.
+      HAL_ResumeTick();
+
+      // 2. Restore the high-speed system clock (PLL).
+      SystemClock_Config();
+
+      // Optional: You can use the flag from the ISR to confirm the source
+		if (woke_up_from_stop_mode) {
+		  woke_up_from_stop_mode = false; // Clear the flag for the next cycle
+		  printf("Wakeup source: IMU interrupt.\r\n");
+		  WS2812_SetColor(255, 100, 0, 100); // Orange to indicate IMU wakeup
+		  HAL_Delay(500);
+		  WS2812_SetColor(0, 0, 0, 0);
+		}
+
+      // 3. Re-initialize peripherals that were affected by the clock change or Stop mode.
+      Wakeup_Reinit_Peripherals();
+
+      // 4. Now that the system is fully functional again, handle the logic.
+      printf("Woke up from Stop 2. System is active.\r\n");
+
+      // 5. Restart the inactivity timer for the next cycle.
+      ResetInactivityTimer();
     }
 
     if (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_SET && i2c_channel_to_use == 0) {
@@ -653,155 +717,107 @@ int main(void)
           drivers[i2c_channel_to_use].brakeMotor();
           break;
         default:
-          WS2812_SetColor(0, 0, 0, 100); // Off
+          WS2812_SetColor(0, 0, 0, 0); // Off
           break;
       }
       HAL_Delay(1000);
-      WS2812_SetColor(0, 0, 0, 100); // Turn off the LED
+      WS2812_SetColor(0, 0, 0, 0); // Turn off the LED
     }
 
-    if (rslt_bmi == BMI2_OK) { // Only if initialization and config were successful
-      struct bmi2_sens_data sensor_values; // Use the union directly as per bmi2_get_sensor_data signature
-      int8_t rslt_data;
-
-      // The bmi2_get_sensor_data function will attempt to read data for
-      // all sensors that are currently enabled (ACC, GYR, AUX) and sensortime.
-      // It populates the fields within the 'sensor_values' union accordingly.
-      rslt_data = bmi2_get_sensor_data(&sensor_values, &bmi270_sensor); // Pass the address of the union
-
-      if (rslt_data == BMI2_OK) {
-          // Check which sensors were enabled to print their data meaningfully
-          // You can check dev->sens_en_stat or the PWR_CTRL register if needed,
-          // or just assume accel and gyro are enabled based on prior setup.
-
-          // Assuming Accelerometer was enabled
-          printf("ACC: X=%d Y=%d Z=%d | ",
-                 sensor_values.acc.x,
-                 sensor_values.acc.y,
-                 sensor_values.acc.z);
-
-          // Assuming Gyroscope was enabled
-          printf("GYR: X=%d Y=%d Z=%d",
-                 sensor_values.gyr.x,
-                 sensor_values.gyr.y,
-                 sensor_values.gyr.z);
-
-          // Print sensortime (if available and meaningful in your setup)
-          // The bmi2_parse_sensor_data in bmi2.c shows how sens_time is populated in the struct.
-          // If bmi2_get_sensor_data directly populates it:
-          printf(" | ST: %lu\r\n", (unsigned long)sensor_values.sens_time);
-
-      } else {
-          printf("BMI270 Get Sensor Data Failed. Error: %d\r\n", rslt_data);
-      }
-      HAL_Delay(100); // Read data every 100ms
-    }
-
-    if (g_measure_battery_flag)
-    {
-        g_measure_battery_flag = 0; // Reset the flag
-
-        // 1. Enable BAT_SENSE circuitry
-        HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_SET);
-
-        // 2. Wait for voltage to settle (C504 charging)
-        // Tau = R_eff * C = 2.31kOhm * 100nF = 0.231 ms. 5*Tau ~ 1.15 ms.
-        // Let's use a slightly larger delay for safety margin.
-        HAL_Delay(10); 
-
-        // 3. Start ADC conversion
-        if (HAL_ADC_Start(&hadc1) != HAL_OK)
-        {
-            printf("ADC Start Error\r\n");
-            // Optionally turn off BAT_SENSE_EN here if error occurs early
-            HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
-            // Handle error
-        }
-        else
-        {
-            // 4. Poll for ADC conversion complete (timeout e.g., 100ms)
-            if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
-            {
-                // 5. Read ADC value
-                uint32_t adc_raw_value = HAL_ADC_GetValue(&hadc1);
-
-                // 6. Calculate voltage
-                // V_sense = (ADC_raw / ADC_max_resolution) * V_ref
-                float v_sense = ((float)adc_raw_value / ADC_RESOLUTION) * VREF_MCU;
-                // VBAT = V_sense * (R502 + R503) / R503
-                g_battery_voltage = v_sense * BATTERY_SENSE_DIVIDER_RATIO;
-
-                // For debugging:
-                // Convert battery voltage to millivolts (integer)
-                uint32_t battery_millivolts = (uint32_t)(g_battery_voltage * 1000.0f);
-
-                // Simple printf for debugging
+//    if (rslt_bmi == BMI2_OK) { // Only if initialization and config were successful
+//      struct bmi2_sens_data sensor_values; // Use the union directly as per bmi2_get_sensor_data signature
+//      int8_t rslt_data;
+//
+//      // The bmi2_get_sensor_data function will attempt to read data for
+//      // all sensors that are currently enabled (ACC, GYR, AUX) and sensortime.
+//      // It populates the fields within the 'sensor_values' union accordingly.
+//      rslt_data = bmi2_get_sensor_data(&sensor_values, &bmi270_sensor); // Pass the address of the union
+//
+//      if (rslt_data == BMI2_OK) {
+//          // Check which sensors were enabled to print their data meaningfully
+//          // You can check dev->sens_en_stat or the PWR_CTRL register if needed,
+//          // or just assume accel and gyro are enabled based on prior setup.
+//
+//          // Assuming Accelerometer was enabled
+//          printf("ACC: X=%d Y=%d Z=%d | ",
+//                 sensor_values.acc.x,
+//                 sensor_values.acc.y,
+//                 sensor_values.acc.z);
+//
+//          // Assuming Gyroscope was enabled
+//          printf("GYR: X=%d Y=%d Z=%d",
+//                 sensor_values.gyr.x,
+//                 sensor_values.gyr.y,
+//                 sensor_values.gyr.z);
+//
+//          // Print sensortime (if available and meaningful in your setup)
+//          // The bmi2_parse_sensor_data in bmi2.c shows how sens_time is populated in the struct.
+//          // If bmi2_get_sensor_data directly populates it:
+//          printf(" | ST: %lu\r\n", (unsigned long)sensor_values.sens_time);
+//
+//      } else {
+//          printf("BMI270 Get Sensor Data Failed. Error: %d\r\n", rslt_data);
+//      }
+//      HAL_Delay(100); // Read data every 100ms
+//    }
+//
+//    if (g_measure_battery_flag)
+//    {
+//        g_measure_battery_flag = 0; // Reset the flag
+//
+//        // 1. Enable BAT_SENSE circuitry
+//        HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_SET);
+//
+//        // 2. Wait for voltage to settle (C504 charging)
+//        // Tau = R_eff * C = 2.31kOhm * 100nF = 0.231 ms. 5*Tau ~ 1.15 ms.
+//        // Let's use a slightly larger delay for safety margin.
+//        HAL_Delay(10);
+//
+//        // 3. Start ADC conversion
+//        if (HAL_ADC_Start(&hadc1) != HAL_OK)
+//        {
+//            printf("ADC Start Error\r\n");
+//            // Optionally turn off BAT_SENSE_EN here if error occurs early
+//            HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
+//            // Handle error
+//        }
+//        else
+//        {
+//            // 4. Poll for ADC conversion complete (timeout e.g., 100ms)
+//            if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+//            {
+//                // 5. Read ADC value
+//                uint32_t adc_raw_value = HAL_ADC_GetValue(&hadc1);
+//
+//                // 6. Calculate voltage
+//                // V_sense = (ADC_raw / ADC_max_resolution) * V_ref
+//                float v_sense = ((float)adc_raw_value / ADC_RESOLUTION) * VREF_MCU;
+//                // VBAT = V_sense * (R502 + R503) / R503
+//                g_battery_voltage = v_sense * BATTERY_SENSE_DIVIDER_RATIO;
+//
+//                // Convert battery voltage to millivolts (integer)
+//                uint32_t battery_millivolts = (uint32_t)(g_battery_voltage * 1000.0f);
+//
+//                // Simple printf for debugging
 //                printf("ADC Raw: %lu, VBAT_mV: %lu\r\n",
-//                       adc_raw_value,
-//                       battery_millivolts);
-            }
-            else
-            {
-                printf("ADC Poll Timeout\r\n");
-                // Handle timeout
-            }
-            // Stop ADC (important if not in continuous mode, good practice anyway)
-            HAL_ADC_Stop(&hadc1);
-        }
-
-        // 7. Disable BAT_SENSE circuitry to save power
-        HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
-
-        // Now g_battery_voltage holds the latest reading.
-        // You can use it for low battery checks, display, etc.
-    }
-
-//	  // Prepare to enter Stop 2 mode
-//	  HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_SET); // Ensure LED is OFF before sleep
+//                      adc_raw_value,
+//                      battery_millivolts);
+//            }
+//            else
+//            {
+//                printf("ADC Poll Timeout\r\n");
+//                // Handle timeout
+//            }
+//            // Stop ADC (important if not in continuous mode, good practice anyway)
+//            HAL_ADC_Stop(&hadc1);
+//        }
 //
-//	  printf("Entering Stop 2 Mode...\r\n");
-//	  HAL_Delay(10); // Allow printf to complete if UART is used
+//        // 7. Disable BAT_SENSE circuitry to save power
+//        HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
 //
-//	  /* Clear any pending EXTI Line flag for your button.
-//		 This is CRITICAL to prevent immediate wakeup if the interrupt fired
-//		 just before trying to sleep or if it wasn't cleared properly. */
-//	  // Replace BUTTON_EXTI_Pin with your actual button GPIO_PIN_X
-//	  __HAL_GPIO_EXTI_CLEAR_IT(BUTTON1_Pin);
-//	  // If you have multiple EXTI sources, clear them specifically or be very careful.
-//
-//	  /* At this point, also ensure no other unintended wakeup sources are active
-//		 or have pending flags (e.g., RTC Alarm, LPUART RXNE if enabled for wakeup) */
-//
-//	  /* Suspend Tick increment to prevent wakeup by Systick interrupt. */
-//	  HAL_SuspendTick();
-//
-//	  /* Enter Stop 2 Mode - MCU will stop here until an EXTI or other enabled wakeup event */
-//	  HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
-//
-//	  /* --- WAKE UP from STOP 2 --- */
-//	  // Execution resumes here after wakeup
-//
-//	  /* Resume Tick interrupt */
-//	  HAL_ResumeTick();
-//
-//	  /* Reconfigure the System Clock after waking from STOP_MODE */
-//	  /* This is important because STOP mode might switch to a low-power oscillator (MSI or HSI).
-//		 SystemClock_Config() usually restores your PLL and main clock settings. */
-//	  SystemClock_Config();
-//
-//	  // If we woke up, it was either due to the button (wakeup_event will be true by ISR)
-//	  // or some other configured wakeup source.
-//	  // The original `wakeup_event = true;` here was the main bug for the loop.
-//	  // Now, the `if (wakeup_event)` at the top of the loop handles it.
-//
-//	  if (!wakeup_event) {
-//		  // This means we woke up from something OTHER than the button press.
-//		  // This could be another EXTI, RTC, etc., or a spurious wakeup if flags weren't cleared.
-//		  printf("Woke up from Stop 2 Mode (Not by button)...\r\n");
-//		  // You might want a small delay or specific handling here if this case is unexpected
-//		  // and happens frequently.
-//	  }
-
+//        // Now g_battery_voltage holds the latest reading.
+//        // You can use it for low battery checks, display, etc.
+//    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -895,32 +911,43 @@ void PeriphCommonClock_Config(void)
   */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  if (GPIO_Pin == BUTTON1_Pin) // Replace YOUR_BUTTON_PIN with the actual pin, e.g., GPIO_PIN_13
+	if (GPIO_Pin == IMU_INT1_Pin)
+  { 
+	  woke_up_from_stop_mode = true;
+    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+  }
+	else if (GPIO_Pin == BUTTON1_Pin) // Replace YOUR_BUTTON_PIN with the actual pin, e.g., GPIO_PIN_13
   {
 	  wakeup_event = true; // Set flag for next loop iteration
 	  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 	  button_ID = 1;
+    ResetInactivityTimer();
   } else if (GPIO_Pin == BUTTON2_Pin) {
 	  wakeup_event = true; // Set flag for next loop iteration
 	  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 	  button_ID = 2;
+    ResetInactivityTimer();
   }
   else if (GPIO_Pin == BUTTON3_Pin) {
 	  wakeup_event = true; // Set flag for next loop iteration
 	  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 	  button_ID = 3;
+    ResetInactivityTimer();
   }
   else if (GPIO_Pin == BUTTON4_Pin) {
 	  wakeup_event = true; // Set flag for next loop iteration
 	  __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 	  button_ID = 4;
+    ResetInactivityTimer();
   }
   else if (GPIO_Pin == BUTTON5_Pin) {
     wakeup_event = true; // Set flag for next loop iteration
     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
     button_ID = 5;
+    ResetInactivityTimer();
   }
 }
+
 #ifdef __cplusplus
   extern "C" {
   #endif
@@ -1143,7 +1170,7 @@ void Error_Handler(void)
     // red LED ON
     WS2812_SetColor(255, 0, 0, 100); // Red
     HAL_Delay(200); // Wait for 1 second
-    WS2812_SetColor(0, 0, 0, 100); // Turn off the LED
+    WS2812_SetColor(0, 0, 0, 0); // Turn off the LED
     HAL_Delay(200); // Wait for 1 second
   }
   /* USER CODE END Error_Handler_Debug */

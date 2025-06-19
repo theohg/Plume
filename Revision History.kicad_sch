@@ -25,6 +25,19 @@
 		(uuid 2738453d-4095-467b-8b33-2e3fdecc6b52)
 	)
 	(circle
+		(center 21.59 59.055)
+		(radius 1.27)
+		(stroke
+			(width -0.0001)
+			(type solid)
+		)
+		(fill
+			(type color)
+			(color 0 255 0 1)
+		)
+		(uuid 39aafa62-fb3b-4fd4-9cb1-905b956c0cfb)
+	)
+	(circle
 		(center 21.59 49.53)
 		(radius 1.27)
 		(stroke
@@ -314,17 +327,6 @@
 	)
 	(polyline
 		(pts
-			(xy 20.955 60.96) (xy 22.86 59.055)
-		)
-		(stroke
-			(width 0.381)
-			(type solid)
-			(color 255 0 0 1)
-		)
-		(uuid "354230d8-e12c-4155-9702-c795997e9961")
-	)
-	(polyline
-		(pts
 			(xy 43.688 164.211) (xy 41.783 162.306)
 		)
 		(stroke
@@ -509,17 +511,6 @@
 			(color 255 0 0 1)
 		)
 		(uuid "d9530434-17c9-4bdd-8d94-75627877431f")
-	)
-	(polyline
-		(pts
-			(xy 22.86 60.96) (xy 20.955 59.055)
-		)
-		(stroke
-			(width 0.381)
-			(type solid)
-			(color 255 0 0 1)
-		)
-		(uuid "df3e5ade-2c1d-41bd-a5d8-daaac7799a02")
 	)
 	(polyline
 		(pts
