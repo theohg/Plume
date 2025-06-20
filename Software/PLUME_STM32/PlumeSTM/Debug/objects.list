@@ -2,6 +2,7 @@
 "./Core/Src/WS2812_SPI_DMA.o"
 "./Core/Src/adc.o"
 "./Core/Src/dma.o"
+"./Core/Src/function.o"
 "./Core/Src/gpio.o"
 "./Core/Src/i2c.o"
 "./Core/Src/ipcc.o"

@@ -1,17 +1,20 @@
 /* Includes ------------------------------------------------------------------*/
-#include "function.h"
-#include "adc.h"
-#include "dma.h"
-#include "i2c.h"
-#include "ipcc.h"
-#include "rtc.h"
-#include "spi.h"
-#include "tim.h"
-#include "usart.h"
-#include "gpio.h"
-#include "drv8214_platform_i2c.h"
-#include "TCA9548.h"
-#include "bmi2_user_interface.h"
+extern "C" {
+	#include "function.h"
+	#include "adc.h"
+	#include "dma.h"
+	#include "i2c.h"
+	#include "ipcc.h"
+	#include "rtc.h"
+	#include "spi.h"
+	#include "tim.h"
+	#include "usart.h"
+	#include "gpio.h"
+	#include "drv8214_platform_i2c.h"
+	#include "TCA9548.h"
+	#include "bmi2_user_interface.h"
+}
+#include "WS2812_SPI.h"
 
 /* Private variables ---------------------------------------------------------*/
 // These variables are declared as 'extern' in function.h
@@ -118,7 +121,6 @@ void App_Init(void)
         printf("Failed to initialize DRV8214 driver %d.\n", i2c_channel_to_use);
         Error_Handler();
     }
-
 
     // Initialize IMU
     printf("Initializing BMI270 IMU... ");

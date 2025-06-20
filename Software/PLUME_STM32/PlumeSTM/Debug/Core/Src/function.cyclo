@@ -1,0 +1,26 @@
+../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_pwr.h:1663:22:void LL_C2_PWR_SetPowerMode(uint32_t)	1
+/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:147:8:constexpr DRV8214_Config::DRV8214_Config()	1
+/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:198:9:DRV8214::DRV8214(uint8_t, uint8_t, uint16_t, uint8_t, uint8_t, uint8_t, uint16_t)	1
+../Core/Src/function.cpp:77:6:void App_Init()	2
+../Core/Src/function.cpp:101:6:void App_Process()	5
+../Core/Src/function.cpp:128:13:void Handle_StopMode_Sequence()	2
+../Core/Src/function.cpp:152:13:void Handle_Channel_Switch()	9
+../Core/Src/function.cpp:184:13:void Process_Button_Press()	6
+../Core/Src/function.cpp:222:13:void Handle_Battery_Measurement()	3
+../Core/Src/function.cpp:245:6:void CheckWakeupSource()	3
+../Core/Src/function.cpp:263:13:void Configure_BMI270_LowPower_AnyMotion(bmi2_dev*)	9
+../Core/Src/function.cpp:321:6:void EnterStop2Mode()	1
+../Core/Src/function.cpp:377:6:void EnterStandbyMode()	1
+../Core/Src/function.cpp:398:6:void ResetInactivityTimer()	1
+../Core/Src/function.cpp:405:6:void Wakeup_Reinit_Peripherals()	3
+../Core/Src/function.cpp:435:6:void I2C_Scan(I2C_HandleTypeDef*)	5
+../Core/Src/function.cpp:452:13:void printByteAsBinary(uint8_t)	2
+../Core/Src/function.cpp:458:13:void print2BytesAsBinary(uint16_t)	2
+../Core/Src/function.cpp:464:6:void printRegisters(uint8_t)	1
+../Core/Src/function.cpp:480:13:void Init_Muliplexer()	3
+../Core/Src/function.cpp:503:13:void Init_Motor_Drivers()	3
+../Core/Src/function.cpp:517:13:void Init_IMU()	2
+../Core/Src/function.cpp:538:13:void LED_Startup_Sequence()	1
+../Core/Src/function.cpp:546:13:void Set_Inactivity_Delay(uint32_t)	2
+../Core/Src/function.cpp:555:1:void __static_initialization_and_destruction_0()	1
+../Core/Src/function.cpp:555:1:cpp)	1

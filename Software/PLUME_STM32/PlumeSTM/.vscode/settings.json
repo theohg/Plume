@@ -10,6 +10,7 @@
         "string_view": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "stm32wbxx_hal.h": "c"
     }
 }

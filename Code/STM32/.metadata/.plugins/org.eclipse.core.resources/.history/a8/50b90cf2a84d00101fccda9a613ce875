@@ -1,0 +1,513 @@
+/* Includes ------------------------------------------------------------------*/
+#include "function.h"
+#include "adc.h"
+#include "dma.h"
+#include "i2c.h"
+#include "ipcc.h"
+#include "rtc.h"
+#include "spi.h"
+#include "tim.h"
+#include "usart.h"
+#include "gpio.h"
+#include "drv8214_platform_i2c.h"
+#include "TCA9548.h"
+#include "bmi2_user_interface.h"
+
+/* Private variables ---------------------------------------------------------*/
+// These variables are declared as 'extern' in function.h
+
+// Battery ADC
+extern TIM_HandleTypeDef htim2;
+extern ADC_HandleTypeDef hadc1;
+volatile uint8_t g_measure_battery_flag = 0;
+float g_battery_voltage = 0.0f;
+
+// Button press detection
+volatile bool wakeup_event = false;
+volatile uint8_t button_ID = 0;
+
+// IMU
+extern I2C_HandleTypeDef hi2c3;
+extern TIM_HandleTypeDef htim16;
+struct bmi2_dev bmi270_sensor;
+volatile bool inactivity_timer_elapsed_flag = false;
+volatile bool woke_up_from_stop_mode = false;
+WakeupSource_t g_wakeup_source = WAKEUP_SOURCE_UNKNOWN;
+
+// Application State & Configuration
+// MUX
+i2c_mux_t i2c_multiplexer;
+uint8_t i2c_channel_to_use = 1;
+
+// Motor control
+static uint16_t speed = MAX_MOTOR_RPM * 0.7;
+static uint16_t speed_low = MAX_MOTOR_RPM * 0.5;
+static float voltage = 3.0;
+static float current = 1;
+uint16_t ripple_target = 27000;
+static const bool stops_after_ripples = true;
+
+// Create an array of DRV8214 objects (C++ Style)
+DRV8214 drivers[NUM_DRIVERS] = {
+ DRV8214(DRV8214_I2C_ADDR_11, 8, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+ DRV8214(DRV8214_I2C_ADDR_11, 17, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM)
+};
+
+// Create an array of configuration structs
+DRV8214_Config driver_configs[NUM_DRIVERS];
+
+
+/* Private Function Prototypes -----------------------------------------------*/
+static void Configure_BMI270_LowPower_AnyMotion(struct bmi2_dev *dev);
+static void Handle_StopMode_Sequence(void);
+static void Handle_Channel_Switch(void);
+static void Process_Button_Press(void);
+static void Handle_Battery_Measurement(void);
+static void printByteAsBinary(uint8_t value);
+static void print2BytesAsBinary(uint16_t value);
+static void Init_Muliplexer(void);
+static void Init_Motor_Drivers(void);
+static void Init_IMU(void);
+static void LED_Startup_Sequence(void);
+
+
+/* Public Function Implementations -------------------------------------------*/
+
+void App_Init(void)
+{
+    printf("System Initialized. Wakeup source: %d (0=Unk, 1=IMU)\r\n", g_wakeup_source);
+
+    // Default GPIO states
+    HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(MUX_RESET_GPIO_Port, MUX_RESET_Pin, GPIO_PIN_SET);
+
+    Init_Muliplexer();
+
+    I2C_Scan(&hi2c1);
+    I2C_Scan(&hi2c3);
+
+    Init_Motor_Drivers();
+    Init_IMU();
+
+    // Start battery measurement timer
+    if (HAL_TIM_Base_Start_IT(&htim2) != HAL_OK) { Error_Handler();}
+
+    LED_Startup_Sequence();
+    ResetInactivityTimer();
+    printf("App Initialized. Inactivity timer running for %lu ms.\r\n", (unsigned long)INACTIVITY_TIMEOUT_MS);
+}
+
+void App_Process(void)
+{
+    if (inactivity_timer_elapsed_flag) {
+        Handle_StopMode_Sequence();
+    }
+
+    Handle_Channel_Switch();
+
+    if (wakeup_event) {
+        Process_Button_Press();
+    }
+
+    if (g_measure_battery_flag) {
+        Handle_Battery_Measurement();
+    }
+}
+
+/* Private Function Implementations ------------------------------------------*/
+
+static void Handle_StopMode_Sequence(void)
+{
+    inactivity_timer_elapsed_flag = false; // Clear flag
+
+    EnterStop2Mode();
+
+    // -- Execution resumes here after wakeup from Stop 2 --
+
+    HAL_ResumeTick();
+    SystemClock_Config(); // Restore system clock
+
+    if (woke_up_from_stop_mode) {
+      woke_up_from_stop_mode = false;
+      printf("Wakeup source: IMU interrupt.\r\n");
+      WS2812_SetColor(255, 100, 0, 100); // Orange for IMU wakeup
+      HAL_Delay(500);
+      WS2812_SetColor(0, 0, 0, 0);
+    }
+
+    Wakeup_Reinit_Peripherals(); // Re-initialize peripherals affected by Stop mode
+    printf("Woke up from Stop 2. System is active.\r\n");
+    ResetInactivityTimer(); // Restart the inactivity timer
+}
+
+static void Handle_Channel_Switch(void)
+{
+    bool switch_is_set = (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_SET);
+    bool needs_switch = (switch_is_set && i2c_channel_to_use != 0) || (!switch_is_set && i2c_channel_to_use != 1);
+
+    if (!needs_switch) {
+        return; // No change needed
+    }
+
+    if (switch_is_set) { // Switch to channel 0
+        i2c_channel_to_use = 0;
+        HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+    } else { // Switch to channel 1
+        i2c_channel_to_use = 1;
+        HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_SET);
+    }
+
+    if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) == 0) {
+      printf("Channel switched to %d successfully!\n", i2c_channel_to_use);
+    } else {
+        printf("Failed to select channel %d on I2C multiplexer.\n", i2c_channel_to_use);
+    }
+    HAL_Delay(10);
+
+    // Re-initialize driver for the new channel
+    driver_configs[i2c_channel_to_use] = DRV8214_Config();
+    drivers[i2c_channel_to_use].init(driver_configs[i2c_channel_to_use]);
+    drivers[i2c_channel_to_use].resetFaultFlags();
+}
+
+static void Process_Button_Press(void)
+{
+    printf("Button press detected! ID: %d\r\n", button_ID);
+    wakeup_event = false; // Reset flag
+    ResetInactivityTimer();
+
+    switch (button_ID) {
+        case 1:
+            WS2812_SetColor(255, 0, 0, 100); // Red
+            drivers[i2c_channel_to_use].turnXRipples(ripple_target, stops_after_ripples, true, speed, voltage, current);
+            break;
+        case 2:
+            WS2812_SetColor(0, 255, 0, 100); // Green
+            drivers[i2c_channel_to_use].turnReverse(speed_low, voltage, current);
+            break;
+        case 3:
+            WS2812_SetColor(0, 0, 255, 100); // Blue
+            printf("Clearing fault flags & resetting ripple counter...\r\n");
+            drivers[i2c_channel_to_use].resetRippleCounter();
+            drivers[i2c_channel_to_use].resetFaultFlags();
+            I2C_Scan(&hi2c1);
+            break;
+        case 4:
+            WS2812_SetColor(255, 255, 0, 100); // Yellow
+            printRegisters(i2c_channel_to_use);
+            break;
+        case 5:
+            WS2812_SetColor(255, 0, 255, 100); // Magenta
+            drivers[i2c_channel_to_use].brakeMotor();
+            break;
+        default:
+             WS2812_SetColor(0, 0, 0, 0); // Off
+            break;
+    }
+    HAL_Delay(1000);
+    WS2812_SetColor(0, 0, 0, 0); // Turn off the LED
+}
+
+static void Handle_Battery_Measurement(void)
+{
+    g_measure_battery_flag = 0; // Reset flag
+
+    HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_SET);
+    HAL_Delay(10); // Wait for voltage to settle
+
+    if (HAL_ADC_Start(&hadc1) != HAL_OK) {
+        printf("ADC Start Error\r\n");
+    } else {
+        if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {
+            uint32_t adc_raw_value = HAL_ADC_GetValue(&hadc1);
+            float v_sense = ((float)adc_raw_value / ADC_RESOLUTION) * VREF_MCU;
+            g_battery_voltage = v_sense * BATTERY_SENSE_DIVIDER_RATIO;
+            printf("ADC Raw: %lu, VBAT: %.2fV\r\n", adc_raw_value, g_battery_voltage);
+        } else {
+            printf("ADC Poll Timeout\r\n");
+        }
+        HAL_ADC_Stop(&hadc1);
+    }
+    HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
+}
+
+void CheckWakeupSource(void)
+{
+  if (__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET) {
+      __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
+      if (__HAL_PWR_GET_FLAG(PWR_FLAG_WUF1) != RESET) {
+          __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
+          printf("Woke up from Standby via IMU (WKUP1/PA0).\r\n");
+          g_wakeup_source = WAKEUP_SOURCE_IMU;
+          HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN1);
+      } else {
+          printf("Woke up from Standby (source other than IMU on PA0 or unknown).\r\n");
+          g_wakeup_source = WAKEUP_SOURCE_UNKNOWN;
+      }
+  } else {
+      printf("Normal power-on or reset (not from Standby).\r\n");
+  }
+}
+
+static void Configure_BMI270_LowPower_AnyMotion(struct bmi2_dev *dev)
+{
+  int8_t rslt;
+  uint8_t sens_list[1];
+  struct bmi2_sens_config sens_cfg;
+  struct bmi2_int_pin_config int_pin_cfg;
+
+  printf("Configuring BMI270 for Low Power Any Motion...\r\n");
+
+  uint8_t all_sensors_off[] = { BMI2_ACCEL, BMI2_GYRO, BMI2_AUX };
+  rslt = bmi270_sensor_disable(all_sensors_off, sizeof(all_sensors_off)/sizeof(all_sensors_off[0]), dev);
+  if (rslt != BMI2_OK) { printf("BMI270 Disable All Sensors failed. Error: %d\r\n", rslt); Error_Handler(); }
+
+  sens_list[0] = BMI2_ACCEL;
+  rslt = bmi270_sensor_enable(sens_list, 1, dev);
+  if (rslt != BMI2_OK) { printf("BMI270 Accel Enable failed. Error: %d\r\n", rslt); Error_Handler(); }
+
+  sens_cfg.type = BMI2_ACCEL;
+  bmi2_get_sensor_config(&sens_cfg, 1, dev);
+  sens_cfg.cfg.acc.odr = BMI2_ACC_ODR_50HZ;
+  sens_cfg.cfg.acc.bwp = BMI2_ACC_OSR2_AVG2;
+  sens_cfg.cfg.acc.filter_perf = BMI2_POWER_OPT_MODE;
+  rslt = bmi2_set_sensor_config(&sens_cfg, 1, dev);
+  if (rslt != BMI2_OK) { printf("BMI270 Accel Low Power Config failed. Error: %d\r\n", rslt); Error_Handler(); }
+
+  rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
+  if (rslt != BMI2_OK) { printf("BMI270 Enable Advanced Power Save failed. Error: %d\r\n", rslt); Error_Handler(); }
+
+  struct bmi2_sens_config anymotion_cfg;
+  anymotion_cfg.type = BMI2_ANY_MOTION;
+  bmi270_get_sensor_config(&anymotion_cfg, 1, dev);
+  anymotion_cfg.cfg.any_motion.duration = 2;
+  anymotion_cfg.cfg.any_motion.threshold = 0xAA;
+  anymotion_cfg.cfg.any_motion.select_x = BMI2_ENABLE;
+  anymotion_cfg.cfg.any_motion.select_y = BMI2_ENABLE;
+  anymotion_cfg.cfg.any_motion.select_z = BMI2_ENABLE;
+  rslt = bmi270_set_sensor_config(&anymotion_cfg, 1, dev);
+  if (rslt != BMI2_OK) { printf("BMI270 Set AnyMotion Config failed. Error: %d\r\n", rslt); Error_Handler(); }
+
+  sens_list[0] = BMI2_ANY_MOTION;
+  rslt = bmi270_sensor_enable(sens_list, 1, dev);
+  if (rslt != BMI2_OK) { printf("BMI270 AnyMotion Sensor Enable failed. Error: %d\r\n", rslt); Error_Handler(); }
+
+  int_pin_cfg.pin_type = BMI2_INT1;
+  int_pin_cfg.int_latch = BMI2_INT_NON_LATCH;
+  int_pin_cfg.pin_cfg[0].lvl = BMI2_INT_ACTIVE_HIGH;
+  int_pin_cfg.pin_cfg[0].od = BMI2_INT_PUSH_PULL;
+  int_pin_cfg.pin_cfg[0].output_en = BMI2_INT_OUTPUT_ENABLE;
+  int_pin_cfg.pin_cfg[0].input_en = BMI2_INT_INPUT_DISABLE;
+  rslt = bmi2_set_int_pin_config(&int_pin_cfg, dev);
+  if (rslt != BMI2_OK) { printf("BMI270 Set INT Pin Config failed. Error: %d\r\n", rslt); Error_Handler(); }
+
+  rslt = bmi2_map_feat_int(BMI2_ANY_MOTION, BMI2_INT1, dev);
+  if (rslt != BMI2_OK) { printf("BMI270 Map AnyMotion to INT1 failed. Error: %d\r\n", rslt); Error_Handler(); }
+
+  printf("BMI270 Low Power Any Motion Setup Complete.\r\n");
+}
+
+void EnterStop2Mode(void)
+{
+  printf("Preparing to enter Stop2 Mode...\r\n");
+  WS2812_SetColor(0,0,0,0);
+  HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+  printf("nSLEEP pins set LOW.\r\n");
+  HAL_Delay(100); // UART flush
+
+  HAL_TIM_Base_Stop_IT(&htim2);
+  HAL_TIM_Base_Stop_IT(&htim16);
+  HAL_ADC_Stop(&hadc1);
+
+  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+  __HAL_GPIO_EXTI_CLEAR_FLAG(IMU_INT1_Pin | BUTTON1_Pin | BUTTON2_Pin | BUTTON3_Pin | BUTTON4_Pin | BUTTON5_Pin);
+  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1 | PWR_FLAG_WUF2 | PWR_FLAG_WUF3 | PWR_FLAG_WUF4 | PWR_FLAG_WUF5);
+  HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1_HIGH);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN2);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN3);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN4);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN5);
+
+//  HAL_DBGMCU_DisableDBGStopMode();
+//   __HAL_GPIO_EXTI_CLEAR_IT(0xFFFFFFFF); // Clear all EXTI flags
+
+  // Disable RTC Wakeup Timer if it exists
+//  extern RTC_HandleTypeDef hrtc;
+//  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+
+  HAL_SuspendTick();
+  HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
+//  HAL_DBGMCU_EnableDBGStopMode();
+}
+
+void EnterStandbyMode(void)
+{
+  printf("Preparing to enter Standby Mode...\r\n");
+  WS2812_SetColor(0,0,0,0);
+  HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+  printf("nSLEEP pins set LOW.\r\n");
+  HAL_Delay(100); // UART flush
+
+  HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1_HIGH);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN2);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN3);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN4);
+  HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN5);
+
+  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1 | PWR_FLAG_WUF2 | PWR_FLAG_WUF3 | PWR_FLAG_WUF4 | PWR_FLAG_WUF5);
+
+  HAL_PWR_EnterSTANDBYMode();
+}
+
+void ResetInactivityTimer(void)
+{
+  inactivity_timer_elapsed_flag = false;
+  __HAL_TIM_SET_COUNTER(&htim16, 0);
+  HAL_TIM_Base_Start_IT(&htim16);
+}
+
+void Wakeup_Reinit_Peripherals(void)
+{
+    printf("Re-initializing peripherals after wakeup...\r\n");
+    HAL_TIM_Base_DeInit(&htim2);
+    HAL_TIM_Base_DeInit(&htim16);
+    HAL_ADC_DeInit(&hadc1);
+    HAL_I2C_DeInit(&hi2c1);
+    HAL_I2C_DeInit(&hi2c3);
+    HAL_UART_DeInit(&huart1);
+
+    MX_GPIO_Init();
+    MX_DMA_Init();
+    MX_ADC1_Init();
+    MX_I2C1_Init();
+    MX_I2C3_Init();
+    MX_SPI2_Init();
+    MX_TIM2_Init();
+    MX_TIM16_Init();
+    MX_USART1_UART_Init();
+
+    if (HAL_TIM_Base_Start_IT(&htim2) != HAL_OK) { Error_Handler(); }
+
+    if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) != 0) {
+        printf("Failed to re-select MUX channel %d after wakeup.\n", i2c_channel_to_use);
+    } else {
+        printf("I2C MUX channel %d re-selected successfully.\n", i2c_channel_to_use);
+    }
+}
+
+// ... I2C_Scan, printRegisters, and their helpers (printByteAsBinary)...
+void I2C_Scan(I2C_HandleTypeDef *hi2c) {
+    if (hi2c->Instance == I2C1) {
+        printf("Scanning I2C Bus 1 (MUX Channel %d)...\r\n", i2c_channel_to_use);
+    } else if (hi2c->Instance == I2C3) {
+        printf("Scanning I2C Bus 3...\r\n");
+    }
+
+    HAL_StatusTypeDef res;
+    for (uint8_t i = 1; i < 128; i++) {
+        res = HAL_I2C_IsDeviceReady(hi2c, (uint16_t)(i << 1), 2, 10);
+        if (res == HAL_OK) {
+            printf("I2C Device Found at Address: 0x%02X\r\n", i);
+        }
+    }
+    printf("I2C Scan Complete.\r\n");
+}
+
+static void printByteAsBinary(uint8_t value) {
+  for (int i = 7; i >= 0; i--) {
+    printf("%d", (value >> i) & 1);
+  }
+}
+
+static void print2BytesAsBinary(uint16_t value) {
+  for (int i = 15; i >= 0; i--) {
+    printf("%d", (value >> i) & 1);
+  }
+}
+
+void printRegisters(uint8_t driver_id) {
+  printf("--- DRV8214 Driver %d Status ---\n", driver_id);
+  printf(" Speed: %d RPM | Voltage: %.2fV | Current: %.2fA\n",
+         drivers[driver_id].getMotorSpeedRPM(),
+         drivers[driver_id].getMotorVoltage(),
+         drivers[driver_id].getMotorCurrent());
+  printf(" Ripple Counter: %hu (0b", drivers[driver_id].getRippleCount());
+  print2BytesAsBinary(drivers[driver_id].getRippleCount());
+  printf(")\n");
+  drivers[driver_id].printFaultStatus();
+  printf("--- Configuration ---\n");
+  printf(" REG_CTRL1 (Target Speed): 0b"); printByteAsBinary(drivers[driver_id].getREG_CTRL1()); printf("\n");
+  printf(" REG_CTRL2 (Duty Cycle)  : 0b"); printByteAsBinary(drivers[driver_id].getREG_CTRL2()); printf("\n");
+  printf("--------------------------------\n");
+}
+
+static void Init_Muliplexer(void) {
+    printf("Initializing PCA9546A multiplexer... ");
+    i2c_multiplexer.hi2c = &hi2c1;
+    i2c_multiplexer.rst_port = MUX_RESET_GPIO_Port;
+    i2c_multiplexer.rst_pin = MUX_RESET_Pin;
+    i2c_multiplexer.addr_offset = 0;
+    // Set initial channel based on switch and wake nSLEEP pin
+    if (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_SET) {
+        i2c_channel_to_use = 0;
+        HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+    } else {
+        i2c_channel_to_use = 1;
+        HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_SET);
+    }
+    if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) == 0) {
+        printf("PCA9546A Initialized Successfully! Channel %d selected.\n", i2c_channel_to_use);
+    } else {
+        printf("Failed to select channel %d.\n", i2c_channel_to_use);
+    }
+}
+
+static void Init_Motor_Drivers(void) {
+    printf("Initializing DRV8214 drivers...\n");
+    drv8214_i2c_set_handle(&hi2c1);
+	// We only initialize the active driver to save time, the other is initialized on channel switch
+    driver_configs[i2c_channel_to_use] = DRV8214_Config();
+    if (drivers[i2c_channel_to_use].init(driver_configs[i2c_channel_to_use]) == DRV8214_OK) {
+        drivers[i2c_channel_to_use].resetFaultFlags();
+        printf("DRV8214 driver %d initialized successfully!\n", i2c_channel_to_use);
+    } else {
+        printf("Failed to initialize DRV8214 driver %d.\n", i2c_channel_to_use);
+        Error_Handler();
+    }
+}
+
+static void Init_IMU(void) {
+    printf("Initializing BMI270 IMU... ");
+    bmi2_set_i2c_handle(&hi2c3); // Link the driver to the I2C handle
+    bmi270_sensor.intf_ptr = &hi2c3;
+    bmi270_sensor.intf = BMI2_I2C_INTF;
+    bmi270_sensor.read = bmi2_i2c_read;
+    bmi270_sensor.write = bmi2_i2c_write;
+    bmi270_sensor.delay_us = bmi2_delay_us;
+    bmi270_sensor.read_write_len = 32;
+    bmi270_sensor.config_file_ptr = NULL;
+    int8_t rslt_bmi = bmi270_init(&bmi270_sensor);
+    if (rslt_bmi == BMI2_OK) {
+        printf("BMI270 initialized successfully! Chip ID: 0x%X\r\n", bmi270_sensor.chip_id);
+		Configure_BMI270_LowPower_AnyMotion(&bmi270_sensor);
+
+    } else {
+        printf("BMI270 initialization failed. Error code: %d\r\n", rslt_bmi);
+        Error_Handler();
+    }
+}
+
+static void LED_Startup_Sequence(void) {
+    WS2812_SetColor(255, 0, 0, 100); HAL_Delay(330);     // Red
+    WS2812_SetColor(0, 255, 0, 100); HAL_Delay(330);     // Green
+    WS2812_SetColor(0, 0, 255, 100); HAL_Delay(330);     // Blue
+    WS2812_SetColor(255, 255, 255, 100); HAL_Delay(330); // White
+    WS2812_SetColor(0, 0, 0, 0); // Turn off LEDs
+}

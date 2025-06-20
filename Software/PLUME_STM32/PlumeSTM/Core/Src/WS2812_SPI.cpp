@@ -1,5 +1,5 @@
 /*
- * WS2812_SPI.c
+ * WS2812_SPI.cpp
  *
  *  Created on: Sep 4, 2023
  *  Author: controllerstech

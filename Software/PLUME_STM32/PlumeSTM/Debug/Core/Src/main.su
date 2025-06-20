@@ -1,22 +1,8 @@
 ../Drivers/CMSIS/Include/core_cm4.h:2059:26:uint32_t ITM_SendChar(uint32_t)	16	static,ignoring_inline_asm
-/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:147:8:constexpr DRV8214_Config::DRV8214_Config()	16	static
-/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:198:9:DRV8214::DRV8214(uint8_t, uint8_t, uint16_t, uint8_t, uint8_t, uint8_t, uint16_t)	16	static
-../Core/Src/main.cpp:177:6:void CheckWakeupSource()	8	static
-../Core/Src/main.cpp:199:6:void Configure_BMI270_LowPower_AnyMotion(bmi2_dev*)	152	static
-../Core/Src/main.cpp:328:6:void EnterStop2Mode()	8	static
-../Core/Src/main.cpp:354:6:void EnterStandbyMode()	8	static
-../Core/Src/main.cpp:386:6:void ResetInactivityTimer()	8	static
-../Core/Src/main.cpp:393:6:void Wakeup_Reinit_Peripherals()	8	static
-../Core/Src/main.cpp:434:5:int main()	176	static
-../Core/Src/main.cpp:832:6:void SystemClock_Config()	112	static
-../Core/Src/main.cpp:887:6:void PeriphCommonClock_Config()	88	static
-../Core/Src/main.cpp:912:6:void HAL_GPIO_EXTI_Callback(uint16_t)	16	static
-../Core/Src/main.cpp:955:7:int _write(int, char*, int)	32	static
-../Core/Src/main.cpp:988:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
-../Core/Src/main.cpp:1008:6:void I2C_Scan(I2C_HandleTypeDef*)	24	static
-../Core/Src/main.cpp:1034:6:void printByteAsBinary(uint8_t)	24	static
-../Core/Src/main.cpp:1040:6:void print2BytesAsBinary(uint16_t)	24	static
-../Core/Src/main.cpp:1047:6:void printRegisters(uint8_t)	72	static
-../Core/Src/main.cpp:1163:6:void Error_Handler()	8	static,ignoring_inline_asm
-../Core/Src/main.cpp:1177:1:void __static_initialization_and_destruction_0()	32	static
-../Core/Src/main.cpp:1177:1:cpp)	8	static
+../Core/Src/main.cpp:69:5:int main()	8	static
+../Core/Src/main.cpp:129:6:void SystemClock_Config()	112	static
+../Core/Src/main.cpp:184:6:void PeriphCommonClock_Config()	88	static
+../Core/Src/main.cpp:209:6:void HAL_GPIO_EXTI_Callback(uint16_t)	16	static
+../Core/Src/main.cpp:252:7:int _write(int, char*, int)	32	static
+../Core/Src/main.cpp:290:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
+../Core/Src/main.cpp:312:6:void Error_Handler()	4	static,ignoring_inline_asm
