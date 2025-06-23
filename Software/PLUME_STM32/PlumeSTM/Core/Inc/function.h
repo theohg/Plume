@@ -32,18 +32,25 @@ typedef enum {
 #define BATTERY_SENSE_DIVIDER_RATIO ((R502_VALUE + R503_VALUE) / R503_VALUE)
 
 // Driver and motor configuration
-#define NUM_DRIVERS 2
+#define NUM_DRIVERS 18
 #define IPROPI_RESISTOR 680
 #define NUM_RIPPLES 6
 #define MOTOR_INTERNAL_RESISTANCE 20
 #define MOTOR_REDUCTION_RATIO 26
 #define MAX_MOTOR_RPM 1154
 
+// Module position and range constants
+#define FULL_RANGE_MM 4.0f
+#define FULL_RANGE_RIPPLES 29100.0f
+#define HALF_RANGE_RIPPLES (FULL_RANGE_RIPPLES / 2.0f)
+#define NB_RIPPLES_PER_MM (FULL_RANGE_RIPPLES / FULL_RANGE_MM)
+
 // IMU
-#define INACTIVITY_TIMEOUT_MS 1000
+#define INACTIVITY_TIMEOUT_MS 2000
 
 // prinf destination
 #define USE_SWD
+// #define USE_UART
 
 /* Extern Global Variables ---------------------------------------------------*/
 // These variables are defined in function.c
@@ -89,6 +96,9 @@ void Wakeup_Reinit_Peripherals(void);
 void I2C_Scan(I2C_HandleTypeDef *hi2c);
 void printRegisters(uint8_t driver_id);
 
+/* UART Command Handling */
+void UART_Init_Reception(void);
+void Process_UART_Commands(void);
 
 #ifdef __cplusplus
 }

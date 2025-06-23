@@ -13,6 +13,8 @@
 #include "TCA9548.h"
 #include "bmi2_user_interface.h"
 #include "stm32wbxx_ll_pwr.h"
+#include <string.h>
+#include <stdlib.h>
 
 /* Private variables ---------------------------------------------------------*/
 // These variables are declared as 'extern' in function.h
@@ -40,23 +42,54 @@ WakeupSource_t g_wakeup_source = WAKEUP_SOURCE_UNKNOWN;
 i2c_mux_t i2c_multiplexer;
 uint8_t i2c_channel_to_use = 1;
 
-// Motor control
+// Motor Control State Variables
 static uint16_t speed = MAX_MOTOR_RPM * 0.7;
 static uint16_t speed_low = MAX_MOTOR_RPM * 0.5;
 static float voltage = 3.0;
 static float current = 1;
 uint16_t ripple_target = 27000;
 static const bool stops_after_ripples = true;
+float module_position_ripples = 0.0f; // Current estimated position in ripples
+bool is_moving = false;               // Flag to indicate if a move command is active
+bool last_direction_down = false;     // false = moved UP, true = moved DOWN
+uint16_t last_ripple_count = 0;
+static int g_active_driver_idx = 0;
+
+// IDs of the motor drivers in use as a table
+static const uint8_t g_active_driver_ids[NUM_DRIVERS] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 };
 
 // Create an array of DRV8214 objects (C++ Style)
 DRV8214 drivers[NUM_DRIVERS] = {
- DRV8214(DRV8214_I2C_ADDR_11, 8, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
- DRV8214(DRV8214_I2C_ADDR_11, 17, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM)
+    DRV8214(DRV8214_I2C_ADDR_00, 0, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_0Z, 1, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_01, 2, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_Z0, 3, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_ZZ, 4, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_Z1, 5, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_10, 6, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_1Z, 7, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_11, 8, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+
+    DRV8214(DRV8214_I2C_ADDR_00, 9, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_0Z, 10, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_01, 11, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_Z0, 12, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_ZZ, 13, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_Z1, 14, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_10, 15, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_1Z, 16, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM),
+    DRV8214(DRV8214_I2C_ADDR_11, 17, IPROPI_RESISTOR, NUM_RIPPLES, MOTOR_INTERNAL_RESISTANCE, MOTOR_REDUCTION_RATIO, MAX_MOTOR_RPM)
 };
 
 // Create an array of configuration structs
 DRV8214_Config driver_configs[NUM_DRIVERS];
 
+// UART Command Handling Buffers
+#define UART_RX_BUFFER_SIZE 256
+#define CMD_BUFFER_SIZE 64
+static uint8_t uart_rx_buffer[UART_RX_BUFFER_SIZE];
+static char cmd_buffer[CMD_BUFFER_SIZE];
+static uint32_t cmd_idx = 0;
 
 /* Private Function Prototypes -----------------------------------------------*/
 static void Configure_BMI270_LowPower_AnyMotion(struct bmi2_dev *dev);
@@ -71,6 +104,13 @@ static void Init_Motor_Drivers(void);
 static void Init_IMU(void);
 static void LED_Startup_Sequence(void);
 static void Set_Inactivity_Delay(uint32_t delay_ms);
+static void Run_Command(char* full_cmd);
+static void Home_Motor(uint8_t driver_id);
+static void Stall_Motor_Down(uint8_t driver_id);
+static void Move_To_Position(uint8_t driver_id, float target_mm);
+static void Update_Position_tracking(uint8_t driver_id);
+static void Clear_Motor_Faults(uint8_t driver_id);
+static int Find_Driver_Index(uint8_t driver_id); // <-- ADD THIS
 
 /* Public Function Implementations -------------------------------------------*/
 
@@ -80,7 +120,8 @@ void App_Init(void)
 
     // Default GPIO states
     HAL_GPIO_WritePin(BAT_SENSE_EN_GPIO_Port, BAT_SENSE_EN_Pin, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(MUX_RESET_GPIO_Port, MUX_RESET_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_SET);
 
     Init_Muliplexer();
 
@@ -93,9 +134,13 @@ void App_Init(void)
     // Start battery measurement timer
     if (HAL_TIM_Base_Start_IT(&htim2) != HAL_OK) { Error_Handler();}
 
-    LED_Startup_Sequence();
+    UART_Init_Reception();
+
+    Set_Inactivity_Delay(INACTIVITY_TIMEOUT_MS);
     ResetInactivityTimer();
+
     printf("App Initialized. Inactivity timer running for %lu ms.\r\n", (unsigned long)INACTIVITY_TIMEOUT_MS);
+    LED_Startup_Sequence();
 }
 
 void App_Process(void)
@@ -112,7 +157,7 @@ void App_Process(void)
         ResetInactivityTimer(); // Restart the inactivity timer
     }
 
-    Handle_Channel_Switch();
+    // Handle_Channel_Switch(); // Not needed when using the UART control mode
 
     if (wakeup_event) {
         Process_Button_Press();
@@ -120,6 +165,12 @@ void App_Process(void)
 
     if (g_measure_battery_flag) {
         Handle_Battery_Measurement();
+    }
+
+    Process_UART_Commands();
+    
+    if (is_moving) {
+        Update_Position_tracking(g_active_driver_idx);
     }
 }
 
@@ -129,36 +180,41 @@ static void Handle_StopMode_Sequence(void)
 {
     inactivity_timer_elapsed_flag = false; // Clear flag
 
-    EnterStop2Mode();
+    bool switch2_is_set = (HAL_GPIO_ReadPin(SWITCH2_GPIO_Port, SWITCH2_Pin) == GPIO_PIN_SET);
 
-    // -- Execution resumes here after wakeup from Stop 2 --
+    if (switch2_is_set) {
+        EnterStop2Mode();
 
-    HAL_ResumeTick();
-    SystemClock_Config(); // Restore system clock
+        // -- Execution resumes here after wakeup from Stop 2 --
 
-    if (imu_interrupt_flag) {
-      imu_interrupt_flag = false;
-      printf("Wakeup source: IMU interrupt.\r\n");
-      WS2812_SetColor(255, 100, 0, 100); // Orange for IMU wakeup
-      HAL_Delay(500);
-      WS2812_SetColor(0, 0, 0, 0);
-    }
+        HAL_ResumeTick();
+        SystemClock_Config(); // Restore system clock
 
-    Wakeup_Reinit_Peripherals(); // Re-initialize peripherals affected by Stop mode
-    printf("Woke up from Stop 2. System is active.\r\n");
-    ResetInactivityTimer(); // Restart the inactivity timer
+        if (imu_interrupt_flag) {
+        imu_interrupt_flag = false;
+        printf("Wakeup source: IMU interrupt.\r\n");
+        WS2812_SetColor(255, 100, 0, 100); // Orange for IMU wakeup
+        HAL_Delay(500);
+        WS2812_SetColor(0, 0, 0, 0);
+        }
+
+        Wakeup_Reinit_Peripherals(); // Re-initialize peripherals affected by Stop mode, this resets the timer period to 10s
+        Set_Inactivity_Delay(INACTIVITY_TIMEOUT_MS);  // Reconfigure inactivity timer to the desired timeout
+        printf("Woke up from Stop 2. System is active.\r\n");
+        ResetInactivityTimer(); // Restart the inactivity timer
+    } 
 }
 
 static void Handle_Channel_Switch(void)
 {
-    bool switch_is_set = (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_SET);
-    bool needs_switch = (switch_is_set && i2c_channel_to_use != 0) || (!switch_is_set && i2c_channel_to_use != 1);
+    bool switch1_is_set = (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_SET);
+    bool needs_switch = (switch1_is_set && i2c_channel_to_use != 0) || (!switch1_is_set && i2c_channel_to_use != 1);
 
     if (!needs_switch) {
         return; // No change needed
     }
 
-    if (switch_is_set) { // Switch to channel 0
+    if (switch1_is_set) { // Switch to channel 0
         i2c_channel_to_use = 0;
         HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
         HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
@@ -190,26 +246,26 @@ static void Process_Button_Press(void)
     switch (button_ID) {
         case 1:
             WS2812_SetColor(255, 0, 0, 100); // Red
-            drivers[i2c_channel_to_use].turnXRipples(ripple_target, stops_after_ripples, true, speed, voltage, current);
+            drivers[g_active_driver_idx].turnXRipples(ripple_target, stops_after_ripples, true, speed, voltage, current);
             break;
         case 2:
             WS2812_SetColor(0, 255, 0, 100); // Green
-            drivers[i2c_channel_to_use].turnReverse(speed_low, voltage, current);
+            drivers[g_active_driver_idx].turnReverse(speed_low, voltage, current);
             break;
         case 3:
             WS2812_SetColor(0, 0, 255, 100); // Blue
             printf("Clearing fault flags & resetting ripple counter...\r\n");
-            drivers[i2c_channel_to_use].resetRippleCounter();
-            drivers[i2c_channel_to_use].resetFaultFlags();
+            drivers[g_active_driver_idx].resetRippleCounter();
+            drivers[g_active_driver_idx].resetFaultFlags();
             I2C_Scan(&hi2c1);
             break;
         case 4:
             WS2812_SetColor(255, 255, 0, 100); // Yellow
-            printRegisters(i2c_channel_to_use);
+            printRegisters(g_active_driver_idx);
             break;
         case 5:
             WS2812_SetColor(255, 0, 255, 100); // Magenta
-            drivers[i2c_channel_to_use].brakeMotor();
+            drivers[g_active_driver_idx].brakeMotor();
             break;
         default:
              WS2812_SetColor(0, 0, 0, 0); // Off
@@ -233,7 +289,7 @@ static void Handle_Battery_Measurement(void)
             uint32_t adc_raw_value = HAL_ADC_GetValue(&hadc1);
             float v_sense = ((float)adc_raw_value / ADC_RESOLUTION) * VREF_MCU;
             g_battery_voltage = v_sense * BATTERY_SENSE_DIVIDER_RATIO;
-            printf("ADC Raw: %lu, VBAT: %.2fV\r\n", adc_raw_value, g_battery_voltage);
+            // printf("ADC Raw: %lu, VBAT: %.2fV\r\n", adc_raw_value, g_battery_voltage);
         } else {
             printf("ADC Poll Timeout\r\n");
         }
@@ -346,10 +402,10 @@ void EnterStop2Mode(void)
 //  HAL_PWREx_EnableGPIOPullDown(PWR_GPIO_H, 0xFFFF);
 
   // 4. Disable the RF core (CPU2)
-  LL_C2_PWR_SetPowerMode(LL_PWR_MODE_SHUTDOWN);
+//  LL_C2_PWR_SetPowerMode(LL_PWR_MODE_SHUTDOWN);
 
   // 5. Enable Flash Power-Down in Stop mode
-  HAL_PWREx_EnableFlashPowerDown(PWR_FLASHPD_LPSLEEP);
+//  HAL_PWREx_EnableFlashPowerDown(PWR_FLASHPD_LPSLEEP);
 
   // 6. Configure wakeup sources
   __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
@@ -422,13 +478,14 @@ void Wakeup_Reinit_Peripherals(void)
     MX_TIM16_Init();
     MX_USART1_UART_Init();
 
+    // Restart the battery measurement timer
     if (HAL_TIM_Base_Start_IT(&htim2) != HAL_OK) { Error_Handler(); }
 
-    if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) != 0) {
-        printf("Failed to re-select MUX channel %d after wakeup.\n", i2c_channel_to_use);
-    } else {
-        printf("I2C MUX channel %d re-selected successfully.\n", i2c_channel_to_use);
-    }
+    // Reinitialize the Multiplexer
+    Init_Muliplexer();
+
+    // Reinitialize the DRV8214 driver for the current channel
+    Init_Motor_Drivers();
 }
 
 // ... I2C_Scan, printRegisters, and their helpers (printByteAsBinary)...
@@ -463,10 +520,10 @@ static void print2BytesAsBinary(uint16_t value) {
 
 void printRegisters(uint8_t driver_id) {
   printf("--- DRV8214 Driver %d Status ---\n", driver_id);
-  printf(" Speed: %d RPM | Voltage: %.2fV | Current: %.2fA\n",
-         drivers[driver_id].getMotorSpeedRPM(),
-         drivers[driver_id].getMotorVoltage(),
-         drivers[driver_id].getMotorCurrent());
+  printf(" Speed: %lu RPM | Voltage: %.2fV | Current: %.2fA\n",
+           (unsigned long)drivers[driver_id].getMotorSpeedRPM(),
+           drivers[driver_id].getMotorVoltage(),
+           drivers[driver_id].getMotorCurrent());
   printf(" Ripple Counter: %hu (0b", drivers[driver_id].getRippleCount());
   print2BytesAsBinary(drivers[driver_id].getRippleCount());
   printf(")\n");
@@ -479,6 +536,10 @@ void printRegisters(uint8_t driver_id) {
 
 static void Init_Muliplexer(void) {
     printf("Initializing PCA9546A multiplexer... ");
+    HAL_GPIO_WritePin(MUX_RESET_GPIO_Port, MUX_RESET_Pin, GPIO_PIN_RESET);
+    HAL_Delay(10); // Ensure reset pin is high for at least 10ms the put it floating
+    HAL_GPIO_WritePin(MUX_RESET_GPIO_Port, MUX_RESET_Pin, GPIO_PIN_SET);
+    HAL_Delay(10); // Wait for the multiplexer to reset
     i2c_multiplexer.hi2c = &hi2c1;
     i2c_multiplexer.rst_port = MUX_RESET_GPIO_Port;
     i2c_multiplexer.rst_pin = MUX_RESET_Pin;
@@ -486,12 +547,8 @@ static void Init_Muliplexer(void) {
     // Set initial channel based on switch and wake nSLEEP pin
     if (HAL_GPIO_ReadPin(SWITCH1_GPIO_Port, SWITCH1_Pin) == GPIO_PIN_SET) {
         i2c_channel_to_use = 0;
-        HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
     } else {
         i2c_channel_to_use = 1;
-        HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_SET);
     }
     if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) == 0) {
         printf("PCA9546A Initialized Successfully! Channel %d selected.\n", i2c_channel_to_use);
@@ -503,15 +560,28 @@ static void Init_Muliplexer(void) {
 static void Init_Motor_Drivers(void) {
     printf("Initializing DRV8214 drivers...\n");
     drv8214_i2c_set_handle(&hi2c1);
-	// We only initialize the active driver to save time, the other is initialized on channel switch
-    driver_configs[i2c_channel_to_use] = DRV8214_Config();
-    if (drivers[i2c_channel_to_use].init(driver_configs[i2c_channel_to_use]) == DRV8214_OK) {
-        drivers[i2c_channel_to_use].resetFaultFlags();
-        printf("DRV8214 driver %d initialized successfully!\n", i2c_channel_to_use);
-    } else {
-        printf("Failed to initialize DRV8214 driver %d.\n", i2c_channel_to_use);
-        Error_Handler();
+
+    HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_SET);
+
+    for (int i = 0; i < NUM_DRIVERS; i++) {
+        driver_configs[i] = DRV8214_Config();
+        if (drivers[i].init(driver_configs[i]) == DRV8214_OK) {
+            drivers[i].resetFaultFlags();
+            printf("DRV8214 driver %d initialized successfully!\n", i);
+        } else {
+            printf("Failed to initialize DRV8214 driver %d.\n", i);
+            Error_Handler();
+        }
     }
+    // driver_configs[i2c_channel_to_use] = DRV8214_Config();
+    // if (drivers[i2c_channel_to_use].init(driver_configs[i2c_channel_to_use]) == DRV8214_OK) {
+    //     drivers[i2c_channel_to_use].resetFaultFlags();
+    //     printf("DRV8214 driver %d initialized successfully!\n", i2c_channel_to_use);
+    // } else {
+    //     printf("Failed to initialize DRV8214 driver %d.\n", i2c_channel_to_use);
+    //     Error_Handler();
+    // }
 }
 
 static void Init_IMU(void) {
@@ -552,4 +622,340 @@ static void Set_Inactivity_Delay(uint32_t delay_ms) {
     __HAL_TIM_SET_COUNTER(&htim16, 0); // Reset the timer counter
     HAL_TIM_Base_Start_IT(&htim16);    // Start the timer with interrupt enabled
     printf("Inactivity timer set for %lu ms.\r\n", (unsigned long)delay_ms);
+}
+
+/**
+ * @brief  Starts UART reception in DMA mode.
+ */
+void UART_Init_Reception(void)
+{
+    // Start listening for data on huart1 using DMA
+    // The buffer is handled as a circular buffer by the HAL/DMA controller
+    if (HAL_UART_Receive_DMA(&huart1, uart_rx_buffer, UART_RX_BUFFER_SIZE) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    printf("UART DMA Reception Started.\r\n");
+}
+
+/**
+ * @brief  Processes incoming characters from the UART DMA buffer.
+ */
+void Process_UART_Commands(void)
+{
+    static uint32_t old_pos = 0;
+    uint32_t new_pos;
+
+    // The DMA controller writes to the buffer. `hdmarx->Instance->CNDTR` tells us
+    // how many bytes are remaining to be transferred. From this, we can calculate
+    // the current write position.
+    new_pos = UART_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(huart1.hdmarx);
+
+    if (new_pos != old_pos) // Check if new data has been received
+    {   
+        // Process all new characters since the last check
+        while (old_pos != new_pos)
+        {
+            char c = uart_rx_buffer[old_pos];
+            
+            // Check for end-of-command characters
+            if (c == '\r' || c == '\n')
+            {
+                if (cmd_idx > 0) // We have a command to process
+                {
+                    cmd_buffer[cmd_idx] = '\0'; // Null-terminate the string
+                    printf("Received: %s\r\n", cmd_buffer);
+                    Run_Command(cmd_buffer);
+                    cmd_idx = 0; // Reset for next command
+                }
+            }
+            else
+            {
+                if (cmd_idx < CMD_BUFFER_SIZE - 1)
+                {
+                    cmd_buffer[cmd_idx++] = c;
+                }
+                // else: buffer overflow, command is ignored
+            }
+
+            old_pos++;
+            if (old_pos >= UART_RX_BUFFER_SIZE)
+            {
+                old_pos = 0; // Wrap around the circular buffer
+            }
+        }
+    }
+}
+
+/* Motor Control and Command Execution Logic */
+
+/**
+  * @brief  Parses a command string and executes the corresponding action.
+  * @param  full_cmd: The null-terminated command string.
+  */
+static void Run_Command(char* full_cmd)
+{
+    char* token;
+    char cmd_char;
+    
+    // Get the command character (e.g., 'm', 'h')
+    token = strtok(full_cmd, " ");
+    if (token == NULL) {
+        printf("ERROR: Empty command.\r\n");
+        return;
+    }
+    cmd_char = token[0];
+
+    // Get the first argument (driver ID)
+    token = strtok(NULL, " ");
+    if (token == NULL && cmd_char != 'x' && cmd_char != 'h' && cmd_char != 'c' && cmd_char != 's') {
+        printf("ERROR: Missing driver ID.\r\n");
+        return;
+    }
+    long logical_driver_id_long = atol(token); // Convert string to long integer
+    
+    // 1. Check if the ID is in the absolute valid range (0-17)
+    if (logical_driver_id_long < 0 || logical_driver_id_long > 17) {
+        printf("ERROR: Driver ID %ld is out of the valid range (0-17).\r\n", logical_driver_id_long);
+        return;
+    }
+    uint8_t logical_driver_id = (uint8_t)logical_driver_id_long;
+
+    // 2. Check if the ID is one of the initialized drivers and get its array index
+    int driver_idx = Find_Driver_Index(logical_driver_id);
+    if (driver_idx == -1) {
+        printf("ERROR: Driver ID %u is not configured/initialized on this device.\r\n", logical_driver_id);
+        return;
+    }
+
+    // Activate the correct I2C channel (channel 0 for drivers 0-8, channel 1 for drivers 9-17)
+    uint8_t target_channel = (logical_driver_id < 9) ? 0 : 1;
+    if (target_channel != i2c_channel_to_use) {
+        i2c_channel_to_use = target_channel;
+        if (i2c_mux_select(&i2c_multiplexer, i2c_channel_to_use) != 0) {
+            printf("ERROR: Failed to switch to channel %u for driver %u.\r\n", i2c_channel_to_use, logical_driver_id);
+            return;
+        }
+        printf("Switched to MUX channel %u for driver %u.\r\n", i2c_channel_to_use, logical_driver_id);
+    }
+
+    // Power on the bus of the selected driver
+    if (logical_driver_id < 9) {
+        HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_SET);
+        // HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_RESET);
+    } else {
+        // HAL_GPIO_WritePin(nSLEEP_FRONT_GPIO_Port, nSLEEP_FRONT_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(nSLEEP_REAR_GPIO_Port, nSLEEP_REAR_Pin, GPIO_PIN_SET);
+    }
+
+    // Get the second argument (value) if it exists
+    token = strtok(NULL, " ");
+    float arg_val = (token != NULL) ? atof(token) : 0.0f;
+
+    // Execute the command
+    switch(cmd_char) {
+        case 'h': // Home
+            if (logical_driver_id)
+            printf("CMD: Homing driver %d\r\n", logical_driver_id);
+            Home_Motor(logical_driver_id);
+            break;
+
+        case 's': // Stall Down
+            printf("CMD: Stalling driver %d down\r\n", logical_driver_id);
+            Stall_Motor_Down(logical_driver_id);
+            break;
+
+        case 'm': // Move Absolute
+            if (arg_val < 0.0f || arg_val > FULL_RANGE_MM) {
+                printf("ERROR: Position %.2f mm is out of range (0 to %.1f mm)\r\n", arg_val, FULL_RANGE_MM);
+            } else {
+                printf("CMD: Moving driver %d to %.2f mm\r\n", logical_driver_id, arg_val);
+                Move_To_Position(logical_driver_id, arg_val);
+            }
+            break;
+
+        case 'u': // Move Up (relative)
+            printf("CMD: Moving driver %d UP by %.2f mm\r\n", logical_driver_id, arg_val);
+            Move_To_Position(logical_driver_id, (module_position_ripples / NB_RIPPLES_PER_MM) + arg_val);
+            break;
+
+        case 'd': // Move Down (relative)
+            printf("CMD: Moving driver %d DOWN by %.2f mm\r\n", logical_driver_id, arg_val);
+            Move_To_Position(logical_driver_id, (module_position_ripples / NB_RIPPLES_PER_MM) - arg_val);
+            break;
+
+        case 'x': // Stop
+            is_moving = false;
+            if (token == NULL) {
+                printf("CMD: Stopping all drivers\r\n");
+                for (int i = 0; i < NUM_DRIVERS; i++) {
+                    drivers[i].brakeMotor();
+                }
+                is_moving = false;
+            } else {
+                printf("CMD: Stopping driver %d\r\n", logical_driver_id);
+                drivers[logical_driver_id].brakeMotor();
+            }
+            break;
+
+        case 'c': // Clear Faults
+            if (token == NULL) {
+                printf("CMD: Clearing faults for all drivers\r\n");
+                for (int i = 0; i < NUM_DRIVERS; i++) {
+                    Clear_Motor_Faults(i);
+                }
+            } else {
+                printf("CMD: Clearing faults for driver %d\r\n", logical_driver_id);
+                Clear_Motor_Faults(logical_driver_id);
+            }
+            break;
+
+        case 'i': // Info/Status
+            printf("CMD: Status for driver %d\r\n", logical_driver_id);
+            printRegisters(logical_driver_id);
+            break;
+            
+        case 'p': // Position
+            printf("Position: %.2f ripples (%.2f mm)\r\n", 
+                   module_position_ripples, 
+                   module_position_ripples / NB_RIPPLES_PER_MM);
+            break;
+
+        default:
+            printf("ERROR: Invalid command '%c'\r\n", cmd_char);
+            break;
+    }
+}
+
+/**
+ * @brief Clears faults on the motor driver.
+ */
+static void Clear_Motor_Faults(uint8_t driver_id) {
+    drivers[driver_id].resetRippleCounter();
+    drivers[driver_id].resetFaultFlags();
+    is_moving = false; // Stop tracking position after a fault
+    printf("Faults cleared for driver %d.\r\n", driver_id);
+}
+
+/**
+ * @brief Stalls the motor in the downward direction to find the 0 position.
+ */
+static void Stall_Motor_Down(uint8_t driver_id) {
+    printf("Stalling motor %d down...\r\n", driver_id);
+    Clear_Motor_Faults(driver_id); // Start with clean slate
+    drivers[driver_id].turnXRipples(65000, true, true, speed_low, voltage, current); // Move down
+    HAL_Delay(5000); // Wait for stall to occur
+    
+    // You should ideally wait for the fault flag instead of a fixed delay
+    // while(!(drivers[driver_id].getFaultStatus() & DRV8214_STALL_FLAG_BIT)) { HAL_Delay(10); }
+
+    drivers[driver_id].brakeMotor();
+    Clear_Motor_Faults(driver_id);
+    drivers[driver_id].resetRippleCounter();
+    module_position_ripples = 0.0f;
+    is_moving = false;
+    printf("Stall complete. Position set to 0.\r\n");
+}
+
+/**
+ * @brief Homes the motor to the center of its travel range.
+ */
+static void Home_Motor(uint8_t driver_id) {
+    // 1. Stall down to find absolute zero
+    Stall_Motor_Down(driver_id);
+    
+    // 2. Move up to the halfway point
+    printf("Homing: Moving to center position...\r\n");
+    uint16_t move_amount = (uint16_t)HALF_RANGE_RIPPLES;
+
+    Clear_Motor_Faults(driver_id);
+    drivers[driver_id].resetRippleCounter();
+    
+    last_direction_down = false; // Moving UP
+    is_moving = true;
+    last_ripple_count = 0;
+    
+    drivers[driver_id].turnXRipples(move_amount, stops_after_ripples, false, speed, voltage, current);
+    
+    // Note: Homing is now asynchronous. Position tracking will update the final position.
+    // A more robust implementation would block here or use a callback when motion is complete.
+}
+
+/**
+ * @brief Moves the motor to a target position in millimeters.
+ */
+static void Move_To_Position(uint8_t driver_id, float target_mm) {
+    float target_ripples = target_mm * NB_RIPPLES_PER_MM;
+    float error_ripples = target_ripples - module_position_ripples;
+
+    if (fabs(error_ripples) < 50) { // Threshold to prevent hunting
+        printf("Position already at target.\r\n");
+        is_moving = false;
+        return;
+    }
+    
+    Clear_Motor_Faults(driver_id);
+
+    bool direction_is_down = (error_ripples < 0);
+    uint16_t move_amount = (uint16_t)fabs(error_ripples);
+
+    printf("Moving %s by %u ripples.\r\n", direction_is_down ? "DOWN" : "UP", move_amount);
+    
+    // Prepare for tracking
+    last_direction_down = direction_is_down;
+    is_moving = true;
+    last_ripple_count = 0; // The driver counter is reset by turnXRipples
+    drivers[driver_id].resetRippleCounter();
+
+    // Command the move
+    drivers[driver_id].turnXRipples(move_amount, stops_after_ripples, direction_is_down, speed, voltage, current);
+}
+
+/**
+ * @brief Updates the global position estimate by reading the driver's ripple counter.
+ */
+static void Update_Position_tracking(uint8_t driver_id) {
+    uint16_t current_ripples = drivers[driver_id].getRippleCount();
+    
+    // Check for motor stop condition (fault or speed is zero)
+    if (drivers[driver_id].getFaultStatus() != 0 || drivers[driver_id].getMotorSpeedRPM() == 0) {
+        if (HAL_GetTick() > 500) { // A small delay to ensure the motor has fully stopped
+             is_moving = false;
+             printf("Move complete or fault detected. Stopping tracking.\r\n");
+        }
+    }
+
+    if (current_ripples > last_ripple_count) {
+        float delta = (float)(current_ripples - last_ripple_count);
+        
+        if (last_direction_down) {
+            module_position_ripples -= delta;
+        } else {
+            module_position_ripples += delta;
+        }
+        
+        last_ripple_count = current_ripples;
+        
+        // Clamp position to valid range
+        if (module_position_ripples < 0) module_position_ripples = 0;
+        if (module_position_ripples > FULL_RANGE_RIPPLES) module_position_ripples = FULL_RANGE_RIPPLES;
+
+        // Optional: Print real-time tracking
+        // printf("Track: pos=%.1f\r\n", module_position_ripples);
+    }
+}
+
+/**
+ * @brief  Finds the array index for a given logical driver ID.
+ * @param  driver_id The logical ID of the driver (e.g., 8, 17).
+ * @retval The index in the `g_active_driver_ids` and `drivers` arrays, or -1 if not found.
+ */
+static int Find_Driver_Index(uint8_t driver_id)
+{
+    for (int i = 0; i < NUM_DRIVERS; i++) {
+        if (g_active_driver_ids[i] == driver_id) {
+            return i; // Found it, return the index
+        }
+    }
+    return -1; // Driver ID not configured
 }

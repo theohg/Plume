@@ -4,5 +4,5 @@
 ../Core/Src/main.cpp:184:6:void PeriphCommonClock_Config()	2
 ../Core/Src/main.cpp:209:6:void HAL_GPIO_EXTI_Callback(uint16_t)	7
 ../Core/Src/main.cpp:252:7:int _write(int, char*, int)	2
-../Core/Src/main.cpp:290:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	4
-../Core/Src/main.cpp:312:6:void Error_Handler()	1
+../Core/Src/main.cpp:287:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	4
+../Core/Src/main.cpp:309:6:void Error_Handler()	1
