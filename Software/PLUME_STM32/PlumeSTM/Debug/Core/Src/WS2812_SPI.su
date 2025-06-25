@@ -1,2 +1,9 @@
-../Core/Src/WS2812_SPI.cpp:18:13:void ws2812_send_spi_data(uint8_t, uint8_t, uint8_t)	48	static
-../Core/Src/WS2812_SPI.cpp:43:6:void WS2812_SetColor(uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+../Core/Src/WS2812_SPI.cpp:24:13:void ws2812_send_spi_data(uint8_t, uint8_t, uint8_t)	48	static
+../Core/Src/WS2812_SPI.cpp:48:6:void WS2812_SetColor(uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+../Core/Src/WS2812_SPI.cpp:92:6:void Update_LED_State()	16	static
+../Core/Src/WS2812_SPI.cpp:127:6:void Set_LED_Blink(Color_t, uint16_t, uint16_t)	16	static
+../Core/Src/WS2812_SPI.cpp:137:6:void Set_LED_Solid(Color_t)	24	static
+../Core/Src/WS2812_SPI.cpp:151:6:void Set_LED_Solid_For(Color_t, uint16_t)	16	static
+../Core/Src/WS2812_SPI.cpp:164:6:void Set_LED_Blink_For(Color_t, uint16_t, uint16_t, uint16_t)	32	static
+../Core/Src/WS2812_SPI.cpp:175:6:void Set_LED_Off()	8	static
+../Core/Src/WS2812_SPI.cpp:184:6:void LED_Startup_Sequence()	8	static

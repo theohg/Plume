@@ -1,8 +1,7 @@
-../Drivers/CMSIS/Include/core_cm4.h:2059:26:uint32_t ITM_SendChar(uint32_t)	5
 ../Core/Src/main.cpp:69:5:int main()	1
 ../Core/Src/main.cpp:129:6:void SystemClock_Config()	3
 ../Core/Src/main.cpp:184:6:void PeriphCommonClock_Config()	2
 ../Core/Src/main.cpp:209:6:void HAL_GPIO_EXTI_Callback(uint16_t)	7
-../Core/Src/main.cpp:252:7:int _write(int, char*, int)	2
+../Core/Src/main.cpp:265:7:int _write(int, char*, int)	2
 ../Core/Src/main.cpp:287:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	4
 ../Core/Src/main.cpp:309:6:void Error_Handler()	1

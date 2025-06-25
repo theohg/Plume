@@ -17,8 +17,7 @@
 #include <stdlib.h>
 
 /* Private defines ----------------------------------------------------------*/
-#define TRACKING_PRINT_INTERVAL_MS 500  // Print status every 500 milliseconds
-#define TRACKING_CURRENT_INTERVAL_MS 500  // Print motor current during stall every 500 milliseconds
+#define TRACKING_PRINT_INTERVAL_MS 250 // Print status every 250 milliseconds
 #define TIMEOUT_STALL_DETECTION_MS 5000 // Timeout for stall detection in milliseconds
 
 /* Private variables ---------------------------------------------------------*/
@@ -52,7 +51,7 @@ uint8_t i2c_channel_to_use = 1;
 static uint16_t speed = MAX_MOTOR_RPM * 0.7;
 static uint16_t speed_low = MAX_MOTOR_RPM * 0.5;
 static float voltage = 3.91;
-static float current = 0.13;
+static float current = 0.15;
 uint16_t ripple_target = 27000;
 static const bool stops_after_ripples = true;
 
@@ -60,7 +59,6 @@ static const bool stops_after_ripples = true;
 static int g_active_driver_idx = 0;
 static float g_driver_positions_ripples[NUM_DRIVERS] = {0.0f};
 bool is_moving = false;               // Flag to indicate if a move command is active
-static bool is_stalling = false;      // Flag to indicate if the motor is currently in a the stall loop
 bool last_direction_down = false;     // false = moved UP, true = moved DOWN
 uint16_t last_ripple_count = 0;
 
@@ -114,7 +112,7 @@ static void Init_IMU(void);
 static void Set_Inactivity_Delay(uint32_t delay_ms);
 static void Run_Command(char* full_cmd);
 static void Home_Motor(uint8_t driver_id);
-static bool Stall_Motor_Down(uint8_t driver_id);
+static void Stall_Motor_Down(uint8_t driver_id);
 static void Move_To_Position(uint8_t driver_id, float target_mm);
 static void Update_Position_tracking(uint8_t driver_id);
 static void Clear_Motor_Faults(uint8_t driver_id);
@@ -853,65 +851,61 @@ static void Run_Command(char* full_cmd)
 static void Clear_Motor_Faults(uint8_t driver_id) {
     drivers[driver_id].resetRippleCounter();
     drivers[driver_id].resetFaultFlags();
+    is_moving = false; // Stop tracking position after a fault
+    // printf("Faults cleared for driver %d.\r\n", driver_id);
 }
 
 /**
  * @brief Stalls the motor in the downward direction to find the 0 position.
  */
-static bool Stall_Motor_Down(uint8_t driver_id) {
-
-    bool stall_success = true;
+static void Stall_Motor_Down(uint8_t driver_id) {
 
     printf("Stalling motor %d down...\r\n", driver_id);
     Clear_Motor_Faults(driver_id); // Start with clean slate
-    drivers[driver_id].turnForward(speed_low, voltage, current); // Effectively moves the motor downwards
+    drivers[driver_id].turnXRipples(65000, true, true, speed_low, voltage, current); // Move down
 
     uint32_t stall_start_time = HAL_GetTick();
-    uint32_t stall_last_print = HAL_GetTick();
     
     while((!(drivers[driver_id].getFaultStatus() & FAULT_STALL))) { 
 
-        if ((HAL_GetTick() - stall_last_print) > TRACKING_CURRENT_INTERVAL_MS) {
-            stall_last_print = HAL_GetTick();
-            float current = drivers[driver_id].getMotorCurrent();
-            printf("Driver %d current=%.2fA\r\n", driver_id, current);
-        }
-        // If no stall is detected by the driver during the timeout period, we assume a stall failure
-        if ((HAL_GetTick() - stall_start_time) > TIMEOUT_STALL_DETECTION_MS) {
-            printf("Stall failed for driver %d. Timeout reached, stopping stall.\r\n", driver_id);
-            stall_success = false;
-            drivers[driver_id].brakeMotor();
-            Clear_Motor_Faults(driver_id);
-            g_driver_positions_ripples[driver_id] = 0.0f;
-            return stall_success;
+        float current = drivers[driver_id].getMotorCurrent();
+        printf("Driver %d current=%.2fA\r\n", driver_id, current);
+        HAL_Delay(100); // Poll every 100ms
+        if (((HAL_GetTick() - stall_start_time) > TIMEOUT_STALL_DETECTION_MS)) {
+            printf("Stall timeout reached for driver %d. Stopping stall.\r\n", driver_id);
+            break; // Exit if stall not detected within timeout
         }
     }
+
     drivers[driver_id].brakeMotor();
     Clear_Motor_Faults(driver_id);
+    // drivers[driver_id].resetRippleCounter();
     g_driver_positions_ripples[driver_id] = 0.0f;
     printf("Stall complete. Position set to 0.\r\n");
-    return stall_success;
 }
 
 /**
  * @brief Homes the motor to the center of its travel range.
  */
 static void Home_Motor(uint8_t driver_id) {
-
     // 1. Stall down to find absolute zero
-    if (Stall_Motor_Down(driver_id)){
-        // 2. Move up to the halfway point if stall was successful (not due to timeout)
-        printf("Homing: Moving to center position...\r\n");
-        uint16_t move_amount = (uint16_t)HALF_RANGE_RIPPLES;
+    Stall_Motor_Down(driver_id);
+    
+    // 2. Move up to the halfway point
+    printf("Homing: Moving to center position...\r\n");
+    uint16_t move_amount = (uint16_t)HALF_RANGE_RIPPLES;
 
-        Clear_Motor_Faults(driver_id);
-        
-        last_direction_down = false; // Moving UP
-        is_moving = true;
-        last_ripple_count = 0;
-        
-        drivers[driver_id].turnXRipples(move_amount, stops_after_ripples, false, speed, voltage, current);
-    }
+    Clear_Motor_Faults(driver_id);
+    // drivers[driver_id].resetRippleCounter();
+    
+    last_direction_down = false; // Moving UP
+    is_moving = true;
+    last_ripple_count = 0;
+    
+    drivers[driver_id].turnXRipples(move_amount, stops_after_ripples, false, speed, voltage, current);
+    
+    // Note: Homing is now asynchronous. Position tracking will update the final position.
+    // A more robust implementation would block here or use a callback when motion is complete.
 }
 
 /**
@@ -958,9 +952,8 @@ static void Update_Position_tracking(uint8_t driver_id) {
         uint8_t fault_status = drivers[driver_id].getFaultStatus();
         if (fault_status & ~ (FAULT_GENERAL | FAULT_NPOR)) { // Check for any fault except general or power-on reset
             is_moving = false; // Stop tracking if a fault is detected
-            drivers[driver_id].brakeMotor();
             if (fault_status & FAULT_CNT_DONE) {
-                Clear_Motor_Faults(driver_id);
+                drivers[driver_id].brakeMotor();
                 printf("Motor %d has reached the desired position cleanly: pos=%.2f mm\r\n", driver_id, (g_driver_positions_ripples[driver_id] / NB_RIPPLES_PER_MM));
             } else {
                 printf("Motor %d has stopped due to an unexpected fault:\r\n", driver_id);

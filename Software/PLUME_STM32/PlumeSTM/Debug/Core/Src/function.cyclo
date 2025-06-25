@@ -1,35 +1,32 @@
 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.macos64_1.0.0.202411102158/tools/arm-none-eabi/include/c++/13.3.1/cmath:234:3:constexpr float std::fabs(float)	1
-/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:147:8:constexpr DRV8214_Config::DRV8214_Config()	1
-/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:198:9:DRV8214::DRV8214(uint8_t, uint8_t, uint16_t, uint8_t, uint8_t, uint8_t, uint16_t)	1
-../Core/Src/function.cpp:117:6:void App_Init()	2
-../Core/Src/function.cpp:146:6:void App_Process()	6
-../Core/Src/function.cpp:179:13:void Handle_StopMode_Sequence()	3
-../Core/Src/function.cpp:208:13:void Handle_Channel_Switch()	9
-../Core/Src/function.cpp:240:13:void Process_Button_Press()	6
-../Core/Src/function.cpp:278:13:void Handle_Battery_Measurement()	3
-../Core/Src/function.cpp:301:6:void CheckWakeupSource()	3
-../Core/Src/function.cpp:319:13:void Configure_BMI270_LowPower_AnyMotion(bmi2_dev*)	9
-../Core/Src/function.cpp:377:6:void EnterStop2Mode()	1
-../Core/Src/function.cpp:433:6:void EnterStandbyMode()	1
-../Core/Src/function.cpp:454:6:void ResetInactivityTimer()	1
-../Core/Src/function.cpp:461:6:void Wakeup_Reinit_Peripherals()	2
-../Core/Src/function.cpp:492:6:void I2C_Scan(I2C_HandleTypeDef*)	5
-../Core/Src/function.cpp:509:13:void printByteAsBinary(uint8_t)	2
-../Core/Src/function.cpp:515:13:void print2BytesAsBinary(uint16_t)	2
-../Core/Src/function.cpp:521:6:void printRegisters(uint8_t)	1
-../Core/Src/function.cpp:537:13:void Init_Muliplexer()	3
-../Core/Src/function.cpp:560:13:void Init_Motor_Drivers()	4
-../Core/Src/function.cpp:587:13:void Init_IMU()	2
-../Core/Src/function.cpp:608:13:void LED_Startup_Sequence()	1
-../Core/Src/function.cpp:616:13:void Set_Inactivity_Delay(uint32_t)	2
-../Core/Src/function.cpp:630:6:void UART_Init_Reception()	2
-../Core/Src/function.cpp:644:6:void Process_UART_Commands()	8
-../Core/Src/function.cpp:696:13:void Run_Command(char*)	28
-../Core/Src/function.cpp:825:13:void Clear_Motor_Faults(uint8_t)	1
-../Core/Src/function.cpp:835:13:void Stall_Motor_Down(uint8_t)	1
-../Core/Src/function.cpp:855:13:void Home_Motor(uint8_t)	1
-../Core/Src/function.cpp:879:13:void Move_To_Position(uint8_t, float)	3
-../Core/Src/function.cpp:909:13:void Update_Position_tracking(uint8_t)	9
-../Core/Src/function.cpp:945:12:int Find_Driver_Index(uint8_t)	3
-../Core/Src/function.cpp:953:1:void __static_initialization_and_destruction_0()	1
-../Core/Src/function.cpp:953:1:cpp)	1
+/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:156:8:constexpr DRV8214_Config::DRV8214_Config()	1
+/Users/theoh/Documents/EPFL/MA4/semester_project/Plume/Software/PLUME_STM32/PlumeSTM/Drivers/DRV8214_Driver/include/drv8214.h:204:9:DRV8214::DRV8214(uint8_t, uint8_t, uint16_t, uint8_t, uint8_t, uint8_t, uint16_t)	1
+../Core/Src/function.cpp:123:6:void App_Init()	2
+../Core/Src/function.cpp:152:6:void App_Process()	5
+../Core/Src/function.cpp:183:13:void Handle_StopMode_Sequence()	3
+../Core/Src/function.cpp:210:13:void Process_Button_Press()	6
+../Core/Src/function.cpp:246:13:void Handle_Battery_Measurement()	3
+../Core/Src/function.cpp:269:6:void CheckWakeupSource()	3
+../Core/Src/function.cpp:287:13:void Configure_BMI270_LowPower_AnyMotion(bmi2_dev*)	9
+../Core/Src/function.cpp:345:6:void EnterStop2Mode()	1
+../Core/Src/function.cpp:401:6:void EnterStandbyMode()	1
+../Core/Src/function.cpp:422:6:void ResetInactivityTimer()	1
+../Core/Src/function.cpp:429:6:void Wakeup_Reinit_Peripherals()	2
+../Core/Src/function.cpp:460:6:void I2C_Scan(I2C_HandleTypeDef*)	5
+../Core/Src/function.cpp:477:13:void printByteAsBinary(uint8_t)	2
+../Core/Src/function.cpp:483:13:void print2BytesAsBinary(uint16_t)	2
+../Core/Src/function.cpp:489:6:void printRegisters(uint8_t)	1
+../Core/Src/function.cpp:505:13:void Init_Muliplexer()	2
+../Core/Src/function.cpp:522:13:void Init_Motor_Drivers()	10
+../Core/Src/function.cpp:582:13:void Init_IMU()	2
+../Core/Src/function.cpp:602:13:void Set_Inactivity_Delay(uint32_t)	2
+../Core/Src/function.cpp:616:6:void UART_Init_Reception()	2
+../Core/Src/function.cpp:630:6:void Process_UART_Commands()	8
+../Core/Src/function.cpp:682:13:void Run_Command(char*)	44
+../Core/Src/function.cpp:852:13:void Clear_Motor_Faults(uint8_t)	1
+../Core/Src/function.cpp:860:13:bool Stall_Motor_Down(uint8_t)	4
+../Core/Src/function.cpp:898:13:void Home_Motor(uint8_t)	2
+../Core/Src/function.cpp:921:13:void Move_To_Position(uint8_t, float)	3
+../Core/Src/function.cpp:952:13:void Update_Position_tracking(uint8_t)	9
+../Core/Src/function.cpp:999:1:void __static_initialization_and_destruction_0()	1
+../Core/Src/function.cpp:999:1:cpp)	1

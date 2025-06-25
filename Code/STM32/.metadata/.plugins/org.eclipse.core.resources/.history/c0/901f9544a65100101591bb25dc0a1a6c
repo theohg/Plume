@@ -33,7 +33,7 @@ typedef enum {
 
 // Driver and motor configuration
 #define NUM_DRIVERS 18
-#define IPROPI_RESISTOR 680
+#define IPROPI_RESISTOR 1300
 #define NUM_RIPPLES 6
 #define MOTOR_INTERNAL_RESISTANCE 20
 #define MOTOR_REDUCTION_RATIO 26

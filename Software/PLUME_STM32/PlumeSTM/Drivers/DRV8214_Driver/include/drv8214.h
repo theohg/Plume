@@ -140,6 +140,15 @@
 #define RC_CTRL8_KI_DIV       0xE0  // Bits 7-5 - Integral Gain Divisor for Control Loop [2:0]
 #define RC_CTRL8_KI           0x1F  // Bits 4-0 - Integral Gain Value [4:0]
 
+// --- FAULT STATUS BITS ---
+#define FAULT_GENERAL   (1<<7)
+#define FAULT_STALL     (1<<5)
+#define FAULT_OCP       (1<<4)
+#define FAULT_OVP       (1<<3)
+#define FAULT_TSD       (1<<2)
+#define FAULT_NPOR      (1<<1)
+#define FAULT_CNT_DONE  (1<<0)
+
 enum ControlMode { PWM, PH_EN };
 enum RegulationMode { CURRENT_FIXED, CURRENT_CYCLES, SPEED, VOLTAGE };
 // when using I2C control, the speed/voltage cannot be controlled if using the CURRENT_FIXED or CURRENT_CYCLES regulation mode
@@ -147,20 +156,20 @@ enum RegulationMode { CURRENT_FIXED, CURRENT_CYCLES, SPEED, VOLTAGE };
 struct DRV8214_Config {
     bool I2CControlled = true;  // I2C Control of the driver (0: disabled, 1: enabled)
     ControlMode control_mode = PWM;  // Control mode of the driver (PWM, PH_EN)
-    RegulationMode regulation_mode = SPEED;  // Control mode of the driver (CURRENT_FIXED, CURRENT_CYCLES, SPEED, VOLTAGE)
+    RegulationMode regulation_mode = VOLTAGE;  // Control mode of the driver (CURRENT_FIXED, CURRENT_CYCLES, SPEED, VOLTAGE)
     bool voltage_range = true;  // Expected applied supply voltage range to the attached motor (0: 0V-15.7V, 1: 0V-3.92V)
     float Vref = 0.5f;  // Voltage reference for current regulation. Can be internal (fixed @500mV) or external.
     bool stall_enabled = true;  // Stall detection (0: disabled, 1: enabled)
     bool ovp_enabled = true;  // Overvoltage protection (0: disabled, 1: enabled)
     bool stall_behavior = false;  // Stall behavior of the driver (0: outputs disable, 1: outputs continue to drive current)
     bool bridge_behavior_thr_reached = false;  // Bridge behavior when ripple threshold is reached (0: H-bridge stays enabled, 1: H-bridge is disabled)
-    uint8_t current_reg_mode = 3;  // Stall mode of the driver (0: no current regulation, 1: current regulation during inrush, 2: current regulation at all times, 3: current regulation at all times)
+    uint8_t current_reg_mode = 0;  // Stall mode of the driver (0: no current regulation, 1: current regulation during inrush, 2: current regulation at all times, 3: current regulation at all times)
     float Aipropri = 0;  // Value of the current mirror gain in μA/A
-    float Itrip = 0.0f;  // Value of the trip current in A (current target for regulation mode CURRENT_FIXED & CURRENT_CYCLES)
+    float Itrip = 0.13f;  // Value of the trip current in A (current target for regulation mode CURRENT_FIXED & CURRENT_CYCLES)
     float MaxCurrent = 0.0f;  // Maximum current in A deliverable to the motor. Is fixed by the CS_GAIN_SEL bits.
     uint8_t w_scale = 128;  // Scaling factor for target ripple speed
     bool verbose = false;  // Enable verbose mode for debugging
-    uint16_t inrush_duration = 500;  // Inrush duration in ms
+    uint16_t inrush_duration = 250;  // Inrush duration in ms
     uint8_t inv_r = 0;  // Inverse resistance of the motor in 1/Ohms
     uint16_t inv_r_scale = 0;  // Inverse resistance scale factor
     uint8_t kmc = 30;  // KMC
@@ -190,9 +199,6 @@ class DRV8214 {
             Stream* _debugPort = nullptr;
         #endif
 
-        // Private functions
-        void drvPrint(const char* message);
-
     public:
         // Constructor
         DRV8214(uint8_t addr, uint8_t id, uint16_t sense_resistor, uint8_t ripples, uint8_t rm, uint8_t reduction_ratio, uint16_t rpm) : address(addr), driver_ID(id), Ripropri(sense_resistor), ripples_per_revolution(ripples), motor_internal_resistance(rm), motor_reduction_ratio(reduction_ratio), motor_max_rpm(rpm) {}
@@ -218,7 +224,7 @@ class DRV8214 {
         uint8_t  getMotorCurrentRegister();
         uint8_t  getDutyCycle();
         uint8_t  getCONFIG0();
-        uint16_t getInrushDuration();
+        uint16_t getInrushDuration_ms();
         uint8_t  getCONFIG3();
         uint8_t  getCONFIG4();
         uint8_t  getREG_CTRL0();
@@ -292,6 +298,7 @@ class DRV8214 {
         void turnXRevolutions(uint16_t revolutions_target, bool stops = true, bool direction = true, uint16_t speed = 0, float voltage = 0, float current = 0);
 
         // --- Other Functions ---
+        void drvPrint(const char* message);
         void printMotorConfig(bool initial_config = false);
         void printFaultStatus();
         #ifdef DRV8214_PLATFORM_ARDUINO

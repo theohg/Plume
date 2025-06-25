@@ -8,6 +8,9 @@
 
 #include "drv8214.h"
 
+/* --- Function Prototype --- */
+static void printRegisterBinary(void (DRV8214::*drvPrintFunc)(const char*), DRV8214* drvInstance, const char* label, uint8_t value);
+
 // Initialize the motor driver with default settings
 uint8_t DRV8214::init(const DRV8214_Config& cfg) {
 
@@ -26,15 +29,16 @@ uint8_t DRV8214::init(const DRV8214_Config& cfg) {
     enableCountThresholdInterrupt(); // Default to enable count threshold interrupt
     setBridgeBehaviorThresholdReached(config.bridge_behavior_thr_reached); // Default to H-bridge stays enabled when RC_CNT exceeds threshold
     setInternalVoltageReference(0); // Default to internal voltage reference of 500mV
-    setSoftStartStop(config.soft_start_stop_enabled); // Default to soft start/stop disbaled
-    setInrushDuration(config.inrush_duration); // Default to 500 ms
+    setSoftStartStop(config.soft_start_stop_enabled); // Default to soft start/stop disbale
+    setRegulationAndStallCurrent(config.Itrip);
+    setInrushDuration(config.inrush_duration);  // Default to 500 ms
     setResistanceRelatedParameters(); // configure the INV_R and INV_R_SCALE values
     enableRippleCount(); // Default to enable ripple counting
     resetRippleCounter(); // Default to reset ripple counter
     setKMC(config.kmc); // Default to KMC = 30
     setKMCScale(config.kmc_scale); // Default to KMC scale factor = 24 x 2^13
     brakeMotor(true); // Default to brake motor
-    enableErrorCorrection(false); // Default to disable error correction
+    enableErrorCorrection(true); // Default to disable error correction
     if (config.verbose) {printMotorConfig(true);}
 
     return DRV8214_OK; // Return success code
@@ -129,8 +133,9 @@ uint8_t DRV8214::getCONFIG0() {
     return drv8214_i2c_read_register(address, DRV8214_CONFIG0);
 }
 
-uint16_t DRV8214::getInrushDuration() {
-    return (drv8214_i2c_read_register(address, DRV8214_CONFIG1) << 8) | drv8214_i2c_read_register(address, DRV8214_CONFIG2);
+uint16_t DRV8214::getInrushDuration_ms() {
+    uint16_t t_inrush = (drv8214_i2c_read_register(address, DRV8214_CONFIG1) << 8) | drv8214_i2c_read_register(address, DRV8214_CONFIG2);
+    return (t_inrush * 102 / 1000); // Convert to milliseconds
 }
 
 uint8_t DRV8214::getCONFIG3() {
@@ -224,7 +229,7 @@ void DRV8214::disableHbridge() {
 
 void DRV8214::setStallDetection(bool stall_en) {
     config.stall_enabled = stall_en;
-    drv8214_i2c_modify_register(address, DRV8214_CONFIG3, CONFIG0_EN_STALL, stall_en);
+    drv8214_i2c_modify_register(address, DRV8214_CONFIG0, CONFIG0_EN_STALL, stall_en);
 }
 
 void DRV8214::setVoltageRange(bool range) {
@@ -256,8 +261,9 @@ void DRV8214::disableDutyCycleControl() {
 }
 
 void DRV8214::setInrushDuration(uint16_t threshold) {
-    drv8214_i2c_write_register(address, DRV8214_CONFIG1, (threshold >> 8) & 0xFF);
-    drv8214_i2c_write_register(address, DRV8214_CONFIG2, threshold & 0xFF);
+    uint16_t t_inrush = threshold * 1000 / 102; // 1 ms = 102 us
+    drv8214_i2c_write_register(address, DRV8214_CONFIG1, (t_inrush >> 8) & 0xFF);
+    drv8214_i2c_write_register(address, DRV8214_CONFIG2, t_inrush & 0xFF);
 }
 
 void DRV8214::setCurrentRegMode(uint8_t mode) {
@@ -768,58 +774,93 @@ void DRV8214::turnXRevolutions(uint16_t revolutions_target, bool stops, bool dir
 }
 
 void DRV8214::printMotorConfig(bool initial_config) {
-    char buffer[256];  // Adjust the buffer size as needed
-    
+    char buffer[256];
+
     if (initial_config) {
-        // Using snprintf to safely format the string
-        snprintf(buffer, sizeof(buffer), "----- Finished initialized driver %d -----\n", driver_ID);
-        drvPrint(buffer);
+        snprintf(buffer, sizeof(buffer), "\n----- Initializing Driver %d -----\n", driver_ID);
     } else {
-        snprintf(buffer, sizeof(buffer), "DRV8214 Driver %d", driver_ID);
-        drvPrint(buffer);
+        snprintf(buffer, sizeof(buffer), "\n----- Verifying Config for Driver %d -----\n", driver_ID);
     }
-    snprintf(buffer, sizeof(buffer),
-        "Address: 0x%02X | Sense Resistor: %d Ohms | Ripples per Rotor Revolution: %d | Ripples per Shaft Revolution: %d\n",
-        address, Ripropri, ripples_per_revolution, ripples_per_revolution * motor_reduction_ratio);
     drvPrint(buffer);
-    
-    snprintf(buffer, sizeof(buffer), "Configuration: OVP: %s | STALL detect: %s | I2C controlled: %s | Mode: %s",
-        config.voltage_range ? "Enabled" : "Disabled",
-        config.stall_enabled ? "Enabled" : "Disabled",
-        config.I2CControlled ? "Yes" : "No",
-        (config.control_mode == PWM) ? "PWM" : "PH_EN");
+
+    // --- SECTION 1: LIVE STATUS & FAULTS ---
+    drvPrint("---[ Live Status & Calculated Values ]---\n");
+    snprintf(buffer, sizeof(buffer), " STATUS: Speed=%.0f RPM | Voltage=%.2f V | Current=%.2f A\n", (float)getMotorSpeedRPM(), getMotorVoltage(), getMotorCurrent());
     drvPrint(buffer);
-    
-    // Regulation mode details
-    drvPrint(" | Regulation: ");
-    switch (config.regulation_mode) {
-        case CURRENT_FIXED:   drvPrint("CURRENT_FIXED\n"); break;
-        case CURRENT_CYCLES:  drvPrint("CURRENT_CYCLES\n"); break;
-        case SPEED:           drvPrint("SPEED\n"); break;
-        case VOLTAGE:         drvPrint("VOLTAGE\n"); break;
+    printFaultStatus();
+
+    // --- SECTION 2: CRITICAL CALCULATED VALUES (for Stall Debugging) ---
+    // Calculate the actual hardware ITRIP based on live register values
+    uint8_t config3_val = getCONFIG3();
+    uint8_t rc_ctrl0_val = getRC_CTRL0();
+    uint8_t cs_gain_sel = rc_ctrl0_val & RC_CTRL0_CS_GAIN_SEL;
+    float vref_val = (config3_val & CONFIG3_INT_VREF) ? 0.5f : config.Vref; // Use 0.5V if internal, else stored external
+    float aipropri_val = 0.0f;
+    switch (cs_gain_sel) {
+        case 0b000: case 0b001: aipropri_val = 225e-6; break;
+        case 0b010: case 0b011: aipropri_val = 1125e-6; break;
+        case 0b100: case 0b101: // Assuming 1X0b is 100b, 1X1b is 101b. Datasheet uses 'X' but these are the logical values
+        case 0b110: case 0b111: aipropri_val = 5560e-6; break;
     }
+    float actual_itrip = (aipropri_val > 0) ? (vref_val / (Ripropri * aipropri_val)) : 0.0f;
+
+    snprintf(buffer, sizeof(buffer), " VRef=%.2fV | Aipropri=%.0fuA/A | Ripropri=%d Ohm => Actual ITRIP = %.3f A\n", vref_val, aipropri_val * 1e6, Ripropri, actual_itrip);
+    drvPrint(buffer);
+    snprintf(buffer, sizeof(buffer), " Inrush Duration: %u ms\n", getInrushDuration_ms());
+    drvPrint(buffer);
+
+    // --- SECTION 3: REGISTER VERIFICATION ---
+    drvPrint("---[ Register Verification (Live Read) ]---\n");
+
+    // CONFIG0 (0x09)
+    uint8_t config0_val = getCONFIG0();
+    printRegisterBinary(&DRV8214::drvPrint, this, "CONFIG0", config0_val);
+    snprintf(buffer, sizeof(buffer), "    > H-Bridge: %s, OVP: %s, STALL_EN: %s, V-Range: %s\n",
+        (config0_val & CONFIG0_EN_OUT) ? "Enabled" : "Disabled",
+        (config0_val & CONFIG0_EN_OVP) ? "Enabled" : "Disabled",
+        (config0_val & CONFIG0_EN_STALL) ? "ENABLED" : "DISABLED <-- !!", // Highlight this bit
+        (config0_val & CONFIG0_VM_GAIN_SEL) ? "0-3.92V" : "0-15.7V");
+    drvPrint(buffer);
+
+    // CONFIG3 (0x0C)
+    // config3_val already fetched above
+    printRegisterBinary(&DRV8214::drvPrint, this, "CONFIG3", config3_val);
+    uint8_t imode = (config3_val & CONFIG3_IMODE) >> 6;
+    snprintf(buffer, sizeof(buffer), "    > IMODE: %d (%s), SMODE: %s, VREF: %s, OCP: %s\n",
+        imode, (imode==0)?"None":(imode==1)?"Inrush":"Always",
+        (config3_val & CONFIG3_SMODE) ? "Continue Drive" : "Disable Outputs",
+        (config3_val & CONFIG3_INT_VREF) ? "Internal (0.5V)" : "External",
+        (config3_val & CONFIG3_OCP_MODE) ? "Auto-Retry" : "Latched");
+    drvPrint(buffer);
+
+    // CONFIG4 (0x0D)
+    uint8_t config4_val = getCONFIG4();
+    printRegisterBinary(&DRV8214::drvPrint, this, "CONFIG4", config4_val);
+    snprintf(buffer, sizeof(buffer), "    > STALL_REP: %s, PMODE: %s, Bridge Ctrl: %s\n",
+        (config4_val & CONFIG4_STALL_REP) ? "nFAULT reports" : "No nFAULT report",
+        (config4_val & CONFIG4_PMODE) ? "PWM" : "PH/EN",
+        (config4_val & CONFIG4_I2C_BC) ? "I2C" : "Pins");
+    drvPrint(buffer);
+
+    // REG_CTRL0 (0x0E)
+    uint8_t reg_ctrl0_val = getREG_CTRL0();
+    printRegisterBinary(&DRV8214::drvPrint, this, "REG_CTRL0", reg_ctrl0_val);
+    uint8_t reg_mode = (reg_ctrl0_val & REG_CTRL0_REG_CTRL) >> 3;
+    const char* reg_mode_str = (reg_mode==0)?"Curr. Fixed":(reg_mode==1)?"Curr. Cycle":(reg_mode==2)?"Speed":"Voltage";
+    snprintf(buffer, sizeof(buffer), "    > SoftStart: %s, REG_CTRL: %s\n",
+        (reg_ctrl0_val & REG_CTRL0_EN_SS) ? "Enabled" : "Disabled",
+        reg_mode_str);
+    drvPrint(buffer);
     
-    snprintf(buffer, sizeof(buffer),
-        "Vref: %.3f | Current Reg. Mode: %d | VRange: %s \n",
-            config.Vref, config.current_reg_mode,
-            config.voltage_range ? "0V-3.92V" : "0V-15.7V");
+    // RC_CTRL0 (0x11)
+    // rc_ctrl0_val already fetched above
+    printRegisterBinary(&DRV8214::drvPrint, this, "RC_CTRL0", rc_ctrl0_val);
+    snprintf(buffer, sizeof(buffer), "    > RC_EN: %s, CS_GAIN_SEL: 0b%d%d%d\n",
+        (rc_ctrl0_val & RC_CTRL0_EN_RC) ? "Enabled" : "Disabled",
+        (cs_gain_sel >> 2) & 1, (cs_gain_sel >> 1) & 1, cs_gain_sel & 1);
     drvPrint(buffer);
-
-    snprintf(buffer, sizeof(buffer),
-        "Stall Behavior: %s | Bridge Behavior Thr. reached: %s\n",
-        config.stall_behavior ? "Drive current" : "Disable outputs",
-        config.bridge_behavior_thr_reached ? "H-bridge disabled" : "H-bridge stays enabled");
-    drvPrint(buffer);
-
-    snprintf(buffer, sizeof(buffer),
-        "Inrush Duration: %d ms | INV_R: %d | INV_R_SCALE: %d\n",
-        config.inrush_duration, config.inv_r, config.inv_r_scale);
-    drvPrint(buffer);
-
-    snprintf(buffer, sizeof(buffer),
-        "KMC: %d | KMCScale: %d\n",
-        config.kmc, config.kmc_scale);
-    drvPrint(buffer);
+    
+    drvPrint("--- End of Config ---\n\n");
 }
 
 void DRV8214::drvPrint(const char* msg) {
@@ -831,7 +872,7 @@ void DRV8214::drvPrint(const char* msg) {
         // Option 1: Using HAL_UART_Transmit directly
         // HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
     
-        // Option 2: If you have retargeted printf to UART, you could simply use:
+        // Option 2: If you have retargeted printf to UART
         printf("%s", msg);
     #endif
 }
@@ -872,6 +913,18 @@ void DRV8214::printFaultStatus() {
     if (faultReg & (1 << 0)) {
         drvPrint(" - CNT_DONE: Ripple counting threshold exceeded.\n");
     }
+}
+
+// Helper function to print a register's value in binary with a label
+static void printRegisterBinary(void (DRV8214::*drvPrintFunc)(const char*), DRV8214* drvInstance, const char* label, uint8_t value) {
+    char buffer[128];
+    snprintf(buffer, sizeof(buffer), "  %-12s (0x%02X): ", label, value);
+    (drvInstance->*drvPrintFunc)(buffer);
+    for (int i = 7; i >= 0; i--) {
+        snprintf(buffer, sizeof(buffer), "%d", (value >> i) & 1);
+        (drvInstance->*drvPrintFunc)(buffer);
+    }
+    (drvInstance->*drvPrintFunc)("\n");
 }
 
 #ifdef DRV8214_PLATFORM_ARDUINO

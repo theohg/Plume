@@ -1,6 +1,0 @@
-../Core/Src/WS2812_SPI_DMA.c:9:6:ws2812_init	1
-../Core/Src/WS2812_SPI_DMA.c:45:6:ws2812_set_led_color	6
-../Core/Src/WS2812_SPI_DMA.c:74:6:ws2812_set_all_leds_color	2
-../Core/Src/WS2812_SPI_DMA.c:80:6:ws2812_clear_all_leds	1
-../Core/Src/WS2812_SPI_DMA.c:84:6:ws2812_show	1
-../Core/Src/WS2812_SPI_DMA.c:99:6:HAL_SPI_TxCpltCallback	3
