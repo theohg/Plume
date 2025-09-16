@@ -6,7 +6,7 @@
   </picture>
 </p>
 
-Plume was designed by Théo Heng for the Integrated Actuators Laboratory [(LAI)](https://www.epfl.ch/labs/lai/) in the context of a master semester project. The goal is to develop a microcontroller-based system to independently control a motor array in a reconfigurable insole designed for diabetic neuropathy patients, redistributing plantar pressure without the use of position sensors. 
+Plume was designed by Théo Heng for the Integrated Actuators Laboratory [(LAI)](https://www.epfl.ch/labs/lai/) in the context of a master semester project. The goal is to develop a microcontroller-based system to independently control a motor array in a reconfigurable insole designed for patients with diabetes, redistributing plantar pressure without the use of position sensors. 
 
 This board is capable to drive and control in position up to 18 Brushed DC motors total and up to 9 simultaneously, without position sensors. This is achieved thanks to the ripple counting technique, integrated in the DRV8214 drivers. 
 
